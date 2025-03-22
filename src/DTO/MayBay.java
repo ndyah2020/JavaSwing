@@ -11,51 +11,70 @@ package DTO;
 public class MayBay {
     private String maMayBay;
     private String tenMayBay;
-    private int soLuongGhe;
-    private String maLoai;
+    private int soLuongGheThuong;
+    private int soLuongGheVip;
+    private int tongSoLuongGhe;
+    private String maLoaiMayBay;
 
-    // Constructor không tham số
-    public MayBay() {
-    }
-
-    // Constructor có tham số
-    public MayBay(String maMayBay, String tenMayBay, int soLuongGhe, String maLoai) {
+    public MayBay(String maMayBay, String tenMayBay, int soLuongGheThuong, int soLuongGheVip, int tongSoLuongGhe, String maLoaiMayBay) {
         this.maMayBay = maMayBay;
         this.tenMayBay = tenMayBay;
-        this.soLuongGhe = soLuongGhe;
-        this.maLoai = maLoai;
+        this.soLuongGheThuong = soLuongGheThuong;
+        this.soLuongGheVip = soLuongGheVip;
+        this.tongSoLuongGhe = tongSoLuongGhe;
+        this.maLoaiMayBay = maLoaiMayBay;
+    }
+    
+    public MayBay () {
+        
     }
 
-    // Getter và Setter
     public String getMaMayBay() {
         return maMayBay;
-    }
-
-    public void setMaMayBay(String maMayBay) {
-        this.maMayBay = maMayBay;
     }
 
     public String getTenMayBay() {
         return tenMayBay;
     }
 
+    public int getSoLuongGheThuong() {
+        return soLuongGheThuong;
+    }
+
+    public int getSoLuongGheVip() {
+        return soLuongGheVip;
+    }
+
+    public int getTongSoLuongGhe() {
+        return tongSoLuongGhe;
+    }
+
+    public String getLoaiMayBay() {
+        return maLoaiMayBay;
+    }
+
+    public void setMaMayBay(String maMayBay) {
+        this.maMayBay = maMayBay;
+    }
+
     public void setTenMayBay(String tenMayBay) {
         this.tenMayBay = tenMayBay;
     }
 
-    public int getSoLuongGhe() {
-        return soLuongGhe;
+    public void setSoLuongGheThuong(int soLuongGheThuong) {
+        this.soLuongGheThuong = soLuongGheThuong;
     }
 
-    public void setSoLuongGhe(int soLuongGhe) {
-        this.soLuongGhe = soLuongGhe;
+    public void setSoLuongGheVip(int soLuongGheVip) {
+        this.soLuongGheVip = soLuongGheVip;
     }
 
-    public String getMaLoai() {
-        return maLoai;
+    public void setTongSoLuongGhe(int tongSoLuongGhe) {
+        this.tongSoLuongGhe = tongSoLuongGhe;
     }
 
-    public void setMaLoai(String maLoai) {
-        this.maLoai = maLoai;
+    public void setLoaiMayBay(String maLoaiMayBay) {
+        this.maLoaiMayBay = maLoaiMayBay;
     }
+    
 }

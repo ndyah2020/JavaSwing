@@ -9,20 +9,21 @@ package DTO;
  * @author Lenovo
  */
 public class Ve {
+
     private String maVe;
     private String trangThaiVe;
-    private String GiaVe;
-    private String maHangVe;
-    private String maHangBay;
+    private int giaVe;
+    private String maLoaiVe;
+    private String maChuyenBay;
 
-    public Ve(String maVe, String trangThaiVe, String GiaVe, String maHangVe, String maHangBay) {
+    public Ve(String maVe, String trangThaiVe, int giaVe, String maLoaiVe, String maChuyenBay) {
         this.maVe = maVe;
         this.trangThaiVe = trangThaiVe;
-        this.GiaVe = GiaVe;
-        this.maHangVe = maHangVe;
-        this.maHangBay = maHangBay;
+        this.giaVe = giaVe;
+        this.maLoaiVe = maLoaiVe;
+        this.maChuyenBay = maChuyenBay;
     }
-    public Ve(){
+    public Ve() {
         
     }
 
@@ -34,16 +35,16 @@ public class Ve {
         return trangThaiVe;
     }
 
-    public String getGiaVe() {
-        return GiaVe;
+    public int getGiaVe() {
+        return giaVe;
     }
 
-    public String getMaHangVe() {
-        return maHangVe;
+    public String getLoaiVe() {
+        return maLoaiVe;
     }
 
-    public String getMaHangBay() {
-        return maHangBay;
+    public String getChuyenBay() {
+        return maChuyenBay;
     }
 
     public void setMaVe(String maVe) {
@@ -54,16 +55,16 @@ public class Ve {
         this.trangThaiVe = trangThaiVe;
     }
 
-    public void setGiaVe(String GiaVe) {
-        this.GiaVe = GiaVe;
+    public void setGiaVe(int giaVe) {
+        this.giaVe = giaVe;
     }
 
-    public void setMaHangVe(String maHangVe) {
-        this.maHangVe = maHangVe;
+    public void setLoaiVe(String maLoaiVe) {
+        this.maLoaiVe = maLoaiVe;
     }
 
-    public void setMaHangBay(String maHangBay) {
-        this.maHangBay = maHangBay;
+    public void setChuyenBay(String maChuyenBay) {
+        this.maChuyenBay = maChuyenBay;
     }
     
 }

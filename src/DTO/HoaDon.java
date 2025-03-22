@@ -12,19 +12,21 @@ import java.util.Date;
  */
 public class HoaDon {
     private String maHoaDon;
-    private Date thoiGianTao;
-    private String maNV;
-    private String maKH;
-    private int tongTien;
+    private Date thoiGian;
+    private double tongTien;
+    private String maNhanVien;
+    private String maKhuyenMai;
+    private String maKhachHang;
 
-    public HoaDon(String maHoaDon, Date thoiGianTao, String maNV, String maKH, int tongTien) {
+    public HoaDon(String maHoaDon, Date thoiGian, double tongTien, String maNhanVien, String maKhuyenMai, String maKhachHang) {
         this.maHoaDon = maHoaDon;
-        this.thoiGianTao = thoiGianTao;
-        this.maNV = maNV;
-        this.maKH = maKH;
+        this.thoiGian = thoiGian;
         this.tongTien = tongTien;
+        this.maNhanVien = maNhanVien;
+        this.maKhuyenMai = maKhuyenMai;
+        this.maKhachHang = maKhachHang;
     }
-    public HoaDon(){
+    public HoaDon() {
         
     }
 
@@ -32,40 +34,48 @@ public class HoaDon {
         return maHoaDon;
     }
 
-    public Date getThoiGianTao() {
-        return thoiGianTao;
+    public Date getThoiGian() {
+        return thoiGian;
     }
 
-    public String getMaNV() {
-        return maNV;
-    }
-
-    public String getMaKH() {
-        return maKH;
-    }
-
-    public int getTongTien() {
+    public double getTongTien() {
         return tongTien;
+    }
+
+    public String getMaNhanVien() {
+        return maNhanVien;
+    }
+
+    public String getMaKhuyenMai() {
+        return maKhuyenMai;
+    }
+
+    public String getMaKhachHang() {
+        return maKhachHang;
     }
 
     public void setMaHoaDon(String maHoaDon) {
         this.maHoaDon = maHoaDon;
     }
 
-    public void setThoiGianTao(Date thoiGianTao) {
-        this.thoiGianTao = thoiGianTao;
+    public void setThoiGian(Date thoiGian) {
+        this.thoiGian = thoiGian;
     }
 
-    public void setMaNV(String maNV) {
-        this.maNV = maNV;
-    }
-
-    public void setMaKH(String maKH) {
-        this.maKH = maKH;
-    }
-
-    public void setTongTien(int tongTien) {
+    public void setTongTien(double tongTien) {
         this.tongTien = tongTien;
+    }
+
+    public void setMaNhanVien(String maNhanVien) {
+        this.maNhanVien = maNhanVien;
+    }
+
+    public void setMaKhuyenMai(String maKhuyenMai) {
+        this.maKhuyenMai = maKhuyenMai;
+    }
+
+    public void setMaKhachHang(String maKhachHang) {
+        this.maKhachHang = maKhachHang;
     }
     
 }

@@ -9,21 +9,22 @@ package DTO;
  * @author Lenovo
  */
 public class SanBay {
-    private String maSB;
+
+    private String maSanBay;
     private String tenSanBay;
     private String diaChi;
-    
-    public SanBay() {
-    
-    }
-    public SanBay(String maSB, String tenSanBay, String diaChi) {
-        this.maSB = maSB;
+
+    public SanBay(String maSanBay, String tenSanBay, String diaChi) {
+        this.maSanBay = maSanBay;
         this.tenSanBay = tenSanBay;
         this.diaChi = diaChi;
     }
-
-    public String getMaSB() {
-        return maSB;
+    public SanBay() {
+        
+    }
+    
+    public String getMaSanBay() {
+        return maSanBay;
     }
 
     public String getTenSanBay() {
@@ -34,8 +35,8 @@ public class SanBay {
         return diaChi;
     }
 
-    public void setMaSB(String maSB) {
-        this.maSB = maSB;
+    public void setMaSanBay(String maSanBay) {
+        this.maSanBay = maSanBay;
     }
 
     public void setTenSanBay(String tenSanBay) {
@@ -44,5 +45,6 @@ public class SanBay {
 
     public void setDiaChi(String diaChi) {
         this.diaChi = diaChi;
-    }   
+    }
+    
 }

@@ -10,72 +10,54 @@ import java.util.Date;
  *
  * @author Lenovo
  */
-public class LichBay {
-    private String maLichBay;
-    private Date ngayXuatPhat;
-    private Date thoiGianDi;
-    private Date thoiGianDen;
-    private String maChuyenBay;
-    private String maMayBay;
+public class HanhTrinh {
 
-    public LichBay(String maLichBay, Date ngayXuatPhat, Date thoiGianDi, Date thoiGianDen, String maChuyenBay, String maMayBay) {
-        this.maLichBay = maLichBay;
-        this.ngayXuatPhat = ngayXuatPhat;
-        this.thoiGianDi = thoiGianDi;
-        this.thoiGianDen = thoiGianDen;
-        this.maChuyenBay = maChuyenBay;
-        this.maMayBay = maMayBay;
+    private String maHanhTrinh;
+    private SanBay sanBayDi;
+    private SanBay sanBayDen;
+    private double giaCoBan;
+
+    public HanhTrinh(String maHanhTrinh, SanBay sanBayDi, SanBay sanBayDen, double giaCoBan) {
+        this.maHanhTrinh = maHanhTrinh;
+        this.sanBayDi = sanBayDi;
+        this.sanBayDen = sanBayDen;
+        this.giaCoBan = giaCoBan;
     }
-    public LichBay(){
+    
+    public HanhTrinh() {
         
     }
 
-    public String getMaLichBay() {
-        return maLichBay;
+    public String getMaHanhTrinh() {
+        return maHanhTrinh;
     }
 
-    public Date getNgayXuatPhat() {
-        return ngayXuatPhat;
+    public SanBay getSanBayDi() {
+        return sanBayDi;
     }
 
-    public Date getThoiGianDi() {
-        return thoiGianDi;
+    public SanBay getSanBayDen() {
+        return sanBayDen;
     }
 
-    public Date getThoiGianDen() {
-        return thoiGianDen;
+    public double getGiaCoBan() {
+        return giaCoBan;
     }
 
-    public String getMaChuyenBay() {
-        return maChuyenBay;
+    public void setMaHanhTrinh(String maHanhTrinh) {
+        this.maHanhTrinh = maHanhTrinh;
     }
 
-    public String getMaMayBay() {
-        return maMayBay;
+    public void setSanBayDi(SanBay sanBayDi) {
+        this.sanBayDi = sanBayDi;
     }
 
-    public void setMaLichBay(String maLichBay) {
-        this.maLichBay = maLichBay;
+    public void setSanBayDen(SanBay sanBayDen) {
+        this.sanBayDen = sanBayDen;
     }
 
-    public void setNgayXuatPhat(Date ngayXuatPhat) {
-        this.ngayXuatPhat = ngayXuatPhat;
-    }
-
-    public void setThoiGianDi(Date thoiGianDi) {
-        this.thoiGianDi = thoiGianDi;
-    }
-
-    public void setThoiGianDen(Date thoiGianDen) {
-        this.thoiGianDen = thoiGianDen;
-    }
-
-    public void setMaChuyenBay(String maChuyenBay) {
-        this.maChuyenBay = maChuyenBay;
-    }
-
-    public void setMaMayBay(String maMayBay) {
-        this.maMayBay = maMayBay;
+    public void setGiaCoBan(double giaCoBan) {
+        this.giaCoBan = giaCoBan;
     }
     
 }

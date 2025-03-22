@@ -9,6 +9,8 @@ package DTO;
  * @author Lenovo
  */
 public class TaiKhoan {
+
+    private String maTaiKhoan;
     private String email;
     private String matKhau;
     private String vaiTro;
@@ -16,7 +18,8 @@ public class TaiKhoan {
     private String otpHetHan;
     private String trangThai;
 
-    public TaiKhoan(String email, String matKhau, String vaiTro, String otp, String otpHetHan, String TrangThai) {
+    public TaiKhoan(String maTaiKhoan, String email, String matKhau, String vaiTro, String otp, String otpHetHan, String trangThai) {
+        this.maTaiKhoan = maTaiKhoan;
         this.email = email;
         this.matKhau = matKhau;
         this.vaiTro = vaiTro;
@@ -24,8 +27,14 @@ public class TaiKhoan {
         this.otpHetHan = otpHetHan;
         this.trangThai = trangThai;
     }
+
+
     public TaiKhoan() {
-        
+
+    }
+
+    public String getMaTaiKhoan() {
+        return maTaiKhoan;
     }
 
     public String getEmail() {
@@ -52,6 +61,10 @@ public class TaiKhoan {
         return trangThai;
     }
 
+    public void setMaTaiKhoan(String maTaiKhoan) {
+        this.maTaiKhoan = maTaiKhoan;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -72,8 +85,10 @@ public class TaiKhoan {
         this.otpHetHan = otpHetHan;
     }
 
-    public void setTrangThai(String TrangThai) {
-        this.trangThai = TrangThai;
+    public void setTrangThai(String trangThai) {
+        this.trangThai = trangThai;
     }
-    
+
+   
+
 }

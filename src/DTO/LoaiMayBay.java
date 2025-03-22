@@ -9,40 +9,52 @@ package DTO;
  * @author Lenovo
  */
 public class LoaiMayBay {
-    private String maLoaiMayBay;
+    private String maLoai;
     private String tenLoai;
-    private String hangSanXuat;
+    private float heSoGiaThuong;
+    private float heSoGiaVip;
 
-    public LoaiMayBay(String maLoaiMayBay, String tenLoai, String hangSanXuat) {
-        this.maLoaiMayBay = maLoaiMayBay;
+    public LoaiMayBay(String maLoai, String tenLoai, float heSoGiaThuong, float heSoGiaVip) {
+        this.maLoai = maLoai;
         this.tenLoai = tenLoai;
-        this.hangSanXuat = hangSanXuat;
+        this.heSoGiaThuong = heSoGiaThuong;
+        this.heSoGiaVip = heSoGiaVip;
     }
-    public LoaiMayBay(){
+    
+    public LoaiMayBay() {
         
     }
 
-    public String getMaLoaiMayBay() {
-        return maLoaiMayBay;
+    public String getMaLoai() {
+        return maLoai;
     }
 
     public String getTenLoai() {
         return tenLoai;
     }
 
-    public String getHangSanXuat() {
-        return hangSanXuat;
+    public float getHeSoGiaThuong() {
+        return heSoGiaThuong;
     }
 
-    public void setMaLoaiMayBay(String maLoaiMayBay) {
-        this.maLoaiMayBay = maLoaiMayBay;
+    public float getHeSoGiaVip() {
+        return heSoGiaVip;
+    }
+
+    public void setMaLoai(String maLoai) {
+        this.maLoai = maLoai;
     }
 
     public void setTenLoai(String tenLoai) {
         this.tenLoai = tenLoai;
     }
 
-    public void setHangSanXuat(String hangSanXuat) {
-        this.hangSanXuat = hangSanXuat;
+    public void setHeSoGiaThuong(float heSoGiaThuong) {
+        this.heSoGiaThuong = heSoGiaThuong;
     }
+
+    public void setHeSoGiaVip(float heSoGiaVip) {
+        this.heSoGiaVip = heSoGiaVip;
+    }
+    
 }

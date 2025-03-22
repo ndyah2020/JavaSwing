@@ -9,33 +9,33 @@ package DTO;
  * @author Lenovo
  */
 public class CTHoaDon {
-    private String maCTHoaDon;
-    private int soLuongVe;
-    private int Gia;
+    private String maCTHD;
+    private int soLuong;
+    private int gia;
     private String maHoaDon;
     private String maVe;
 
-    public CTHoaDon(String maCTHoaDon, int soLuongVe, int Gia, String maHoaDon, String maVe) {
-        this.maCTHoaDon = maCTHoaDon;
-        this.soLuongVe = soLuongVe;
-        this.Gia = Gia;
+    public CTHoaDon(String maCTHD, int soLuong, int gia, String maHoaDon, String maVe) {
+        this.maCTHD = maCTHD;
+        this.soLuong = soLuong;
+        this.gia = gia;
         this.maHoaDon = maHoaDon;
         this.maVe = maVe;
     }
-    public CTHoaDon(){
+    public CTHoaDon() {
         
     }
 
-    public String getMaCTHoaDon() {
-        return maCTHoaDon;
+    public String getMaCTHD() {
+        return maCTHD;
     }
 
-    public int getSoLuongVe() {
-        return soLuongVe;
+    public int getSoLuong() {
+        return soLuong;
     }
 
     public int getGia() {
-        return Gia;
+        return gia;
     }
 
     public String getMaHoaDon() {
@@ -46,16 +46,16 @@ public class CTHoaDon {
         return maVe;
     }
 
-    public void setMaCTHoaDon(String maCTHoaDon) {
-        this.maCTHoaDon = maCTHoaDon;
+    public void setMaCTHD(String maCTHD) {
+        this.maCTHD = maCTHD;
     }
 
-    public void setSoLuongVe(int soLuongVe) {
-        this.soLuongVe = soLuongVe;
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
     }
 
-    public void setGia(int Gia) {
-        this.Gia = Gia;
+    public void setGia(int gia) {
+        this.gia = gia;
     }
 
     public void setMaHoaDon(String maHoaDon) {
