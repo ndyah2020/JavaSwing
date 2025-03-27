@@ -8,7 +8,7 @@ package DTO;
  *
  * @author Lenovo
  */
-public class MayBay {
+public class MayBayDTO {
     private String maMayBay;
     private String tenMayBay;
     private int soLuongGheThuong;
@@ -16,7 +16,7 @@ public class MayBay {
     private int tongSoLuongGhe;
     private String maLoaiMayBay;
 
-    public MayBay(String maMayBay, String tenMayBay, int soLuongGheThuong, int soLuongGheVip, int tongSoLuongGhe, String maLoaiMayBay) {
+    public MayBayDTO(String maMayBay, String tenMayBay, int soLuongGheThuong, int soLuongGheVip, int tongSoLuongGhe, String maLoaiMayBay) {
         this.maMayBay = maMayBay;
         this.tenMayBay = tenMayBay;
         this.soLuongGheThuong = soLuongGheThuong;
@@ -25,7 +25,7 @@ public class MayBay {
         this.maLoaiMayBay = maLoaiMayBay;
     }
     
-    public MayBay () {
+    public MayBayDTO () {
         
     }
 

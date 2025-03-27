@@ -8,7 +8,7 @@ package DTO;
  *
  * @author Lenovo
  */
-public class NhanVien {
+public class NhanVienDTO {
     private String maNhanVien;
     private String ho;
     private String ten;
@@ -19,7 +19,7 @@ public class NhanVien {
     private double luongCoBan;
     private String maTaiKhoan;
 
-    public NhanVien(String maNhanVien, String ho, String ten, String gioiTinh, String sdt, String email, String chucVu, double luongCoBan, String maTaiKhoan) {
+    public NhanVienDTO(String maNhanVien, String ho, String ten, String gioiTinh, String sdt, String email, String chucVu, double luongCoBan, String maTaiKhoan) {
         this.maNhanVien = maNhanVien;
         this.ho = ho;
         this.ten = ten;
@@ -32,7 +32,7 @@ public class NhanVien {
     }
 
     
-    public NhanVien(){
+    public NhanVienDTO(){
         
     }
 

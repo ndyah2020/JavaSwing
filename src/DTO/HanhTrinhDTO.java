@@ -10,21 +10,21 @@ import java.util.Date;
  *
  * @author Lenovo
  */
-public class HanhTrinh {
+public class HanhTrinhDTO {
 
     private String maHanhTrinh;
-    private SanBay sanBayDi;
-    private SanBay sanBayDen;
+    private SanBayDTO sanBayDi;
+    private SanBayDTO sanBayDen;
     private double giaCoBan;
 
-    public HanhTrinh(String maHanhTrinh, SanBay sanBayDi, SanBay sanBayDen, double giaCoBan) {
+    public HanhTrinhDTO(String maHanhTrinh, SanBayDTO sanBayDi, SanBayDTO sanBayDen, double giaCoBan) {
         this.maHanhTrinh = maHanhTrinh;
         this.sanBayDi = sanBayDi;
         this.sanBayDen = sanBayDen;
         this.giaCoBan = giaCoBan;
     }
     
-    public HanhTrinh() {
+    public HanhTrinhDTO() {
         
     }
 
@@ -32,11 +32,11 @@ public class HanhTrinh {
         return maHanhTrinh;
     }
 
-    public SanBay getSanBayDi() {
+    public SanBayDTO getSanBayDi() {
         return sanBayDi;
     }
 
-    public SanBay getSanBayDen() {
+    public SanBayDTO getSanBayDen() {
         return sanBayDen;
     }
 
@@ -48,11 +48,11 @@ public class HanhTrinh {
         this.maHanhTrinh = maHanhTrinh;
     }
 
-    public void setSanBayDi(SanBay sanBayDi) {
+    public void setSanBayDi(SanBayDTO sanBayDi) {
         this.sanBayDi = sanBayDi;
     }
 
-    public void setSanBayDen(SanBay sanBayDen) {
+    public void setSanBayDen(SanBayDTO sanBayDen) {
         this.sanBayDen = sanBayDen;
     }
 

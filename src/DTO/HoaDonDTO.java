@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author Lenovo
  */
-public class HoaDon {
+public class HoaDonDTO {
     private String maHoaDon;
     private Date thoiGian;
     private double tongTien;
@@ -18,7 +18,7 @@ public class HoaDon {
     private String maKhuyenMai;
     private String maKhachHang;
 
-    public HoaDon(String maHoaDon, Date thoiGian, double tongTien, String maNhanVien, String maKhuyenMai, String maKhachHang) {
+    public HoaDonDTO(String maHoaDon, Date thoiGian, double tongTien, String maNhanVien, String maKhuyenMai, String maKhachHang) {
         this.maHoaDon = maHoaDon;
         this.thoiGian = thoiGian;
         this.tongTien = tongTien;
@@ -26,7 +26,7 @@ public class HoaDon {
         this.maKhuyenMai = maKhuyenMai;
         this.maKhachHang = maKhachHang;
     }
-    public HoaDon() {
+    public HoaDonDTO() {
         
     }
 

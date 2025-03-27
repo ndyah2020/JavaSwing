@@ -8,21 +8,21 @@ package DTO;
  *
  * @author Lenovo
  */
-public class CTHoaDon {
+public class CTHoaDonDTO {
     private String maCTHD;
     private int soLuong;
     private int gia;
     private String maHoaDon;
     private String maVe;
 
-    public CTHoaDon(String maCTHD, int soLuong, int gia, String maHoaDon, String maVe) {
+    public CTHoaDonDTO(String maCTHD, int soLuong, int gia, String maHoaDon, String maVe) {
         this.maCTHD = maCTHD;
         this.soLuong = soLuong;
         this.gia = gia;
         this.maHoaDon = maHoaDon;
         this.maVe = maVe;
     }
-    public CTHoaDon() {
+    public CTHoaDonDTO() {
         
     }
 

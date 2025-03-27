@@ -8,20 +8,20 @@ package DTO;
  *
  * @author Lenovo
  */
-public class LoaiMayBay {
+public class LoaiMayBayDTO {
     private String maLoai;
     private String tenLoai;
     private float heSoGiaThuong;
     private float heSoGiaVip;
 
-    public LoaiMayBay(String maLoai, String tenLoai, float heSoGiaThuong, float heSoGiaVip) {
+    public LoaiMayBayDTO(String maLoai, String tenLoai, float heSoGiaThuong, float heSoGiaVip) {
         this.maLoai = maLoai;
         this.tenLoai = tenLoai;
         this.heSoGiaThuong = heSoGiaThuong;
         this.heSoGiaVip = heSoGiaVip;
     }
     
-    public LoaiMayBay() {
+    public LoaiMayBayDTO() {
         
     }
 

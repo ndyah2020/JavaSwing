@@ -8,7 +8,7 @@ package DTO;
  *
  * @author Lenovo
  */
-public class Ve {
+public class VeDTO {
 
     private String maVe;
     private String trangThaiVe;
@@ -16,14 +16,14 @@ public class Ve {
     private String maLoaiVe;
     private String maChuyenBay;
 
-    public Ve(String maVe, String trangThaiVe, int giaVe, String maLoaiVe, String maChuyenBay) {
+    public VeDTO(String maVe, String trangThaiVe, int giaVe, String maLoaiVe, String maChuyenBay) {
         this.maVe = maVe;
         this.trangThaiVe = trangThaiVe;
         this.giaVe = giaVe;
         this.maLoaiVe = maLoaiVe;
         this.maChuyenBay = maChuyenBay;
     }
-    public Ve() {
+    public VeDTO() {
         
     }
 

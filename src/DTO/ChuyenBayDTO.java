@@ -8,7 +8,7 @@ package DTO;
  *
  * @author Lenovo
  */
-public class ChuyenBay {
+public class ChuyenBayDTO {
 
     private String maChuyenBay;
     private String ngayXuatPhat;
@@ -24,7 +24,7 @@ public class ChuyenBay {
     private String maMayBay;
     private String maHanhTrinh;
 
-    public ChuyenBay(String maChuyenBay, String ngayXuatPhat, String gioXuatPhat, String ngayDenNoi, String gioDenNoi, int giaThuong, int giaVip, String trangThaiChuyenBay, int tongSoLuongGhe, int soGheDaBan, int soChoConLai, String maMayBay, String maHanhTrinh) {
+    public ChuyenBayDTO(String maChuyenBay, String ngayXuatPhat, String gioXuatPhat, String ngayDenNoi, String gioDenNoi, int giaThuong, int giaVip, String trangThaiChuyenBay, int tongSoLuongGhe, int soGheDaBan, int soChoConLai, String maMayBay, String maHanhTrinh) {
         this.maChuyenBay = maChuyenBay;
         this.ngayXuatPhat = ngayXuatPhat;
         this.gioXuatPhat = gioXuatPhat;
@@ -40,7 +40,7 @@ public class ChuyenBay {
         this.maHanhTrinh = maHanhTrinh;
     }
 
-    public ChuyenBay() {
+    public ChuyenBayDTO() {
         
     }
 

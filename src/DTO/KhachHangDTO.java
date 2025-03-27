@@ -8,7 +8,7 @@ package DTO;
  *
  * @author Lenovo
  */
-public class KhachHang {
+public class KhachHangDTO {
     private String maKhachHang;
     private String ho;
     private String ten;
@@ -17,7 +17,7 @@ public class KhachHang {
     private String sdt;
     private String email;
 
-    public KhachHang(String maKhachHang, String ho, String ten, String gioiTinh, String ngaySinh, String sdt, String email) {
+    public KhachHangDTO(String maKhachHang, String ho, String ten, String gioiTinh, String ngaySinh, String sdt, String email) {
         this.maKhachHang = maKhachHang;
         this.ho = ho;
         this.ten = ten;
@@ -26,7 +26,7 @@ public class KhachHang {
         this.sdt = sdt;
         this.email = email;
     }
-    public KhachHang() {
+    public KhachHangDTO() {
         
     }
 

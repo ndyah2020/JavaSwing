@@ -8,16 +8,16 @@ package DTO;
  *
  * @author Lenovo
  */
-public class LoaiVe {
+public class LoaiVeDTO {
 
     private String maLoaiVe;
     private String tenLoaiVe;
 
-    public LoaiVe(String maLoaiVe, String tenLoaiVe) {
+    public LoaiVeDTO(String maLoaiVe, String tenLoaiVe) {
         this.maLoaiVe = maLoaiVe;
         this.tenLoaiVe = tenLoaiVe;
     }
-    public LoaiVe() {
+    public LoaiVeDTO() {
         
     }
     public String getMaLoaiVe() {

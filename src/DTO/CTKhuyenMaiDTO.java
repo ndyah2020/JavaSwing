@@ -8,18 +8,18 @@ package DTO;
  *
  * @author Lenovo
  */
-public class CTKhuyenMai {
+public class CTKhuyenMaiDTO {
 
     private String maCTKhuyenMai;
     private String maHanhTrinh;
     private String maKhuyenMai;
 
-    public CTKhuyenMai(String maCTKhuyenMai, String maHanhTrinh, String maKhuyenMai) {
+    public CTKhuyenMaiDTO(String maCTKhuyenMai, String maHanhTrinh, String maKhuyenMai) {
         this.maCTKhuyenMai = maCTKhuyenMai;
         this.maHanhTrinh = maHanhTrinh;
         this.maKhuyenMai = maKhuyenMai;
     }
-    public CTKhuyenMai() {
+    public CTKhuyenMaiDTO() {
         
     }
 

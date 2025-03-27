@@ -8,18 +8,18 @@ package DTO;
  *
  * @author Lenovo
  */
-public class SanBay {
+public class SanBayDTO {
 
     private String maSanBay;
     private String tenSanBay;
     private String diaChi;
 
-    public SanBay(String maSanBay, String tenSanBay, String diaChi) {
+    public SanBayDTO(String maSanBay, String tenSanBay, String diaChi) {
         this.maSanBay = maSanBay;
         this.tenSanBay = tenSanBay;
         this.diaChi = diaChi;
     }
-    public SanBay() {
+    public SanBayDTO() {
         
     }
     

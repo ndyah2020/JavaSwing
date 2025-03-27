@@ -8,19 +8,19 @@ package DTO;
  *
  * @author Lenovo
  */
-public class KhuyenMai {
+public class KhuyenMaiDTO {
     private String maKhuyenMai;
     private String ngayBatDau;
     private String ngayKetThuc;
     private String phanTramGiamGia;
 
-    public KhuyenMai(String maKhuyenMai, String ngayBatDau, String ngayKetThuc, String phanTramGiamGia) {
+    public KhuyenMaiDTO(String maKhuyenMai, String ngayBatDau, String ngayKetThuc, String phanTramGiamGia) {
         this.maKhuyenMai = maKhuyenMai;
         this.ngayBatDau = ngayBatDau;
         this.ngayKetThuc = ngayKetThuc;
         this.phanTramGiamGia = phanTramGiamGia;
     }
-    public KhuyenMai() {
+    public KhuyenMaiDTO() {
         
     }
 
