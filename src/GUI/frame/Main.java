@@ -81,7 +81,7 @@ public class Main extends javax.swing.JFrame {
 
         chuyenBayMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         chuyenBayMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/ChuyenBay.png"))); // NOI18N
-        chuyenBayMenu.setText("ChuyenBay");
+        chuyenBayMenu.setText("Chuyến bay");
         menu.add(chuyenBayMenu);
 
         lichBayMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
