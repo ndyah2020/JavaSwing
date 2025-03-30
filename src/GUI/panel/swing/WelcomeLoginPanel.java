@@ -51,13 +51,13 @@ public class WelcomeLoginPanel extends javax.swing.JPanel {
         welcome.setBackground(new java.awt.Color(255, 255, 255));
         welcome.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         welcome.setForeground(new java.awt.Color(255, 255, 255));
-        welcome.setText("Chào mừng");
+        welcome.setText("Ứng dụng");
         welcome.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         welcomeText.setBackground(new java.awt.Color(255, 255, 255));
         welcomeText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         welcomeText.setForeground(new java.awt.Color(255, 255, 255));
-        welcomeText.setText("các bạn đến với ứng dụng ");
+        welcomeText.setText("Quản lý chuyến bay");
 
         javax.swing.GroupLayout panelDragLayout = new javax.swing.GroupLayout(panelDrag);
         panelDrag.setLayout(panelDragLayout);
@@ -68,7 +68,7 @@ public class WelcomeLoginPanel extends javax.swing.JPanel {
                 .addGroup(panelDragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(welcomeText))
-                .addContainerGap(412, Short.MAX_VALUE))
+                .addContainerGap(433, Short.MAX_VALUE))
         );
         panelDragLayout.setVerticalGroup(
             panelDragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,15 +84,17 @@ public class WelcomeLoginPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelDrag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(panelDrag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     @Override
