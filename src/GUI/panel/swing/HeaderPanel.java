@@ -22,6 +22,7 @@ public class HeaderPanel extends javax.swing.JPanel {
         panelMoving = new javax.swing.JPanel();
         tenLogo = new javax.swing.JLabel();
         dangXuatHeader = new javax.swing.JLabel();
+        exitApp = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1270, 52));
 
@@ -37,24 +38,37 @@ public class HeaderPanel extends javax.swing.JPanel {
         dangXuatHeader.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/DangXuat.png"))); // NOI18N
         dangXuatHeader.setText("Đăng Xuất");
 
+        exitApp.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
+        exitApp.setForeground(new java.awt.Color(255, 255, 255));
+        exitApp.setText("X");
+        exitApp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitAppMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelMovingLayout = new javax.swing.GroupLayout(panelMoving);
         panelMoving.setLayout(panelMovingLayout);
         panelMovingLayout.setHorizontalGroup(
             panelMovingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMovingLayout.createSequentialGroup()
                 .addComponent(tenLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 929, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 901, Short.MAX_VALUE)
                 .addComponent(dangXuatHeader)
-                .addGap(10, 10, 10))
+                .addGap(39, 39, 39)
+                .addComponent(exitApp, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         panelMovingLayout.setVerticalGroup(
             panelMovingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMovingLayout.createSequentialGroup()
-                .addComponent(tenLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(panelMovingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tenLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dangXuatHeader))
+                .addGap(0, 6, Short.MAX_VALUE))
             .addGroup(panelMovingLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(dangXuatHeader)
+                .addComponent(exitApp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -71,6 +85,10 @@ public class HeaderPanel extends javax.swing.JPanel {
             .addComponent(panelMoving, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void exitAppMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitAppMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_exitAppMouseClicked
     @Override
     protected void paintChildren(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs;
@@ -81,7 +99,6 @@ public class HeaderPanel extends javax.swing.JPanel {
         g2.fillRect(getWidth(), 0, getWidth(), getHeight());
         super.paintChildren(grphcs);
     }
-
     private int x;
     private int y;
 
@@ -104,6 +121,7 @@ public class HeaderPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dangXuatHeader;
+    private javax.swing.JLabel exitApp;
     private javax.swing.JPanel panelMoving;
     private javax.swing.JLabel tenLogo;
     // End of variables declaration//GEN-END:variables
