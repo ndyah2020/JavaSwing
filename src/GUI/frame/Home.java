@@ -4,6 +4,8 @@ import GUI.forms.FormGroup;
 import GUI.forms.HomeForm;
 import GUI.forms.HomeForm1;
 import GUI.forms.KhachHangGroupForm;
+import GUI.forms.LoaiMayBayGroupForm;
+import GUI.forms.NhanVienGroupForm;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Panel;
@@ -324,10 +326,10 @@ public class Home extends javax.swing.JFrame {
     }
     public void handleEventHoverChuot(){
         addHoverEffect(trangChuMenu, new FormGroup(), desktopPanel ,defaultColor, hoverColor);
-//        addHoverEffect(banVeMenu ,defaultColor, hoverColor);
+//      addHoverEffect(banVeMenu ,defaultColor, hoverColor);
         addHoverEffect(khachHangMenu, new KhachHangGroupForm(), desktopPanel, defaultColor, hoverColor);
-//        addHoverEffect(nhanVienMenu ,defaultColor, hoverColor);
-//        addHoverEffect(loaiMayBayMenu ,defaultColor, hoverColor);
+        addHoverEffect(nhanVienMenu, new NhanVienGroupForm(),desktopPanel ,defaultColor, hoverColor);
+        addHoverEffect(loaiMayBayMenu, new LoaiMayBayGroupForm(), desktopPanel ,defaultColor, hoverColor);
 //        addHoverEffect(mayBayMenu ,defaultColor, hoverColor);
 //        addHoverEffect(sanBayMenu ,defaultColor, hoverColor);
 //        addHoverEffect(chuyenBayMenu ,defaultColor, hoverColor);
