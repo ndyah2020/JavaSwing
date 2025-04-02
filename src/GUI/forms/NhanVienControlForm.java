@@ -28,13 +28,13 @@ public class NhanVienControlForm extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         btnReload = new GUI.panel.swing.MyButton();
-        luaChonComboBox = new javax.swing.JComboBox<>();
-        sapXepComboBox = new javax.swing.JComboBox<>();
-        gioiTinhComboBox = new javax.swing.JComboBox<>();
-        mucLuongComboBox = new javax.swing.JComboBox<>();
         btnAdd = new GUI.panel.swing.MyButton();
         btnSearch = new GUI.panel.swing.MyButton();
         timKiemTextField = new javax.swing.JTextField();
+        mucLuongComboBox = new GUI.panel.swing.MyCombobox();
+        gioiTinhComboBox = new GUI.panel.swing.MyCombobox();
+        sapXepComboBox = new GUI.panel.swing.MyCombobox();
+        luaChonComboBox = new GUI.panel.swing.MyCombobox();
 
         setPreferredSize(new java.awt.Dimension(1070, 100));
 
@@ -45,22 +45,6 @@ public class NhanVienControlForm extends javax.swing.JPanel {
         btnReload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/reloadNhanVien.png"))); // NOI18N
         btnReload.setBorderColor(new java.awt.Color(204, 204, 204));
         btnReload.setPreferredSize(new java.awt.Dimension(35, 31));
-
-        luaChonComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        luaChonComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tăng dần", "Giảm dần" }));
-        luaChonComboBox.setPreferredSize(new java.awt.Dimension(110, 31));
-
-        sapXepComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        sapXepComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sắp xếp theo: Mã nhân viên", "Sắp xếp theo: Họ và tên", "" }));
-        sapXepComboBox.setPreferredSize(new java.awt.Dimension(250, 31));
-
-        gioiTinhComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        gioiTinhComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Giới tính", "Nam", "Nữ" }));
-        gioiTinhComboBox.setPreferredSize(new java.awt.Dimension(100, 31));
-
-        mucLuongComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        mucLuongComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mức lương", "Dưới 5 triệu", "5-10 triệu", "10-20 triệu", "Trên 20 triệu" }));
-        mucLuongComboBox.setPreferredSize(new java.awt.Dimension(150, 31));
 
         btnAdd.setBackground(new java.awt.Color(0, 204, 255));
         btnAdd.setBorder(null);
@@ -80,6 +64,22 @@ public class NhanVienControlForm extends javax.swing.JPanel {
         timKiemTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         timKiemTextField.setPreferredSize(new java.awt.Dimension(300, 31));
 
+        mucLuongComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mức lương", "Dưới 5 triệu", "5-10 triệu", "10-20 triệu", "Trên 20 triệu" }));
+        mucLuongComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        mucLuongComboBox.setPreferredSize(new java.awt.Dimension(150, 31));
+
+        gioiTinhComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Giới tính", "Nam", "Nữ" }));
+        gioiTinhComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gioiTinhComboBox.setPreferredSize(new java.awt.Dimension(120, 31));
+
+        sapXepComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sắp xếp theo: Mã nhân viên", "Sắp xếp theo: Họ và tên" }));
+        sapXepComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sapXepComboBox.setPreferredSize(new java.awt.Dimension(250, 31));
+
+        luaChonComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tăng dần", "Giảm dần" }));
+        luaChonComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        luaChonComboBox.setPreferredSize(new java.awt.Dimension(120, 31));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,7 +87,7 @@ public class NhanVienControlForm extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(305, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(mucLuongComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(gioiTinhComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -100,7 +100,7 @@ public class NhanVienControlForm extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 356, Short.MAX_VALUE)
                         .addComponent(timKiemTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,7 +110,7 @@ public class NhanVienControlForm extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(20, Short.MAX_VALUE)
@@ -124,10 +124,11 @@ public class NhanVienControlForm extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnReload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(luaChonComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sapXepComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(gioiTinhComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mucLuongComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(mucLuongComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(gioiTinhComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(sapXepComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(luaChonComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -137,11 +138,11 @@ public class NhanVienControlForm extends javax.swing.JPanel {
     private GUI.panel.swing.MyButton btnAdd;
     private GUI.panel.swing.MyButton btnReload;
     private GUI.panel.swing.MyButton btnSearch;
-    private javax.swing.JComboBox<String> gioiTinhComboBox;
+    private GUI.panel.swing.MyCombobox gioiTinhComboBox;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JComboBox<String> luaChonComboBox;
-    private javax.swing.JComboBox<String> mucLuongComboBox;
-    private javax.swing.JComboBox<String> sapXepComboBox;
+    private GUI.panel.swing.MyCombobox luaChonComboBox;
+    private GUI.panel.swing.MyCombobox mucLuongComboBox;
+    private GUI.panel.swing.MyCombobox sapXepComboBox;
     private javax.swing.JTextField timKiemTextField;
     // End of variables declaration//GEN-END:variables
 }
