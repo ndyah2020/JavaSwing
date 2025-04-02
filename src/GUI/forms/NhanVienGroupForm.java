@@ -28,7 +28,7 @@ public class NhanVienGroupForm extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         myTable1 = new GUI.panel.swing.MyTable();
-        nhanVienControlForm2 = new GUI.forms.NhanVienControlForm();
+        nhanVienControlForm1 = new GUI.forms.NhanVienControlForm();
 
         jScrollPane1.setBorder(null);
 
@@ -59,14 +59,14 @@ public class NhanVienGroupForm extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(nhanVienControlForm2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nhanVienControlForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(nhanVienControlForm2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nhanVienControlForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE))
         );
@@ -76,6 +76,6 @@ public class NhanVienGroupForm extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private GUI.panel.swing.MyTable myTable1;
-    private GUI.forms.NhanVienControlForm nhanVienControlForm2;
+    private GUI.forms.NhanVienControlForm nhanVienControlForm1;
     // End of variables declaration//GEN-END:variables
 }
