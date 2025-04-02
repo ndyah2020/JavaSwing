@@ -4,15 +4,12 @@
  */
 package GUI.forms;
 
-import GUI.panel.swing.dateChooser.DateChooser;
-
 /**
  *
  * @author antrn
  */
 public class SanBayControlForm extends javax.swing.JPanel {
 
-    private DateChooser dateChooser;
     
     public SanBayControlForm() {
         initComponents();

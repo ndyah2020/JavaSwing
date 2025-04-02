@@ -4,6 +4,7 @@ import GUI.forms.FormGroup;
 import GUI.forms.HomeForm;
 import GUI.forms.HomeForm1;
 import GUI.forms.KhachHangGroupForm;
+import GUI.forms.KhuyenMaiGroupForm;
 import GUI.forms.LoaiMayBayGroupForm;
 import GUI.forms.NhanVienGroupForm;
 import GUI.forms.SanBayGroupForm;
@@ -337,8 +338,8 @@ public class Home extends javax.swing.JFrame {
 //        addHoverEffect(lichBayMenu ,defaultColor, hoverColor);
 //        addHoverEffect(veMenu ,defaultColor, hoverColor);
 //        addHoverEffect(hoaDonMenu ,defaultColor, hoverColor);
-//        addHoverEffect(khuyenMaiMenu ,defaultColor, hoverColor);
-//        addHoverEffect(taiKhoanMenu ,defaultColor, hoverColor);
+        addHoverEffect(khuyenMaiMenu,new KhuyenMaiGroupForm(), desktopPanel ,defaultColor, hoverColor);
+//        addHoverEffect(taiKhoanMenu        addHoverEffect(khuyenMaiMenu ,defaultColor, hoverColor); ,defaultColor, hoverColor);
     }
     
     
