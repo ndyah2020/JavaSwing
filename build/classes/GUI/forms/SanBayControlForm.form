@@ -49,7 +49,7 @@
                           <Component id="comboTimKiem" max="32767" attributes="0"/>
                           <Component id="cmbSapXep" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="276" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
