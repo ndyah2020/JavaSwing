@@ -8,12 +8,12 @@ package GUI.forms;
  *
  * @author Lenovo
  */
-public class HomeForm2 extends javax.swing.JPanel {
+public class HomeForm1 extends javax.swing.JPanel {
 
     /**
      * Creates new form HomForm2
      */
-    public HomeForm2() {
+    public HomeForm1() {
         initComponents();
     }
 
