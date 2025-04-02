@@ -248,6 +248,7 @@ public class Home extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
+        desktopPanel.setBackground(new java.awt.Color(255, 255, 255));
         desktopPanel.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout PanelTrangChuLayout = new javax.swing.GroupLayout(PanelTrangChu);

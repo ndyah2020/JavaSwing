@@ -26,28 +26,28 @@ public class KhachHangGroupForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        khachHangSearchForm1 = new GUI.forms.KhachHangSearchForm();
-        khachHangTableForm1 = new GUI.forms.KhachHangTableForm();
+        khachHangSearchForm2 = new GUI.forms.KhachHangSearchForm();
+        khachHangTableForm2 = new GUI.forms.KhachHangTableForm();
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(khachHangSearchForm1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(khachHangTableForm1, javax.swing.GroupLayout.DEFAULT_SIZE, 1085, Short.MAX_VALUE)
+            .addComponent(khachHangSearchForm2, javax.swing.GroupLayout.DEFAULT_SIZE, 1144, Short.MAX_VALUE)
+            .addComponent(khachHangTableForm2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(khachHangSearchForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(khachHangTableForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(khachHangSearchForm2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(khachHangTableForm2, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private GUI.forms.KhachHangSearchForm khachHangSearchForm1;
-    private GUI.forms.KhachHangTableForm khachHangTableForm1;
+    private GUI.forms.KhachHangSearchForm khachHangSearchForm2;
+    private GUI.forms.KhachHangTableForm khachHangTableForm2;
     // End of variables declaration//GEN-END:variables
 }
