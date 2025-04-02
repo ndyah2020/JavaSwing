@@ -19,10 +19,22 @@ public class HeaderPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        hinhTron1 = new GUI.panel.draw.HinhTron();
         panelMoving = new javax.swing.JPanel();
         tenLogo = new javax.swing.JLabel();
-        dangXuatHeader = new javax.swing.JLabel();
         exitApp = new javax.swing.JLabel();
+        hinhTron2 = new GUI.panel.draw.HinhTron();
+
+        javax.swing.GroupLayout hinhTron1Layout = new javax.swing.GroupLayout(hinhTron1);
+        hinhTron1.setLayout(hinhTron1Layout);
+        hinhTron1Layout.setHorizontalGroup(
+            hinhTron1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        hinhTron1Layout.setVerticalGroup(
+            hinhTron1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 33, Short.MAX_VALUE)
+        );
 
         setPreferredSize(new java.awt.Dimension(1270, 52));
 
@@ -33,11 +45,6 @@ public class HeaderPanel extends javax.swing.JPanel {
         tenLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/logoQLCB.png"))); // NOI18N
         tenLogo.setText("Quản Lý Chuyến Bay");
 
-        dangXuatHeader.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        dangXuatHeader.setForeground(new java.awt.Color(255, 255, 255));
-        dangXuatHeader.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/DangXuat.png"))); // NOI18N
-        dangXuatHeader.setText("Đăng Xuất");
-
         exitApp.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         exitApp.setForeground(new java.awt.Color(255, 255, 255));
         exitApp.setText("X");
@@ -47,15 +54,30 @@ public class HeaderPanel extends javax.swing.JPanel {
             }
         });
 
+        hinhTron2.setBackground(new java.awt.Color(255, 255, 255));
+        hinhTron2.setForeground(new java.awt.Color(255, 255, 255));
+        hinhTron2.setPreferredSize(new java.awt.Dimension(42, 42));
+
+        javax.swing.GroupLayout hinhTron2Layout = new javax.swing.GroupLayout(hinhTron2);
+        hinhTron2.setLayout(hinhTron2Layout);
+        hinhTron2Layout.setHorizontalGroup(
+            hinhTron2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 42, Short.MAX_VALUE)
+        );
+        hinhTron2Layout.setVerticalGroup(
+            hinhTron2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 42, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout panelMovingLayout = new javax.swing.GroupLayout(panelMoving);
         panelMoving.setLayout(panelMovingLayout);
         panelMovingLayout.setHorizontalGroup(
             panelMovingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMovingLayout.createSequentialGroup()
                 .addComponent(tenLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 878, Short.MAX_VALUE)
-                .addComponent(dangXuatHeader)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 966, Short.MAX_VALUE)
+                .addComponent(hinhTron2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(exitApp)
                 .addContainerGap())
         );
@@ -64,9 +86,12 @@ public class HeaderPanel extends javax.swing.JPanel {
             .addGroup(panelMovingLayout.createSequentialGroup()
                 .addGroup(panelMovingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tenLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dangXuatHeader)
-                    .addComponent(exitApp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 6, Short.MAX_VALUE))
+                    .addComponent(exitApp, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(panelMovingLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(hinhTron2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -77,7 +102,7 @@ public class HeaderPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelMoving, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelMoving, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -115,8 +140,9 @@ public class HeaderPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel dangXuatHeader;
     private javax.swing.JLabel exitApp;
+    private GUI.panel.draw.HinhTron hinhTron1;
+    private GUI.panel.draw.HinhTron hinhTron2;
     private javax.swing.JPanel panelMoving;
     private javax.swing.JLabel tenLogo;
     // End of variables declaration//GEN-END:variables

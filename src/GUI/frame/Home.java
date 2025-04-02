@@ -3,13 +3,13 @@ package GUI.frame;
 import GUI.forms.FormGroup;
 import GUI.forms.HomeForm;
 import GUI.forms.HomeForm1;
+import GUI.forms.KhachHangGroupForm;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Panel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
-
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
 public class Home extends javax.swing.JFrame {
@@ -65,7 +65,6 @@ public class Home extends javax.swing.JFrame {
         setUndecorated(true);
 
         PanelTrangChu.setBackground(new java.awt.Color(204, 204, 204));
-        PanelTrangChu.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(242, 242, 242)));
 
         menuContainer.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -230,12 +229,15 @@ public class Home extends javax.swing.JFrame {
         javax.swing.GroupLayout menuContainerLayout = new javax.swing.GroupLayout(menuContainer);
         menuContainer.setLayout(menuContainerLayout);
         menuContainerLayout.setHorizontalGroup(
-            menuContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            menuContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(menuContainerLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(menuContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(thongTinTaiKhoan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(menuContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menuContainerLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addComponent(thongTinTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         menuContainerLayout.setVerticalGroup(
             menuContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,7 +245,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(thongTinTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         desktopPanel.setLayout(new java.awt.CardLayout());
@@ -253,27 +255,23 @@ public class Home extends javax.swing.JFrame {
         PanelTrangChuLayout.setHorizontalGroup(
             PanelTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTrangChuLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(PanelTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(PanelTrangChuLayout.createSequentialGroup()
-                        .addComponent(menuContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(desktopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1065, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3))))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(menuContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(desktopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1065, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3))
+            .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PanelTrangChuLayout.setVerticalGroup(
             PanelTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTrangChuLayout.createSequentialGroup()
-                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(PanelTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PanelTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(menuContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelTrangChuLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(menuContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelTrangChuLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(desktopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(3, 3, 3))))
+                        .addGap(4, 4, 4)
+                        .addComponent(desktopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -296,7 +294,7 @@ public class Home extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
-    public static void addHoverEffect(final JLabel label, final Color defaultColor, final Color hoverColor) {
+    public static void addHoverEffect(final JLabel label,final JPanel panel,final JPanel desktopPanel, final Color defaultColor, final Color hoverColor) {
         label.setBackground(defaultColor); 
         label.addMouseListener(new MouseAdapter() {
             @Override
@@ -314,25 +312,29 @@ public class Home extends javax.swing.JFrame {
                 if (selectedLabel != null) {
                     selectedLabel.setBorder(null);
                 }
-                label.setBorder(new MatteBorder(0, 5, 0, 0, Color.BLUE));
+                label.setBorder(new MatteBorder(0, 5, 0, 0, hoverColor));
                 selectedLabel = label;
+                desktopPanel.removeAll();
+                desktopPanel.add(panel);
+                desktopPanel.revalidate();
+                desktopPanel.repaint();
             }
         });
     }
     public void handleEventHoverChuot(){
-        addHoverEffect(trangChuMenu ,defaultColor, hoverColor);
-        addHoverEffect(banVeMenu ,defaultColor, hoverColor);
-        addHoverEffect(khachHangMenu ,defaultColor, hoverColor);
-        addHoverEffect(nhanVienMenu ,defaultColor, hoverColor);
-        addHoverEffect(loaiMayBayMenu ,defaultColor, hoverColor);
-        addHoverEffect(mayBayMenu ,defaultColor, hoverColor);
-        addHoverEffect(sanBayMenu ,defaultColor, hoverColor);
-        addHoverEffect(chuyenBayMenu ,defaultColor, hoverColor);
-        addHoverEffect(lichBayMenu ,defaultColor, hoverColor);
-        addHoverEffect(veMenu ,defaultColor, hoverColor);
-        addHoverEffect(hoaDonMenu ,defaultColor, hoverColor);
-        addHoverEffect(khuyenMaiMenu ,defaultColor, hoverColor);
-        addHoverEffect(taiKhoanMenu ,defaultColor, hoverColor);
+        addHoverEffect(trangChuMenu, new FormGroup(), desktopPanel ,defaultColor, hoverColor);
+//        addHoverEffect(banVeMenu ,defaultColor, hoverColor);
+        addHoverEffect(khachHangMenu, new KhachHangGroupForm(), desktopPanel, defaultColor, hoverColor);
+//        addHoverEffect(nhanVienMenu ,defaultColor, hoverColor);
+//        addHoverEffect(loaiMayBayMenu ,defaultColor, hoverColor);
+//        addHoverEffect(mayBayMenu ,defaultColor, hoverColor);
+//        addHoverEffect(sanBayMenu ,defaultColor, hoverColor);
+//        addHoverEffect(chuyenBayMenu ,defaultColor, hoverColor);
+//        addHoverEffect(lichBayMenu ,defaultColor, hoverColor);
+//        addHoverEffect(veMenu ,defaultColor, hoverColor);
+//        addHoverEffect(hoaDonMenu ,defaultColor, hoverColor);
+//        addHoverEffect(khuyenMaiMenu ,defaultColor, hoverColor);
+//        addHoverEffect(taiKhoanMenu ,defaultColor, hoverColor);
     }
     
     
