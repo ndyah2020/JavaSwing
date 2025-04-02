@@ -25,25 +25,25 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="mucLuongComboBox" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbMucLuong" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="gioiTinhComboBox" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbGioiTinh" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="sapXepComboBox" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbSapXep" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="luaChonComboBox" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbLuaChon" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnReload" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnLoad" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="356" max="32767" attributes="0"/>
-                      <Component id="timKiemTextField" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTimKiem" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTimKiem" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnThem" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
@@ -57,9 +57,9 @@
                   <Group type="102" attributes="0">
                       <EmptySpace pref="20" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="timKiemTextField" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnAdd" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnSearch" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTimKiem" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnThem" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnTimKiem" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -69,12 +69,12 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnReload" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnLoad" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="mucLuongComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="gioiTinhComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="sapXepComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="luaChonComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbMucLuong" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbGioiTinh" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbSapXep" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbLuaChon" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -91,7 +91,7 @@
         <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch nh&#xe2;n vi&#xea;n"/>
       </Properties>
     </Component>
-    <Component class="GUI.panel.swing.MyButton" name="btnReload">
+    <Component class="GUI.panel.swing.MyButton" name="btnLoad">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="cc" red="0" type="rgb"/>
@@ -107,7 +107,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.panel.swing.MyButton" name="btnAdd">
+    <Component class="GUI.panel.swing.MyButton" name="btnThem">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="cc" red="0" type="rgb"/>
@@ -133,7 +133,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.panel.swing.MyButton" name="btnSearch">
+    <Component class="GUI.panel.swing.MyButton" name="btnTimKiem">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="cc" red="0" type="rgb"/>
@@ -152,7 +152,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="timKiemTextField">
+    <Component class="javax.swing.JTextField" name="txtTimKiem">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -162,7 +162,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.panel.swing.MyCombobox" name="mucLuongComboBox">
+    <Component class="GUI.panel.swing.MyCombobox" name="cmbMucLuong">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
@@ -181,7 +181,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.panel.swing.MyCombobox" name="gioiTinhComboBox">
+    <Component class="GUI.panel.swing.MyCombobox" name="cmbGioiTinh">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
@@ -198,7 +198,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.panel.swing.MyCombobox" name="sapXepComboBox">
+    <Component class="GUI.panel.swing.MyCombobox" name="cmbSapXep">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
@@ -214,7 +214,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.panel.swing.MyCombobox" name="luaChonComboBox">
+    <Component class="GUI.panel.swing.MyCombobox" name="cmbLuaChon">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
