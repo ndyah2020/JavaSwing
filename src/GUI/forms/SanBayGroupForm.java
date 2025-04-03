@@ -28,7 +28,7 @@ public class SanBayGroupForm extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         myTable1 = new GUI.panel.swing.MyTable();
-        sanBayControlForm2 = new GUI.forms.SanBayControlForm();
+        sanBayControlForm1 = new GUI.forms.SanBayControlForm();
 
         jScrollPane1.setBorder(null);
 
@@ -53,20 +53,20 @@ public class SanBayGroupForm extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(myTable1);
 
-        sanBayControlForm2.setPreferredSize(new java.awt.Dimension(1065, 200));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-            .addComponent(sanBayControlForm2, javax.swing.GroupLayout.PREFERRED_SIZE, 1070, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1070, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(sanBayControlForm1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(sanBayControlForm2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sanBayControlForm1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -76,6 +76,6 @@ public class SanBayGroupForm extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private GUI.panel.swing.MyTable myTable1;
-    private GUI.forms.SanBayControlForm sanBayControlForm2;
+    private GUI.forms.SanBayControlForm sanBayControlForm1;
     // End of variables declaration//GEN-END:variables
 }

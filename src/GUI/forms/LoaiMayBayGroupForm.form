@@ -19,8 +19,11 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
-                  <Component id="loaiMayBayControlForm1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="1058" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="loaiMayBayControlForm2" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
@@ -28,16 +31,14 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="loaiMayBayControlForm1" min="-2" max="-2" attributes="0"/>
+              <Component id="loaiMayBayControlForm2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="576" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="562" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="GUI.forms.LoaiMayBayControlForm" name="loaiMayBayControlForm1">
-    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -59,5 +60,7 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="GUI.forms.LoaiMayBayControlForm" name="loaiMayBayControlForm2">
+    </Component>
   </SubComponents>
 </Form>

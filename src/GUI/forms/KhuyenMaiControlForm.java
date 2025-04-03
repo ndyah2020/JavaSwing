@@ -16,6 +16,7 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnThem = new GUI.panel.swing.MyButton();
         btnAn = new GUI.panel.swing.MyButton();
@@ -42,30 +43,35 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
         txtNgayKetThuc = new javax.swing.JTextField();
         btnNgayKetThuc = new GUI.panel.swing.MyButton();
 
+        jLabel2.setText("jLabel2");
+
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1065, 200));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Danh sách khuyến mãi");
 
-        btnThem.setBackground(new java.awt.Color(0, 204, 255));
         btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/plus.png"))); // NOI18N
         btnThem.setText("Thêm");
         btnThem.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnThem.setColorClick(new java.awt.Color(0, 153, 255));
+        btnThem.setColorOver(new java.awt.Color(0, 204, 255));
         btnThem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnThem.setPreferredSize(new java.awt.Dimension(99, 31));
 
-        btnAn.setBackground(new java.awt.Color(0, 204, 255));
         btnAn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/hidden.png"))); // NOI18N
         btnAn.setText("Ẩn");
         btnAn.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnAn.setColorClick(new java.awt.Color(0, 153, 255));
+        btnAn.setColorOver(new java.awt.Color(0, 204, 255));
         btnAn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnAn.setPreferredSize(new java.awt.Dimension(99, 31));
 
-        btnSua.setBackground(new java.awt.Color(0, 204, 255));
         btnSua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/edit.png"))); // NOI18N
         btnSua.setText("Sửa");
         btnSua.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnSua.setColorClick(new java.awt.Color(0, 153, 255));
+        btnSua.setColorOver(new java.awt.Color(0, 204, 255));
         btnSua.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSua.setPreferredSize(new java.awt.Dimension(72, 31));
 
@@ -115,9 +121,10 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
         txtMaHanhTrinh.setPreferredSize(new java.awt.Dimension(200, 30));
         jPanel4.add(txtMaHanhTrinh);
 
-        btnMaHanhTrinh.setBackground(new java.awt.Color(0, 204, 255));
         btnMaHanhTrinh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
-        btnMaHanhTrinh.setBorderColor(new java.awt.Color(0, 204, 255));
+        btnMaHanhTrinh.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnMaHanhTrinh.setColorClick(new java.awt.Color(0, 153, 255));
+        btnMaHanhTrinh.setColorOver(new java.awt.Color(0, 204, 255));
         btnMaHanhTrinh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnMaHanhTrinh.setPreferredSize(new java.awt.Dimension(32, 31));
         jPanel4.add(btnMaHanhTrinh);
@@ -135,9 +142,10 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
         txtNgayBatDau.setPreferredSize(new java.awt.Dimension(200, 30));
         jPanel5.add(txtNgayBatDau);
 
-        btnNgayBatDau.setBackground(new java.awt.Color(0, 204, 255));
         btnNgayBatDau.setText("Chọn Ngày");
-        btnNgayBatDau.setBorderColor(new java.awt.Color(0, 204, 255));
+        btnNgayBatDau.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnNgayBatDau.setColorClick(new java.awt.Color(0, 153, 255));
+        btnNgayBatDau.setColorOver(new java.awt.Color(0, 204, 255));
         btnNgayBatDau.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnNgayBatDau.setMaximumSize(new java.awt.Dimension(99, 30));
         btnNgayBatDau.setMinimumSize(new java.awt.Dimension(99, 30));
@@ -155,9 +163,10 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
         txtNgayKetThuc.setPreferredSize(new java.awt.Dimension(200, 30));
         jPanel6.add(txtNgayKetThuc);
 
-        btnNgayKetThuc.setBackground(new java.awt.Color(0, 204, 255));
         btnNgayKetThuc.setText("Chọn Ngày");
-        btnNgayKetThuc.setBorderColor(new java.awt.Color(0, 204, 255));
+        btnNgayKetThuc.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnNgayKetThuc.setColorClick(new java.awt.Color(0, 153, 255));
+        btnNgayKetThuc.setColorOver(new java.awt.Color(0, 204, 255));
         btnNgayKetThuc.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnNgayKetThuc.setMaximumSize(new java.awt.Dimension(99, 30));
         btnNgayKetThuc.setMinimumSize(new java.awt.Dimension(99, 30));
@@ -186,7 +195,7 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(74, 74, 74)))
+                                .addGap(50, 50, 50)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -203,7 +212,7 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(19, 19, 19)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -224,7 +233,7 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     private void initDateChoosers() {
@@ -249,6 +258,7 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
     private GUI.panel.swing.MyButton btnSua;
     private GUI.panel.swing.MyButton btnThem;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
