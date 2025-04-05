@@ -11,6 +11,7 @@ import GUI.forms.MayBayGroupForm;
 import GUI.forms.NhanVienGroupForm;
 import GUI.forms.SanBayGroupForm;
 import GUI.forms.TaiKhoanGroupForm;
+import GUI.forms.VeGroupForm;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Panel;
@@ -339,7 +340,7 @@ public final class Home extends javax.swing.JFrame {
         addHoverEffect(sanBayMenu, new SanBayGroupForm(),desktopPanel ,defaultColor, hoverColor);
 //        addHoverEffect(chuyenBayMenu ,defaultColor, hoverColor);
 //        addHoverEffect(lichBayMenu ,defaultColor, hoverColor);
-//        addHoverEffect(veMenu ,defaultColor, hoverColor);
+        addHoverEffect(veMenu , new VeGroupForm(),desktopPanel,defaultColor, hoverColor);
         addHoverEffect(hoaDonMenu, new HoaDonGroupForm(), desktopPanel ,defaultColor, hoverColor);
         addHoverEffect(khuyenMaiMenu,new KhuyenMaiGroupForm(), desktopPanel ,defaultColor, hoverColor);
         addHoverEffect(taiKhoanMenu, new TaiKhoanGroupForm(), desktopPanel ,defaultColor, hoverColor);
