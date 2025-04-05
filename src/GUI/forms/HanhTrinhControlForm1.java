@@ -62,7 +62,7 @@ public class HanhTrinhControlForm1 extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Giá cơ bản: ");
-        jLabel3.setPreferredSize(new java.awt.Dimension(100, 31));
+        jLabel3.setPreferredSize(new java.awt.Dimension(80, 31));
         ComboGiaCoBan.add(jLabel3);
 
         txtGiaCoBan.setPreferredSize(new java.awt.Dimension(200, 31));
@@ -77,7 +77,7 @@ public class HanhTrinhControlForm1 extends javax.swing.JPanel {
         jLabel4.setText("Sân bay đi:");
         jLabel4.setMaximumSize(new java.awt.Dimension(100, 20));
         jLabel4.setMinimumSize(new java.awt.Dimension(100, 20));
-        jLabel4.setPreferredSize(new java.awt.Dimension(100, 31));
+        jLabel4.setPreferredSize(new java.awt.Dimension(80, 31));
         ComboSanBayDi.add(jLabel4);
 
         txtSanBayDi.setPreferredSize(new java.awt.Dimension(200, 31));
@@ -94,7 +94,7 @@ public class HanhTrinhControlForm1 extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Sân bay đến:");
-        jLabel5.setPreferredSize(new java.awt.Dimension(100, 31));
+        jLabel5.setPreferredSize(new java.awt.Dimension(80, 31));
         ComboSanBayDen.add(jLabel5);
 
         txtSanBayDen.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N

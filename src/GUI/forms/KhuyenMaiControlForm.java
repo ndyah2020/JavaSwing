@@ -26,9 +26,6 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         lbTenKhuyenMai = new javax.swing.JLabel();
         txtTenKhuyenMai = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        lbPhanTramKhuyenMai = new javax.swing.JLabel();
-        txtPhanTramKhuyenMai = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         lbMaHanhTrinh = new javax.swing.JLabel();
         txtMaHanhTrinh = new javax.swing.JTextField();
@@ -45,6 +42,9 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        lbPhanTramKhuyenMai = new javax.swing.JLabel();
+        txtPhanTramKhuyenMai = new javax.swing.JTextField();
 
         jLabel2.setText("jLabel2");
 
@@ -93,17 +93,6 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
         txtTenKhuyenMai.setPreferredSize(new java.awt.Dimension(200, 30));
         jPanel2.add(txtTenKhuyenMai);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
-
-        lbPhanTramKhuyenMai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbPhanTramKhuyenMai.setText("% Khuyến mãi:");
-        lbPhanTramKhuyenMai.setPreferredSize(new java.awt.Dimension(120, 30));
-        jPanel3.add(lbPhanTramKhuyenMai);
-
-        txtPhanTramKhuyenMai.setPreferredSize(new java.awt.Dimension(200, 30));
-        jPanel3.add(txtPhanTramKhuyenMai);
-
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -136,14 +125,14 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
         txtNgayKetThuc.setPreferredSize(new java.awt.Dimension(200, 30));
         jPanel6.add(txtNgayKetThuc);
 
-        btnNgayKetThuc.setText("Chọn Ngày");
+        btnNgayKetThuc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
         btnNgayKetThuc.setBorderColor(new java.awt.Color(204, 204, 204));
         btnNgayKetThuc.setColorClick(new java.awt.Color(0, 153, 255));
         btnNgayKetThuc.setColorOver(new java.awt.Color(0, 204, 255));
         btnNgayKetThuc.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnNgayKetThuc.setMaximumSize(new java.awt.Dimension(99, 30));
         btnNgayKetThuc.setMinimumSize(new java.awt.Dimension(99, 30));
-        btnNgayKetThuc.setPreferredSize(new java.awt.Dimension(99, 30));
+        btnNgayKetThuc.setPreferredSize(new java.awt.Dimension(30, 30));
         jPanel6.add(btnNgayKetThuc);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
@@ -158,14 +147,14 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
         txtNgayBatDau.setPreferredSize(new java.awt.Dimension(200, 30));
         jPanel7.add(txtNgayBatDau);
 
-        btnNgayBatDau.setText("Chọn Ngày");
+        btnNgayBatDau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
         btnNgayBatDau.setBorderColor(new java.awt.Color(204, 204, 204));
         btnNgayBatDau.setColorClick(new java.awt.Color(0, 153, 255));
         btnNgayBatDau.setColorOver(new java.awt.Color(0, 204, 255));
         btnNgayBatDau.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnNgayBatDau.setMaximumSize(new java.awt.Dimension(99, 30));
         btnNgayBatDau.setMinimumSize(new java.awt.Dimension(99, 30));
-        btnNgayBatDau.setPreferredSize(new java.awt.Dimension(99, 30));
+        btnNgayBatDau.setPreferredSize(new java.awt.Dimension(30, 30));
         jPanel7.add(btnNgayBatDau);
 
         btnSua1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/hidden.png"))); // NOI18N
@@ -189,6 +178,17 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
         jLabel3.setPreferredSize(new java.awt.Dimension(30, 30));
         jPanel5.add(jLabel3);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
+
+        lbPhanTramKhuyenMai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbPhanTramKhuyenMai.setText("% Khuyến mãi:");
+        lbPhanTramKhuyenMai.setPreferredSize(new java.awt.Dimension(120, 30));
+        jPanel3.add(lbPhanTramKhuyenMai);
+
+        txtPhanTramKhuyenMai.setPreferredSize(new java.awt.Dimension(200, 30));
+        jPanel3.add(txtPhanTramKhuyenMai);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -197,19 +197,20 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(109, 109, 109)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(100, 100, 100)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                                 .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,12 +250,13 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents

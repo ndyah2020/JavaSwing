@@ -59,98 +59,120 @@ public class ThongTinNhanVienForm extends javax.swing.JPanel {
         jPanel2.setPreferredSize(new java.awt.Dimension(204, 30));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setText("Mã Nhân Viên: ");
-        jLabel11.setPreferredSize(new java.awt.Dimension(86, 30));
+        jLabel11.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel2.add(jLabel11);
 
         ctMaNhanVien.setBackground(new java.awt.Color(255, 255, 255));
         ctMaNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctMaNhanVien.setPreferredSize(new java.awt.Dimension(51, 30));
+        ctMaNhanVien.setMaximumSize(new java.awt.Dimension(200, 300));
+        ctMaNhanVien.setMinimumSize(new java.awt.Dimension(120, 300));
+        ctMaNhanVien.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel2.add(ctMaNhanVien);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(204, 30));
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setText("Tên Nhân Viên: ");
-        jLabel13.setPreferredSize(new java.awt.Dimension(86, 30));
+        jLabel13.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel3.add(jLabel13);
 
         ctTenNhanVien.setBackground(new java.awt.Color(255, 255, 255));
         ctTenNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctTenNhanVien.setPreferredSize(new java.awt.Dimension(51, 30));
+        ctTenNhanVien.setMaximumSize(new java.awt.Dimension(200, 300));
+        ctTenNhanVien.setMinimumSize(new java.awt.Dimension(120, 300));
+        ctTenNhanVien.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel3.add(ctTenNhanVien);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(204, 30));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setText("Chức Vụ: ");
-        jLabel15.setPreferredSize(new java.awt.Dimension(86, 30));
+        jLabel15.setMaximumSize(new java.awt.Dimension(120, 30));
+        jLabel15.setMinimumSize(new java.awt.Dimension(120, 30));
+        jLabel15.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel4.add(jLabel15);
 
         ctChucVu.setBackground(new java.awt.Color(255, 255, 255));
         ctChucVu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctChucVu.setPreferredSize(new java.awt.Dimension(51, 30));
+        ctChucVu.setMaximumSize(new java.awt.Dimension(200, 300));
+        ctChucVu.setMinimumSize(new java.awt.Dimension(120, 300));
+        ctChucVu.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel4.add(ctChucVu);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setPreferredSize(new java.awt.Dimension(204, 30));
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel17.setText("Họ Nhân Viên: ");
-        jLabel17.setPreferredSize(new java.awt.Dimension(86, 30));
+        jLabel17.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel5.add(jLabel17);
 
         ctHoNhanVien.setBackground(new java.awt.Color(255, 255, 255));
         ctHoNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctHoNhanVien.setPreferredSize(new java.awt.Dimension(51, 30));
+        ctHoNhanVien.setMaximumSize(new java.awt.Dimension(200, 300));
+        ctHoNhanVien.setMinimumSize(new java.awt.Dimension(120, 300));
+        ctHoNhanVien.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel5.add(ctHoNhanVien);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setPreferredSize(new java.awt.Dimension(204, 30));
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel19.setText("Giới Tính: ");
-        jLabel19.setPreferredSize(new java.awt.Dimension(86, 30));
+        jLabel19.setMaximumSize(new java.awt.Dimension(120, 20));
+        jLabel19.setMinimumSize(new java.awt.Dimension(120, 20));
+        jLabel19.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel6.add(jLabel19);
 
         ctGioiTinhNhanVien.setBackground(new java.awt.Color(255, 255, 255));
         ctGioiTinhNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctGioiTinhNhanVien.setPreferredSize(new java.awt.Dimension(51, 30));
+        ctGioiTinhNhanVien.setMaximumSize(new java.awt.Dimension(200, 300));
+        ctGioiTinhNhanVien.setMinimumSize(new java.awt.Dimension(120, 300));
+        ctGioiTinhNhanVien.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel6.add(ctGioiTinhNhanVien);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setPreferredSize(new java.awt.Dimension(204, 30));
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel21.setText("Ngày Sinh: ");
-        jLabel21.setPreferredSize(new java.awt.Dimension(86, 30));
+        jLabel21.setMaximumSize(new java.awt.Dimension(120, 30));
+        jLabel21.setMinimumSize(new java.awt.Dimension(120, 30));
+        jLabel21.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel7.add(jLabel21);
 
         ctNgaySinh.setBackground(new java.awt.Color(255, 255, 255));
         ctNgaySinh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctNgaySinh.setPreferredSize(new java.awt.Dimension(51, 30));
+        ctNgaySinh.setMaximumSize(new java.awt.Dimension(200, 300));
+        ctNgaySinh.setMinimumSize(new java.awt.Dimension(120, 300));
+        ctNgaySinh.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel7.add(ctNgaySinh);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setPreferredSize(new java.awt.Dimension(204, 30));
         jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.LINE_AXIS));
 
-        lbEmial.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbEmial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbEmial.setText("Email: ");
-        lbEmial.setPreferredSize(new java.awt.Dimension(86, 30));
+        lbEmial.setMaximumSize(new java.awt.Dimension(120, 30));
+        lbEmial.setMinimumSize(new java.awt.Dimension(120, 30));
+        lbEmial.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel8.add(lbEmial);
 
         ctEmail.setBackground(new java.awt.Color(255, 255, 255));
         ctEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctEmail.setPreferredSize(new java.awt.Dimension(51, 30));
+        ctEmail.setMaximumSize(new java.awt.Dimension(200, 300));
+        ctEmail.setMinimumSize(new java.awt.Dimension(120, 300));
+        ctEmail.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel8.add(ctEmail);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

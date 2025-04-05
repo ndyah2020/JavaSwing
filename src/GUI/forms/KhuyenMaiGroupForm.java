@@ -30,7 +30,7 @@ public class KhuyenMaiGroupForm extends javax.swing.JPanel {
         myTable1 = new GUI.panel.swing.MyTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         myTable2 = new GUI.panel.swing.MyTable();
-        khuyenMaiControlForm2 = new GUI.forms.KhuyenMaiControlForm();
+        khuyenMaiControlForm1 = new GUI.forms.KhuyenMaiControlForm();
 
         setPreferredSize(new java.awt.Dimension(1065, 800));
 
@@ -76,7 +76,7 @@ public class KhuyenMaiGroupForm extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(khuyenMaiControlForm2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(khuyenMaiControlForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 685, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -86,7 +86,7 @@ public class KhuyenMaiGroupForm extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(khuyenMaiControlForm2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(khuyenMaiControlForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
@@ -98,7 +98,7 @@ public class KhuyenMaiGroupForm extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private GUI.forms.KhuyenMaiControlForm khuyenMaiControlForm2;
+    private GUI.forms.KhuyenMaiControlForm khuyenMaiControlForm1;
     private GUI.panel.swing.MyTable myTable1;
     private GUI.panel.swing.MyTable myTable2;
     // End of variables declaration//GEN-END:variables

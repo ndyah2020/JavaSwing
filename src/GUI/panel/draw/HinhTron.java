@@ -11,7 +11,7 @@ import java.awt.event.MouseEvent;
 public class HinhTron extends javax.swing.JPanel {
     private int mouseX, mouseY;
     private boolean dragging = false;
-    
+    private Color borderColor = Color.BLACK;
     public HinhTron() {
         initComponents();
         setBounds(50, 50, 100, 100);
@@ -56,6 +56,14 @@ public class HinhTron extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setBorderColor(Color color) {
+        this.borderColor = color;
+        repaint(); // Gọi lại vẽ
+    }
+    public Color getBorderColor() {
+        return borderColor;
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -67,7 +75,7 @@ public class HinhTron extends javax.swing.JPanel {
         g2d.fillOval(0, 0, getWidth(), getHeight());
 
         // Vẽ viền đen
-        g2d.setColor(Color.BLACK);
+        g2d.setColor(borderColor);
         g2d.setStroke(new BasicStroke(2));
         g2d.drawOval(1, 1, getWidth() - 3, getHeight() - 3);
     }

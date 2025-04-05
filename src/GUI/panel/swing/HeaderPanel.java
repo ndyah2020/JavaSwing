@@ -14,6 +14,7 @@ public class HeaderPanel extends javax.swing.JPanel {
     public HeaderPanel() {
         initComponents();
         setOpaque(false);
+        hinhTron2.setBorderColor(Color.WHITE);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -48,6 +49,7 @@ public class HeaderPanel extends javax.swing.JPanel {
         exitApp.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         exitApp.setForeground(new java.awt.Color(255, 255, 255));
         exitApp.setText("X");
+        exitApp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exitApp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 exitAppMouseClicked(evt);

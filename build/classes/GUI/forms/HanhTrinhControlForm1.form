@@ -129,7 +129,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Gi&#xe1; c&#x1a1; b&#x1ea3;n: "/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[100, 31]"/>
+                  <Dimension value="[80, 31]"/>
                 </Property>
               </Properties>
             </Component>
@@ -166,7 +166,7 @@
               <Dimension value="[100, 20]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[100, 31]"/>
+              <Dimension value="[80, 31]"/>
             </Property>
           </Properties>
         </Component>
@@ -211,7 +211,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="S&#xe2;n bay &#x111;&#x1ebf;n:"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[100, 31]"/>
+              <Dimension value="[80, 31]"/>
             </Property>
           </Properties>
         </Component>

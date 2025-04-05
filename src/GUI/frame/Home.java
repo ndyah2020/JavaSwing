@@ -1,6 +1,7 @@
 package GUI.frame;
 
 import GUI.forms.FormGroup;
+import GUI.forms.HanhTrinhGroupForm;
 import GUI.forms.HoaDonGroupForm;
 import GUI.forms.HomeForm;
 import GUI.forms.HomeForm1;
@@ -54,7 +55,7 @@ public final class Home extends javax.swing.JFrame {
         hienThiChucVuTK = new javax.swing.JLabel();
         menu = new javax.swing.JPanel();
         trangChuMenu = new javax.swing.JLabel();
-        banVeMenu = new javax.swing.JLabel();
+        datVeMenu = new javax.swing.JLabel();
         khachHangMenu = new javax.swing.JLabel();
         nhanVienMenu = new javax.swing.JLabel();
         loaiMayBayMenu = new javax.swing.JLabel();
@@ -150,12 +151,12 @@ public final class Home extends javax.swing.JFrame {
         trangChuMenu.setOpaque(true);
         menu.add(trangChuMenu);
 
-        banVeMenu.setBackground(new java.awt.Color(255, 255, 255));
-        banVeMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        banVeMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/BanveMayBay.png"))); // NOI18N
-        banVeMenu.setText("Bán Vé");
-        banVeMenu.setOpaque(true);
-        menu.add(banVeMenu);
+        datVeMenu.setBackground(new java.awt.Color(255, 255, 255));
+        datVeMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        datVeMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/BanveMayBay.png"))); // NOI18N
+        datVeMenu.setText("Bán Vé");
+        datVeMenu.setOpaque(true);
+        menu.add(datVeMenu);
 
         khachHangMenu.setBackground(new java.awt.Color(255, 255, 255));
         khachHangMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -339,8 +340,8 @@ public final class Home extends javax.swing.JFrame {
         addHoverEffect(mayBayMenu, new MayBayGroupForm(), desktopPanel ,defaultColor, hoverColor);
         addHoverEffect(sanBayMenu, new SanBayGroupForm(),desktopPanel ,defaultColor, hoverColor);
 //        addHoverEffect(chuyenBayMenu ,defaultColor, hoverColor);
-//        addHoverEffect(lichBayMenu ,defaultColor, hoverColor);
-        addHoverEffect(veMenu , new VeGroupForm(),desktopPanel,defaultColor, hoverColor);
+        addHoverEffect(hanhTrinhMenu, new HanhTrinhGroupForm(), desktopPanel ,defaultColor, hoverColor);
+        addHoverEffect(veMenu , new VeGroupForm(),desktopPanel, defaultColor, hoverColor);
         addHoverEffect(hoaDonMenu, new HoaDonGroupForm(), desktopPanel ,defaultColor, hoverColor);
         addHoverEffect(khuyenMaiMenu,new KhuyenMaiGroupForm(), desktopPanel ,defaultColor, hoverColor);
         addHoverEffect(taiKhoanMenu, new TaiKhoanGroupForm(), desktopPanel ,defaultColor, hoverColor);
@@ -348,8 +349,8 @@ public final class Home extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.PanelBoderPanel PanelTrangChu;
-    private javax.swing.JLabel banVeMenu;
     private javax.swing.JLabel chuyenBayMenu;
+    private javax.swing.JLabel datVeMenu;
     private javax.swing.JPanel desktopPanel;
     private GUI.panel.draw.DuongThang duongThang1;
     private javax.swing.JLabel hanhTrinhMenu;

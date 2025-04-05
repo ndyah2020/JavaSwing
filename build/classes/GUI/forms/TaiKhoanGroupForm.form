@@ -36,12 +36,10 @@
               <Component id="taiKhoanControlForm1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" pref="632" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="thongTinNhanVienForm1" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="thongTinNhanVienForm1" pref="626" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="626" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

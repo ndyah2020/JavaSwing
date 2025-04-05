@@ -50,56 +50,72 @@ public class ThongTinKhachHangForm extends javax.swing.JPanel {
         jPanel3.setPreferredSize(new java.awt.Dimension(204, 30));
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setText("Tên: ");
-        jLabel11.setPreferredSize(new java.awt.Dimension(86, 30));
+        jLabel11.setMaximumSize(new java.awt.Dimension(120, 30));
+        jLabel11.setMinimumSize(new java.awt.Dimension(120, 30));
+        jLabel11.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel3.add(jLabel11);
 
         ctMaNhanVien.setBackground(new java.awt.Color(255, 255, 255));
         ctMaNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctMaNhanVien.setPreferredSize(new java.awt.Dimension(51, 30));
+        ctMaNhanVien.setMaximumSize(new java.awt.Dimension(150, 30));
+        ctMaNhanVien.setMinimumSize(new java.awt.Dimension(150, 30));
+        ctMaNhanVien.setPreferredSize(new java.awt.Dimension(100, 30));
         jPanel3.add(ctMaNhanVien);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setPreferredSize(new java.awt.Dimension(204, 30));
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel17.setText("Email");
-        jLabel17.setPreferredSize(new java.awt.Dimension(86, 30));
+        jLabel17.setMaximumSize(new java.awt.Dimension(120, 30));
+        jLabel17.setMinimumSize(new java.awt.Dimension(120, 30));
+        jLabel17.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel6.add(jLabel17);
 
         ctHoNhanVien.setBackground(new java.awt.Color(255, 255, 255));
         ctHoNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctHoNhanVien.setPreferredSize(new java.awt.Dimension(51, 30));
+        ctHoNhanVien.setMaximumSize(new java.awt.Dimension(150, 30));
+        ctHoNhanVien.setMinimumSize(new java.awt.Dimension(150, 30));
+        ctHoNhanVien.setPreferredSize(new java.awt.Dimension(100, 30));
         jPanel6.add(ctHoNhanVien);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setPreferredSize(new java.awt.Dimension(204, 30));
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel19.setText("Giới Tính: ");
-        jLabel19.setPreferredSize(new java.awt.Dimension(86, 30));
+        jLabel19.setMaximumSize(new java.awt.Dimension(120, 30));
+        jLabel19.setMinimumSize(new java.awt.Dimension(120, 30));
+        jLabel19.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel7.add(jLabel19);
 
         ctGioiTinhNhanVien.setBackground(new java.awt.Color(255, 255, 255));
         ctGioiTinhNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctGioiTinhNhanVien.setPreferredSize(new java.awt.Dimension(51, 30));
+        ctGioiTinhNhanVien.setMaximumSize(new java.awt.Dimension(150, 30));
+        ctGioiTinhNhanVien.setMinimumSize(new java.awt.Dimension(150, 30));
+        ctGioiTinhNhanVien.setPreferredSize(new java.awt.Dimension(100, 30));
         jPanel7.add(ctGioiTinhNhanVien);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(204, 30));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Mã Khách hàng ");
-        jLabel2.setPreferredSize(new java.awt.Dimension(86, 30));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("Mã Khách hàng: ");
+        jLabel2.setMaximumSize(new java.awt.Dimension(120, 30));
+        jLabel2.setMinimumSize(new java.awt.Dimension(120, 30));
+        jLabel2.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel2.add(jLabel2);
 
         ctTenTaiKhoan.setBackground(new java.awt.Color(255, 255, 255));
         ctTenTaiKhoan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctTenTaiKhoan.setPreferredSize(new java.awt.Dimension(51, 30));
+        ctTenTaiKhoan.setMaximumSize(new java.awt.Dimension(150, 30));
+        ctTenTaiKhoan.setMinimumSize(new java.awt.Dimension(150, 30));
+        ctTenTaiKhoan.setPreferredSize(new java.awt.Dimension(100, 30));
         jPanel2.add(ctTenTaiKhoan);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -109,7 +125,7 @@ public class ThongTinKhachHangForm extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
