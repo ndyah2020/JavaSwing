@@ -1,5 +1,6 @@
 package GUI.frame;
 
+import GUI.forms.DatVeGroupForm;
 import GUI.forms.FormGroup;
 import GUI.forms.HanhTrinhGroupForm;
 import GUI.forms.HoaDonGroupForm;
@@ -333,7 +334,7 @@ public final class Home extends javax.swing.JFrame {
     }
     public void handleEventHoverChuot(){
         addHoverEffect(trangChuMenu, new FormGroup(), desktopPanel ,defaultColor, hoverColor);
-//      addHoverEffect(banVeMenu ,defaultColor, hoverColor);
+        addHoverEffect(datVeMenu, new DatVeGroupForm(), desktopPanel ,defaultColor, hoverColor);
         addHoverEffect(khachHangMenu, new KhachHangGroupForm(), desktopPanel, defaultColor, hoverColor);
         addHoverEffect(nhanVienMenu, new NhanVienGroupForm(),desktopPanel ,defaultColor, hoverColor);
         addHoverEffect(loaiMayBayMenu, new LoaiMayBayGroupForm(), desktopPanel ,defaultColor, hoverColor);

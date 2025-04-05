@@ -30,6 +30,10 @@ public class SanBayGroupForm extends javax.swing.JPanel {
         myTable1 = new GUI.panel.swing.MyTable();
         sanBayControlForm1 = new GUI.forms.SanBayControlForm();
 
+        setMaximumSize(new java.awt.Dimension(1070, 800));
+        setMinimumSize(new java.awt.Dimension(1070, 800));
+        setPreferredSize(new java.awt.Dimension(1070, 800));
+
         jScrollPane1.setBorder(null);
 
         myTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -58,17 +62,14 @@ public class SanBayGroupForm extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1070, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(sanBayControlForm1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(sanBayControlForm1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(sanBayControlForm1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

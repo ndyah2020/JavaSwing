@@ -61,6 +61,8 @@ public class DatVeControlForm extends javax.swing.JPanel {
 
         btnSanBayDi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
         btnSanBayDi.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnSanBayDi.setColorClick(new java.awt.Color(0, 153, 255));
+        btnSanBayDi.setColorOver(new java.awt.Color(0, 204, 255));
         btnSanBayDi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSanBayDi.setPreferredSize(new java.awt.Dimension(31, 31));
         ComboSanBayDi.add(btnSanBayDi);
@@ -80,6 +82,8 @@ public class DatVeControlForm extends javax.swing.JPanel {
 
         btnSanBayDen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
         btnSanBayDen.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnSanBayDen.setColorClick(new java.awt.Color(0, 153, 255));
+        btnSanBayDen.setColorOver(new java.awt.Color(0, 204, 255));
         btnSanBayDen.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSanBayDen.setPreferredSize(new java.awt.Dimension(31, 31));
         ComboSanBayDi1.add(btnSanBayDen);
@@ -98,6 +102,8 @@ public class DatVeControlForm extends javax.swing.JPanel {
 
         btnNgayKhoiHanh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
         btnNgayKhoiHanh.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnNgayKhoiHanh.setColorClick(new java.awt.Color(0, 153, 255));
+        btnNgayKhoiHanh.setColorOver(new java.awt.Color(0, 204, 255));
         btnNgayKhoiHanh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnNgayKhoiHanh.setPreferredSize(new java.awt.Dimension(31, 31));
         jPanel6.add(btnNgayKhoiHanh);
