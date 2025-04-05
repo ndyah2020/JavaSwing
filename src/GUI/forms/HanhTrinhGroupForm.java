@@ -26,9 +26,9 @@ public class HanhTrinhGroupForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        hanhTrinhControlForm1 = new GUI.forms.HanhTrinhControlForm();
         jScrollPane1 = new javax.swing.JScrollPane();
         myTable1 = new GUI.panel.swing.MyTable();
+        hanhTrinhControlForm12 = new GUI.forms.HanhTrinhControlForm1();
 
         myTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -55,24 +55,25 @@ public class HanhTrinhGroupForm extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(hanhTrinhControlForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jScrollPane1)
+                .addGap(0, 0, 0)
+                .addComponent(hanhTrinhControlForm12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(hanhTrinhControlForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(hanhTrinhControlForm12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private GUI.forms.HanhTrinhControlForm hanhTrinhControlForm1;
+    private GUI.forms.HanhTrinhControlForm1 hanhTrinhControlForm12;
     private javax.swing.JScrollPane jScrollPane1;
     private GUI.panel.swing.MyTable myTable1;
     // End of variables declaration//GEN-END:variables
