@@ -1,5 +1,6 @@
 package GUI.frame;
 
+import GUI.forms.ChuyenBayGroupForm;
 import GUI.forms.DatVeGroupForm;
 import GUI.forms.FormGroup;
 import GUI.forms.HanhTrinhGroupForm;
@@ -340,7 +341,7 @@ public final class Home extends javax.swing.JFrame {
         addHoverEffect(loaiMayBayMenu, new LoaiMayBayGroupForm(), desktopPanel ,defaultColor, hoverColor);
         addHoverEffect(mayBayMenu, new MayBayGroupForm(), desktopPanel ,defaultColor, hoverColor);
         addHoverEffect(sanBayMenu, new SanBayGroupForm(),desktopPanel ,defaultColor, hoverColor);
-//        addHoverEffect(chuyenBayMenu ,defaultColor, hoverColor);
+        addHoverEffect(chuyenBayMenu, new ChuyenBayGroupForm(), desktopPanel,defaultColor, hoverColor);
         addHoverEffect(hanhTrinhMenu, new HanhTrinhGroupForm(), desktopPanel ,defaultColor, hoverColor);
         addHoverEffect(veMenu , new VeGroupForm(),desktopPanel, defaultColor, hoverColor);
         addHoverEffect(hoaDonMenu, new HoaDonGroupForm(), desktopPanel ,defaultColor, hoverColor);
