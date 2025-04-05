@@ -61,7 +61,7 @@ public final class Home extends javax.swing.JFrame {
         mayBayMenu = new javax.swing.JLabel();
         sanBayMenu = new javax.swing.JLabel();
         chuyenBayMenu = new javax.swing.JLabel();
-        lichBayMenu = new javax.swing.JLabel();
+        hanhTrinhMenu = new javax.swing.JLabel();
         veMenu = new javax.swing.JLabel();
         hoaDonMenu = new javax.swing.JLabel();
         khuyenMaiMenu = new javax.swing.JLabel();
@@ -199,12 +199,12 @@ public final class Home extends javax.swing.JFrame {
         chuyenBayMenu.setOpaque(true);
         menu.add(chuyenBayMenu);
 
-        lichBayMenu.setBackground(new java.awt.Color(255, 255, 255));
-        lichBayMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lichBayMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/LichBay.png"))); // NOI18N
-        lichBayMenu.setText("Lịch Bay");
-        lichBayMenu.setOpaque(true);
-        menu.add(lichBayMenu);
+        hanhTrinhMenu.setBackground(new java.awt.Color(255, 255, 255));
+        hanhTrinhMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        hanhTrinhMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/LichBay.png"))); // NOI18N
+        hanhTrinhMenu.setText("Hành trình");
+        hanhTrinhMenu.setOpaque(true);
+        menu.add(hanhTrinhMenu);
 
         veMenu.setBackground(new java.awt.Color(255, 255, 255));
         veMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -352,6 +352,7 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JLabel chuyenBayMenu;
     private javax.swing.JPanel desktopPanel;
     private GUI.panel.draw.DuongThang duongThang1;
+    private javax.swing.JLabel hanhTrinhMenu;
     private GUI.panel.swing.HeaderPanel header;
     private GUI.panel.draw.HinhTron hienHinhTK;
     private javax.swing.JLabel hienThiChucVuTK;
@@ -360,7 +361,6 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JLabel khachHangMenu;
     private javax.swing.JLabel khuyenMaiMenu;
-    private javax.swing.JLabel lichBayMenu;
     private javax.swing.JLabel loaiMayBayMenu;
     private javax.swing.JLabel mayBayMenu;
     private javax.swing.JPanel menu;
