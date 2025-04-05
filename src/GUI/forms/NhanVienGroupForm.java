@@ -29,6 +29,9 @@ public class NhanVienGroupForm extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         myTable1 = new GUI.panel.swing.MyTable();
         nhanVienControlForm1 = new GUI.forms.NhanVienControlForm();
+        nhanVienForm1 = new GUI.forms.NhanVienForm();
+
+        setPreferredSize(new java.awt.Dimension(1070, 800));
 
         jScrollPane1.setBorder(null);
 
@@ -51,16 +54,20 @@ public class NhanVienGroupForm extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
+        myTable1.setPreferredSize(new java.awt.Dimension(759, 152));
         jScrollPane1.setViewportView(myTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(nhanVienControlForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nhanVienForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -68,7 +75,11 @@ public class NhanVienGroupForm extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(nhanVienControlForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(nhanVienForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
     
@@ -77,5 +88,6 @@ public class NhanVienGroupForm extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private GUI.panel.swing.MyTable myTable1;
     private GUI.forms.NhanVienControlForm nhanVienControlForm1;
+    private GUI.forms.NhanVienForm nhanVienForm1;
     // End of variables declaration//GEN-END:variables
 }
