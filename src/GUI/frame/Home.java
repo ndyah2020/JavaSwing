@@ -1,6 +1,7 @@
 package GUI.frame;
 
 import GUI.forms.FormGroup;
+import GUI.forms.HoaDonGroupForm;
 import GUI.forms.HomeForm;
 import GUI.forms.HomeForm1;
 import GUI.forms.KhachHangGroupForm;
@@ -9,6 +10,7 @@ import GUI.forms.LoaiMayBayGroupForm;
 import GUI.forms.MayBayGroupForm;
 import GUI.forms.NhanVienGroupForm;
 import GUI.forms.SanBayGroupForm;
+import GUI.forms.TaiKhoanGroupForm;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Panel;
@@ -17,7 +19,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
-public class Home extends javax.swing.JFrame {
+public final class Home extends javax.swing.JFrame {
     Color defaultColor = Color.WHITE;
     Color hoverColor = new Color(0, 204, 255);
     private static JLabel selectedLabel = null; 
@@ -338,12 +340,10 @@ public class Home extends javax.swing.JFrame {
 //        addHoverEffect(chuyenBayMenu ,defaultColor, hoverColor);
 //        addHoverEffect(lichBayMenu ,defaultColor, hoverColor);
 //        addHoverEffect(veMenu ,defaultColor, hoverColor);
-//        addHoverEffect(hoaDonMenu ,defaultColor, hoverColor);
+        addHoverEffect(hoaDonMenu, new HoaDonGroupForm(), desktopPanel ,defaultColor, hoverColor);
         addHoverEffect(khuyenMaiMenu,new KhuyenMaiGroupForm(), desktopPanel ,defaultColor, hoverColor);
-//        addHoverEffect(taiKhoanMenu        addHoverEffect(khuyenMaiMenu ,defaultColor, hoverColor); ,defaultColor, hoverColor);
+        addHoverEffect(taiKhoanMenu, new TaiKhoanGroupForm(), desktopPanel ,defaultColor, hoverColor);
     }
-    
-    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.PanelBoderPanel PanelTrangChu;
