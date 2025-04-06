@@ -37,7 +37,7 @@ public final class Home extends javax.swing.JFrame {
     }
     public Home() {
         initComponents();
-        header.initMoving(Home.this);
+        headerPanel.initMoving(Home.this);
         showPanel(new FormGroup());
         this.setTitle("Quản Lý Chuyến Bay");
         handleEventHoverChuot();
@@ -51,10 +51,10 @@ public final class Home extends javax.swing.JFrame {
         PanelTrangChu = new GUI.panel.swing.PanelBoderPanel();
         menuContainer = new javax.swing.JPanel();
         thongTinTaiKhoan = new javax.swing.JPanel();
-        hienHinhTK = new GUI.panel.draw.HinhTron();
         duongThang1 = new GUI.panel.draw.DuongThang();
         hienThiTenTK = new javax.swing.JLabel();
         hienThiChucVuTK = new javax.swing.JLabel();
+        myImageAvatar2 = new GUI.panel.swing.MyImageAvatar();
         menu = new javax.swing.JPanel();
         trangChuMenu = new javax.swing.JLabel();
         datVeMenu = new javax.swing.JLabel();
@@ -70,7 +70,7 @@ public final class Home extends javax.swing.JFrame {
         khuyenMaiMenu = new javax.swing.JLabel();
         taiKhoanMenu = new javax.swing.JLabel();
         desktopPanel = new javax.swing.JPanel();
-        header = new GUI.panel.swing.HeaderPanel();
+        headerPanel = new GUI.panel.swing.HeaderPanel1();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -80,17 +80,6 @@ public final class Home extends javax.swing.JFrame {
         menuContainer.setBackground(new java.awt.Color(255, 255, 255));
 
         thongTinTaiKhoan.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout hienHinhTKLayout = new javax.swing.GroupLayout(hienHinhTK);
-        hienHinhTK.setLayout(hienHinhTKLayout);
-        hienHinhTKLayout.setHorizontalGroup(
-            hienHinhTKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        hienHinhTKLayout.setVerticalGroup(
-            hienHinhTKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
 
         duongThang1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -111,31 +100,33 @@ public final class Home extends javax.swing.JFrame {
         hienThiChucVuTK.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         hienThiChucVuTK.setText("Chức Vụ");
 
+        myImageAvatar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/avatar.png"))); // NOI18N
+
         javax.swing.GroupLayout thongTinTaiKhoanLayout = new javax.swing.GroupLayout(thongTinTaiKhoan);
         thongTinTaiKhoan.setLayout(thongTinTaiKhoanLayout);
         thongTinTaiKhoanLayout.setHorizontalGroup(
             thongTinTaiKhoanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thongTinTaiKhoanLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(duongThang1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(thongTinTaiKhoanLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addGroup(thongTinTaiKhoanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hienThiTenTK)
-                    .addComponent(hienHinhTK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
             .addGroup(thongTinTaiKhoanLayout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addComponent(hienThiChucVuTK)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(thongTinTaiKhoanLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addGroup(thongTinTaiKhoanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(myImageAvatar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(hienThiTenTK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         thongTinTaiKhoanLayout.setVerticalGroup(
             thongTinTaiKhoanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(thongTinTaiKhoanLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(hienHinhTK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(myImageAvatar2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(hienThiTenTK)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(hienThiChucVuTK)
@@ -266,18 +257,20 @@ public final class Home extends javax.swing.JFrame {
         PanelTrangChu.setLayout(PanelTrangChuLayout);
         PanelTrangChuLayout.setHorizontalGroup(
             PanelTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelTrangChuLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelTrangChuLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(menuContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(desktopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1065, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3))
-            .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PanelTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanelTrangChuLayout.createSequentialGroup()
+                        .addComponent(menuContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(desktopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1065, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         PanelTrangChuLayout.setVerticalGroup(
             PanelTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTrangChuLayout.createSequentialGroup()
-                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addGroup(PanelTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(menuContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelTrangChuLayout.createSequentialGroup()
@@ -356,8 +349,7 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JPanel desktopPanel;
     private GUI.panel.draw.DuongThang duongThang1;
     private javax.swing.JLabel hanhTrinhMenu;
-    private GUI.panel.swing.HeaderPanel header;
-    private GUI.panel.draw.HinhTron hienHinhTK;
+    private GUI.panel.swing.HeaderPanel1 headerPanel;
     private javax.swing.JLabel hienThiChucVuTK;
     private javax.swing.JLabel hienThiTenTK;
     private javax.swing.JLabel hoaDonMenu;
@@ -368,6 +360,7 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JLabel mayBayMenu;
     private javax.swing.JPanel menu;
     private javax.swing.JPanel menuContainer;
+    private GUI.panel.swing.MyImageAvatar myImageAvatar2;
     private javax.swing.JLabel nhanVienMenu;
     private javax.swing.JLabel sanBayMenu;
     private javax.swing.JLabel taiKhoanMenu;
