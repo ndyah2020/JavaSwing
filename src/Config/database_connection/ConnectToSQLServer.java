@@ -11,7 +11,7 @@ public class ConnectToSQLServer {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			try {
-				con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLCB;user=sa;password=123123;encrypt=true;trustServerCertificate=true");
+				con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLCB;user=sa;password=123123;encrypt=true;trustServerCertificate=true;characterEncoding=UTF-8;");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

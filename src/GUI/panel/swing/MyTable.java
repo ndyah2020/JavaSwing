@@ -16,6 +16,7 @@ public class MyTable extends JTable{
     public MyTable() {
         setShowHorizontalLines(true);
         setShowVerticalLines(false);
+        setFillsViewportHeight(true);
         setGridColor(new Color(235,235,235));      
         setRowHeight(38);
         getTableHeader().setReorderingAllowed(false);          
