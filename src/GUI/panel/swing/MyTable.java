@@ -3,12 +3,6 @@ package GUI.panel.swing;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
@@ -30,7 +24,7 @@ public class MyTable extends JTable{
             }
         }); 
         setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
-        	
+            @Override
             public Component getTableCellRendererComponent(JTable jtable, Object o, boolean selected, boolean bln1, int i, int i1) {
                 	Component com = super.getTableCellRendererComponent(jtable, o, selected, bln1, i, i1);
                     setBorder(noFocusBorder);
@@ -46,8 +40,11 @@ public class MyTable extends JTable{
                         com.setForeground(new Color(102, 102, 102));
                     }
                    return com;
-                }
-            
+                }   
         });
+    }
+    @Override
+    public boolean isCellEditable(int row, int column) {
+        return false;
     }
 }
