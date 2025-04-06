@@ -437,7 +437,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
         </Container>
-        <Component class="GUI.panel.swing.HeaderPanel1" name="headerPanel">
+        <Component class="GUI.panel.swing.HeaderPanel" name="headerPanel">
         </Component>
       </SubComponents>
     </Container>

@@ -10,9 +10,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import javax.swing.JFrame;
 
-public class HeaderPanel1 extends javax.swing.JPanel {
+public class HeaderPanel extends javax.swing.JPanel {
 
-    public HeaderPanel1() {
+    public HeaderPanel() {
         initComponents();
         setOpaque(false);
     }

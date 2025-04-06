@@ -70,7 +70,7 @@ public final class Home extends javax.swing.JFrame {
         khuyenMaiMenu = new javax.swing.JLabel();
         taiKhoanMenu = new javax.swing.JLabel();
         desktopPanel = new javax.swing.JPanel();
-        headerPanel = new GUI.panel.swing.HeaderPanel1();
+        headerPanel = new GUI.panel.swing.HeaderPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -349,7 +349,7 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JPanel desktopPanel;
     private GUI.panel.draw.DuongThang duongThang1;
     private javax.swing.JLabel hanhTrinhMenu;
-    private GUI.panel.swing.HeaderPanel1 headerPanel;
+    private GUI.panel.swing.HeaderPanel headerPanel;
     private javax.swing.JLabel hienThiChucVuTK;
     private javax.swing.JLabel hienThiTenTK;
     private javax.swing.JLabel hoaDonMenu;
