@@ -8,15 +8,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.UUID;
 import javax.swing.JOptionPane;
 
 public class SanBayDAO {
-    private Connection conn = ConnectToSQLServer.getConnection();
+    Connection conn = null;
     
-    public ArrayList layDanhSach() {
-        ArrayList dsSanBay = new ArrayList<SanBayDTO>();
+    public ArrayList<SanBayDTO> layDanhSach() {
+        ArrayList<SanBayDTO> dsSanBay = new ArrayList<>();
         try {
-            
+            conn = ConnectToSQLServer.getConnection();
             Statement st = conn.createStatement();
             ResultSet res = st.executeQuery("Select * from SanBay");
             
@@ -33,5 +34,21 @@ public class SanBayDAO {
         }
         return dsSanBay;
     }
-    
+    public Boolean themSanBay(SanBayDTO sanBay) {
+        try{
+            String sql = "Insert into MayBay(MaSanBay, TenSanBay, DiaChi) values (? , ? , ?)";
+            conn = ConnectToSQLServer.getConnection();
+            
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, sanBay.getMaSanBay());
+            pst.setString(2, sanBay.getTenSanBay());
+            pst.setString(3, sanBay.getDiaChi());
+            pst.executeUpdate();
+            ConnectToSQLServer.closeConnection(conn);
+        }catch(SQLException e){
+             JOptionPane.showMessageDialog(null, "Không thể thêm danh sách");
+             return false;
+        }
+        return true;
+    }
 }

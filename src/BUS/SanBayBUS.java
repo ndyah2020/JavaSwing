@@ -5,15 +5,24 @@ import DTO.SanBayDTO;
 import java.util.ArrayList;
 
 public class SanBayBUS {
-    private SanBayDAO sanBayDAO;
-    private ArrayList<SanBayDTO> dsSanBay;
+    private ArrayList<SanBayDTO> danhSachSanBay;
     
-    public ArrayList layDanhSachSanBay() {
-        sanBayDAO = new SanBayDAO();
-        if( dsSanBay == null ){
-            dsSanBay = new  ArrayList<SanBayDTO>();
-            dsSanBay = sanBayDAO.layDanhSach();
+    public SanBayBUS() {
+        danhSachSanBay = new ArrayList<>();
+        layDanhSachSanBay();
+    }
+    public void layDanhSachSanBay() {
+        SanBayDAO dao = new SanBayDAO();
+        danhSachSanBay = dao.layDanhSach();
+    }
+    public ArrayList<SanBayDTO> getDanhSachSanBay() {
+        return danhSachSanBay;
+    }
+    
+    public void themSanBay(SanBayDTO newSanBay) {
+        SanBayDAO dao = new SanBayDAO();
+        if(dao.themSanBay(newSanBay)){
+            danhSachSanBay.add(newSanBay);
         }
-        return dsSanBay;
     }
 }

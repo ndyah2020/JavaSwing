@@ -42,7 +42,7 @@ public class FormGroup extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(homeForm21, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(homeForm2, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)))
+                        .addComponent(homeForm2, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)))
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(

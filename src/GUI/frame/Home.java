@@ -1,49 +1,86 @@
 package GUI.frame;
 
+import Control.SanBayController;
 import GUI.forms.ChuyenBayGroupForm;
 import GUI.forms.DatVeGroupForm;
 import GUI.forms.FormGroup;
 import GUI.forms.HanhTrinhGroupForm;
 import GUI.forms.HoaDonGroupForm;
-import GUI.forms.HomeForm;
-import GUI.forms.HomeForm1;
 import GUI.forms.KhachHangGroupForm;
 import GUI.forms.KhuyenMaiGroupForm;
 import GUI.forms.LoaiMayBayGroupForm;
-import GUI.forms.MayBayGroupForm;
+import GUI.forms.MayBayPanelForm;
 import GUI.forms.NhanVienGroupForm;
-import GUI.forms.SanBayGroupForm;
+import GUI.forms.SanBayPanelForm;
 import GUI.forms.TaiKhoanGroupForm;
 import GUI.forms.VeGroupForm;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Panel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
+
 public final class Home extends javax.swing.JFrame {
+
     Color defaultColor = Color.WHITE;
     Color hoverColor = new Color(0, 204, 255);
-    private static JLabel selectedLabel = null; 
-    
-    public void showPanel(JPanel panel) {
-        desktopPanel.removeAll();
-        desktopPanel.add(panel);
-        desktopPanel.revalidate();
-        desktopPanel.repaint(); 
-       
-    }
+    private static JLabel selectedLabel = null;
+    //Khoi tao các controller
+    SanBayController sanBayController;
+    //Khoi tao cac panel
+    private FormGroup formGroup;
+    private DatVeGroupForm datVeForm;
+    private KhachHangGroupForm khachHangForm;
+    private NhanVienGroupForm nhanVienForm;
+    private LoaiMayBayGroupForm loaiMayBayForm;
+    private MayBayPanelForm mayBayForm;
+    private SanBayPanelForm sanBayForm;
+    private ChuyenBayGroupForm chuyenBayForm;
+    private HanhTrinhGroupForm hanhTrinhForm;
+    private VeGroupForm veForm;
+    private HoaDonGroupForm hoaDonForm;
+    private KhuyenMaiGroupForm khuyenMaiForm;
+    private TaiKhoanGroupForm taiKhoanForm;
+
+    //cac phuong thuc
     public Home() {
         initComponents();
-        headerPanel.initMoving(Home.this);
-        showPanel(new FormGroup());
         this.setTitle("Quản Lý Chuyến Bay");
+        initForms();
+
+        //Hiển thị home đầu tiên 
+        headerPanel.initMoving(Home.this);
+        desktopPanel.removeAll();
+        desktopPanel.add(formGroup);
+        desktopPanel.revalidate();
+        desktopPanel.repaint();
+        selectedLabel = trangChuMenu;
+        trangChuMenu.setBorder(new MatteBorder(0, 5, 0, 0, hoverColor));
+
+        //Xu ly khi click chuot vao tung menu
         handleEventHoverChuot();
     }
+
+    private void initForms() {
+        formGroup = new FormGroup();
+        datVeForm = new DatVeGroupForm();
+        khachHangForm = new KhachHangGroupForm();
+        nhanVienForm = new NhanVienGroupForm();
+        loaiMayBayForm = new LoaiMayBayGroupForm();
+        mayBayForm = new MayBayPanelForm();
+
+        sanBayForm = new SanBayPanelForm();
+        chuyenBayForm = new ChuyenBayGroupForm();
+        hanhTrinhForm = new HanhTrinhGroupForm();
+        veForm = new VeGroupForm();
+        hoaDonForm = new HoaDonGroupForm();
+        khuyenMaiForm = new KhuyenMaiGroupForm();
+        taiKhoanForm = new TaiKhoanGroupForm();
+    }
+
     @SuppressWarnings("unchecked")
-    
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -299,22 +336,69 @@ public final class Home extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
-    public static void addHoverEffect(final JLabel label,final JPanel panel,final JPanel desktopPanel, final Color defaultColor, final Color hoverColor) {
-        label.setBackground(defaultColor); 
+   private void hienThiDanhSach() {
+        if (selectedLabel == sanBayMenu) {
+            sanBayController = new SanBayController(sanBayForm);
+            sanBayController.hienThiDanhSachSanBay();
+            
+        } else if (selectedLabel == trangChuMenu) {
+            System.out.println("Trang chủ");
+            // có thể xử lý hiển thị form trang chủ nếu có
+        } else if (selectedLabel == datVeMenu) {
+            System.out.println("Đặt vé");
+            // Hiển thị form đặt vé
+        } else if (selectedLabel == khachHangMenu) {
+            System.out.println("Khách hàng");
+            // Hiển thị form khách hàng
+        } else if (selectedLabel == nhanVienMenu) {
+            System.out.println("Nhân viên");
+            // Hiển thị form nhân viên
+        } else if (selectedLabel == loaiMayBayMenu) {
+            System.out.println("Loại máy bay");
+            // Hiển thị form loại máy bay
+        } else if (selectedLabel == mayBayMenu) {
+            System.out.println("Máy bay");
+            // Hiển thị form máy bay
+        } else if (selectedLabel == chuyenBayMenu) {
+            System.out.println("Chuyến bay");
+            // Hiển thị form chuyến bay
+        } else if (selectedLabel == hanhTrinhMenu) {
+            System.out.println("Hành trình");
+            // Hiển thị form hành trình
+        } else if (selectedLabel == veMenu) {
+            System.out.println("Vé");
+            // Hiển thị form vé
+        } else if (selectedLabel == hoaDonMenu) {
+            System.out.println("Hóa đơn");
+            // Hiển thị form hóa đơn
+        } else if (selectedLabel == khuyenMaiMenu) {
+            System.out.println("Khuyến mãi");
+            // Hiển thị form khuyến mãi
+        } else if (selectedLabel == taiKhoanMenu) {
+            System.out.println("Tài khoản");
+            // Hiển thị form tài khoản
+        } else {
+            System.out.println("Không có menu phù hợp");
+        }
+    }
+
+    private void addHoverEffect(final JLabel label, final JPanel panel, final JPanel desktopPanel, final Color defaultColor, final Color hoverColor) {
+        label.setBackground(defaultColor);
         label.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent evt) {
                 label.setBackground(hoverColor);
                 label.repaint();
             }
+
             @Override
             public void mouseExited(MouseEvent evt) {
                 label.setBackground(defaultColor);
                 label.repaint();
             }
+
             @Override
-            public void mouseClicked(MouseEvent evt){
+            public void mouseClicked(MouseEvent evt) {
                 if (selectedLabel != null) {
                     selectedLabel.setBorder(null);
                 }
@@ -324,25 +408,27 @@ public final class Home extends javax.swing.JFrame {
                 desktopPanel.add(panel);
                 desktopPanel.revalidate();
                 desktopPanel.repaint();
+                hienThiDanhSach();
             }
         });
     }
-    public void handleEventHoverChuot(){
-        addHoverEffect(trangChuMenu, new FormGroup(), desktopPanel ,defaultColor, hoverColor);
-        addHoverEffect(datVeMenu, new DatVeGroupForm(), desktopPanel ,defaultColor, hoverColor);
-        addHoverEffect(khachHangMenu, new KhachHangGroupForm(), desktopPanel, defaultColor, hoverColor);
-        addHoverEffect(nhanVienMenu, new NhanVienGroupForm(),desktopPanel ,defaultColor, hoverColor);
-        addHoverEffect(loaiMayBayMenu, new LoaiMayBayGroupForm(), desktopPanel ,defaultColor, hoverColor);
-        addHoverEffect(mayBayMenu, new MayBayGroupForm(), desktopPanel ,defaultColor, hoverColor);
-        addHoverEffect(sanBayMenu, new SanBayGroupForm(),desktopPanel ,defaultColor, hoverColor);
-        addHoverEffect(chuyenBayMenu, new ChuyenBayGroupForm(), desktopPanel,defaultColor, hoverColor);
-        addHoverEffect(hanhTrinhMenu, new HanhTrinhGroupForm(), desktopPanel ,defaultColor, hoverColor);
-        addHoverEffect(veMenu , new VeGroupForm(),desktopPanel, defaultColor, hoverColor);
-        addHoverEffect(hoaDonMenu, new HoaDonGroupForm(), desktopPanel ,defaultColor, hoverColor);
-        addHoverEffect(khuyenMaiMenu,new KhuyenMaiGroupForm(), desktopPanel ,defaultColor, hoverColor);
-        addHoverEffect(taiKhoanMenu, new TaiKhoanGroupForm(), desktopPanel ,defaultColor, hoverColor);
+
+    private void handleEventHoverChuot() {
+        addHoverEffect(trangChuMenu, formGroup, desktopPanel, defaultColor, hoverColor);
+        addHoverEffect(datVeMenu, datVeForm, desktopPanel, defaultColor, hoverColor);
+        addHoverEffect(khachHangMenu, khachHangForm, desktopPanel, defaultColor, hoverColor);
+        addHoverEffect(nhanVienMenu, nhanVienForm, desktopPanel, defaultColor, hoverColor);
+        addHoverEffect(loaiMayBayMenu, loaiMayBayForm, desktopPanel, defaultColor, hoverColor);
+        addHoverEffect(mayBayMenu, mayBayForm, desktopPanel, defaultColor, hoverColor);
+        addHoverEffect(sanBayMenu, sanBayForm, desktopPanel, defaultColor, hoverColor);
+        addHoverEffect(chuyenBayMenu, chuyenBayForm, desktopPanel, defaultColor, hoverColor);
+        addHoverEffect(hanhTrinhMenu, hanhTrinhForm, desktopPanel, defaultColor, hoverColor);
+        addHoverEffect(veMenu, veForm, desktopPanel, defaultColor, hoverColor);
+        addHoverEffect(hoaDonMenu, hoaDonForm, desktopPanel, defaultColor, hoverColor);
+        addHoverEffect(khuyenMaiMenu, khuyenMaiForm, desktopPanel, defaultColor, hoverColor);
+        addHoverEffect(taiKhoanMenu, taiKhoanForm, desktopPanel, defaultColor, hoverColor);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.PanelBoderPanel PanelTrangChu;
     private javax.swing.JLabel chuyenBayMenu;
