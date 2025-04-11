@@ -19,10 +19,27 @@ public class SanBayBUS {
         return danhSachSanBay;
     }
     
-    public void themSanBay(SanBayDTO newSanBay) {
+    public void themSanBay(SanBayDTO sanBay) {
         SanBayDAO dao = new SanBayDAO();
-        if(dao.themSanBay(newSanBay)){
-            danhSachSanBay.add(newSanBay);
+        if(dao.themSanBay(sanBay)){
+            danhSachSanBay.add(sanBay);
+        }
+    }
+    public void xoaSanBay(String maSanBay) {
+        SanBayDAO dao = new SanBayDAO();
+        if(dao.xoaSanBay(maSanBay)){
+            danhSachSanBay.removeIf(sb -> sb.getMaSanBay().equals(maSanBay));
+        }
+    }
+    public void suaSanBay(SanBayDTO sanBay) {
+        SanBayDAO dao = new SanBayDAO();
+        if(dao.suaSanBay(sanBay)){
+            for(int i = 0; i < danhSachSanBay.size(); i++){
+                if(danhSachSanBay.get(i).equals(sanBay.getMaSanBay())){
+                   danhSachSanBay.set(i, sanBay);
+                   break;
+                }
+            }
         }
     }
 }

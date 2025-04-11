@@ -36,19 +36,59 @@ public class SanBayDAO {
     }
     public Boolean themSanBay(SanBayDTO sanBay) {
         try{
-            String sql = "Insert into MayBay(MaSanBay, TenSanBay, DiaChi) values (? , ? , ?)";
-            conn = ConnectToSQLServer.getConnection();
-            
+            String sql = "Insert into SanBay(MaSanBay, TenSanBay, DiaChi) values (?,?,?)";
+            conn = ConnectToSQLServer.getConnection();     
             PreparedStatement pst = conn.prepareStatement(sql);
+            
             pst.setString(1, sanBay.getMaSanBay());
             pst.setString(2, sanBay.getTenSanBay());
             pst.setString(3, sanBay.getDiaChi());
+            
             pst.executeUpdate();
+            pst.close();
             ConnectToSQLServer.closeConnection(conn);
+            return true;
         }catch(SQLException e){
+             e.printStackTrace();
              JOptionPane.showMessageDialog(null, "Không thể thêm danh sách");
              return false;
         }
-        return true;
+    }
+    
+    public Boolean xoaSanBay(String maSanBay) {
+        try {
+            String sql = "DELETE FROM SanBay WHERE MaSanBay = ?";
+            conn = ConnectToSQLServer.getConnection();
+            PreparedStatement pst = conn.prepareStatement(sql);
+            
+            pst.setString(1, maSanBay);
+            pst.executeUpdate();
+            pst.close();
+            ConnectToSQLServer.closeConnection(conn);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Không thể xóa sân bay");
+            return false;
+        }
+    }
+    public Boolean suaSanBay(SanBayDTO sanBay) {
+        try {
+            String sql = "UPDATE SanBay SET TenSanBay = ?, DiaChi = ? Where MaSanBay = ?";
+            conn = ConnectToSQLServer.getConnection();
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, sanBay.getTenSanBay());
+            pst.setString(2, sanBay.getDiaChi());
+            pst.setString(3, sanBay.getMaSanBay());
+            
+            pst.executeUpdate();
+            pst.close();
+            ConnectToSQLServer.closeConnection(conn);
+            return true;
+        }catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Không thể cập nhật sân bay");
+            return false;
+        }
     }
 }

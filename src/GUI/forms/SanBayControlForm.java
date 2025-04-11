@@ -51,18 +51,24 @@ public class SanBayControlForm extends javax.swing.JPanel {
         btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/plus.png"))); // NOI18N
         btnThem.setText("Thêm");
         btnThem.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnThem.setColorClick(new java.awt.Color(0, 153, 255));
+        btnThem.setColorOver(new java.awt.Color(0, 204, 255));
         btnThem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnThem.setPreferredSize(new java.awt.Dimension(100, 31));
 
         btnSua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/edit.png"))); // NOI18N
         btnSua.setText("Sửa");
         btnSua.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnSua.setColorClick(new java.awt.Color(0, 153, 255));
+        btnSua.setColorOver(new java.awt.Color(0, 204, 255));
         btnSua.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSua.setPreferredSize(new java.awt.Dimension(100, 31));
 
         btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/Xoa.png"))); // NOI18N
         btnXoa.setText("Xóa");
         btnXoa.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnXoa.setColorClick(new java.awt.Color(0, 153, 255));
+        btnXoa.setColorOver(new java.awt.Color(0, 204, 255));
         btnXoa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnXoa.setPreferredSize(new java.awt.Dimension(100, 31));
 

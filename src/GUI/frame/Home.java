@@ -339,8 +339,9 @@ public final class Home extends javax.swing.JFrame {
    private void hienThiDanhSach() {
         if (selectedLabel == sanBayMenu) {
             sanBayController = new SanBayController(sanBayForm);
-            sanBayController.hienThiDanhSachSanBay();
             
+            sanBayController.hienThiDanhSachSanBay();
+            sanBayController.xuLySuKien();
         } else if (selectedLabel == trangChuMenu) {
             System.out.println("Trang chủ");
             // có thể xử lý hiển thị form trang chủ nếu có

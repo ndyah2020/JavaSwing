@@ -1,5 +1,6 @@
 package GUI.forms;
 import GUI.panel.swing.MyTable;
+import java.awt.event.MouseAdapter;
 import javax.swing.table.DefaultTableModel;
 
 public class SanBayTableForm extends javax.swing.JPanel {
@@ -50,6 +51,10 @@ public class SanBayTableForm extends javax.swing.JPanel {
     public DefaultTableModel getModel() {
         return model;
     }
+    public void addRowClick(MouseAdapter listener) {
+        myTable.addMouseListener(listener);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane2;
     private GUI.panel.swing.MyTable myTable;
