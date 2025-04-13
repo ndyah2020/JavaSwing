@@ -1,4 +1,4 @@
-﻿DROP DATABASE QLCB
+﻿﻿DROP DATABASE QLCB
 CREATE DATABASE QLCB
 GO
 USE QLCB;
@@ -33,12 +33,25 @@ CREATE TABLE LoaiVe (
 GO
 
 CREATE TABLE LoaiMayBay (
-    MaLoai VARCHAR(10) PRIMARY KEY NOT NULL,
+    MaLoai VARCHAR(20) PRIMARY KEY NOT NULL,
     TenLoai VARCHAR(255) NOT NULL,
     HeSoGiaThuong FLOAT NOT NULL,
     HeSoGiaVip FLOAT NOT NULL
 );
 GO
+
+INSERT INTO LoaiMayBay (MaLoai, TenLoai, HeSoGiaThuong, HeSoGiaVip)
+VALUES
+('LMB-A1B2C3D4', N'Boeing 737 MAX', 1.2, 1.8),
+('LMB-E5F6G7H8', N'Airbus A320neo', 1.15, 1.75),
+('LMB-J9K0L1M2', N'Embraer E195-E2', 1.1, 1.6),
+('LMB-N3O4P5Q6', N'Boeing 787 Dreamliner', 1.4, 2.0),
+('LMB-R7S8T9U0', N'Airbus A350 XWB', 1.45, 2.1),
+('LMB-V1W2X3Y4', N'Bombardier CS300', 1.1, 1.65),
+('LMB-Z5A6B7C8', N'Sukhoi Superjet 100', 1.05, 1.55),
+('LMB-D9E0F1G2', N'Mitsubishi SpaceJet', 1.08, 1.6),
+('LMB-H3I4J5K6', N'Tupolev Tu-204', 1.12, 1.68),
+('LMB-L7M8N9O0', N'Comac C919', 1.18, 1.7);
 
 CREATE TABLE MayBay (
     MaMayBay VARCHAR(10) PRIMARY KEY NOT NULL,
@@ -46,7 +59,7 @@ CREATE TABLE MayBay (
     SoLuongGheThuong INT NOT NULL,
     SoLuongGheVip INT NOT NULL,
     TongSoLuongGhe INT NOT NULL,
-    MaLoaiMayBay VARCHAR(10) NOT NULL,
+    MaLoaiMayBay VARCHAR(20) NOT NULL,
     FOREIGN KEY (MaLoaiMayBay) REFERENCES LoaiMayBay(MaLoai)
 );
 GO

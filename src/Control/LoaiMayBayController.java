@@ -56,9 +56,9 @@ public class LoaiMayBayController {
     
     public String taoMaNgauNhien() {
         String prefix = "LMB";
-        String random = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 4).toUpperCase();
+        String random = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 8).toUpperCase();
         while (maDaTonTai(random)) {
-            random = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 4).toUpperCase();
+            random = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 8).toUpperCase();
         }
         return prefix + "-" + random;
     }
@@ -72,16 +72,14 @@ public class LoaiMayBayController {
         return false;
     }
     
-    public Float toFloat(String input, String fieldName) {
+    public Float toFloat(String input) {
         if (input == null || input.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Vui lòng nhập " + fieldName + ".");
             return null;
         }
 
         try {
             return Float.parseFloat(input.trim().replace(",", "."));
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, fieldName + " phải là một số hợp lệ.");
             return null;
         }
     }
@@ -106,22 +104,31 @@ public class LoaiMayBayController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String tenLoai = loaiMayBayPanel.getLoaiMayBayControlForm().getTxtTenLoaiMayBay().getText();
-                String heSoGiaThuong = loaiMayBayPanel.getLoaiMayBayControlForm().getTxtHeSoGiaThuong().getText();
-                String heSoGiaVip = loaiMayBayPanel.getLoaiMayBayControlForm().getTxtHeSoGiaVip().getText();
-                
-                if (tenLoai.isEmpty() || heSoGiaThuong.isEmpty() || heSoGiaVip.isEmpty()) {
+                String txtHeSoGiaThuong = loaiMayBayPanel.getLoaiMayBayControlForm().getTxtHeSoGiaThuong().getText();
+                String txtHeSoGiaVip = loaiMayBayPanel.getLoaiMayBayControlForm().getTxtHeSoGiaVip().getText();
+
+                if (tenLoai.trim().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin!");
                     return;
                 }
+
+                Float heSoGiaThuong = toFloat(txtHeSoGiaThuong);
+                Float heSoGiaVip = toFloat(txtHeSoGiaVip);
+
+                if (heSoGiaThuong == null || heSoGiaVip == null) {
+                    JOptionPane.showMessageDialog(null, "Hệ số giá phải là số thực hợp lệ (ví dụ: 1.5 hoặc 1,5).");
+                    return;
+                }
+
                 LoaiMayBayDTO loaiMayBay = new LoaiMayBayDTO();
                 loaiMayBay.setMaLoai(taoMaNgauNhien());
                 loaiMayBay.setTenLoai(tenLoai);
-                loaiMayBay.setHeSoGiaThuong(Float.parseFloat(heSoGiaThuong));
-                loaiMayBay.setHeSoGiaVip(Float.parseFloat(heSoGiaVip));
-                
+                loaiMayBay.setHeSoGiaThuong(heSoGiaThuong);
+                loaiMayBay.setHeSoGiaVip(heSoGiaVip);
+
                 LoaiMayBayBus bus = new LoaiMayBayBus();
                 bus.themLoaiMayBay(loaiMayBay);
-                
+
                 loaiMayBayPanel.getLoaiMayBayControlForm().clearFormData();
                 hienThiDanhSachLoaiMayBay();
             }
@@ -132,11 +139,18 @@ public class LoaiMayBayController {
             public void actionPerformed(ActionEvent e) {
                 int rowSelected = loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().getSelectedRow();
                 if (rowSelected != -1) {
-                    String maLoaiMayBay = loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().getValueAt(rowSelected, 0).toString();
-                    LoaiMayBayBus bus = new LoaiMayBayBus();
-                    bus.xoaLoaiMayBay(maLoaiMayBay);
-                    loaiMayBayPanel.getLoaiMayBayControlForm().clearFormData();
-                    hienThiDanhSachLoaiMayBay();
+                    int confirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa loại máy bay này?", "Xác nhận xóa", JOptionPane.YES_NO_OPTION);
+                    if (confirm == JOptionPane.YES_OPTION) {
+                        String maLoaiMayBay = loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().getValueAt(rowSelected, 0).toString();
+                        LoaiMayBayBus bus = new LoaiMayBayBus();
+                        bus.xoaLoaiMayBay(maLoaiMayBay);
+
+                        JOptionPane.showMessageDialog(null, "Xóa loại máy bay thành công!");
+                        hienThiDanhSachLoaiMayBay();
+                        loaiMayBayPanel.getLoaiMayBayControlForm().clearFormData();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Vui lòng chọn một dòng để xóa!");
                 }
             }
         });
@@ -146,15 +160,20 @@ public class LoaiMayBayController {
             public void actionPerformed(ActionEvent e) {
                 String tenLoaiMayBay = loaiMayBayPanel.getLoaiMayBayControlForm().getTxtTenLoaiMayBay().getText();
                 String heSoGiaThuongText = loaiMayBayPanel.getLoaiMayBayControlForm().getTxtHeSoGiaThuong().getText();
-                Float heSoGiaThuong = toFloat(heSoGiaThuongText, "Hệ số giá thuòng");
+                Float heSoGiaThuong = toFloat(heSoGiaThuongText);
                 String heSoGiaVipText = loaiMayBayPanel.getLoaiMayBayControlForm().getTxtHeSoGiaVip().getText();
-                Float heSoGiaVip = toFloat(heSoGiaVipText, "Hệ số giá Vip");
+                Float heSoGiaVip = toFloat(heSoGiaVipText);
                 
-                if (tenLoaiMayBay.isEmpty()) {
+                if (tenLoaiMayBay.trim().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin!");
                     return;
                 }
                 
+                if (heSoGiaThuong == null || heSoGiaVip == null) {
+                    JOptionPane.showMessageDialog(null, "Hệ số giá phải là số thực hợp lệ (ví dụ: 1.5 hoặc 1,5).");
+                    return;
+                }
+
                 int selectedRow = loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().getSelectedRow();
                 if (selectedRow != -1) {
                     String maLoaiMayBay = loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().getValueAt(selectedRow, 0).toString();
