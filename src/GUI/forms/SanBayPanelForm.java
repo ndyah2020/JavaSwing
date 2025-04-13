@@ -9,8 +9,8 @@ public class SanBayPanelForm extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollBar1 = new javax.swing.JScrollBar();
-        sanBayControlForm = new GUI.forms.SanBayControlForm();
         sanBayTableForm = new GUI.forms.SanBayTableForm();
+        sanBayControlForm = new GUI.forms.SanBayControlForm();
 
         setMaximumSize(new java.awt.Dimension(1065, 800));
         setMinimumSize(new java.awt.Dimension(0, 0));
@@ -20,15 +20,15 @@ public class SanBayPanelForm extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(sanBayTableForm, javax.swing.GroupLayout.DEFAULT_SIZE, 1065, Short.MAX_VALUE)
             .addComponent(sanBayControlForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(sanBayTableForm, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(sanBayControlForm, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(sanBayTableForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sanBayControlForm, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sanBayTableForm, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
