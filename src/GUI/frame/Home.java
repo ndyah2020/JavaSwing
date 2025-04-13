@@ -1,6 +1,7 @@
 package GUI.frame;
 
 import Control.HanhTrinhController;
+import Control.LoaiMayBayController;
 import Control.SanBayController;
 import GUI.forms.ChuyenBayGroupForm;
 import GUI.forms.DatVeGroupForm;
@@ -9,7 +10,7 @@ import GUI.forms.HanhTrinhPanelForm;
 import GUI.forms.HoaDonGroupForm;
 import GUI.forms.KhachHangGroupForm;
 import GUI.forms.KhuyenMaiGroupForm;
-import GUI.forms.LoaiMayBayGroupForm;
+import GUI.forms.LoaiMayBayPanelForm;
 import GUI.forms.MayBayPanelForm;
 import GUI.forms.NhanVienGroupForm;
 import GUI.forms.SanBayPanelForm;
@@ -30,12 +31,13 @@ public final class Home extends javax.swing.JFrame {
     //Khoi tao các controller
     SanBayController sanBayController;
     HanhTrinhController hanhTrinhController;
+    LoaiMayBayController loaiMayBayController;
     //Khoi tao cac panel
     private FormGroup formGroup;
     private DatVeGroupForm datVeForm;
     private KhachHangGroupForm khachHangForm;
     private NhanVienGroupForm nhanVienForm;
-    private LoaiMayBayGroupForm loaiMayBayForm;
+    private LoaiMayBayPanelForm loaiMayBayForm;
     private MayBayPanelForm mayBayForm;
     private SanBayPanelForm sanBayForm;
     private ChuyenBayGroupForm chuyenBayForm;
@@ -69,7 +71,7 @@ public final class Home extends javax.swing.JFrame {
         datVeForm = new DatVeGroupForm();
         khachHangForm = new KhachHangGroupForm();
         nhanVienForm = new NhanVienGroupForm();
-        loaiMayBayForm = new LoaiMayBayGroupForm();
+        loaiMayBayForm = new LoaiMayBayPanelForm();
         mayBayForm = new MayBayPanelForm();
 
         sanBayForm = new SanBayPanelForm();
@@ -357,8 +359,10 @@ public final class Home extends javax.swing.JFrame {
             System.out.println("Nhân viên");
             // Hiển thị form nhân viên
         } else if (selectedLabel == loaiMayBayMenu) {
-            System.out.println("Loại máy bay");
-            // Hiển thị form loại máy bay
+            loaiMayBayController = new LoaiMayBayController(loaiMayBayForm);
+            loaiMayBayController.hienThiDanhSachLoaiMayBay();
+            loaiMayBayController.xuLySuKienLoaiMayBay();
+            
         } else if (selectedLabel == mayBayMenu) {
             System.out.println("Máy bay");
             // Hiển thị form máy bay
