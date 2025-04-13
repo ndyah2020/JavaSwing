@@ -1,10 +1,11 @@
 package GUI.frame;
 
+import Control.HanhTrinhController;
 import Control.SanBayController;
 import GUI.forms.ChuyenBayGroupForm;
 import GUI.forms.DatVeGroupForm;
 import GUI.forms.FormGroup;
-import GUI.forms.HanhTrinhGroupForm;
+import GUI.forms.HanhTrinhPanelForm;
 import GUI.forms.HoaDonGroupForm;
 import GUI.forms.KhachHangGroupForm;
 import GUI.forms.KhuyenMaiGroupForm;
@@ -28,6 +29,7 @@ public final class Home extends javax.swing.JFrame {
     private static JLabel selectedLabel = null;
     //Khoi tao các controller
     SanBayController sanBayController;
+    HanhTrinhController hanhTrinhController;
     //Khoi tao cac panel
     private FormGroup formGroup;
     private DatVeGroupForm datVeForm;
@@ -37,7 +39,7 @@ public final class Home extends javax.swing.JFrame {
     private MayBayPanelForm mayBayForm;
     private SanBayPanelForm sanBayForm;
     private ChuyenBayGroupForm chuyenBayForm;
-    private HanhTrinhGroupForm hanhTrinhForm;
+    private HanhTrinhPanelForm hanhTrinhForm;
     private VeGroupForm veForm;
     private HoaDonGroupForm hoaDonForm;
     private KhuyenMaiGroupForm khuyenMaiForm;
@@ -72,7 +74,7 @@ public final class Home extends javax.swing.JFrame {
 
         sanBayForm = new SanBayPanelForm();
         chuyenBayForm = new ChuyenBayGroupForm();
-        hanhTrinhForm = new HanhTrinhGroupForm();
+        hanhTrinhForm = new HanhTrinhPanelForm();
         veForm = new VeGroupForm();
         hoaDonForm = new HoaDonGroupForm();
         khuyenMaiForm = new KhuyenMaiGroupForm();
@@ -364,8 +366,11 @@ public final class Home extends javax.swing.JFrame {
             System.out.println("Chuyến bay");
             // Hiển thị form chuyến bay
         } else if (selectedLabel == hanhTrinhMenu) {
-            System.out.println("Hành trình");
-            // Hiển thị form hành trình
+            hanhTrinhController = new HanhTrinhController(hanhTrinhForm);
+            
+            hanhTrinhController.hienThiDanhSachHanhTrinh();
+            hanhTrinhController.xuLySuKienHanhTrinhConTrol();
+            
         } else if (selectedLabel == veMenu) {
             System.out.println("Vé");
             // Hiển thị form vé

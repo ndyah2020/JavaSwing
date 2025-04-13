@@ -18,9 +18,8 @@ import javax.swing.table.DefaultTableModel;
 public class SanBayController {
 
     private ArrayList<SanBayDTO> dsSanBay;
-    private SanBayPanelForm sanBayPanel;
-    private DefaultTableModel modelDs;
-
+    private final SanBayPanelForm sanBayPanel;
+    
     public SanBayController(SanBayPanelForm panel) {
         this.sanBayPanel = panel;
     }
@@ -38,7 +37,7 @@ public class SanBayController {
     
     public void hienThiDanhSachSanBay() {
         SanBayBUS sanBayBUS = new SanBayBUS();
-        modelDs = sanBayPanel.getSanBayTableForm().getModel();
+        DefaultTableModel modelDs = sanBayPanel.getSanBayTableForm().getModel();
         dsSanBay = sanBayBUS.getDanhSachSanBay();
         taiDuLieuLenTabel(modelDs, dsSanBay);
         sanBayPanel.getSanBayTableForm().getMyTable().setModel(modelDs);
@@ -76,6 +75,19 @@ public class SanBayController {
     }
 
     public void xuLySuKien() {
+        //tai du lieu lem text field
+        sanBayPanel.getSanBayTableForm().addRowClick(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int rowSeleted = sanBayPanel.getSanBayTableForm().getMyTable().getSelectedRow();
+                
+                if (rowSeleted != -1) {
+                    SanBayDTO sanBay = dsSanBay.get(rowSeleted);
+                    sanBayPanel.getSanBayControlForm().getTxtTenSanBay().setText(sanBay.getTenSanBay());
+                    sanBayPanel.getSanBayControlForm().getTxtDiaChi().setText(sanBay.getDiaChi());
+                }
+            }
+        });
         //thêm sân bay mới
         sanBayPanel.getSanBayControlForm().addThemListener(new ActionListener() {
             @Override
@@ -95,23 +107,20 @@ public class SanBayController {
                 SanBayBUS bus = new SanBayBUS();
                 bus.themSanBay(sanBay);
 
-                Vector<String> row = new Vector<>();
-                row.add(sanBay.getMaSanBay());
-                row.add(sanBay.getTenSanBay());
-                row.add(sanBay.getDiaChi());
-                sanBayPanel.getSanBayControlForm().clearFormData(ten, diaChi);
+                sanBayPanel.getSanBayControlForm().clearFormData();
                 hienThiDanhSachSanBay();
             }
         });
         //Xóa sân bay
         sanBayPanel.getSanBayControlForm().addXoaListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {               
                 int rowSeleted = sanBayPanel.getSanBayTableForm().getMyTable().getSelectedRow();
                 if (rowSeleted != -1) {
                     String maSanBay = sanBayPanel.getSanBayTableForm().getMyTable().getValueAt(rowSeleted, 0).toString();
                     SanBayBUS bus = new SanBayBUS();
                     bus.xoaSanBay(maSanBay);
+                    sanBayPanel.getSanBayControlForm().clearFormData();
                     hienThiDanhSachSanBay();
                 }
             }
@@ -142,23 +151,10 @@ public class SanBayController {
                     SanBayBUS bus = new SanBayBUS();
                     bus.suaSanBay(sanBay);
 
-                    sanBayPanel.getSanBayControlForm().clearFormData(ten, diaChi);
+                    sanBayPanel.getSanBayControlForm().clearFormData();
                     hienThiDanhSachSanBay();
                 } else {
                     JOptionPane.showMessageDialog(null, "Vui lòng chọn một dòng để sửa!");
-                }
-            }
-        });
-        //tai du lieu lem text field
-        sanBayPanel.getSanBayTableForm().addRowClick(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                int rowSeleted = sanBayPanel.getSanBayTableForm().getMyTable().getSelectedRow();
-                if (rowSeleted != -1) {
-                    SanBayDTO sanBay = new SanBayDTO();
-                    sanBay = dsSanBay.get(rowSeleted);
-                    sanBayPanel.getSanBayControlForm().getTxtTenSanBay().setText(sanBay.getTenSanBay());
-                    sanBayPanel.getSanBayControlForm().getTxtDiaChi().setText(sanBay.getDiaChi());
                 }
             }
         });

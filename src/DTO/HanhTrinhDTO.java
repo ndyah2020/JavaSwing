@@ -1,23 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package DTO;
 
-import java.util.Date;
-
-/**
- *
- * @author Lenovo
- */
 public class HanhTrinhDTO {
 
     private String maHanhTrinh;
-    private SanBayDTO sanBayDi;
-    private SanBayDTO sanBayDen;
-    private double giaCoBan;
+    private String sanBayDi;
+    private String sanBayDen;
+    private int giaCoBan;
 
-    public HanhTrinhDTO(String maHanhTrinh, SanBayDTO sanBayDi, SanBayDTO sanBayDen, double giaCoBan) {
+    public HanhTrinhDTO(String maHanhTrinh, String sanBayDi, String sanBayDen, int giaCoBan) {
         this.maHanhTrinh = maHanhTrinh;
         this.sanBayDi = sanBayDi;
         this.sanBayDen = sanBayDen;
@@ -32,15 +23,15 @@ public class HanhTrinhDTO {
         return maHanhTrinh;
     }
 
-    public SanBayDTO getSanBayDi() {
+    public String getSanBayDi() {
         return sanBayDi;
     }
 
-    public SanBayDTO getSanBayDen() {
+    public String getSanBayDen() {
         return sanBayDen;
     }
 
-    public double getGiaCoBan() {
+    public int getGiaCoBan() {
         return giaCoBan;
     }
 
@@ -48,15 +39,15 @@ public class HanhTrinhDTO {
         this.maHanhTrinh = maHanhTrinh;
     }
 
-    public void setSanBayDi(SanBayDTO sanBayDi) {
+    public void setSanBayDi(String sanBayDi) {
         this.sanBayDi = sanBayDi;
     }
 
-    public void setSanBayDen(SanBayDTO sanBayDen) {
+    public void setSanBayDen(String sanBayDen) {
         this.sanBayDen = sanBayDen;
     }
 
-    public void setGiaCoBan(double giaCoBan) {
+    public void setGiaCoBan(int giaCoBan) {
         this.giaCoBan = giaCoBan;
     }
     

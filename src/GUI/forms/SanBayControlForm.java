@@ -149,7 +149,7 @@ public class SanBayControlForm extends javax.swing.JPanel {
         txtTenSanBay.setText(ten);
         txtDiaChi.setText(diaChi);
     }
-    public void clearFormData(String ten, String diaChi) {
+    public void clearFormData() {
         txtTenSanBay.setText("");
         txtDiaChi.setText("");
     }

@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.UUID;
 import javax.swing.JOptionPane;
 
 public class SanBayDAO {
@@ -49,7 +48,6 @@ public class SanBayDAO {
             ConnectToSQLServer.closeConnection(conn);
             return true;
         }catch(SQLException e){
-             e.printStackTrace();
              JOptionPane.showMessageDialog(null, "Không thể thêm danh sách");
              return false;
         }

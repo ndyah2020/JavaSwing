@@ -15,12 +15,12 @@ INSERT INTO SanBay (MaSanBay, TenSanBay, DiaChi)
 VALUES 
 ('SB-HV1A2B', N'Sân Bay Nội Bài',  N'Quốc lộ 2, Sóc Sơn, Hà Nội, Việt Nam'),
 ('SB-HCM3C4D', N'Sân Bay Tân Sơn Nhất', N'Phường 2, Tân Bình, TP. Hồ Chí Minh, Việt Nam'),
-('SB-ĐN5E6F', N'Sân Bay Đà Nẵng', N'Phường Hòa Thuận Đông, Hải Châu, Đà Nẵng, Việt Nam'),
+('SB-DN5E6F', N'Sân Bay Đà Nẵng', N'Phường Hòa Thuận Đông, Hải Châu, Đà Nẵng, Việt Nam'),
 ('SB-CT7G8H', N'Sân Bay Cát Bi', N'Quán Trữ, Kiến An, Hải Phòng, Việt Nam'),
 ('SB-NV9I0J', N'Sân Bay Phú Bài', N'Xã Phú Bài, Hương Thủy, Thừa Thiên-Huế, Việt Nam'),
 ('SB-QT1K2L', N'Sân Bay Quốc tế Cam Ranh', N'Xã Cam Hải Đông, Cam Lâm, Khánh Hòa, Việt Nam'),
 ('SB-VQ3M4N', N'Sân Bay Vinh', N'Phường Quán Bàu, Vinh, Nghệ An, Việt Nam'),
-('SB--BL5O6P', N'Sân Bay Buôn Ma Thuột', N'Phường Tân Lập, Buôn Ma Thuột, Đắk Lắk, Việt Nam'),
+('SB-BL5O6P', N'Sân Bay Buôn Ma Thuột', N'Phường Tân Lập, Buôn Ma Thuột, Đắk Lắk, Việt Nam'),
 ('SB-HDB7Q8R', N'Sân Bay Phú Quốc', N'Dương Tơ, Phú Quốc, Kiên Giang, Việt Nam'),
 ('SB-SG9T0U', N'Sân Bay Cần Thơ', N'Phường An Hòa, Cần Thơ, Việt Nam');
 
@@ -50,17 +50,25 @@ CREATE TABLE MayBay (
     FOREIGN KEY (MaLoaiMayBay) REFERENCES LoaiMayBay(MaLoai)
 );
 GO
-
+DROP table HanhTrinh
 CREATE TABLE HanhTrinh (
-    MaHanhTrinh VARCHAR(10) PRIMARY KEY NOT NULL,
-    MaSanBayDen VARCHAR(10) NOT NULL,
-    MaSanBayDi VARCHAR(10) NOT NULL,
-    GiaCoBan DECIMAL(10,2) NOT NULL,
+    MaHanhTrinh VARCHAR(20) PRIMARY KEY NOT NULL,
+	MaSanBayDi VARCHAR(20) NOT NULL,
+    MaSanBayDen VARCHAR(20) NOT NULL,
+    GiaCoBan int NOT NULL,
     FOREIGN KEY (MaSanBayDi) REFERENCES SanBay(MaSanBay),
     FOREIGN KEY (MaSanBayDen) REFERENCES SanBay(MaSanBay)
 );
 GO
+INSERT INTO HanhTrinh (MaHanhTrinh, MaSanBayDi, MaSanBayDen, GiaCoBan)
+VALUES
+('HT-0001', 'SB-HV1A2B', 'SB-HCM3C4D', 1500000),  -- Nội Bài → Tân Sơn Nhất
+('HT-0002', 'SB-HCM3C4D', 'SB-DN5E6F', 1200000),  -- Tân Sơn Nhất → Đà Nẵng
+('HT-0003', 'SB-DN5E6F', 'SB-CT7G8H', 1000000),   -- Đà Nẵng → Cát Bi
+('HT-0004', 'SB-NV9I0J', 'SB-QT1K2L', 1100000),   -- Phú Bài → Cam Ranh
+('HT-0005', 'SB-HDB7Q8R', 'SB-SG9T0U', 1300000);  -- Phú Quốc → Cần Thơ
 
+GO
 CREATE TABLE ChuyenBay (
     MaChuyenBay VARCHAR(10) PRIMARY KEY NOT NULL,
     NgayXuatPhat DATE NOT NULL,
@@ -178,4 +186,17 @@ VALUES
 ('KH9E1D2F0', 'Le', 'Minh', 'Nam', '1991-11-25', '0945678910', 'leminh7@gmail.com'),
 ('KH3A8C5B2', 'Nguyen', 'Kien', 'Nam', '1995-04-07', '0935654321', 'nguyenkien8@gmail.com'),
 ('KH6F7D2C0', 'Phan', 'Nga', 'Nu', '1988-06-30', '0908123456', 'phannga9@gmail.com'),
-('KH1B8D4E3', 'Tran', 'Tam', 'Nu', '1997-08-22', '0976123456', 'trantam10@gmail.com');
+('KH1B8D4E3', 'Tran', 'Tam', 'Nu', '1997-08-22', '0976123456', 'trantam10@gmail.com')
+
+
+--Triger ràng buộc dữ liệu
+
+--Không được xóa mã sân bay khi sân bay đã được chọn ở hành trình
+create trigger trg_KhongXoaSanBay
+on SanBay instead of delete 
+as
+begin
+	if exists(
+		
+	)
+end
