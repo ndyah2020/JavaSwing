@@ -1,4 +1,7 @@
 package GUI.forms;
+
+import javax.swing.JTextField;
+
 public class MayBayControlForm extends javax.swing.JPanel {
     public MayBayControlForm() {
         initComponents();
@@ -10,20 +13,23 @@ public class MayBayControlForm extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtTenLoaiMayBay = new javax.swing.JTextField();
+        txtTenMayBay = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtHeSoGiaVip = new javax.swing.JTextField();
+        txtSoLuongGheVip = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        txtMaMayBay = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        txtHeSoGiaThuong = new javax.swing.JTextField();
+        txtSoLuongGheThuong = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
-        txtSearch = new javax.swing.JTextField();
+        txtTimKiem = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        txtHeSoGiaThuong1 = new javax.swing.JTextField();
-        btnMaHanhTrinh = new GUI.panel.swing.MyButton();
+        txtGetMaLoaiMayBay = new javax.swing.JTextField();
+        btnGetLoaiMayBay = new GUI.panel.swing.MyButton();
         mucLuongComboBox = new GUI.panel.swing.MyCombobox();
         mucLuongComboBox1 = new GUI.panel.swing.MyCombobox();
         btnThem = new GUI.panel.swing.MyButton();
@@ -31,9 +37,10 @@ public class MayBayControlForm extends javax.swing.JPanel {
         btnSua = new GUI.panel.swing.MyButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1065, 140));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Danh Sách Loại Máy Bay");
+        jLabel1.setText("Danh Sách Máy Bay");
         jLabel1.setPreferredSize(new java.awt.Dimension(153, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -44,8 +51,8 @@ public class MayBayControlForm extends javax.swing.JPanel {
         jLabel2.setPreferredSize(new java.awt.Dimension(100, 30));
         jPanel2.add(jLabel2);
 
-        txtTenLoaiMayBay.setPreferredSize(new java.awt.Dimension(71, 30));
-        jPanel2.add(txtTenLoaiMayBay);
+        txtTenMayBay.setPreferredSize(new java.awt.Dimension(71, 30));
+        jPanel2.add(txtTenMayBay);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
@@ -55,8 +62,25 @@ public class MayBayControlForm extends javax.swing.JPanel {
         jLabel3.setPreferredSize(new java.awt.Dimension(150, 30));
         jPanel3.add(jLabel3);
 
-        txtHeSoGiaVip.setPreferredSize(new java.awt.Dimension(71, 30));
-        jPanel3.add(txtHeSoGiaVip);
+        txtSoLuongGheVip.setPreferredSize(new java.awt.Dimension(71, 30));
+        jPanel3.add(txtSoLuongGheVip);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setText("Mã Máy Bay ");
+        jLabel6.setPreferredSize(new java.awt.Dimension(100, 20));
+        jPanel1.add(jLabel6);
+
+        txtMaMayBay.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtMaMayBay.setPreferredSize(new java.awt.Dimension(79, 31));
+        txtMaMayBay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMaMayBayActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtMaMayBay);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
@@ -66,13 +90,13 @@ public class MayBayControlForm extends javax.swing.JPanel {
         jLabel4.setPreferredSize(new java.awt.Dimension(150, 30));
         jPanel4.add(jLabel4);
 
-        txtHeSoGiaThuong.setPreferredSize(new java.awt.Dimension(71, 30));
-        jPanel4.add(txtHeSoGiaThuong);
+        txtSoLuongGheThuong.setPreferredSize(new java.awt.Dimension(71, 30));
+        jPanel4.add(txtSoLuongGheThuong);
 
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
 
-        txtSearch.setPreferredSize(new java.awt.Dimension(71, 30));
-        jPanel6.add(txtSearch);
+        txtTimKiem.setPreferredSize(new java.awt.Dimension(71, 30));
+        jPanel6.add(txtTimKiem);
 
         jLabel7.setBackground(new java.awt.Color(0, 204, 255));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/search.png"))); // NOI18N
@@ -90,17 +114,17 @@ public class MayBayControlForm extends javax.swing.JPanel {
         jLabel5.setPreferredSize(new java.awt.Dimension(100, 30));
         jPanel5.add(jLabel5);
 
-        txtHeSoGiaThuong1.setPreferredSize(new java.awt.Dimension(71, 30));
-        jPanel5.add(txtHeSoGiaThuong1);
+        txtGetMaLoaiMayBay.setPreferredSize(new java.awt.Dimension(71, 30));
+        jPanel5.add(txtGetMaLoaiMayBay);
 
-        btnMaHanhTrinh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
-        btnMaHanhTrinh.setBorderColor(new java.awt.Color(204, 204, 204));
-        btnMaHanhTrinh.setColorClick(new java.awt.Color(0, 153, 255));
-        btnMaHanhTrinh.setColorOver(new java.awt.Color(0, 204, 255));
-        btnMaHanhTrinh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnMaHanhTrinh.setMinimumSize(new java.awt.Dimension(30, 30));
-        btnMaHanhTrinh.setPreferredSize(new java.awt.Dimension(32, 31));
-        jPanel5.add(btnMaHanhTrinh);
+        btnGetLoaiMayBay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
+        btnGetLoaiMayBay.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnGetLoaiMayBay.setColorClick(new java.awt.Color(0, 153, 255));
+        btnGetLoaiMayBay.setColorOver(new java.awt.Color(0, 204, 255));
+        btnGetLoaiMayBay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnGetLoaiMayBay.setMinimumSize(new java.awt.Dimension(30, 30));
+        btnGetLoaiMayBay.setPreferredSize(new java.awt.Dimension(32, 31));
+        jPanel5.add(btnGetLoaiMayBay);
 
         mucLuongComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Xắp Xếp: Tăng Dần", "Giảm Dần" }));
         mucLuongComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -145,16 +169,17 @@ public class MayBayControlForm extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(mucLuongComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
@@ -173,12 +198,14 @@ public class MayBayControlForm extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,18 +223,45 @@ public class MayBayControlForm extends javax.swing.JPanel {
                                     .addComponent(mucLuongComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(mucLuongComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void mucLuongComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mucLuongComboBox1ActionPerformed
      
     }//GEN-LAST:event_mucLuongComboBox1ActionPerformed
-    
 
+    private void txtMaMayBayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaMayBayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMaMayBayActionPerformed
+    
+    public JTextField getTxtMaMayBay() {
+        return txtMaMayBay;
+    }
+    
+    public JTextField getTxtTenMayBay() {
+        return txtTenMayBay;
+    }
+    
+    public JTextField getTxtGetMaLoaiMayBay() {
+        return txtGetMaLoaiMayBay;
+    }
+    
+    public JTextField getTxtSoLuongGheThuong() {
+        return txtSoLuongGheThuong;
+    }
+    
+    public JTextField getTxtSoLuongGheVip() {
+        return txtSoLuongGheVip;
+    }
+    
+    private void setFormData(String maMayBay, String tenMy) {
+        
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.MyButton btnAn;
-    private GUI.panel.swing.MyButton btnMaHanhTrinh;
+    private GUI.panel.swing.MyButton btnGetLoaiMayBay;
     private GUI.panel.swing.MyButton btnSua;
     private GUI.panel.swing.MyButton btnThem;
     private javax.swing.JLabel jLabel1;
@@ -215,7 +269,9 @@ public class MayBayControlForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -223,10 +279,11 @@ public class MayBayControlForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private GUI.panel.swing.MyCombobox mucLuongComboBox;
     private GUI.panel.swing.MyCombobox mucLuongComboBox1;
-    private javax.swing.JTextField txtHeSoGiaThuong;
-    private javax.swing.JTextField txtHeSoGiaThuong1;
-    private javax.swing.JTextField txtHeSoGiaVip;
-    private javax.swing.JTextField txtSearch;
-    private javax.swing.JTextField txtTenLoaiMayBay;
+    private javax.swing.JTextField txtGetMaLoaiMayBay;
+    private javax.swing.JTextField txtMaMayBay;
+    private javax.swing.JTextField txtSoLuongGheThuong;
+    private javax.swing.JTextField txtSoLuongGheVip;
+    private javax.swing.JTextField txtTenMayBay;
+    private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,48 +7,55 @@ public class MayBayPanelForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        myTable = new GUI.panel.swing.MyTable();
         mayBayControlForm = new GUI.forms.MayBayControlForm();
+        mayBayTableForm = new GUI.forms.MayBayTableForm();
 
         setBackground(new java.awt.Color(204, 204, 204));
 
-        myTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(myTable);
+        mayBayControlForm.setPreferredSize(new java.awt.Dimension(1065, 150));
+
+        mayBayTableForm.setBackground(new java.awt.Color(255, 255, 255));
+        mayBayTableForm.setPreferredSize(new java.awt.Dimension(1065, 640));
+
+        javax.swing.GroupLayout mayBayTableFormLayout = new javax.swing.GroupLayout(mayBayTableForm);
+        mayBayTableForm.setLayout(mayBayTableFormLayout);
+        mayBayTableFormLayout.setHorizontalGroup(
+            mayBayTableFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1065, Short.MAX_VALUE)
+        );
+        mayBayTableFormLayout.setVerticalGroup(
+            mayBayTableFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(mayBayControlForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(mayBayControlForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(mayBayTableForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(mayBayControlForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(mayBayTableForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 45, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    public MayBayControlForm getMayBayControlForm() {
+        return mayBayControlForm;
+    }
+    
+    public MayBayTableForm getMayBayTableForm() {
+        return mayBayTableForm;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
     private GUI.forms.MayBayControlForm mayBayControlForm;
-    private GUI.panel.swing.MyTable myTable;
+    private GUI.forms.MayBayTableForm mayBayTableForm;
     // End of variables declaration//GEN-END:variables
 }

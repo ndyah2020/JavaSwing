@@ -45,7 +45,7 @@ public class HanhTrinhController {
         }
     }
     
-    private void layDanhSachSanBayVaHienThi() {
+    private void layDanhSachSanBayVaHienThiLenPopup() {
         String[] tenCot = {"Mã Sân Bay", "Tên Sân Bay"};
         hanhTrinhPanel.getHanhTrinhControlForm().getBangLayMa().setcolumnDefaultTableModel(tenCot);
 
@@ -130,7 +130,7 @@ public class HanhTrinhController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 hanhTrinhPanel.getHanhTrinhControlForm().showPopupSanBayDi();
-                layDanhSachSanBayVaHienThi();
+                layDanhSachSanBayVaHienThiLenPopup();
             }
         });
         
@@ -138,7 +138,7 @@ public class HanhTrinhController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 hanhTrinhPanel.getHanhTrinhControlForm().showPopupSanBayDen();
-                layDanhSachSanBayVaHienThi();
+                layDanhSachSanBayVaHienThiLenPopup();
             }
         });
     }
