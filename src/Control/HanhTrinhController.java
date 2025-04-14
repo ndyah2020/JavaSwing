@@ -18,12 +18,11 @@ import javax.swing.table.DefaultTableModel;
 
 public class HanhTrinhController {
     private ArrayList<HanhTrinhDTO> dsHanhTrinh;
-    private final HanhTrinhPanelForm hanhTrinhPanel;
+    
     private final HanhTrinhTableForm panelTable;
     private final HanhTrinhControlForm panelControl;
     
     public HanhTrinhController(HanhTrinhPanelForm panel) {
-        this.hanhTrinhPanel = panel;
         this.panelTable = panel.getHanhTrinhTableForm();     
         this.panelControl = panel.getHanhTrinhControlForm();
 
@@ -98,7 +97,7 @@ public class HanhTrinhController {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                int rowSeleted = hanhTrinhPanel.getHanhTrinhTableForm().getMyTable().getSelectedRow();
+                int rowSeleted = panelTable.getMyTable().getSelectedRow();
                 if (rowSeleted != -1) {
                     HanhTrinhDTO hanhTrinh = dsHanhTrinh.get(rowSeleted);
                     panelControl.getTxtSanBayDi().setText(hanhTrinh.getSanBayDi());

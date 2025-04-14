@@ -20,12 +20,11 @@ import javax.swing.table.DefaultTableModel;
 public class SanBayController {
 
     private ArrayList<SanBayDTO> dsSanBay;
-    private final SanBayPanelForm sanBayPanel;
+    
     private final SanBayTableForm panelTable;
     private final SanBayControlForm panelControl;
     
     public SanBayController(SanBayPanelForm panel) {
-        this.sanBayPanel = panel;
         this.panelTable = panel.getSanBayTableForm();
         this.panelControl = panel.getSanBayControlForm();
        
