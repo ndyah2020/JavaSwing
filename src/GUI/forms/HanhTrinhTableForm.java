@@ -9,7 +9,7 @@ public class HanhTrinhTableForm extends javax.swing.JPanel {
     
     public HanhTrinhTableForm() {
         initComponents();
-        String[] columnNames = {"Mã Hành Trình", "Sân Bay Đi", "Sân Bay Đến", "Giá cơ bản"};
+        String[] columnNames = {"Mã Hành Trình", "Tên Hành Trình", "Sân Bay Đi", "Sân Bay Đến", "Giá cơ bản"};
         model = new DefaultTableModel(columnNames, 0);
         myTable.setModel(model);
     }

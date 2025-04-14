@@ -152,8 +152,6 @@ public class SanBayController {
                     sanBay.setTenSanBay(ten);
                     sanBay.setDiaChi(diaChi);
 
-                    SanBayDTO old = dsSanBay.set(selectedRow, sanBay);
-                    
                     SanBayBUS bus = new SanBayBUS();
                     bus.suaSanBay(sanBay);
 

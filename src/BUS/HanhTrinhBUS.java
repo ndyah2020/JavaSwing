@@ -23,9 +23,25 @@ public class HanhTrinhBUS {
        return danhSachHanhTrinh;
    }
    
-   public void themHanhTrinh(HanhTrinhDTO hanhTrinh) {
+   public void themHanhTrinhBUS(HanhTrinhDTO hanhTrinh) {
        if(dao.themHanhTrinh(hanhTrinh)){
            danhSachHanhTrinh.add(hanhTrinh);
+       }
+   }
+   
+   public void xoaHanhTrinhBUS(String maHanhTrinh) {
+       if(dao.xoaHanhTrinh(maHanhTrinh)){
+           danhSachHanhTrinh.removeIf(ht -> ht.getMaHanhTrinh().equals(maHanhTrinh));
+       }
+   }
+   public void suaHanhTrinhBUS(HanhTrinhDTO hanhTrinh) {
+       if(dao.suaHanhTrinhDAO(hanhTrinh)){
+           for(int i = 0; i< danhSachHanhTrinh.size(); i++){
+               if(danhSachHanhTrinh.get(i).equals(hanhTrinh.getMaHanhTrinh())){
+                   danhSachHanhTrinh.set(i, hanhTrinh);
+                   break;
+               }
+           }
        }
    }
 }

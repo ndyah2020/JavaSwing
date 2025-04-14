@@ -4,12 +4,13 @@ package DTO;
 public class HanhTrinhDTO {
 
     private String maHanhTrinh;
+    private String tenHanhTrinh;
     private String sanBayDi;
     private String sanBayDen;
     private int giaCoBan;
-
-    public HanhTrinhDTO(String maHanhTrinh, String sanBayDi, String sanBayDen, int giaCoBan) {
+    public HanhTrinhDTO(String maHanhTrinh,String tenHanhTrinh ,String sanBayDi, String sanBayDen, int giaCoBan) {
         this.maHanhTrinh = maHanhTrinh;
+        this.tenHanhTrinh = tenHanhTrinh;
         this.sanBayDi = sanBayDi;
         this.sanBayDen = sanBayDen;
         this.giaCoBan = giaCoBan;
@@ -22,7 +23,11 @@ public class HanhTrinhDTO {
     public String getMaHanhTrinh() {
         return maHanhTrinh;
     }
-
+    
+    public String getTenHanhTrinh() {
+        return tenHanhTrinh;
+    }
+    
     public String getSanBayDi() {
         return sanBayDi;
     }
@@ -37,6 +42,10 @@ public class HanhTrinhDTO {
 
     public void setMaHanhTrinh(String maHanhTrinh) {
         this.maHanhTrinh = maHanhTrinh;
+    }
+    
+    public void setTenHanhTrinh(String tenHanhTrinh) {
+        this.tenHanhTrinh = tenHanhTrinh;
     }
 
     public void setSanBayDi(String sanBayDi) {

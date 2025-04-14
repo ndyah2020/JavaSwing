@@ -6,6 +6,7 @@ import java.awt.event.KeyAdapter;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 import GUI.PopupForm.PopupFormSearch;
+import GUI.panel.swing.MyButton;
 public class HanhTrinhControlForm extends javax.swing.JPanel {
     private final PopupFormSearch bangLayMa = new PopupFormSearch();
     
@@ -28,7 +29,7 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
         ComboMaHanhTrinh = new javax.swing.JPanel();
         ComboGiaCoBan = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtGiaCoBan = new javax.swing.JTextField();
+        txtTenHanhTrinh = new javax.swing.JTextField();
         ComboSanBayDen = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtSanBayDen = new javax.swing.JTextField();
@@ -43,8 +44,10 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         txtSanBayDi = new javax.swing.JTextField();
         btnSanBayDi = new GUI.panel.swing.MyButton();
-        cmbSapXep1 = new GUI.panel.swing.MyCombobox();
         btnSua = new GUI.panel.swing.MyButton();
+        comboTenHanhTrinh = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        txtGiaCoBan = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -59,12 +62,12 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
         ComboGiaCoBan.setLayout(new javax.swing.BoxLayout(ComboGiaCoBan, javax.swing.BoxLayout.LINE_AXIS));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Giá cơ bản: ");
+        jLabel3.setText("Tên HT:");
         jLabel3.setPreferredSize(new java.awt.Dimension(80, 31));
         ComboGiaCoBan.add(jLabel3);
 
-        txtGiaCoBan.setPreferredSize(new java.awt.Dimension(200, 31));
-        ComboGiaCoBan.add(txtGiaCoBan);
+        txtTenHanhTrinh.setPreferredSize(new java.awt.Dimension(200, 31));
+        ComboGiaCoBan.add(txtTenHanhTrinh);
 
         ComboMaHanhTrinh.add(ComboGiaCoBan);
 
@@ -113,7 +116,7 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
         lbTimKiem.setOpaque(true);
         ComboTimKiemCoBan.add(lbTimKiem);
 
-        cmbSapXep.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sắp xếp theo: Mã hành trình", "Sắp xếp theo: Giá cơ bản" }));
+        cmbSapXep.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Giá Cơ Bản" }));
         cmbSapXep.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cmbSapXep.setPreferredSize(new java.awt.Dimension(240, 31));
 
@@ -138,15 +141,23 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
         btnSanBayDi.setPreferredSize(new java.awt.Dimension(31, 31));
         ComboSanBayDi1.add(btnSanBayDi);
 
-        cmbSapXep1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tăng dần", "Giảm dần" }));
-        cmbSapXep1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cmbSapXep1.setPreferredSize(new java.awt.Dimension(240, 31));
-
         btnSua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/edit.png"))); // NOI18N
         btnSua.setText("Sửa");
         btnSua.setBorderColor(new java.awt.Color(204, 204, 204));
         btnSua.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSua.setPreferredSize(new java.awt.Dimension(100, 31));
+
+        comboTenHanhTrinh.setBackground(new java.awt.Color(255, 255, 255));
+        comboTenHanhTrinh.setPreferredSize(new java.awt.Dimension(230, 31));
+        comboTenHanhTrinh.setLayout(new javax.swing.BoxLayout(comboTenHanhTrinh, javax.swing.BoxLayout.LINE_AXIS));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setText("Giá cơ bản: ");
+        jLabel4.setPreferredSize(new java.awt.Dimension(80, 31));
+        comboTenHanhTrinh.add(jLabel4);
+
+        txtGiaCoBan.setPreferredSize(new java.awt.Dimension(200, 31));
+        comboTenHanhTrinh.add(txtGiaCoBan);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -162,19 +173,20 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
                         .addComponent(ComboSanBayDen, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                         .addComponent(ComboSanBayDi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbSapXep1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnThem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(cmbSapXep, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
-                    .addComponent(ComboTimKiemCoBan, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(comboTenHanhTrinh, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmbSapXep, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(12, 12, 12)
+                            .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnThem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(ComboTimKiemCoBan, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -189,22 +201,23 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(ComboTimKiemCoBan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbSapXep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbSapXep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(ComboSanBayDi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ComboSanBayDen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboTenHanhTrinh, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbSapXep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ComboSanBayDi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ComboSanBayDen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -220,20 +233,31 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
         return txtSanBayDi;
     }
     
-    public JPopupMenu getjPopupMenu() {
+    public JTextField getTxtTenHanhTrinh() {
+        return txtTenHanhTrinh;
+    }
+    
+    public JPopupMenu getJPopupMenu() {
         return jPopupMenu;
+    }
+    public MyButton getBtnSanBayDi () {
+        return btnSanBayDi;
+    }
+    public MyButton getBtnSanBayDen () {
+        return btnSanBayDen;
     }
     
     public void showPopupSanBayDi() {
-        jPopupMenu.show(btnSanBayDi, btnSanBayDi.getWidth(), 0);
+        jPopupMenu.show(btnSanBayDi, -250,btnSanBayDi.getWidth());
     }
     
     public void showPopupSanBayDen() {
-        jPopupMenu.show(btnSanBayDen, btnSanBayDen.getWidth(), 0);
+        jPopupMenu.show(btnSanBayDen, -250,  btnSanBayDen.getWidth());
     }
     
     public void clearFormData() {
         txtGiaCoBan.setText("");
+        txtTenHanhTrinh.setText("");
         txtSanBayDen.setText("");
         txtSanBayDi.setText("");
     }
@@ -272,9 +296,10 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
     private GUI.panel.swing.MyButton btnThem;
     private GUI.panel.swing.MyButton btnXoa;
     private GUI.panel.swing.MyCombobox cmbSapXep;
-    private GUI.panel.swing.MyCombobox cmbSapXep1;
+    private javax.swing.JPanel comboTenHanhTrinh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPopupMenu jPopupMenu;
@@ -282,6 +307,7 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
     private javax.swing.JTextField txtGiaCoBan;
     private javax.swing.JTextField txtSanBayDen;
     private javax.swing.JTextField txtSanBayDi;
+    private javax.swing.JTextField txtTenHanhTrinh;
     private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 }

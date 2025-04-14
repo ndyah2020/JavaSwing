@@ -39,16 +39,10 @@ CREATE TABLE LoaiMayBay (
     HeSoGiaVip FLOAT NOT NULL
 );
 GO
-<<<<<<< HEAD
-INSERT INTO LoaiMayBay (MaLoai, TenLoai, HeSoGiaThuong, HeSoGiaVip)
-VALUES
-('LMB-A1B2C3D4', N'Boeing 737 MAX', 1.2, 1.0),
-=======
 
 INSERT INTO LoaiMayBay (MaLoai, TenLoai, HeSoGiaThuong, HeSoGiaVip)
 VALUES
 ('LMB-A1B2C3D4', N'Boeing 737 MAX', 1.2, 1.8),
->>>>>>> df9772c6663df5722abf6d764cb644d8ef81dd9d
 ('LMB-E5F6G7H8', N'Airbus A320neo', 1.15, 1.75),
 ('LMB-J9K0L1M2', N'Embraer E195-E2', 1.1, 1.6),
 ('LMB-N3O4P5Q6', N'Boeing 787 Dreamliner', 1.4, 2.0),
@@ -58,11 +52,10 @@ VALUES
 ('LMB-D9E0F1G2', N'Mitsubishi SpaceJet', 1.08, 1.6),
 ('LMB-H3I4J5K6', N'Tupolev Tu-204', 1.12, 1.68),
 ('LMB-L7M8N9O0', N'Comac C919', 1.18, 1.7);
-<<<<<<< HEAD
-GO
-=======
 
->>>>>>> df9772c6663df5722abf6d764cb644d8ef81dd9d
+GO
+
+
 CREATE TABLE MayBay (
     MaMayBay VARCHAR(10) PRIMARY KEY NOT NULL,
     TenMayBay VARCHAR(255) NOT NULL,
@@ -76,6 +69,7 @@ GO
 DROP table HanhTrinh
 CREATE TABLE HanhTrinh (
     MaHanhTrinh VARCHAR(20) PRIMARY KEY NOT NULL,
+	TenHanhTrinh NVARCHAR(255) NOT NULL,
 	MaSanBayDi VARCHAR(20) NOT NULL,
     MaSanBayDen VARCHAR(20) NOT NULL,
     GiaCoBan int NOT NULL,
@@ -83,13 +77,13 @@ CREATE TABLE HanhTrinh (
     FOREIGN KEY (MaSanBayDen) REFERENCES SanBay(MaSanBay)
 );
 GO
-INSERT INTO HanhTrinh (MaHanhTrinh, MaSanBayDi, MaSanBayDen, GiaCoBan)
+INSERT INTO HanhTrinh (MaHanhTrinh,TenHanhTrinh ,MaSanBayDi, MaSanBayDen, GiaCoBan)
 VALUES
-('HT-0001', 'SB-HV1A2B', 'SB-HCM3C4D', 1500000),  -- Nội Bài → Tân Sơn Nhất
-('HT-0002', 'SB-HCM3C4D', 'SB-DN5E6F', 1200000),  -- Tân Sơn Nhất → Đà Nẵng
-('HT-0003', 'SB-DN5E6F', 'SB-CT7G8H', 1000000),   -- Đà Nẵng → Cát Bi
-('HT-0004', 'SB-NV9I0J', 'SB-QT1K2L', 1100000),   -- Phú Bài → Cam Ranh
-('HT-0005', 'SB-HDB7Q8R', 'SB-SG9T0U', 1300000);  -- Phú Quốc → Cần Thơ
+('HT-0001',N'Nội Bài - Tân Sơn Nhất','SB-HV1A2B', 'SB-HCM3C4D', 1500000), 
+('HT-0002', N'Tân Sơn Nhất - Đà Nẵng','SB-HCM3C4D', 'SB-DN5E6F', 1200000), 
+('HT-0003',N'Đà Nẵng - Cát Bi','SB-DN5E6F', 'SB-CT7G8H', 1000000), 
+('HT-0004',N'Phú Bài - Cam Ranh','SB-NV9I0J', 'SB-QT1K2L', 1100000),
+('HT-0005',N'Phú Quốc - Cần Thơ','SB-HDB7Q8R', 'SB-SG9T0U', 1300000);
 
 GO
 CREATE TABLE ChuyenBay (

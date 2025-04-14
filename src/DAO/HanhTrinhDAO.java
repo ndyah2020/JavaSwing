@@ -23,6 +23,7 @@ public class HanhTrinhDAO {
             while(res.next()) {
                 HanhTrinhDTO hanhTrinh = new HanhTrinhDTO();
                 hanhTrinh.setMaHanhTrinh(res.getString("MaHanhTrinh"));
+                hanhTrinh.setTenHanhTrinh(res.getString("TenHanhTrinh"));
                 hanhTrinh.setSanBayDi(res.getString("MaSanBayDi"));
                 hanhTrinh.setSanBayDen(res.getString("MaSanBayDen"));
                 hanhTrinh.setGiaCoBan(res.getInt("GiaCoBan"));
@@ -37,14 +38,15 @@ public class HanhTrinhDAO {
     }
     public boolean themHanhTrinh(HanhTrinhDTO hanhTrinh) {
         try{
-            String sql = "INSERT INTO HanhTrinh(MaHanhTrinh, MaSanBayDi, MaSanBayDen, GiaCoBan) VALUES(?,?,?,?)";
+            String sql = "INSERT INTO HanhTrinh(MaHanhTrinh, TenHanhTrinh ,MaSanBayDi, MaSanBayDen, GiaCoBan) VALUES(?,?,?,?,?)";
             conn = ConnectToSQLServer.getConnection();
             PreparedStatement pst = conn.prepareStatement(sql);
             
             pst.setString(1, hanhTrinh.getMaHanhTrinh());
-            pst.setString(2, hanhTrinh.getSanBayDi());
-            pst.setString(3, hanhTrinh.getSanBayDen());
-            pst.setDouble(4, hanhTrinh.getGiaCoBan());
+            pst.setString(2, hanhTrinh.getTenHanhTrinh());
+            pst.setString(3, hanhTrinh.getSanBayDi());
+            pst.setString(4, hanhTrinh.getSanBayDen());
+            pst.setDouble(5, hanhTrinh.getGiaCoBan());
             
             pst.executeUpdate();
             pst.close();
@@ -57,7 +59,7 @@ public class HanhTrinhDAO {
     }
     public boolean xoaHanhTrinh(String maHanhTrinh) {
         try{
-            String sql = "DELETE FROM HanhTrinh WHERE = ?";
+            String sql = "DELETE FROM HanhTrinh WHERE MaHanhTrinh = ?";
             conn = ConnectToSQLServer.getConnection();
             PreparedStatement pst = conn.prepareStatement(sql);
             
@@ -68,6 +70,28 @@ public class HanhTrinhDAO {
             return true;
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Khong the xoa hanh trinh");
+            return false;
+        }
+    }
+    public boolean suaHanhTrinhDAO(HanhTrinhDTO hanhTrinh) {
+        try {
+            String sql = "UPDATE HanhTrinh SET TenHanhTrinh = ?, MaSanBayDi = ?, MaSanBayDen = ?, GiaCoBan = ? WHERE MaHanhTrinh = ?";
+            conn = ConnectToSQLServer.getConnection();
+            PreparedStatement pst = conn.prepareStatement(sql);
+            
+            pst.setString(1, hanhTrinh.getSanBayDi());
+            pst.setString(2, hanhTrinh.getTenHanhTrinh());
+            pst.setString(3, hanhTrinh.getSanBayDen());
+            pst.setDouble(4, hanhTrinh.getGiaCoBan());
+            pst.setString(5, hanhTrinh.getMaHanhTrinh());
+            
+            pst.executeUpdate();
+            pst.close();
+ 
+            ConnectToSQLServer.closeConnection(conn);
+            return true;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Khong the cap nhat hanh trinh o DAO");
             return false;
         }
     }
