@@ -1,6 +1,7 @@
 package Control;
-
+import DTO.SanBayDTO;
 import BUS.HanhTrinhBUS;
+import BUS.SanBayBUS;
 import DTO.HanhTrinhDTO;
 import GUI.forms.HanhTrinhPanelForm;
 import java.awt.event.ActionEvent;
@@ -11,7 +12,6 @@ import java.util.ArrayList;
 import java.util.UUID;
 import java.util.Vector;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class HanhTrinhController {
@@ -35,6 +35,27 @@ public class HanhTrinhController {
             model.addRow(row);
         }
     }
+    private void setModelSanBay(DefaultTableModel model, ArrayList<SanBayDTO> danhSach){
+        model.setRowCount(0);
+        for(SanBayDTO sb : danhSach) {
+            Vector<String> row = new Vector();
+            row.add(sb.getMaSanBay());
+            row.add(sb.getTenSanBay());
+            model.addRow(row);
+        }
+    }
+    
+    private void layDanhSachSanBayVaHienThi() {
+        String[] tenCot = {"Mã Sân Bay", "Tên Sân Bay"};
+        hanhTrinhPanel.getHanhTrinhControlForm().getBangLayMa().setcolumnDefaultTableModel(tenCot);
+
+        DefaultTableModel model = hanhTrinhPanel.getHanhTrinhControlForm().getBangLayMa().getModel();
+        SanBayBUS bus = new SanBayBUS();
+        ArrayList<SanBayDTO> dsSanBay = bus.getDanhSachSanBay();
+        setModelSanBay(model, dsSanBay);
+        hanhTrinhPanel.getHanhTrinhControlForm().getBangLayMa().getMyTable().setModel(model);
+    }
+    
     public void hienThiDanhSachHanhTrinh() {
         HanhTrinhBUS bus = new HanhTrinhBUS();
         DefaultTableModel modelDsHT = hanhTrinhPanel.getHanhTrinhTableForm().getModel();
@@ -61,6 +82,7 @@ public class HanhTrinhController {
         }
         return false;
     }
+    
     public void xuLySuKienHanhTrinhConTrol() {
         hanhTrinhPanel.getHanhTrinhTableForm().addRowClick(new MouseAdapter() {
             @Override
@@ -95,6 +117,28 @@ public class HanhTrinhController {
                 HanhTrinhBUS bus = new HanhTrinhBUS();
                 bus.themHanhTrinh(hanhTrinh);
                 hanhTrinhPanel.getHanhTrinhControlForm().clearFormData();
+            }
+        });
+        hanhTrinhPanel.getHanhTrinhControlForm().addXoaListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+        //Hiển thị poup và đưa danh sách lên popup
+        hanhTrinhPanel.getHanhTrinhControlForm().addShowPopupSanBayDiListener(new ActionListener () {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                hanhTrinhPanel.getHanhTrinhControlForm().showPopupSanBayDi();
+                layDanhSachSanBayVaHienThi();
+            }
+        });
+        
+        hanhTrinhPanel.getHanhTrinhControlForm().addShowPopupSanBayDenListener(new ActionListener () {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                hanhTrinhPanel.getHanhTrinhControlForm().showPopupSanBayDen();
+                layDanhSachSanBayVaHienThi();
             }
         });
     }

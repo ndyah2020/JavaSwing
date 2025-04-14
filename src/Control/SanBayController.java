@@ -24,7 +24,7 @@ public class SanBayController {
         this.sanBayPanel = panel;
     }
     
-    private void taiDuLieuLenTabel(DefaultTableModel model, ArrayList<SanBayDTO> danhSach) {
+    public void taiDuLieuLenTabel(DefaultTableModel model, ArrayList<SanBayDTO> danhSach) {
         model.setRowCount(0);
         for (SanBayDTO sb : danhSach) {
             Vector<String> row = new Vector<>();

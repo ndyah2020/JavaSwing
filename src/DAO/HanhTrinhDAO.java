@@ -39,7 +39,6 @@ public class HanhTrinhDAO {
         try{
             String sql = "INSERT INTO HanhTrinh(MaHanhTrinh, MaSanBayDi, MaSanBayDen, GiaCoBan) VALUES(?,?,?,?)";
             conn = ConnectToSQLServer.getConnection();
-            Statement st = conn.createStatement();
             PreparedStatement pst = conn.prepareStatement(sql);
             
             pst.setString(1, hanhTrinh.getMaHanhTrinh());
@@ -53,6 +52,22 @@ public class HanhTrinhDAO {
             return true;
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Không thể thêm hành trình");
+            return false;
+        }
+    }
+    public boolean xoaHanhTrinh(String maHanhTrinh) {
+        try{
+            String sql = "DELETE FROM HanhTrinh WHERE = ?";
+            conn = ConnectToSQLServer.getConnection();
+            PreparedStatement pst = conn.prepareStatement(sql);
+            
+            pst.setString(1, maHanhTrinh);
+            pst.executeUpdate();
+            pst.close();
+            ConnectToSQLServer.closeConnection(conn);
+            return true;
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Khong the xoa hanh trinh");
             return false;
         }
     }

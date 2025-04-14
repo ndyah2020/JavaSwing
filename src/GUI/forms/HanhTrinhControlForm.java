@@ -1,17 +1,30 @@
 package GUI.forms;
 
+import DTO.SanBayDTO;
+import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
+import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
-
+import GUI.PopupForm.PopupFormSearch;
 public class HanhTrinhControlForm extends javax.swing.JPanel {
+    private final PopupFormSearch bangLayMa = new PopupFormSearch();
+    
     public HanhTrinhControlForm() {
         initComponents();
+        jPopupMenu.setLayout(new BorderLayout());
+        jPopupMenu.add(bangLayMa, BorderLayout.CENTER);
     }
+    
+    public PopupFormSearch getBangLayMa() {
+        return bangLayMa;
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu = new javax.swing.JPopupMenu();
         jLabel1 = new javax.swing.JLabel();
         ComboMaHanhTrinh = new javax.swing.JPanel();
         ComboGiaCoBan = new javax.swing.JPanel();
@@ -70,6 +83,8 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
 
         btnSanBayDen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
         btnSanBayDen.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnSanBayDen.setColorClick(new java.awt.Color(0, 153, 255));
+        btnSanBayDen.setColorOver(new java.awt.Color(0, 204, 255));
         btnSanBayDen.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSanBayDen.setPreferredSize(new java.awt.Dimension(31, 31));
         ComboSanBayDen.add(btnSanBayDen);
@@ -118,6 +133,8 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
 
         btnSanBayDi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
         btnSanBayDi.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnSanBayDi.setColorClick(new java.awt.Color(0, 153, 255));
+        btnSanBayDi.setColorOver(new java.awt.Color(0, 204, 255));
         btnSanBayDi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSanBayDi.setPreferredSize(new java.awt.Dimension(31, 31));
         ComboSanBayDi1.add(btnSanBayDi);
@@ -180,10 +197,11 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
                             .addComponent(cmbSapXep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbSapXep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(ComboSanBayDi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -203,11 +221,24 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
         return txtSanBayDi;
     }
     
+    public JPopupMenu getjPopupMenu() {
+        return jPopupMenu;
+    }
+    
+    public void showPopupSanBayDi() {
+        jPopupMenu.show(btnSanBayDi, btnSanBayDi.getWidth(), 0);
+    }
+    
+    public void showPopupSanBayDen() {
+        jPopupMenu.show(btnSanBayDen, btnSanBayDen.getWidth(), 0);
+    }
+    
     public void clearFormData() {
         txtGiaCoBan.setText("");
         txtSanBayDen.setText("");
         txtSanBayDi.setText("");
     }
+    
     public void addThemListener(ActionListener listener) {
         btnThem.addActionListener(listener);
     }
@@ -220,18 +251,16 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
         btnXoa.addActionListener(listener);
     } 
     
-    public void addTimSanBayDiListener(ActionListener listener) {
-        btnSanBayDi.addActionListener(listener);
-    }
-    
-    public void addTimSanBayDenListener(ActionListener listener) {
+    public void addShowPopupSanBayDenListener(ActionListener listener) {
         btnSanBayDen.addActionListener(listener);
     }
     
     public void addTxtTimKiemListener(KeyAdapter listener) {
         txtTimKiem.addKeyListener(listener);
     }
-
+    public void addShowPopupSanBayDiListener(ActionListener listener) {
+        btnSanBayDi.addActionListener(listener);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ComboGiaCoBan;
     private javax.swing.JPanel ComboMaHanhTrinh;
@@ -249,6 +278,7 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPopupMenu jPopupMenu;
     private javax.swing.JLabel lbTimKiem;
     private javax.swing.JTextField txtGiaCoBan;
     private javax.swing.JTextField txtSanBayDen;
