@@ -95,6 +95,16 @@ public class HanhTrinhController {
         return false;
     }
 
+    public ArrayList<HanhTrinhDTO> danhSachTimKiem(String tenHangTrinh) {
+        ArrayList<HanhTrinhDTO> dsHanhTrinhTimThay = new ArrayList<>();
+        for (HanhTrinhDTO ht : dsHanhTrinh) {
+            if (ht.getTenHanhTrinh().toLowerCase().trim().contains(tenHangTrinh.toLowerCase().trim())) {
+                dsHanhTrinhTimThay.add(ht);
+            }
+        }
+        return dsHanhTrinhTimThay;
+    }
+
     public void xuLySuKienHanhTrinhConTrol() {
 
         panelTable.addRowClick(new MouseAdapter() {
@@ -211,11 +221,14 @@ public class HanhTrinhController {
         });
         panelControl.addTxtTimKiemListener(new KeyAdapter() {
             @Override
-            public void keyReleased(KeyEvent e){
+            public void keyReleased(KeyEvent e) {
                 DefaultTableModel modeTimKiem = panelTable.getModel();
-                String tenHanhTrinhTimKiem = panelControl.getTxtTenHanhTrinh().getText();
-                //mai code tiếp giờ đi ngủ mệt vl
-                 
+                String tenHanhTrinhTimKiem = panelControl.getTxtTimKiem().getText();
+                if (!tenHanhTrinhTimKiem.isEmpty()) {
+                    taiDuLieuLenTabel(modeTimKiem, danhSachTimKiem(tenHanhTrinhTimKiem));
+                } else {
+                    hienThiDanhSachHanhTrinh();
+                }
             }
         });
     }

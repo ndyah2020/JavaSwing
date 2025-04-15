@@ -236,7 +236,10 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
     public JTextField getTxtTenHanhTrinh() {
         return txtTenHanhTrinh;
     }
-    
+    public JTextField getTxtTimKiem() {
+        return txtTimKiem;
+    }
+
     public JPopupMenu getJPopupMenu() {
         return jPopupMenu;
     }
