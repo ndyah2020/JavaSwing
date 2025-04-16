@@ -24,23 +24,11 @@ public class LoaiMayBayController {
         this.loaiMayBayPanel = panel;
     }
     
-    private void taiDuLieuLenTable (DefaultTableModel model, ArrayList<LoaiMayBayDTO> danhSach) {
-        model.setRowCount(0);
-        for (LoaiMayBayDTO lmb : danhSach) {
-            Vector<String> row = new Vector<>();
-            row.add(lmb.getMaLoai());
-            row.add(lmb.getTenLoai());
-            row.add(Float.toString(lmb.getHeSoGiaThuong()));
-            row.add(Float.toString(lmb.getHeSoGiaVip()));
-            model.addRow(row);
-        }
-    }
-    
     public void hienThiDanhSachLoaiMayBay() {
         LoaiMayBayBus loaiMayBayBUS = new LoaiMayBayBus();
         DefaultTableModel modelDanhSach = loaiMayBayPanel.getLoaiMayBayTableForm().getModel();
         danhSachLoaiMayBay = loaiMayBayBUS.getDanhSachLoaiMayBay();
-        taiDuLieuLenTable(modelDanhSach, danhSachLoaiMayBay);
+        LoaiMayBayTableHelper.taiDuLieuLenLoaiMayBayLenTable(modelDanhSach, danhSachLoaiMayBay);
         loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().setModel(modelDanhSach);
     }
     
@@ -205,7 +193,7 @@ public class LoaiMayBayController {
                 String tenDauVao = loaiMayBayPanel.getLoaiMayBayControlForm().getTxtTimKiem().getText();
                 if (!tenDauVao.isEmpty()) {
                     ArrayList<LoaiMayBayDTO> danhSachLMBMoi = hienThiDanhSachTimThay(tenDauVao);
-                    taiDuLieuLenTable(modelTimKiem, danhSachLMBMoi);
+                    LoaiMayBayTableHelper.taiDuLieuLenLoaiMayBayLenTable(modelTimKiem, danhSachLMBMoi);
                     loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().setModel(modelTimKiem);
                 } else {
                     hienThiDanhSachLoaiMayBay();

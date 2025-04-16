@@ -32,37 +32,13 @@ public class MayBayController {
         panelMayBayControl.getTxtGetMaLoaiMayBay().setEditable(false);
     }
     
-    private void taiDuLieuLenBang(DefaultTableModel model, ArrayList<MayBayDTO> danhSachMayBay) {
-        model.setRowCount(0);
-        for(MayBayDTO mb : danhSachMayBay) {
-            Vector row = new Vector();
-            row.add(mb.getMaMayBay());
-            row.add(mb.getTenMayBay());
-            row.add(mb.getSoLuongGheThuong());
-            row.add(mb.getSoLuongGheVip());
-            row.add(mb.getTongSoLuongGhe());
-            row.add(mb.getMaLoaiMayBay());
-            model.addRow(row);
-        }
-    }
-    
-    private void setModeLoaiMayBay(DefaultTableModel model, ArrayList<LoaiMayBayDTO> danhSachMayBay) {
-        model.setRowCount(0);
-        for (LoaiMayBayDTO lmb : danhSachMayBay) {
-            Vector<String> row = new Vector<>();
-            row.add(lmb.getMaLoai());
-            row.add(lmb.getTenLoai());
-            model.addRow(row);
-        }
-    }
-    
     private void layDanhSachLoaiMayBayVaHienThiLenPopup() {
         String[] tenCot = {"Mã loại", "Tên loại"};
         panelMayBayControl.getBangLayMaLoaiMayBay().setcolumnDefaultTableModel(tenCot);
         DefaultTableModel model = panelMayBayControl.getBangLayMaLoaiMayBay().getModel();
         LoaiMayBayBus lmbBUS = new LoaiMayBayBus();
         ArrayList<LoaiMayBayDTO> daLoaiMayBay = lmbBUS.getDanhSachLoaiMayBay();
-        setModeLoaiMayBay(model, daLoaiMayBay);
+        LoaiMayBayTableHelper.taiDuLieuLenLoaiMayBayLenTable(model, daLoaiMayBay);
         panelMayBayControl.getBangLayMaLoaiMayBay().getMyTable().setModel(model);
     }
     
@@ -86,7 +62,8 @@ public class MayBayController {
     public void hienThiDanhSachMayBay() {
         DefaultTableModel model = panelMayBayTable.getModel();
         dsMayBay = mayBayBUS.getDanhSachMayBayBUS();
-        taiDuLieuLenBang(model, dsMayBay);
+        
+        MayBayTableHelper.taiDuLieuMayBayLenBang(model, dsMayBay);
         panelMayBayTable.getMyTable().setModel(model);
     }
     
@@ -199,7 +176,7 @@ public class MayBayController {
                 String tuKhoa = panelMayBayControl.getTxtTimKiem().getText().trim();
                 DefaultTableModel model = panelMayBayTable.getModel();
                 if(!tuKhoa.isEmpty()) {
-                    taiDuLieuLenBang(model, danhSachTimTheoTen(tuKhoa));
+                    MayBayTableHelper.taiDuLieuMayBayLenBang(model, danhSachTimTheoTen(tuKhoa));
                 } else {
                     hienThiDanhSachMayBay();
                 }
