@@ -1,23 +1,28 @@
 package DTO;
-import java.sql.Time;
+
 import java.sql.Date;
+import java.sql.Time;
+
 public class ChuyenBayDTO {
 
     private String maChuyenBay;
-    private String ngayXuatPhat;
-    private String gioXuatPhat;
-    private String ngayDenNoi;
-    private String gioDenNoi;
+    private Date ngayXuatPhat;
+    private Time gioXuatPhat;
+    private Date ngayDenNoi;
+    private Time gioDenNoi;
     private int giaThuong;
     private int giaVip;
     private String trangThaiChuyenBay;
     private int tongSoLuongGhe;
     private int soGheDaBan;
-    private int soChoConLai;
+    private int soGheConLai;
     private String maMayBay;
     private String maHanhTrinh;
 
-    public ChuyenBayDTO(String maChuyenBay, String ngayXuatPhat, String gioXuatPhat, String ngayDenNoi, String gioDenNoi, int giaThuong, int giaVip, String trangThaiChuyenBay, int tongSoLuongGhe, int soGheDaBan, int soChoConLai, String maMayBay, String maHanhTrinh) {
+    public ChuyenBayDTO(String maChuyenBay, Date ngayXuatPhat, Time gioXuatPhat, Date ngayDenNoi, Time gioDenNoi,
+                        int giaThuong, int giaVip, String trangThaiChuyenBay,
+                        int tongSoLuongGhe, int soGheDaBan, int soChoConLai,
+                        String maMayBay, String maHanhTrinh) {
         this.maChuyenBay = maChuyenBay;
         this.ngayXuatPhat = ngayXuatPhat;
         this.gioXuatPhat = gioXuatPhat;
@@ -28,117 +33,115 @@ public class ChuyenBayDTO {
         this.trangThaiChuyenBay = trangThaiChuyenBay;
         this.tongSoLuongGhe = tongSoLuongGhe;
         this.soGheDaBan = soGheDaBan;
-        this.soChoConLai = soChoConLai;
+        this.soGheConLai = soChoConLai;
         this.maMayBay = maMayBay;
         this.maHanhTrinh = maHanhTrinh;
     }
 
     public ChuyenBayDTO() {
-        
     }
 
     public String getMaChuyenBay() {
         return maChuyenBay;
     }
 
-    public String getNgayXuatPhat() {
+    public void setMaChuyenBay(String maChuyenBay) {
+        this.maChuyenBay = maChuyenBay;
+    }
+
+    public Date getNgayXuatPhat() {
         return ngayXuatPhat;
     }
 
-    public String getGioXuatPhat() {
+    public void setNgayXuatPhat(Date ngayXuatPhat) {
+        this.ngayXuatPhat = ngayXuatPhat;
+    }
+
+    public Time getGioXuatPhat() {
         return gioXuatPhat;
     }
 
-    public String getNgayDenNoi() {
+    public void setGioXuatPhat(Time gioXuatPhat) {
+        this.gioXuatPhat = gioXuatPhat;
+    }
+
+    public Date getNgayDenNoi() {
         return ngayDenNoi;
     }
 
-    public String getGioDenNoi() {
+    public void setNgayDenNoi(Date ngayDenNoi) {
+        this.ngayDenNoi = ngayDenNoi;
+    }
+
+    public Time getGioDenNoi() {
         return gioDenNoi;
+    }
+
+    public void setGioDenNoi(Time gioDenNoi) {
+        this.gioDenNoi = gioDenNoi;
     }
 
     public int getGiaThuong() {
         return giaThuong;
     }
 
-    public int getGiaVip() {
-        return giaVip;
-    }
-
-    public String getTrangThaiChuyenBay() {
-        return trangThaiChuyenBay;
-    }
-
-    public int getTongSoLuongGhe() {
-        return tongSoLuongGhe;
-    }
-
-    public int getSoGheDaBan() {
-        return soGheDaBan;
-    }
-
-    public int getSoChoConLai() {
-        return soChoConLai;
-    }
-
-    public String getMaMayBay() {
-        return maMayBay;
-    }
-
-    public String getMaHanhTrinh() {
-        return maHanhTrinh;
-    }
-
-    public void setMaChuyenBay(String maChuyenBay) {
-        this.maChuyenBay = maChuyenBay;
-    }
-
-    public void setNgayXuatPhat(String ngayXuatPhat) {
-        this.ngayXuatPhat = ngayXuatPhat;
-    }
-
-    public void setGioXuatPhat(String gioXuatPhat) {
-        this.gioXuatPhat = gioXuatPhat;
-    }
-
-    public void setNgayDenNoi(String ngayDenNoi) {
-        this.ngayDenNoi = ngayDenNoi;
-    }
-
-    public void setGioDenNoi(String gioDenNoi) {
-        this.gioDenNoi = gioDenNoi;
-    }
-
     public void setGiaThuong(int giaThuong) {
         this.giaThuong = giaThuong;
+    }
+
+    public int getGiaVip() {
+        return giaVip;
     }
 
     public void setGiaVip(int giaVip) {
         this.giaVip = giaVip;
     }
 
+    public String getTrangThaiChuyenBay() {
+        return trangThaiChuyenBay;
+    }
+
     public void setTrangThaiChuyenBay(String trangThaiChuyenBay) {
         this.trangThaiChuyenBay = trangThaiChuyenBay;
+    }
+
+    public int getTongSoLuongGhe() {
+        return tongSoLuongGhe;
     }
 
     public void setTongSoLuongGhe(int tongSoLuongGhe) {
         this.tongSoLuongGhe = tongSoLuongGhe;
     }
 
+    public int getSoGheDaBan() {
+        return soGheDaBan;
+    }
+
     public void setSoGheDaBan(int soGheDaBan) {
         this.soGheDaBan = soGheDaBan;
     }
 
-    public void setSoChoConLai(int soChoConLai) {
-        this.soChoConLai = soChoConLai;
+    public int getSoGheConLai() {
+        return soGheConLai;
+    }
+
+    public void setSoGheConLai(int soChoConLai) {
+        this.soGheConLai = soChoConLai;
+    }
+
+    public String getMaMayBay() {
+        return maMayBay;
     }
 
     public void setMaMayBay(String maMayBay) {
         this.maMayBay = maMayBay;
     }
 
+    public String getMaHanhTrinh() {
+        return maHanhTrinh;
+    }
+
     public void setMaHanhTrinh(String maHanhTrinh) {
         this.maHanhTrinh = maHanhTrinh;
     }
-    
 }

@@ -1,62 +1,86 @@
 package GUI.forms;
+
+import GUI.PopupForm.PopupFormSearch;
+import GUI.panel.swing.MyButton;
+import GUI.panel.swing.dateChooser.DateChooser;
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SpinnerDateModel;
+
 public class ChuyenBayForm extends javax.swing.JPanel {
+    private DateChooser ngayDiDateChooser;
+    private DateChooser ngayDenDateChooser;
+    private PopupFormSearch bangLayMaMayBay;
+    private PopupFormSearch bangLayMaHanhTrinh;
+
     public ChuyenBayForm() {
         initComponents();
+        initSpinerTime();
+        initDateChoosers();
+        initBangLayMa();
+        txtNgayXuatPhat.setEditable(false);
+        txtNgayDenNoi.setEditable(false);
+        txtMaMayBay.setEditable(false);
+        txtMaHanhTrinh.setEditable(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popupMaHanhTrinh = new javax.swing.JPopupMenu();
+        popupMaMayBay = new javax.swing.JPopupMenu();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtMaChuyenBay = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        myButton3 = new GUI.panel.swing.MyButton();
+        txtNgayXuatPhat = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        spinnerGioXuatPhat = new javax.swing.JSpinner();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        myButton4 = new GUI.panel.swing.MyButton();
+        txtNgayDenNoi = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
+        spinnerGioDenNoi = new javax.swing.JSpinner();
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtGiaThuong = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtGiaVip = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txtTrangThai = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtTongSLGhe = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        txtSoGheDaBan = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        txtSoGheConLaij = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        myButton2 = new GUI.panel.swing.MyButton();
+        txtMaHanhTrinh = new javax.swing.JTextField();
+        btnMaHanhTrinh = new GUI.panel.swing.MyButton();
         jPanel13 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        myButton1 = new GUI.panel.swing.MyButton();
+        txtMaMayBay = new javax.swing.JTextField();
+        btnMaMayBay = new GUI.panel.swing.MyButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        setLayout(new java.awt.GridLayout());
+        setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
         jPanel14.setBorder(javax.swing.BorderFactory.createMatteBorder(6, 6, 6, 6, new java.awt.Color(255, 255, 255)));
@@ -75,7 +99,7 @@ public class ChuyenBayForm extends javax.swing.JPanel {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jLabel1)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,9 +121,9 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         jLabel2.setPreferredSize(new java.awt.Dimension(110, 31));
         jPanel1.add(jLabel2);
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField1.setPreferredSize(new java.awt.Dimension(150, 31));
-        jPanel1.add(jTextField1);
+        txtMaChuyenBay.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtMaChuyenBay.setPreferredSize(new java.awt.Dimension(150, 31));
+        jPanel1.add(txtMaChuyenBay);
 
         jPanel14.add(jPanel1);
 
@@ -112,16 +136,9 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         jLabel3.setPreferredSize(new java.awt.Dimension(113, 20));
         jPanel2.add(jLabel3);
 
-        jTextField2.setPreferredSize(new java.awt.Dimension(150, 31));
-        jPanel2.add(jTextField2);
-
-        myButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
-        myButton3.setBorderColor(new java.awt.Color(204, 204, 204));
-        myButton3.setColorClick(new java.awt.Color(0, 153, 255));
-        myButton3.setColorOver(new java.awt.Color(0, 204, 255));
-        myButton3.setMaximumSize(new java.awt.Dimension(30, 1000));
-        myButton3.setPreferredSize(new java.awt.Dimension(31, 31));
-        jPanel2.add(myButton3);
+        txtNgayXuatPhat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNgayXuatPhat.setPreferredSize(new java.awt.Dimension(150, 31));
+        jPanel2.add(txtNgayXuatPhat);
 
         jPanel14.add(jPanel2);
 
@@ -133,7 +150,11 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         jLabel4.setText("Giờ xuất phát:");
         jLabel4.setPreferredSize(new java.awt.Dimension(110, 31));
         jPanel3.add(jLabel4);
-        jPanel3.add(jSpinner1);
+
+        spinnerGioXuatPhat.setToolTipText("");
+        spinnerGioXuatPhat.setDoubleBuffered(true);
+        spinnerGioXuatPhat.setOpaque(true);
+        jPanel3.add(spinnerGioXuatPhat);
 
         jPanel14.add(jPanel3);
 
@@ -143,20 +164,12 @@ public class ChuyenBayForm extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Ngày đến nơi:");
-        jLabel5.setPreferredSize(new java.awt.Dimension(110, 31));
+        jLabel5.setPreferredSize(new java.awt.Dimension(113, 31));
         jPanel4.add(jLabel5);
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField4.setPreferredSize(new java.awt.Dimension(150, 31));
-        jPanel4.add(jTextField4);
-
-        myButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
-        myButton4.setBorderColor(new java.awt.Color(204, 204, 204));
-        myButton4.setColorClick(new java.awt.Color(0, 153, 255));
-        myButton4.setColorOver(new java.awt.Color(0, 204, 255));
-        myButton4.setMaximumSize(new java.awt.Dimension(30, 1000));
-        myButton4.setPreferredSize(new java.awt.Dimension(31, 31));
-        jPanel4.add(myButton4);
+        txtNgayDenNoi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNgayDenNoi.setPreferredSize(new java.awt.Dimension(150, 31));
+        jPanel4.add(txtNgayDenNoi);
 
         jPanel14.add(jPanel4);
 
@@ -168,7 +181,7 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         jLabel6.setText("Giờ đến nơi:");
         jLabel6.setPreferredSize(new java.awt.Dimension(110, 31));
         jPanel5.add(jLabel6);
-        jPanel5.add(jSpinner2);
+        jPanel5.add(spinnerGioDenNoi);
 
         jPanel14.add(jPanel5);
 
@@ -181,9 +194,9 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         jLabel7.setPreferredSize(new java.awt.Dimension(110, 31));
         jPanel6.add(jLabel7);
 
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField6.setPreferredSize(new java.awt.Dimension(150, 31));
-        jPanel6.add(jTextField6);
+        txtGiaThuong.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtGiaThuong.setPreferredSize(new java.awt.Dimension(150, 31));
+        jPanel6.add(txtGiaThuong);
 
         jPanel14.add(jPanel6);
 
@@ -196,9 +209,9 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         jLabel8.setPreferredSize(new java.awt.Dimension(110, 31));
         jPanel7.add(jLabel8);
 
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField7.setPreferredSize(new java.awt.Dimension(150, 31));
-        jPanel7.add(jTextField7);
+        txtGiaVip.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtGiaVip.setPreferredSize(new java.awt.Dimension(150, 31));
+        jPanel7.add(txtGiaVip);
 
         jPanel14.add(jPanel7);
 
@@ -211,9 +224,9 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         jLabel9.setPreferredSize(new java.awt.Dimension(110, 31));
         jPanel8.add(jLabel9);
 
-        jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField8.setPreferredSize(new java.awt.Dimension(150, 31));
-        jPanel8.add(jTextField8);
+        txtTrangThai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtTrangThai.setPreferredSize(new java.awt.Dimension(150, 31));
+        jPanel8.add(txtTrangThai);
 
         jPanel14.add(jPanel8);
 
@@ -226,9 +239,9 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         jLabel10.setPreferredSize(new java.awt.Dimension(110, 31));
         jPanel9.add(jLabel10);
 
-        jTextField9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField9.setPreferredSize(new java.awt.Dimension(150, 31));
-        jPanel9.add(jTextField9);
+        txtTongSLGhe.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtTongSLGhe.setPreferredSize(new java.awt.Dimension(150, 31));
+        jPanel9.add(txtTongSLGhe);
 
         jPanel14.add(jPanel9);
 
@@ -241,9 +254,9 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         jLabel11.setPreferredSize(new java.awt.Dimension(110, 31));
         jPanel10.add(jLabel11);
 
-        jTextField10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField10.setPreferredSize(new java.awt.Dimension(150, 31));
-        jPanel10.add(jTextField10);
+        txtSoGheDaBan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtSoGheDaBan.setPreferredSize(new java.awt.Dimension(150, 31));
+        jPanel10.add(txtSoGheDaBan);
 
         jPanel14.add(jPanel10);
 
@@ -256,9 +269,9 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         jLabel12.setPreferredSize(new java.awt.Dimension(110, 31));
         jPanel11.add(jLabel12);
 
-        jTextField11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField11.setPreferredSize(new java.awt.Dimension(150, 31));
-        jPanel11.add(jTextField11);
+        txtSoGheConLaij.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtSoGheConLaij.setPreferredSize(new java.awt.Dimension(150, 31));
+        jPanel11.add(txtSoGheConLaij);
 
         jPanel14.add(jPanel11);
 
@@ -271,17 +284,17 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         jLabel13.setPreferredSize(new java.awt.Dimension(113, 31));
         jPanel12.add(jLabel13);
 
-        jTextField12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField12.setPreferredSize(new java.awt.Dimension(150, 31));
-        jPanel12.add(jTextField12);
+        txtMaHanhTrinh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtMaHanhTrinh.setPreferredSize(new java.awt.Dimension(150, 31));
+        jPanel12.add(txtMaHanhTrinh);
 
-        myButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
-        myButton2.setBorderColor(new java.awt.Color(204, 204, 204));
-        myButton2.setColorClick(new java.awt.Color(0, 153, 255));
-        myButton2.setColorOver(new java.awt.Color(0, 204, 255));
-        myButton2.setMaximumSize(new java.awt.Dimension(30, 1000));
-        myButton2.setPreferredSize(new java.awt.Dimension(31, 31));
-        jPanel12.add(myButton2);
+        btnMaHanhTrinh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
+        btnMaHanhTrinh.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnMaHanhTrinh.setColorClick(new java.awt.Color(0, 153, 255));
+        btnMaHanhTrinh.setColorOver(new java.awt.Color(0, 204, 255));
+        btnMaHanhTrinh.setMaximumSize(new java.awt.Dimension(30, 1000));
+        btnMaHanhTrinh.setPreferredSize(new java.awt.Dimension(31, 31));
+        jPanel12.add(btnMaHanhTrinh);
 
         jPanel14.add(jPanel12);
 
@@ -294,25 +307,156 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         jLabel14.setPreferredSize(new java.awt.Dimension(113, 31));
         jPanel13.add(jLabel14);
 
-        jTextField13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField13.setPreferredSize(new java.awt.Dimension(150, 31));
-        jPanel13.add(jTextField13);
+        txtMaMayBay.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtMaMayBay.setPreferredSize(new java.awt.Dimension(150, 31));
+        jPanel13.add(txtMaMayBay);
 
-        myButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
-        myButton1.setBorderColor(new java.awt.Color(204, 204, 204));
-        myButton1.setColorClick(new java.awt.Color(0, 153, 255));
-        myButton1.setColorOver(new java.awt.Color(0, 204, 255));
-        myButton1.setMaximumSize(new java.awt.Dimension(100, 100));
-        myButton1.setPreferredSize(new java.awt.Dimension(31, 31));
-        jPanel13.add(myButton1);
+        btnMaMayBay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
+        btnMaMayBay.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnMaMayBay.setColorClick(new java.awt.Color(0, 153, 255));
+        btnMaMayBay.setColorOver(new java.awt.Color(0, 204, 255));
+        btnMaMayBay.setMaximumSize(new java.awt.Dimension(100, 100));
+        btnMaMayBay.setPreferredSize(new java.awt.Dimension(31, 31));
+        jPanel13.add(btnMaMayBay);
 
         jPanel14.add(jPanel13);
 
         add(jPanel14);
     }// </editor-fold>//GEN-END:initComponents
+    private void initSpinerTime() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        Date gioMacDinh = cal.getTime();
 
+        SpinnerDateModel model = new SpinnerDateModel(gioMacDinh, null, null, Calendar.MINUTE);
+        spinnerGioXuatPhat.setModel(model);
+        JSpinner.DateEditor editor = new JSpinner.DateEditor(spinnerGioXuatPhat, "HH:mm");
+        spinnerGioXuatPhat.setEditor(editor);
+
+        SpinnerDateModel modelGioDenNoi = new SpinnerDateModel(gioMacDinh, null, null, Calendar.MINUTE);
+        spinnerGioDenNoi.setModel(modelGioDenNoi);
+        JSpinner.DateEditor editorGioDen = new JSpinner.DateEditor(spinnerGioDenNoi, "HH:mm");
+        spinnerGioDenNoi.setEditor(editorGioDen);
+    }
+    private void initBangLayMa() {
+        bangLayMaMayBay = new PopupFormSearch();
+        bangLayMaHanhTrinh = new PopupFormSearch();
+        
+        popupMaHanhTrinh.setLayout(new BorderLayout());
+        popupMaHanhTrinh.add(bangLayMaHanhTrinh, BorderLayout.CENTER);
+        
+        popupMaMayBay.setLayout(new BorderLayout());
+        popupMaMayBay.add(bangLayMaMayBay, BorderLayout.CENTER);
+    }
+    private void initDateChoosers() {
+        ngayDiDateChooser = new DateChooser();
+        ngayDiDateChooser.setTextRefernce(txtNgayXuatPhat);
+        ngayDiDateChooser = new DateChooser();
+        ngayDiDateChooser.setTextRefernce(txtNgayDenNoi);
+    }
+    public void showPopBangLayMaHanhTrinh() {
+        popupMaHanhTrinh.show(btnMaHanhTrinh, -287, btnMaHanhTrinh.getHeight() - 477);
+    }
+    
+    public void showPopBangLayMaMayBay() {
+        popupMaMayBay.show(btnMaMayBay, -287, btnMaMayBay.getHeight() - 477);
+    }
+    
+    public DateChooser getNgayDiDateChooser() {
+        return ngayDiDateChooser;
+    }
+
+    public DateChooser getNgayDenDateChooser() {
+        return ngayDenDateChooser;
+    }
+    public MyButton getBtnMaHanhTrinh() {
+        return btnMaHanhTrinh;
+    }
+
+    public MyButton getBtnMaMayBay() {
+        return btnMaMayBay;
+    }
+
+
+    public JSpinner getSpinnerGioDenNoi() {
+        return spinnerGioDenNoi;
+    }
+
+    public JSpinner getSpinnerGioXuatPhat() {
+        return spinnerGioXuatPhat;
+    }
+
+    public JTextField getTxtGiaThuong() {
+        return txtGiaThuong;
+    }
+
+    public JTextField getTxtGiaVip() {
+        return txtGiaVip;
+    }
+
+    public JTextField getTxtMaChuyenBay() {
+        return txtMaChuyenBay;
+    }
+
+    public JTextField getTxtMaHanhTrinh() {
+        return txtMaHanhTrinh;
+    }
+
+    public JTextField getTxtMaMayBay() {
+        return txtMaMayBay;
+    }
+
+    public JTextField getTxtNgayDenNoi() {
+        return txtNgayDenNoi;
+    }
+
+    public JTextField getTxtNgayXuatPhat() {
+        return txtNgayXuatPhat;
+    }
+
+    public JTextField getTxtSoGheConLai() {
+        return txtSoGheConLaij;
+    }
+
+    public JTextField getTxtSoGheDaBan() {
+        return txtSoGheDaBan;
+    }
+
+    public JTextField getTxtTongSLGhe() {
+        return txtTongSLGhe;
+    }
+
+    public JTextField getTxtTrangThai() {
+        return txtTrangThai;
+    }   
+    public void addShowPopupMaHanhTrinh(ActionListener listener) {
+        btnMaHanhTrinh.addActionListener(listener);
+    }
+
+    public void addShowPopupMaMayBay(ActionListener listener) {
+        btnMaMayBay.addActionListener(listener);
+    }
+
+    public void clearForm() {
+        initSpinerTime();
+        initDateChoosers();
+        txtGiaThuong.setText("");
+        txtGiaVip.setText("");
+        txtMaChuyenBay.setText("");
+        txtMaHanhTrinh.setText("");
+        txtMaMayBay.setText("");
+        txtSoGheConLaij.setText("");
+        txtSoGheDaBan.setText("");
+        txtTongSLGhe.setText("");
+        txtTrangThai.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private GUI.panel.swing.MyButton btnMaHanhTrinh;
+    private GUI.panel.swing.MyButton btnMaMayBay;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -342,22 +486,20 @@ public class ChuyenBayForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
-    private GUI.panel.swing.MyButton myButton1;
-    private GUI.panel.swing.MyButton myButton2;
-    private GUI.panel.swing.MyButton myButton3;
-    private GUI.panel.swing.MyButton myButton4;
+    private javax.swing.JPopupMenu popupMaHanhTrinh;
+    private javax.swing.JPopupMenu popupMaMayBay;
+    private javax.swing.JSpinner spinnerGioDenNoi;
+    private javax.swing.JSpinner spinnerGioXuatPhat;
+    private javax.swing.JTextField txtGiaThuong;
+    private javax.swing.JTextField txtGiaVip;
+    private javax.swing.JTextField txtMaChuyenBay;
+    private javax.swing.JTextField txtMaHanhTrinh;
+    private javax.swing.JTextField txtMaMayBay;
+    private javax.swing.JTextField txtNgayDenNoi;
+    private javax.swing.JTextField txtNgayXuatPhat;
+    private javax.swing.JTextField txtSoGheConLaij;
+    private javax.swing.JTextField txtSoGheDaBan;
+    private javax.swing.JTextField txtTongSLGhe;
+    private javax.swing.JTextField txtTrangThai;
     // End of variables declaration//GEN-END:variables
 }

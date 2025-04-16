@@ -26,7 +26,7 @@
     <Property name="axis" type="int" value="3"/>
   </Layout>
   <SubComponents>
-    <Component class="GUI.forms.ChuyenBayControlForm" name="chuyenBayControlForm2">
+    <Component class="GUI.forms.ChuyenBayControlForm" name="chuyenBayControlForm">
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
@@ -39,21 +39,21 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="chuyenBayTableForm2" min="-2" pref="769" max="-2" attributes="0"/>
+                  <Component id="chuyenBayTableForm" min="-2" pref="769" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="chuyenBayForm1" pref="298" max="32767" attributes="0"/>
+                  <Component id="chuyenBayForm" pref="298" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="chuyenBayTableForm2" pref="591" max="32767" attributes="0"/>
-              <Component id="chuyenBayForm1" alignment="0" pref="0" max="32767" attributes="0"/>
+              <Component id="chuyenBayTableForm" pref="591" max="32767" attributes="0"/>
+              <Component id="chuyenBayForm" alignment="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="GUI.forms.ChuyenBayTableForm" name="chuyenBayTableForm2">
+        <Component class="GUI.forms.ChuyenBayTableForm" name="chuyenBayTableForm">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -64,7 +64,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="GUI.forms.ChuyenBayForm" name="chuyenBayForm1">
+        <Component class="GUI.forms.ChuyenBayForm" name="chuyenBayForm">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">

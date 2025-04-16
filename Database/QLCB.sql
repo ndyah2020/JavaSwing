@@ -96,6 +96,7 @@ VALUES
 ('HT-0004',N'Phú Bài - Cam Ranh','SB-NV9I0J', 'SB-QT1K2L', 1100000),
 ('HT-0005',N'Phú Quốc - Cần Thơ','SB-HDB7Q8R', 'SB-SG9T0U', 1300000);
 GO
+DROP TABLE ChuyenBay
 CREATE TABLE ChuyenBay (
     MaChuyenBay VARCHAR(20) PRIMARY KEY NOT NULL,
     NgayXuatPhat DATE NOT NULL,
@@ -104,16 +105,16 @@ CREATE TABLE ChuyenBay (
     GioDenNoi TIME NOT NULL,
     GiaThuong INT NOT NULL,
     GiaVip INT NOT NULL,
-    TrangThaiChuyenBay VARCHAR(50) NOT NULL,
+    TrangThaiChuyenBay NVARCHAR(50) NOT NULL,
     TongSoLuongGhe INT NOT NULL,
     SoGheDaBan INT NOT NULL,
-    SoChoConLai INT NOT NULL,
+    SoGheConLai INT NOT NULL,
     MaMayBay VARCHAR(20) NOT NULL,
     MaHanhTrinh VARCHAR(20) NOT NULL,
     FOREIGN KEY (MaMayBay) REFERENCES MayBay(MaMayBay),
     FOREIGN KEY (MaHanhTrinh) REFERENCES HanhTrinh(MaHanhTrinh)
 );
-INSERT INTO ChuyenBay (MaChuyenBay, NgayXuatPhat, GioXuatPhat, NgayDenNoi, GioDenNoi, GiaThuong, GiaVip, TrangThaiChuyenBay, TongSoLuongGhe, SoGheDaBan, SoChoConLai, MaMayBay, MaHanhTrinh)
+INSERT INTO ChuyenBay (MaChuyenBay, NgayXuatPhat, GioXuatPhat, NgayDenNoi, GioDenNoi, GiaThuong, GiaVip, TrangThaiChuyenBay, TongSoLuongGhe, SoGheDaBan, SoGheConLai, MaMayBay, MaHanhTrinh)
 VALUES
 ('CB-0001', '2025-05-01', '08:00:00', '2025-05-01', '10:00:00', 1800000, 2500000, N'Đang mở bán', 150, 0, 150, 'MB-001', 'HT-0001'),
 ('CB-0002', '2025-05-02', '14:30:00', '2025-05-02', '16:00:00', 1500000, 2100000, N'Đang mở bán', 120, 0, 120, 'MB-002', 'HT-0002'),
@@ -121,12 +122,13 @@ VALUES
 ('CB-0004', '2025-05-04', '18:00:00', '2025-05-04', '19:30:00', 1400000, 2000000, N'Đang mở bán', 90, 0, 90, 'MB-004', 'HT-0004'),
 ('CB-0005', '2025-05-05', '10:15:00', '2025-05-05', '11:45:00', 1600000, 2200000, N'Đang mở bán', 130, 0, 130, 'MB-005', 'HT-0005');
 GO
+DROP TABLE Ve
 CREATE TABLE Ve (
     MaVe VARCHAR(10) PRIMARY KEY NOT NULL,
     TrangThaiVe VARCHAR(50) NOT NULL,
     GiaVe INT NOT NULL,
     MaLoaiVe VARCHAR(10) NOT NULL,
-    MaChuyenBay VARCHAR(10) NOT NULL,
+    MaChuyenBay VARCHAR(20) NOT NULL,
     FOREIGN KEY (MaLoaiVe) REFERENCES LoaiVe(MaLoaiVe),
     FOREIGN KEY (MaChuyenBay) REFERENCES ChuyenBay(MaChuyenBay)
 );

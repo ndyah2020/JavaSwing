@@ -66,7 +66,25 @@ public class HanhTrinhController {
         setModelSanBay(model, dsSanBay);
         panelControl.getBangLayMa().getMyTable().setModel(model);
     }
-
+    
+    private HanhTrinhDTO layMotHanhTrinh(String maHanhTrinh) {
+       HanhTrinhDTO hanhTrinh = new HanhTrinhDTO();
+        for (HanhTrinhDTO ht : dsHanhTrinh) {
+            if (ht.getMaHanhTrinh().equals(maHanhTrinh)) {
+                hanhTrinh = ht;
+                break;
+            }
+        }
+        return hanhTrinh;
+    }
+    
+    private void setForm(HanhTrinhDTO hanhTrinh) {
+        panelControl.getTxtTenHanhTrinh().setText(hanhTrinh.getTenHanhTrinh());
+        panelControl.getTxtSanBayDi().setText(hanhTrinh.getSanBayDi());
+        panelControl.getTxtSanBayDen().setText(hanhTrinh.getSanBayDen());
+        panelControl.getTxtGiaCoBan().setText("" + hanhTrinh.getGiaCoBan());
+    }
+    
     public void hienThiDanhSachHanhTrinh() {
         HanhTrinhBUS bus = new HanhTrinhBUS();
         DefaultTableModel modelDsHT = panelTable.getModel();
@@ -123,12 +141,8 @@ public class HanhTrinhController {
 
                 int rowSeleted = panelTable.getMyTable().getSelectedRow();
                 if (rowSeleted != -1) {
-                    HanhTrinhDTO hanhTrinh = dsHanhTrinh.get(rowSeleted);
-                    panelControl.getTxtTenHanhTrinh().setText(hanhTrinh.getTenHanhTrinh());
-                    panelControl.getTxtSanBayDi().setText(hanhTrinh.getSanBayDi());
-                    panelControl.getTxtSanBayDen().setText(hanhTrinh.getSanBayDen());
-                    panelControl.getTxtGiaCoBan().setText("" + hanhTrinh.getGiaCoBan());
-
+                    String maHanhTrinh = panelTable.getMyTable().getValueAt(rowSeleted, 0 ).toString();
+                    setForm(layMotHanhTrinh(maHanhTrinh));       
                 }
             }
         });

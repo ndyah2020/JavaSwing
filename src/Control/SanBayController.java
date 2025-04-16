@@ -48,7 +48,18 @@ public class SanBayController {
         taiDuLieuLenTabel(modelDs, dsSanBay);
         panelTable.getMyTable().setModel(modelDs);
     }
-   
+
+    private SanBayDTO layMotSanBay(String maSanBay) {
+        SanBayDTO sanBay = new SanBayDTO();
+        for (SanBayDTO sb : dsSanBay) {
+            if (sb.getMaSanBay().equals(maSanBay)) {
+                sanBay = sb;
+                break;
+            }
+        }
+        return sanBay;
+    }
+    
     private ArrayList<SanBayDTO> hienThiDanhSachTimThay(String tenSanBay) {
         ArrayList<SanBayDTO> danhSachTimThay = new ArrayList<>();
             for (SanBayDTO sb : dsSanBay) {
@@ -79,7 +90,11 @@ public class SanBayController {
         }
         return false;
     }
-
+    private void setForm(SanBayDTO sanBay) {
+        panelControl.getTxtTenSanBay().setText(sanBay.getTenSanBay());
+        panelControl.getTxtDiaChi().setText(sanBay.getDiaChi());
+    }
+    
     public void xuLySuKien() {
         //tai du lieu lem text field
         panelTable.addRowClick(new MouseAdapter() {
@@ -88,9 +103,8 @@ public class SanBayController {
                 int rowSeleted = panelTable.getMyTable().getSelectedRow();
                 
                 if (rowSeleted != -1) {
-                    SanBayDTO sanBay = dsSanBay.get(rowSeleted);
-                    panelControl.getTxtTenSanBay().setText(sanBay.getTenSanBay());
-                    panelControl.getTxtDiaChi().setText(sanBay.getDiaChi());
+                    String maSanBay = panelTable.getMyTable().getValueAt(rowSeleted, 0).toString();
+                    setForm(layMotSanBay(maSanBay));
                 }
             }
         });
