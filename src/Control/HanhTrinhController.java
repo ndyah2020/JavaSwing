@@ -104,7 +104,17 @@ public class HanhTrinhController {
         }
         return dsHanhTrinhTimThay;
     }
-
+    
+    public ArrayList<HanhTrinhDTO> danhSachGiaTim(int tuGia, int denGia){
+       ArrayList<HanhTrinhDTO> dsHanhTrinhTimThay = new ArrayList<>();
+       for(HanhTrinhDTO ht : dsHanhTrinh) {
+           if( ht.getGiaCoBan() >= tuGia && ht.getGiaCoBan() <= denGia) {
+                dsHanhTrinhTimThay.add(ht);
+           }
+       }
+       return dsHanhTrinhTimThay;
+    }
+    
     public void xuLySuKienHanhTrinhConTrol() {
 
         panelTable.addRowClick(new MouseAdapter() {
@@ -130,7 +140,7 @@ public class HanhTrinhController {
                 String tenHanhTrinh = panelControl.getTxtTenHanhTrinh().getText();
                 int giaCoBan = Integer.parseInt(panelControl.getTxtGiaCoBan().getText());
 
-                if (sanBayDi.isEmpty() || sanBayDen.isEmpty() || giaCoBan < 0) {
+                if (tenHanhTrinh.isEmpty() || sanBayDi.isEmpty() || sanBayDen.isEmpty() || giaCoBan < 0) {
                     JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin!");
                     return;
                 }
@@ -189,7 +199,7 @@ public class HanhTrinhController {
                 }
             }
         });
-        //Hiển thị poup và đưa danh sách lên popup
+        //Hiển thị poup và đưa danh sách sân bay đi lên popup
         panelControl.addShowPopupSanBayDiListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -199,6 +209,7 @@ public class HanhTrinhController {
                 popupModel = "di";
             }
         });
+        //Hiển thị poup và đưa danh sách sân bay đến lên popup
         panelControl.addShowPopupSanBayDenListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -208,6 +219,7 @@ public class HanhTrinhController {
                 popupModel = "den";
             }
         });
+        //Sự kiện click set mả vào text flied khi chọn
         panelControl.getBangLayMa().addRowClickPopup(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -219,6 +231,7 @@ public class HanhTrinhController {
                 }
             }
         });
+        //Tìm kiếm đơn giản trên danh sách hành trình
         panelControl.addTxtTimKiemListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -231,5 +244,31 @@ public class HanhTrinhController {
                 }
             }
         });
+        //Lọc giá của hành trình từ combobox
+        panelControl.addLocGiaListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String giaDachon = (String) panelControl.getCmbLocGia().getSelectedItem();
+                DefaultTableModel modeTimKiem = panelTable.getModel();
+                switch (giaDachon) {
+                    case "1 triệu":                       
+                        modeTimKiem.setRowCount(0);
+                        taiDuLieuLenTabel(modeTimKiem,danhSachGiaTim(0,1000000));
+                        break;
+                    case "1 triệu - 2 triệu":
+                        modeTimKiem.setRowCount(0);
+                        taiDuLieuLenTabel(modeTimKiem,danhSachGiaTim(1000000,2000000));                    
+                        break;
+                    case "2 triệu trở lên":            
+                        modeTimKiem.setRowCount(0);
+                        taiDuLieuLenTabel(modeTimKiem,danhSachGiaTim(2000000, Integer.MAX_VALUE));                      
+                        break;
+                    default:
+                        hienThiDanhSachHanhTrinh();
+                        break;
+                }
+            }
+        });
+       
     }
 }

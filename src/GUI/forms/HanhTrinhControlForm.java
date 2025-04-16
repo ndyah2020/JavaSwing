@@ -7,6 +7,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 import GUI.PopupForm.PopupFormSearch;
 import GUI.panel.swing.MyButton;
+import GUI.panel.swing.MyCombobox;
 public class HanhTrinhControlForm extends javax.swing.JPanel {
     private final PopupFormSearch bangLayMa = new PopupFormSearch();
     
@@ -39,7 +40,7 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
         ComboTimKiemCoBan = new javax.swing.JPanel();
         txtTimKiem = new javax.swing.JTextField();
         lbTimKiem = new javax.swing.JLabel();
-        cmbSapXep = new GUI.panel.swing.MyCombobox();
+        cmbLocGia = new GUI.panel.swing.MyCombobox();
         ComboSanBayDi1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         txtSanBayDi = new javax.swing.JTextField();
@@ -116,9 +117,9 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
         lbTimKiem.setOpaque(true);
         ComboTimKiemCoBan.add(lbTimKiem);
 
-        cmbSapXep.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Giá Cơ Bản" }));
-        cmbSapXep.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cmbSapXep.setPreferredSize(new java.awt.Dimension(240, 31));
+        cmbLocGia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Giá Cơ Bản", "1 triệu", "1 triệu - 2 triệu", "2 triệu trở lên" }));
+        cmbLocGia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cmbLocGia.setPreferredSize(new java.awt.Dimension(240, 31));
 
         ComboSanBayDi1.setBackground(new java.awt.Color(255, 255, 255));
         ComboSanBayDi1.setLayout(new javax.swing.BoxLayout(ComboSanBayDi1, javax.swing.BoxLayout.LINE_AXIS));
@@ -177,7 +178,7 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(comboTenHanhTrinh, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbSapXep, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbLocGia, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
@@ -211,7 +212,7 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
                         .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(comboTenHanhTrinh, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbSapXep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbLocGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,7 +225,10 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
     public JTextField getTxtGiaCoBan() {
         return txtGiaCoBan;
     }
-
+    
+    public MyCombobox getCmbLocGia() {
+        return cmbLocGia;
+    }
     public JTextField getTxtSanBayDen() {
         return txtSanBayDen;
     }
@@ -287,6 +291,9 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
     public void addShowPopupSanBayDiListener(ActionListener listener) {
         btnSanBayDi.addActionListener(listener);
     }
+    public void addLocGiaListener(ActionListener listener) {
+        cmbLocGia.addActionListener(listener);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ComboGiaCoBan;
     private javax.swing.JPanel ComboMaHanhTrinh;
@@ -298,7 +305,7 @@ public class HanhTrinhControlForm extends javax.swing.JPanel {
     private GUI.panel.swing.MyButton btnSua;
     private GUI.panel.swing.MyButton btnThem;
     private GUI.panel.swing.MyButton btnXoa;
-    private GUI.panel.swing.MyCombobox cmbSapXep;
+    private GUI.panel.swing.MyCombobox cmbLocGia;
     private javax.swing.JPanel comboTenHanhTrinh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
