@@ -65,9 +65,12 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
         jTextField1.setPreferredSize(new java.awt.Dimension(64, 31));
         jPanel1.add(jTextField1);
 
+        myButton2.setBackground(new java.awt.Color(0, 204, 255));
         myButton2.setBorder(null);
         myButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/search.png"))); // NOI18N
         myButton2.setBorderColor(new java.awt.Color(0, 204, 255));
+        myButton2.setColorClick(new java.awt.Color(0, 153, 255));
+        myButton2.setColorOver(new java.awt.Color(0, 204, 255));
         myButton2.setOpaque(true);
         myButton2.setPreferredSize(new java.awt.Dimension(31, 31));
         jPanel1.add(myButton2);
@@ -103,7 +106,7 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(myCombobox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

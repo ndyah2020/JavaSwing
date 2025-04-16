@@ -55,9 +55,8 @@ VALUES
 
 GO
 
-
 CREATE TABLE MayBay (
-    MaMayBay VARCHAR(10) PRIMARY KEY NOT NULL,
+    MaMayBay VARCHAR(20) PRIMARY KEY NOT NULL,
     TenMayBay VARCHAR(255) NOT NULL,
     SoLuongGheThuong INT NOT NULL,
     SoLuongGheVip INT NOT NULL,
@@ -65,6 +64,18 @@ CREATE TABLE MayBay (
     MaLoaiMayBay VARCHAR(20) NOT NULL,
     FOREIGN KEY (MaLoaiMayBay) REFERENCES LoaiMayBay(MaLoai)
 );
+INSERT INTO MayBay (MaMayBay, TenMayBay, SoLuongGheThuong, SoLuongGheVip, TongSoLuongGhe, MaLoaiMayBay)
+VALUES
+('MB-001', N'Boeing 737 MAX - A', 120, 30, 150, 'LMB-A1B2C3D4'),
+('MB-002', N'Airbus A320neo - B', 115, 35, 150, 'LMB-E5F6G7H8'),
+('MB-003', N'Embraer E195-E2 - C', 110, 30, 140, 'LMB-J9K0L1M2'),
+('MB-004', N'Boeing 787 Dreamliner - D', 180, 70, 250, 'LMB-N3O4P5Q6'),
+('MB-005', N'Airbus A350 XWB - E', 190, 60, 250, 'LMB-R7S8T9U0'),
+('MB-006', N'Bombardier CS300 - F', 100, 20, 120, 'LMB-V1W2X3Y4'),
+('MB-007', N'Sukhoi Superjet 100 - G', 90, 20, 110, 'LMB-Z5A6B7C8'),
+('MB-008', N'Mitsubishi SpaceJet - H', 95, 25, 120, 'LMB-D9E0F1G2'),
+('MB-009', N'Tupolev Tu-204 - I', 100, 30, 130, 'LMB-H3I4J5K6'),
+('MB-010', N'Comac C919 - J', 110, 40, 150, 'LMB-L7M8N9O0');
 GO
 DROP table HanhTrinh
 CREATE TABLE HanhTrinh (
@@ -84,10 +95,9 @@ VALUES
 ('HT-0003',N'Đà Nẵng - Cát Bi','SB-DN5E6F', 'SB-CT7G8H', 1000000), 
 ('HT-0004',N'Phú Bài - Cam Ranh','SB-NV9I0J', 'SB-QT1K2L', 1100000),
 ('HT-0005',N'Phú Quốc - Cần Thơ','SB-HDB7Q8R', 'SB-SG9T0U', 1300000);
-
 GO
 CREATE TABLE ChuyenBay (
-    MaChuyenBay VARCHAR(10) PRIMARY KEY NOT NULL,
+    MaChuyenBay VARCHAR(20) PRIMARY KEY NOT NULL,
     NgayXuatPhat DATE NOT NULL,
     GioXuatPhat TIME NOT NULL,
     NgayDenNoi DATE NOT NULL,
@@ -98,13 +108,19 @@ CREATE TABLE ChuyenBay (
     TongSoLuongGhe INT NOT NULL,
     SoGheDaBan INT NOT NULL,
     SoChoConLai INT NOT NULL,
-    MaMayBay VARCHAR(10) NOT NULL,
-    MaHanhTrinh VARCHAR(10) NOT NULL,
+    MaMayBay VARCHAR(20) NOT NULL,
+    MaHanhTrinh VARCHAR(20) NOT NULL,
     FOREIGN KEY (MaMayBay) REFERENCES MayBay(MaMayBay),
     FOREIGN KEY (MaHanhTrinh) REFERENCES HanhTrinh(MaHanhTrinh)
 );
+INSERT INTO ChuyenBay (MaChuyenBay, NgayXuatPhat, GioXuatPhat, NgayDenNoi, GioDenNoi, GiaThuong, GiaVip, TrangThaiChuyenBay, TongSoLuongGhe, SoGheDaBan, SoChoConLai, MaMayBay, MaHanhTrinh)
+VALUES
+('CB-0001', '2025-05-01', '08:00:00', '2025-05-01', '10:00:00', 1800000, 2500000, N'Đang mở bán', 150, 0, 150, 'MB-001', 'HT-0001'),
+('CB-0002', '2025-05-02', '14:30:00', '2025-05-02', '16:00:00', 1500000, 2100000, N'Đang mở bán', 120, 0, 120, 'MB-002', 'HT-0002'),
+('CB-0003', '2025-05-03', '06:00:00', '2025-05-03', '07:30:00', 1300000, 1900000, N'Đang mở bán', 100, 0, 100, 'MB-003', 'HT-0003'),
+('CB-0004', '2025-05-04', '18:00:00', '2025-05-04', '19:30:00', 1400000, 2000000, N'Đang mở bán', 90, 0, 90, 'MB-004', 'HT-0004'),
+('CB-0005', '2025-05-05', '10:15:00', '2025-05-05', '11:45:00', 1600000, 2200000, N'Đang mở bán', 130, 0, 130, 'MB-005', 'HT-0005');
 GO
-
 CREATE TABLE Ve (
     MaVe VARCHAR(10) PRIMARY KEY NOT NULL,
     TrangThaiVe VARCHAR(50) NOT NULL,
