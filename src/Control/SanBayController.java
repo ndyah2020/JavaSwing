@@ -30,22 +30,13 @@ public class SanBayController {
        
     }
     
-    public void taiDuLieuLenTabel(DefaultTableModel model, ArrayList<SanBayDTO> danhSach) {
-        model.setRowCount(0);
-        for (SanBayDTO sb : danhSach) {
-            Vector<String> row = new Vector<>();
-            row.add(sb.getMaSanBay());
-            row.add(sb.getTenSanBay());
-            row.add(sb.getDiaChi());
-            model.addRow(row);
-        }
-    }
+    
     
     public void hienThiDanhSachSanBay() {
         SanBayBUS sanBayBUS = new SanBayBUS();
         DefaultTableModel modelDs = panelTable.getModel();
         dsSanBay = sanBayBUS.getDanhSachSanBay();
-        taiDuLieuLenTabel(modelDs, dsSanBay);
+        SanBayTableHelper.taiDuLieuLenTabelSanBay(modelDs, dsSanBay);
         panelTable.getMyTable().setModel(modelDs);
     }
 
@@ -185,7 +176,7 @@ public class SanBayController {
                 String tenNhapVao = panelControl.getTxtTimKiem().getText();
                 if(!tenNhapVao.isEmpty()){
                     ArrayList<SanBayDTO> danhSachSBMoi = hienThiDanhSachTimThay(tenNhapVao);
-                    taiDuLieuLenTabel(modelTimKiem, danhSachSBMoi);
+                    SanBayTableHelper.taiDuLieuLenTabelSanBay(modelTimKiem, danhSachSBMoi);
                     panelTable.getMyTable().setModel(modelTimKiem);
                 }else{
                     hienThiDanhSachSanBay();

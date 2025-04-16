@@ -25,7 +25,6 @@ public class HanhTrinhController {
     private final HanhTrinhTableForm panelTable;
     private final HanhTrinhControlForm panelControl;
     private String popupModel = "";
-
     public HanhTrinhController(HanhTrinhPanelForm panel) {
         this.panelTable = panel.getHanhTrinhTableForm();
         this.panelControl = panel.getHanhTrinhControlForm();
@@ -34,36 +33,13 @@ public class HanhTrinhController {
         panelControl.getTxtSanBayDen().setEditable(false);
     }
 
-    private void taiDuLieuLenTabel(DefaultTableModel model, ArrayList<HanhTrinhDTO> danhSach) {
-        model.setRowCount(0);
-        for (HanhTrinhDTO ht : danhSach) {
-            Vector row = new Vector();
-            row.add(ht.getMaHanhTrinh());
-            row.add(ht.getTenHanhTrinh());
-            row.add(ht.getSanBayDi());
-            row.add(ht.getSanBayDen());
-            row.add(ht.getGiaCoBan());
-            model.addRow(row);
-        }
-    }
-
-    private void setModelSanBay(DefaultTableModel model, ArrayList<SanBayDTO> danhSach) {
-        model.setRowCount(0);
-        for (SanBayDTO sb : danhSach) {
-            Vector<String> row = new Vector();
-            row.add(sb.getMaSanBay());
-            row.add(sb.getTenSanBay());
-            model.addRow(row);
-        }
-    }
-
     private void layDanhSachSanBayVaHienThiLenPopup() {
         String[] tenCot = {"Mã Sân Bay", "Tên Sân Bay"};
         panelControl.getBangLayMa().setcolumnDefaultTableModel(tenCot);
         DefaultTableModel model = panelControl.getBangLayMa().getModel();
         SanBayBUS bus = new SanBayBUS();
         ArrayList<SanBayDTO> dsSanBay = bus.getDanhSachSanBay();
-        setModelSanBay(model, dsSanBay);
+        SanBayTableHelper.taiDuLieuLenTabelSanBay(model, dsSanBay);
         panelControl.getBangLayMa().getMyTable().setModel(model);
     }
     
@@ -89,7 +65,7 @@ public class HanhTrinhController {
         HanhTrinhBUS bus = new HanhTrinhBUS();
         DefaultTableModel modelDsHT = panelTable.getModel();
         dsHanhTrinh = bus.getDanhSachHanhTrinhBUS();
-        taiDuLieuLenTabel(modelDsHT, dsHanhTrinh);
+        HanhTrinhTableHelper.taiDuLieuLenHanhTrinhLenTable(modelDsHT, dsHanhTrinh);
         panelTable.getMyTable().setModel(modelDsHT);
     }
 
@@ -104,14 +80,14 @@ public class HanhTrinhController {
     }
 
     //Kiểm tra mã duy nhất
-    private boolean isCodeDuplicate(String code) {
-        for (HanhTrinhDTO ht : dsHanhTrinh) {
-            if (ht.getMaHanhTrinh().equals(code)) {
-                return true;
+        private boolean isCodeDuplicate(String code) {
+            for (HanhTrinhDTO ht : dsHanhTrinh) {
+                if (ht.getMaHanhTrinh().equals(code)) {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
-    }
 
     public ArrayList<HanhTrinhDTO> danhSachTimKiem(String tenHangTrinh) {
         ArrayList<HanhTrinhDTO> dsHanhTrinhTimThay = new ArrayList<>();
@@ -252,7 +228,7 @@ public class HanhTrinhController {
                 DefaultTableModel modeTimKiem = panelTable.getModel();
                 String tenHanhTrinhTimKiem = panelControl.getTxtTimKiem().getText();
                 if (!tenHanhTrinhTimKiem.isEmpty()) {
-                    taiDuLieuLenTabel(modeTimKiem, danhSachTimKiem(tenHanhTrinhTimKiem));
+                    HanhTrinhTableHelper.taiDuLieuLenHanhTrinhLenTable(modeTimKiem, danhSachTimKiem(tenHanhTrinhTimKiem));
                 } else {
                     hienThiDanhSachHanhTrinh();
                 }
@@ -267,15 +243,15 @@ public class HanhTrinhController {
                 switch (giaDachon) {
                     case "1 triệu":                       
                         modeTimKiem.setRowCount(0);
-                        taiDuLieuLenTabel(modeTimKiem,danhSachGiaTim(0,1000000));
+                        HanhTrinhTableHelper.taiDuLieuLenHanhTrinhLenTable(modeTimKiem,danhSachGiaTim(0,1000000));
                         break;
                     case "1 triệu - 2 triệu":
                         modeTimKiem.setRowCount(0);
-                        taiDuLieuLenTabel(modeTimKiem,danhSachGiaTim(1000000,2000000));                    
+                        HanhTrinhTableHelper.taiDuLieuLenHanhTrinhLenTable(modeTimKiem,danhSachGiaTim(1000000,2000000));                    
                         break;
                     case "2 triệu trở lên":            
                         modeTimKiem.setRowCount(0);
-                        taiDuLieuLenTabel(modeTimKiem,danhSachGiaTim(2000000, Integer.MAX_VALUE));                      
+                        HanhTrinhTableHelper.taiDuLieuLenHanhTrinhLenTable(modeTimKiem,danhSachGiaTim(2000000, Integer.MAX_VALUE));                      
                         break;
                     default:
                         hienThiDanhSachHanhTrinh();

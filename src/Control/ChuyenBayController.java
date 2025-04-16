@@ -1,6 +1,7 @@
 package Control;
 
 import BUS.ChuyenBayBUS;
+import BUS.HanhTrinhBUS;
 import DTO.ChuyenBayDTO;
 import GUI.forms.ChuyenBayControlForm;
 import GUI.forms.ChuyenBayForm;
@@ -28,27 +29,13 @@ public class ChuyenBayController {
         this.panelControl = panel.getChuyenBayControlForm();
         this.panelTable = panel.getChuyenBayTableForm();
     }
-    public void taiDuLieuTableChuyenBay (DefaultTableModel model, ArrayList<ChuyenBayDTO> dsChuyenBay) {
-        model.setRowCount(0);
-        for(ChuyenBayDTO cb : dsChuyenBay) {
-            Vector row = new Vector();
-            row.add(cb.getMaChuyenBay());
-            row.add(cb.getNgayXuatPhat());
-            row.add(cb.getNgayDenNoi());
-            row.add(cb.getGiaThuong());
-            row.add(cb.getGiaVip());
-            row.add(cb.getTrangThaiChuyenBay());
-            row.add(cb.getMaMayBay());
-            row.add(cb.getMaHanhTrinh());
-            model.addRow(row);
-        }
-    }
+    
     
     public void layDanhSachChuyenBay() {
         DefaultTableModel modelDS = panelTable.getModel();
         ChuyenBayBUS bus = new ChuyenBayBUS();
         dsChuyenBay = bus.getDanhSachChuyenBay();
-        taiDuLieuTableChuyenBay(modelDS, dsChuyenBay);
+        ChuyenBayTableHelper.taiDuLieuTableChuyenBay(modelDS, dsChuyenBay);
         panelTable.getMyTable().setModel(modelDS);
     }
     
@@ -117,6 +104,11 @@ public class ChuyenBayController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 panelForm.showPopBangLayMaMayBay();
+                String[] tenCot = {"Mã Máy Bay", "Tên Máy Bay"};
+                panelForm.getBangLayMaMayBay().setcolumnDefaultTableModel(tenCot);
+                DefaultTableModel model = panelForm.getBangLayMaMayBay().getModel();
+                HanhTrinhBUS bus = new HanhTrinhBUS();
+                HanhTrinhTableHelper.taiDuLieuLenHanhTrinhLenTable(model, bus.getDanhSachHanhTrinhBUS());
             }
         });
     }

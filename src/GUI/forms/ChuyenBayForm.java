@@ -351,18 +351,28 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         popupMaMayBay.setLayout(new BorderLayout());
         popupMaMayBay.add(bangLayMaMayBay, BorderLayout.CENTER);
     }
+    
     private void initDateChoosers() {
         ngayDiDateChooser = new DateChooser();
         ngayDiDateChooser.setTextRefernce(txtNgayXuatPhat);
         ngayDiDateChooser = new DateChooser();
         ngayDiDateChooser.setTextRefernce(txtNgayDenNoi);
     }
+    
     public void showPopBangLayMaHanhTrinh() {
         popupMaHanhTrinh.show(btnMaHanhTrinh, -287, btnMaHanhTrinh.getHeight() - 477);
     }
     
     public void showPopBangLayMaMayBay() {
         popupMaMayBay.show(btnMaMayBay, -287, btnMaMayBay.getHeight() - 477);
+    }
+    
+    public PopupFormSearch getBangLayMaMayBay() {
+        return bangLayMaMayBay;
+    }
+    
+    public PopupFormSearch getBangLayMaHanhTrinh() {
+        return bangLayMaHanhTrinh;
     }
     
     public DateChooser getNgayDiDateChooser() {
