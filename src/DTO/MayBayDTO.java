@@ -49,7 +49,7 @@ public class MayBayDTO {
         return tongSoLuongGhe;
     }
 
-    public String getLoaiMayBay() {
+    public String getMaLoaiMayBay() {
         return maLoaiMayBay;
     }
 
@@ -73,7 +73,7 @@ public class MayBayDTO {
         this.tongSoLuongGhe = tongSoLuongGhe;
     }
 
-    public void setLoaiMayBay(String maLoaiMayBay) {
+    public void setMaLoaiMayBay(String maLoaiMayBay) {
         this.maLoaiMayBay = maLoaiMayBay;
     }
     

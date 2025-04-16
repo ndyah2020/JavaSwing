@@ -3,6 +3,7 @@ package GUI.frame;
 import Control.ChuyenBayController;
 import Control.HanhTrinhController;
 import Control.LoaiMayBayController;
+import Control.MayBayController;
 import Control.SanBayController;
 import GUI.forms.ChuyenBayPanelForm;
 import GUI.forms.DatVeGroupForm;
@@ -34,6 +35,7 @@ public final class Home extends javax.swing.JFrame {
     HanhTrinhController hanhTrinhController;
     LoaiMayBayController loaiMayBayController;
     ChuyenBayController chuyenBayController;
+    MayBayController mayBayController;
     //Khoi tao cac panel
     private FormGroup formGroup;
     private DatVeGroupForm datVeForm;
@@ -361,7 +363,9 @@ public final class Home extends javax.swing.JFrame {
             loaiMayBayController.xuLySuKienLoaiMayBay();
             
         } else if (selectedLabel == mayBayMenu) {
-            System.out.println("Máy bay");
+            mayBayController = new MayBayController(mayBayForm);
+            mayBayController.hienThiDanhSachMayBay();
+            mayBayController.xuLySuKienMayBayControl();
             // Hiển thị form máy bay
         } else if (selectedLabel == chuyenBayMenu) {
             
