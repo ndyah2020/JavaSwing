@@ -11,7 +11,7 @@ public class MayBayTableForm extends javax.swing.JPanel {
     
     public MayBayTableForm() {
         initComponents();
-        String []columnNames = {"Mã máy bay", "Tên máy bay", "Mã loại máy bay", "Số lượng ghế thường", "Số lượng ghế Vip"};
+        String []columnNames = {"Mã máy bay", "Tên máy bay", "Số lượng ghế thường", "Số lượng ghế Vip", "Tổng số lượng ghế", "Mã loại máy bay"};
         model = new DefaultTableModel(columnNames,0);
         myTable.setModel(model);
     }
