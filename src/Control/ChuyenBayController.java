@@ -160,5 +160,52 @@ public class ChuyenBayController {
                 }
             }
         });
+        
+        //Them Chuyen Bay
+        panelControl.addThemListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String maChuyenBay = panelForm.getTxtMaChuyenBay().getText();
+                Date ngayXuatPhat = Date.valueOf(panelForm.getTxtNgayXuatPhat().getText());
+                //Lay kieu ep kieu ve time sql 
+                java.util.Date gioXuatphatDate = (java.util.Date) panelForm.getSpinnerGioXuatPhat().getValue();
+                Time gioXuatPhat = new Time(gioXuatphatDate.getTime()); 
+                
+                Date ngayDenNoi =  Date.valueOf(panelForm.getTxtNgayDenNoi().getText());   
+                
+                java.util.Date gioDenNoiDate = (java.util.Date) panelForm.getSpinnerGioDenNoi().getValue(); 
+                Time gioDenNoi = new Time(gioDenNoiDate.getTime());
+                
+                int giaThuong = Integer.parseInt(panelForm.getTxtGiaThuong().getText());
+                int giaVip = Integer.parseInt(panelForm.getTxtGiaVip().getText());
+                String trangThai = panelForm.getTxtTrangThai().getText();
+                int tongSoLuongGhe = Integer.parseInt(panelForm.getTxtTongSLGhe().getText());
+                int soGheDaBan = Integer.parseInt(panelForm.getTxtSoGheDaBan().getText());
+                int soGheConLai = Integer.parseInt(panelForm.getTxtSoGheConLai().getText());
+                String maMayBay = panelForm.getTxtMaMayBay().getText();
+                String maHanhTrinh = panelForm.getTxtMaHanhTrinh().getText();
+                
+                ChuyenBayDTO chuyenBay = new ChuyenBayDTO();
+                chuyenBay.setMaChuyenBay(maChuyenBay);
+                chuyenBay.setNgayXuatPhat(ngayXuatPhat);
+                chuyenBay.setGioXuatPhat(gioXuatPhat);
+                chuyenBay.setNgayDenNoi(ngayDenNoi);
+                chuyenBay.setGioDenNoi(gioDenNoi);
+                chuyenBay.setGiaThuong(giaThuong);
+                chuyenBay.setGiaVip(giaVip);
+                chuyenBay.setTrangThaiChuyenBay(trangThai);
+                chuyenBay.setTongSoLuongGhe(tongSoLuongGhe);
+                chuyenBay.setSoGheDaBan(soGheDaBan);
+                chuyenBay.setSoGheConLai(soGheConLai);
+                chuyenBay.setMaMayBay(maMayBay);
+                chuyenBay.setMaHanhTrinh(maHanhTrinh);
+                
+                ChuyenBayBUS bus = new ChuyenBayBUS();
+                bus.themChuyenBayBUS(chuyenBay);
+                panelForm.clearForm();
+                layDanhSachChuyenBay();
+                System.out.print("Them Thanh cong");
+            }
+        });
     }
 }

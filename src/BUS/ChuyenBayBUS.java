@@ -29,4 +29,9 @@ public class ChuyenBayBUS {
             danhSachChuyenBay.add(chuyenBay);
         }
     }
+    public void xoaHanhTrinh(String maHanhTrinh){
+        if(dao.xoaChuyenBay(maHanhTrinh)) {
+            danhSachChuyenBay.removeIf(ht -> ht.getMaHanhTrinh().equals(maHanhTrinh));
+        }
+    }
 }

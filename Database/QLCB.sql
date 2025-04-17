@@ -27,7 +27,7 @@ VALUES
 GO
 
 CREATE TABLE LoaiVe (
-    MaLoaiVe VARCHAR(10) PRIMARY KEY NOT NULL,
+    MaLoaiVe VARCHAR(20) PRIMARY KEY NOT NULL,
     TenLoaiVe NVARCHAR(255) NOT NULL
 );
 INSERT INTO LoaiVe (MaLoaiVe, TenLoaiVe) VALUES ('LV-THU', N'Ve Thường');
@@ -125,11 +125,12 @@ VALUES
 ('CB-0005', '2025-05-05', '10:15:00', '2025-05-05', '11:45:00', 1600000, 2200000, N'Đang mở bán', 130, 0, 130, 'MB-005', 'HT-0005');
 GO
 DROP TABLE Ve
+
 CREATE TABLE Ve (
-    MaVe VARCHAR(10) PRIMARY KEY NOT NULL,
-    TrangThaiVe VARCHAR(50) NOT NULL,
+    MaVe VARCHAR(20) PRIMARY KEY NOT NULL,
+    TrangThaiVe NVARCHAR(50) NOT NULL,
     GiaVe INT NOT NULL,
-    MaLoaiVe VARCHAR(10) NOT NULL,
+    MaLoaiVe VARCHAR(20) NOT NULL,
     MaChuyenBay VARCHAR(20) NOT NULL,
     FOREIGN KEY (MaLoaiVe) REFERENCES LoaiVe(MaLoaiVe),
     FOREIGN KEY (MaChuyenBay) REFERENCES ChuyenBay(MaChuyenBay)
@@ -237,3 +238,14 @@ begin
 		
 	)
 end
+
+
+SELECT ht.GiaCoBan, mb.SoLuongGheThuong, mb.SoLuongGheVip,lmb.HeSoGiaThuong, lmb.HeSoGiaVip 
+FROM ChuyenBay cb
+JOIN HanhTrinh ht On cb.MaHanhTrinh = ht.MaHanhTrinh
+JOIN MayBay mb ON cb.MaMayBay = mb.MaMaybay
+JOIN LoaiMayBay lmb ON lmb.MaLoai = mb.MaLoaiMayBay
+WHERE cb.MaChuyenBay = 'CB-0006';
+
+SELECT *
+FROM HanhTrinh

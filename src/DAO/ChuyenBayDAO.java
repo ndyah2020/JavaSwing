@@ -42,6 +42,7 @@ public class ChuyenBayDAO {
         }
         return dsChuyenBay;
     }
+    
     public boolean themChuyenBay(ChuyenBayDTO chuyenBay) {
         try {
             String sql = "INSERT INTO ChuyenBay (MaChuyenBay, NgayXuatPhat, GioXuatPhat, NgayDenNoi, GioDenNoi, GiaThuong, GiaVip, TrangThaiChuyenBay, TongSoLuongGhe, SoGheDaBan, SoGheConLai, MaMayBay, MaHanhTrinh) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -60,11 +61,33 @@ public class ChuyenBayDAO {
             pst.setInt(11, chuyenBay.getSoGheConLai());
             pst.setString(12, chuyenBay.getMaMayBay());
             pst.setString(13, chuyenBay.getMaHanhTrinh());
+            int row = pst.executeUpdate();
+            if(row > 0) {
+                VeDAO ve = new VeDAO();
+                ve.sinhVeTuDong(chuyenBay.getMaChuyenBay());
+                pst.close();
+                ConnectToSQLServer.closeConnection(conn);
+                return true;
+            }else {
+                return false;
+            }
+        }catch(SQLException e) {
+            JOptionPane.showMessageDialog(null, "Khong the them chuyen bay");
+            return false;
+        }
+    }
+    
+    public boolean xoaChuyenBay(String maChuyenBay) {
+        try {
+            String sql = "DELETE FROM HanhTrinh WHERE MaHanhTrinh = ?";
+            conn = ConnectToSQLServer.getConnection();
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, maChuyenBay);
             pst.executeUpdate();
             pst.close();
             ConnectToSQLServer.closeConnection(conn);
             return true;
-        }catch(SQLException e) {
+        }catch (SQLException e) {
             return false;
         }
     }
