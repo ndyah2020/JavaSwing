@@ -67,16 +67,6 @@ public class MayBayController {
         panelMayBayTable.getMyTable().setModel(model);
     }
     
-    public ArrayList<MayBayDTO> danhSachTimTheoTen(String tuKhoa) {
-        ArrayList<MayBayDTO> ketQua = new ArrayList<>();
-        for (MayBayDTO mb : dsMayBay) {
-            if (mb.getTenMayBay().toLowerCase().contains(tuKhoa.toLowerCase())) {
-                ketQua.add(mb);
-            }
-        }
-        return ketQua;
-    }
-    
     public void xuLySuKienMayBayControl() {
         panelMayBayTable.addRowClick(new MouseAdapter() {
             @Override
@@ -176,7 +166,8 @@ public class MayBayController {
                 String tuKhoa = panelMayBayControl.getTxtTimKiem().getText().trim();
                 DefaultTableModel model = panelMayBayTable.getModel();
                 if(!tuKhoa.isEmpty()) {
-                    HienThiTable.taiDuLieuTabelMayBay(model, danhSachTimTheoTen(tuKhoa));
+                    ArrayList<MayBayDTO> dsTimThay = TimKiemTable.danhSachTimTheoTenMayBay(tuKhoa, dsMayBay);
+                    HienThiTable.taiDuLieuTabelMayBay(model, dsTimThay);
                 } else {
                     hienThiDanhSachMayBay();
                 }
@@ -200,6 +191,22 @@ public class MayBayController {
                         .getValueAt(panelMayBayControl.getBangLayMaLoaiMayBay().getMyTable().getSelectedRow(), 0)
                         .toString();
                 panelMayBayControl.getTxtGetMaLoaiMayBay().setText(maLoaiPopup);
+            }
+        });
+        //Tim kiem tren popup
+        panelMayBayControl.getBangLayMaLoaiMayBay().addSearchPopupListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                DefaultTableModel modelLoaiMBTimKiem = panelMayBayControl.getBangLayMaLoaiMayBay().getModel();
+                LoaiMayBayBus bus = new LoaiMayBayBus();
+                String loaiMayBayTimKiem = panelMayBayControl.getBangLayMaLoaiMayBay().getTxtSearch().getText();
+                
+                if(!loaiMayBayTimKiem.isEmpty()) {
+                    ArrayList<LoaiMayBayDTO> loaMB = TimKiemTable.danhSachTimTheoTenLoaiMB(loaiMayBayTimKiem, bus.getDanhSachLoaiMayBay());
+                    HienThiTable.taiDuLieuTableLoaiMayBay(modelLoaiMBTimKiem, loaMB);
+                }else{
+                    layDanhSachLoaiMayBayVaHienThiLenPopup();
+                }
             }
         });
     }

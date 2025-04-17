@@ -31,17 +31,7 @@ public class LoaiMayBayController {
          HienThiTable.taiDuLieuTableLoaiMayBay(modelDanhSach, danhSachLoaiMayBay);
         loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().setModel(modelDanhSach);
     }
-    
-    private ArrayList<LoaiMayBayDTO> hienThiDanhSachTimThay(String tenLoai) {
-        ArrayList<LoaiMayBayDTO> danhSachTimThay = new ArrayList<>();
-        for (LoaiMayBayDTO lmb : danhSachLoaiMayBay) {
-            if (lmb.getTenLoai().toLowerCase().trim().contains(tenLoai.toLowerCase().trim())) {
-                danhSachTimThay.add(lmb);
-            }
-        }
-        return danhSachTimThay;
-    }
-    
+   
     public String taoMaNgauNhien() {
         String prefix = "LMB";
         String random = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 8).toUpperCase();
@@ -192,7 +182,7 @@ public class LoaiMayBayController {
 
                 String tenDauVao = loaiMayBayPanel.getLoaiMayBayControlForm().getTxtTimKiem().getText();
                 if (!tenDauVao.isEmpty()) {
-                    ArrayList<LoaiMayBayDTO> danhSachLMBMoi = hienThiDanhSachTimThay(tenDauVao);
+                    ArrayList<LoaiMayBayDTO> danhSachLMBMoi = TimKiemTable.danhSachTimTheoTenLoaiMB(tenDauVao, danhSachLoaiMayBay);
                      HienThiTable.taiDuLieuTableLoaiMayBay(modelTimKiem, danhSachLMBMoi);
                     loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().setModel(modelTimKiem);
                 } else {

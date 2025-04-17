@@ -28,9 +28,7 @@ public class SanBayController {
         this.panelTable = panel.getSanBayTableForm();
         this.panelControl = panel.getSanBayControlForm();
        
-    }
-    
-    
+    } 
     
     public void hienThiDanhSachSanBay() {
         SanBayBUS sanBayBUS = new SanBayBUS();
@@ -50,17 +48,6 @@ public class SanBayController {
         }
         return sanBay;
     }
-    
-    private ArrayList<SanBayDTO> hienThiDanhSachTimThay(String tenSanBay) {
-        ArrayList<SanBayDTO> danhSachTimThay = new ArrayList<>();
-            for (SanBayDTO sb : dsSanBay) {
-                if (sb.getTenSanBay().toLowerCase().trim().contains(tenSanBay.toLowerCase().trim())) {
-                    danhSachTimThay.add(sb);
-                }
-            }
-        return danhSachTimThay;
-    }
-
     
     //tạo mã random
     public String generateRandom() {
@@ -175,7 +162,7 @@ public class SanBayController {
                 
                 String tenNhapVao = panelControl.getTxtTimKiem().getText();
                 if(!tenNhapVao.isEmpty()){
-                    ArrayList<SanBayDTO> danhSachSBMoi = hienThiDanhSachTimThay(tenNhapVao);
+                    ArrayList<SanBayDTO> danhSachSBMoi = TimKiemTable.danhSachTimTheoTenSanBay(tenNhapVao, dsSanBay);
                     HienThiTable.taiDuLieuLenTabelSanBay(modelTimKiem, danhSachSBMoi);
                     panelTable.getMyTable().setModel(modelTimKiem);
                 }else{

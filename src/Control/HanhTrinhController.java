@@ -89,17 +89,7 @@ public class HanhTrinhController {
             return false;
         }
 
-    public ArrayList<HanhTrinhDTO> danhSachTimKiem(String tenHangTrinh) {
-        ArrayList<HanhTrinhDTO> dsHanhTrinhTimThay = new ArrayList<>();
-        for (HanhTrinhDTO ht : dsHanhTrinh) {
-            if (ht.getTenHanhTrinh().toLowerCase().trim().contains(tenHangTrinh.toLowerCase().trim())) {
-                dsHanhTrinhTimThay.add(ht);
-            }
-        }
-        return dsHanhTrinhTimThay;
-    }
-    
-    public ArrayList<HanhTrinhDTO> danhSachGiaTim(int tuGia, int denGia){
+    private ArrayList<HanhTrinhDTO> danhSachGiaTim(int tuGia, int denGia){
        ArrayList<HanhTrinhDTO> dsHanhTrinhTimThay = new ArrayList<>();
        for(HanhTrinhDTO ht : dsHanhTrinh) {
            if( ht.getGiaCoBan() >= tuGia && ht.getGiaCoBan() <= denGia) {
@@ -228,7 +218,8 @@ public class HanhTrinhController {
                 DefaultTableModel modeTimKiem = panelTable.getModel();
                 String tenHanhTrinhTimKiem = panelControl.getTxtTimKiem().getText();
                 if (!tenHanhTrinhTimKiem.isEmpty()) {
-                    HienThiTable.taiDuLieuTableHanhTrinh(modeTimKiem, danhSachTimKiem(tenHanhTrinhTimKiem));
+                    ArrayList<HanhTrinhDTO> hanhTrinh = TimKiemTable.danhSachTimTheoTenHanhTrinh(tenHanhTrinhTimKiem, dsHanhTrinh);
+                    HienThiTable.taiDuLieuTableHanhTrinh(modeTimKiem, hanhTrinh);
                 } else {
                     hienThiDanhSachHanhTrinh();
                 }
@@ -257,6 +248,22 @@ public class HanhTrinhController {
                         hienThiDanhSachHanhTrinh();
                         break;
                 }
+            }
+        });
+        
+        panelControl.getBangLayMa().addSearchPopupListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                DefaultTableModel modeTimKiemPopup = panelControl.getBangLayMa().getModel();
+                String tenSaBay =String.valueOf(panelControl.getBangLayMa().getTxtSearch().getText());
+                SanBayBUS bus = new SanBayBUS();               
+                if(!tenSaBay.isEmpty()){
+                    ArrayList<SanBayDTO> sanBay = TimKiemTable.danhSachTimTheoTenSanBay(tenSaBay, bus.getDanhSachSanBay());
+                    HienThiTable.taiDuLieuLenTabelSanBay(modeTimKiemPopup, sanBay);
+                } else {
+                    layDanhSachSanBayVaHienThiLenPopup();
+                }
+                
             }
         });
     }
