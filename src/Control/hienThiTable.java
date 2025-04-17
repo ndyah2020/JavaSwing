@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
-public class TableHelper {
+public class HienThiTable {
     public static void taiDuLieuTableChuyenBay (DefaultTableModel model, ArrayList<ChuyenBayDTO> dsChuyenBay) {
         model.setRowCount(0);
         for(ChuyenBayDTO cb : dsChuyenBay) {

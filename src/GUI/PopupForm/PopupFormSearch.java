@@ -2,6 +2,7 @@ package GUI.PopupForm;
 
 import GUI.panel.swing.MyTable;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.MouseAdapter;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -68,15 +69,23 @@ public class PopupFormSearch extends javax.swing.JPanel {
     public MyTable getMyTable(){
         return myTable;
     }
+    
     public JTextField getTxtSearch(){
         return txtSearch;
     }
+    
     public DefaultTableModel getModel() {
         return model;
     }
+    
     public void addRowClickPopup(MouseAdapter listener) {
         myTable.addMouseListener(listener);
     }
+    
+    public void addSearchPopupListener(KeyAdapter listener) {
+        txtSearch.addKeyListener(listener);
+    }
+    
     public void setcolumnDefaultTableModel(String[] columnNames){
         model = new DefaultTableModel(columnNames, 0);
         myTable.setModel(model);

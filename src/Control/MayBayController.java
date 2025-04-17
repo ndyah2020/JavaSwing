@@ -38,7 +38,7 @@ public class MayBayController {
         DefaultTableModel model = panelMayBayControl.getBangLayMaLoaiMayBay().getModel();
         LoaiMayBayBus lmbBUS = new LoaiMayBayBus();
         ArrayList<LoaiMayBayDTO> daLoaiMayBay = lmbBUS.getDanhSachLoaiMayBay();
-        TableHelper.taiDuLieuTableLoaiMayBay(model, daLoaiMayBay);
+        HienThiTable.taiDuLieuTableLoaiMayBay(model, daLoaiMayBay);
         panelMayBayControl.getBangLayMaLoaiMayBay().getMyTable().setModel(model);
     }
     
@@ -63,7 +63,7 @@ public class MayBayController {
         DefaultTableModel model = panelMayBayTable.getModel();
         dsMayBay = mayBayBUS.getDanhSachMayBayBUS();
         
-        TableHelper.taiDuLieuTabelMayBay(model, dsMayBay);
+        HienThiTable.taiDuLieuTabelMayBay(model, dsMayBay);
         panelMayBayTable.getMyTable().setModel(model);
     }
     
@@ -176,7 +176,7 @@ public class MayBayController {
                 String tuKhoa = panelMayBayControl.getTxtTimKiem().getText().trim();
                 DefaultTableModel model = panelMayBayTable.getModel();
                 if(!tuKhoa.isEmpty()) {
-                    TableHelper.taiDuLieuTabelMayBay(model, danhSachTimTheoTen(tuKhoa));
+                    HienThiTable.taiDuLieuTabelMayBay(model, danhSachTimTheoTen(tuKhoa));
                 } else {
                     hienThiDanhSachMayBay();
                 }

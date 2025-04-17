@@ -38,7 +38,7 @@ public class ChuyenBayController {
         DefaultTableModel modelDS = panelTable.getModel();
         ChuyenBayBUS bus = new ChuyenBayBUS();
         dsChuyenBay = bus.getDanhSachChuyenBay();
-        TableHelper.taiDuLieuTableChuyenBay(modelDS, dsChuyenBay);
+        HienThiTable.taiDuLieuTableChuyenBay(modelDS, dsChuyenBay);
         panelTable.getMyTable().setModel(modelDS);
     }
     
@@ -105,7 +105,7 @@ public class ChuyenBayController {
                 DefaultTableModel model = panelForm.getBangLayMaHanhTrinh().getModel();
                 HanhTrinhBUS bus = new HanhTrinhBUS();
                 ArrayList<HanhTrinhDTO> hanHTrinh = bus.getDanhSachHanhTrinhBUS();
-                TableHelper.taiDuLieuTableHanhTrinh(model, hanHTrinh);
+                HienThiTable.taiDuLieuTableHanhTrinh(model, hanHTrinh);
             }
         });
         
@@ -118,7 +118,7 @@ public class ChuyenBayController {
                 DefaultTableModel model = panelForm.getBangLayMaMayBay().getModel();
                 MayBayBUS bus = new MayBayBUS();
                 ArrayList<MayBayDTO> mayBay = bus.getDanhSachMayBayBUS();
-                TableHelper.taiDuLieuTabelMayBay(model, mayBay);
+                HienThiTable.taiDuLieuTabelMayBay(model, mayBay);
             }
         });
     }
