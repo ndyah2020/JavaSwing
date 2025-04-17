@@ -28,8 +28,10 @@ GO
 
 CREATE TABLE LoaiVe (
     MaLoaiVe VARCHAR(10) PRIMARY KEY NOT NULL,
-    TenLoaiVe VARCHAR(255) NOT NULL
+    TenLoaiVe NVARCHAR(255) NOT NULL
 );
+INSERT INTO LoaiVe (MaLoaiVe, TenLoaiVe) VALUES ('LV-THU', N'Ve Thường');
+INSERT INTO LoaiVe (MaLoaiVe, TenLoaiVe) VALUES ('LV-VIP', N'Ve VIP');
 GO
 Drop TABLE LoaiMayBay
 CREATE TABLE LoaiMayBay (

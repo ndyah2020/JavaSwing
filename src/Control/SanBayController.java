@@ -36,7 +36,7 @@ public class SanBayController {
         SanBayBUS sanBayBUS = new SanBayBUS();
         DefaultTableModel modelDs = panelTable.getModel();
         dsSanBay = sanBayBUS.getDanhSachSanBay();
-        SanBayTableHelper.taiDuLieuLenTabelSanBay(modelDs, dsSanBay);
+         TableHelper.taiDuLieuLenTabelSanBay(modelDs, dsSanBay);
         panelTable.getMyTable().setModel(modelDs);
     }
 
@@ -176,7 +176,7 @@ public class SanBayController {
                 String tenNhapVao = panelControl.getTxtTimKiem().getText();
                 if(!tenNhapVao.isEmpty()){
                     ArrayList<SanBayDTO> danhSachSBMoi = hienThiDanhSachTimThay(tenNhapVao);
-                    SanBayTableHelper.taiDuLieuLenTabelSanBay(modelTimKiem, danhSachSBMoi);
+                    TableHelper.taiDuLieuLenTabelSanBay(modelTimKiem, danhSachSBMoi);
                     panelTable.getMyTable().setModel(modelTimKiem);
                 }else{
                     hienThiDanhSachSanBay();

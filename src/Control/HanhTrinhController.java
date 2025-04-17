@@ -39,7 +39,7 @@ public class HanhTrinhController {
         DefaultTableModel model = panelControl.getBangLayMa().getModel();
         SanBayBUS bus = new SanBayBUS();
         ArrayList<SanBayDTO> dsSanBay = bus.getDanhSachSanBay();
-        SanBayTableHelper.taiDuLieuLenTabelSanBay(model, dsSanBay);
+        TableHelper.taiDuLieuLenTabelSanBay(model, dsSanBay);
         panelControl.getBangLayMa().getMyTable().setModel(model);
     }
     
@@ -65,7 +65,7 @@ public class HanhTrinhController {
         HanhTrinhBUS bus = new HanhTrinhBUS();
         DefaultTableModel modelDsHT = panelTable.getModel();
         dsHanhTrinh = bus.getDanhSachHanhTrinhBUS();
-        HanhTrinhTableHelper.taiDuLieuLenHanhTrinhLenTable(modelDsHT, dsHanhTrinh);
+        TableHelper.taiDuLieuTableHanhTrinh(modelDsHT, dsHanhTrinh);
         panelTable.getMyTable().setModel(modelDsHT);
     }
 
@@ -228,7 +228,7 @@ public class HanhTrinhController {
                 DefaultTableModel modeTimKiem = panelTable.getModel();
                 String tenHanhTrinhTimKiem = panelControl.getTxtTimKiem().getText();
                 if (!tenHanhTrinhTimKiem.isEmpty()) {
-                    HanhTrinhTableHelper.taiDuLieuLenHanhTrinhLenTable(modeTimKiem, danhSachTimKiem(tenHanhTrinhTimKiem));
+                    TableHelper.taiDuLieuTableHanhTrinh(modeTimKiem, danhSachTimKiem(tenHanhTrinhTimKiem));
                 } else {
                     hienThiDanhSachHanhTrinh();
                 }
@@ -243,15 +243,15 @@ public class HanhTrinhController {
                 switch (giaDachon) {
                     case "1 triệu":                       
                         modeTimKiem.setRowCount(0);
-                        HanhTrinhTableHelper.taiDuLieuLenHanhTrinhLenTable(modeTimKiem,danhSachGiaTim(0,1000000));
+                        TableHelper.taiDuLieuTableHanhTrinh(modeTimKiem,danhSachGiaTim(0,1000000));
                         break;
                     case "1 triệu - 2 triệu":
                         modeTimKiem.setRowCount(0);
-                        HanhTrinhTableHelper.taiDuLieuLenHanhTrinhLenTable(modeTimKiem,danhSachGiaTim(1000000,2000000));                    
+                         TableHelper.taiDuLieuTableHanhTrinh(modeTimKiem,danhSachGiaTim(1000000,2000000));                    
                         break;
                     case "2 triệu trở lên":            
                         modeTimKiem.setRowCount(0);
-                        HanhTrinhTableHelper.taiDuLieuLenHanhTrinhLenTable(modeTimKiem,danhSachGiaTim(2000000, Integer.MAX_VALUE));                      
+                        TableHelper.taiDuLieuTableHanhTrinh(modeTimKiem,danhSachGiaTim(2000000, Integer.MAX_VALUE));                      
                         break;
                     default:
                         hienThiDanhSachHanhTrinh();

@@ -28,7 +28,7 @@ public class LoaiMayBayController {
         LoaiMayBayBus loaiMayBayBUS = new LoaiMayBayBus();
         DefaultTableModel modelDanhSach = loaiMayBayPanel.getLoaiMayBayTableForm().getModel();
         danhSachLoaiMayBay = loaiMayBayBUS.getDanhSachLoaiMayBay();
-        LoaiMayBayTableHelper.taiDuLieuLenLoaiMayBayLenTable(modelDanhSach, danhSachLoaiMayBay);
+         TableHelper.taiDuLieuTableLoaiMayBay(modelDanhSach, danhSachLoaiMayBay);
         loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().setModel(modelDanhSach);
     }
     
@@ -193,7 +193,7 @@ public class LoaiMayBayController {
                 String tenDauVao = loaiMayBayPanel.getLoaiMayBayControlForm().getTxtTimKiem().getText();
                 if (!tenDauVao.isEmpty()) {
                     ArrayList<LoaiMayBayDTO> danhSachLMBMoi = hienThiDanhSachTimThay(tenDauVao);
-                    LoaiMayBayTableHelper.taiDuLieuLenLoaiMayBayLenTable(modelTimKiem, danhSachLMBMoi);
+                     TableHelper.taiDuLieuTableLoaiMayBay(modelTimKiem, danhSachLMBMoi);
                     loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().setModel(modelTimKiem);
                 } else {
                     hienThiDanhSachLoaiMayBay();
