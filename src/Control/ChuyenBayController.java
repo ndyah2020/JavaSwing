@@ -23,6 +23,7 @@ import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import java.sql.Date;
 import java.sql.Time;
+import javax.swing.JOptionPane;
 
 public class ChuyenBayController {
 
@@ -98,12 +99,22 @@ public class ChuyenBayController {
     }
 
     public void xuLySuKien() {
+        //Khởi tạo các danh sách cần thiết
+        MayBayBUS mayBayBUS = new MayBayBUS();
+        HanhTrinhBUS hanhTrinhBUS = new HanhTrinhBUS();
+        LoaiMayBayBus loaiMayBayBUS = new LoaiMayBayBus();
+
+        ArrayList<HanhTrinhDTO> dsHanhTrinh = hanhTrinhBUS.getDanhSachHanhTrinhBUS();
+        ArrayList<MayBayDTO> dsMayBay = mayBayBUS.getDanhSachMayBayBUS();
+        ArrayList<LoaiMayBayDTO> dsLoaiMayBay = loaiMayBayBUS.getDanhSachLoaiMayBay();
+        
         //set các dữ liệu lên text field
         panelTable.addRowClick(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int rowSelected = panelTable.getMyTable().getSelectedRow();
                 if (rowSelected != -1) {
+                    panelForm.getTxtMaChuyenBay().setEditable(false);
                     String maChuyenBay = panelTable.getMyTable().getValueAt(rowSelected, 0).toString();
                     ChuyenBayDTO motChuyenBay = TimKiemTable.layMotChuyenBay(maChuyenBay, dsChuyenBay);
                     if (motChuyenBay != null) {
@@ -116,6 +127,8 @@ public class ChuyenBayController {
         panelControl.addXoaFormListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                panelForm.getTxtMaChuyenBay().setEditable(true);
+                panelTable.getMyTable().clearSelection();
                 panelForm.clearForm();
             }
         });
@@ -166,68 +179,104 @@ public class ChuyenBayController {
                 }
             }
         });
+        //lấy mã hành trình từ popup
+        panelForm.getBangLayMaHanhTrinh().addRowClickPopup(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String maHanhTrinh = panelForm.getBangLayMaHanhTrinh().getMyTable()
+                                    .getValueAt(panelForm.getBangLayMaHanhTrinh().getMyTable().getSelectedRow(), 0)
+                                    .toString();
+                panelForm.getTxtMaHanhTrinh().setText(maHanhTrinh);
+            }
+        });
+        //lấy mã máy bay
+        panelForm.getBangLayMaMayBay().addRowClickPopup(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String maMayBay = panelForm.getBangLayMaMayBay().getMyTable()
+                                  .getValueAt(panelForm.getBangLayMaMayBay().getMyTable().getSelectedRow(), 0)
+                                  .toString();
+                String maHanhTrinh = panelForm.getTxtMaHanhTrinh().getText();
+                if(!maHanhTrinh.isEmpty()) {
+                    if (TimKiemTable.layMotChuyenBayTuMaMayBay(maMayBay, dsChuyenBay) == null) {
+                        panelForm.getTxtMaMayBay().setText(maMayBay);
+
+                        int giaCoBan = TimKiemTable.layMotHanhTrinh(maHanhTrinh, dsHanhTrinh).getGiaCoBan();
+                        MayBayDTO mayBay = TimKiemTable.layMotMayBay(maMayBay, dsMayBay);
+
+                        double heSoGiaThuong = TimKiemTable.layMotLoaiTuMaMayBay(maMayBay, dsLoaiMayBay, dsMayBay).getHeSoGiaThuong();
+                        double heSoGiaVip = TimKiemTable.layMotLoaiTuMaMayBay(maMayBay, dsLoaiMayBay, dsMayBay).getHeSoGiaVip();
+
+                        int giaThuong = (int) (giaCoBan * heSoGiaThuong);
+                        int giaVip = (int) (giaCoBan * heSoGiaVip);
+
+                        panelForm.getTxtGiaThuong().setText("" + giaThuong);
+                        panelForm.getTxtGiaVip().setText("" + giaVip);
+                        panelForm.getTxtTongSLGhe().setText("" + mayBay.getTongSoLuongGhe());
+                        panelForm.getTxtSoGheConLai().setText("" + mayBay.getTongSoLuongGhe());
+                        panelForm.getTxtSoGheDaBan().setText("0");
+                        panelForm.getTxtTrangThai().setText("Đang mở bán");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Máy bay này đã có chuyến bay");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Vui lòng chọn hành trình");
+                }
+            }
+        });
         //Them Chuyen Bay
         panelControl.addThemListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Khởi tạo BUS
-                MayBayBUS mayBayBUS = new MayBayBUS();
-                HanhTrinhBUS hanhTrinhBUS = new HanhTrinhBUS();
-                LoaiMayBayBus loaiMayBayBUS = new LoaiMayBayBus();
                 ChuyenBayBUS chuyenBayBUS = new ChuyenBayBUS();
-
                 // Lấy dữ liệu từ form
                 String maChuyenBay = panelForm.getTxtMaChuyenBay().getText();
-                Date ngayXuatPhat = Date.valueOf(panelForm.getTxtNgayXuatPhat().getText());
-                Time gioXuatPhat = new Time(((java.util.Date) panelForm.getSpinnerGioXuatPhat().getValue()).getTime());
-                Date ngayDenNoi = Date.valueOf(panelForm.getTxtNgayDenNoi().getText());
-                Time gioDenNoi = new Time(((java.util.Date) panelForm.getSpinnerGioDenNoi().getValue()).getTime());
+                
+                if (TimKiemTable.layMotChuyenBay(maChuyenBay, dsChuyenBay) == null) {                   
+                    Date ngayXuatPhat = Date.valueOf(panelForm.getTxtNgayXuatPhat().getText());
+                    Time gioXuatPhat = new Time(((java.util.Date) panelForm.getSpinnerGioXuatPhat().getValue()).getTime());
+                    Date ngayDenNoi = Date.valueOf(panelForm.getTxtNgayDenNoi().getText());
+                    Time gioDenNoi = new Time(((java.util.Date) panelForm.getSpinnerGioDenNoi().getValue()).getTime());
 
-                String maMayBay = panelForm.getTxtMaMayBay().getText();
-                String maHanhTrinh = panelForm.getTxtMaHanhTrinh().getText();
+                    String maMayBay = panelForm.getTxtMaMayBay().getText();
+                    String maHanhTrinh = panelForm.getTxtMaHanhTrinh().getText();
 
-                // Lấy danh sách dữ liệu
-                ArrayList<LoaiMayBayDTO> dsLoaiMayBay = loaiMayBayBUS.getDanhSachLoaiMayBay();
-                ArrayList<HanhTrinhDTO> dsHanhTrinh = hanhTrinhBUS.getDanhSachHanhTrinhBUS();
-                ArrayList<MayBayDTO> dsMayBay = mayBayBUS.getDanhSachMayBayBUS();
+                    if (!maMayBay.isEmpty() || !maHanhTrinh.isEmpty()) {
+                        int giaThuong = Integer.parseInt(panelForm.getTxtGiaThuong().getText());
+                        int giaVip = Integer.parseInt(panelForm.getTxtGiaVip().getText());
+                        int tongSoLuongGhe = Integer.parseInt(panelForm.getTxtTongSLGhe().getText());
+                        String trangThai = panelForm.getTxtTrangThai().getText();
+                        int soGheDaban = Integer.parseInt(panelForm.getTxtSoGheDaBan().getText());
+                        // Tạo đối tượng ChuyenBayDTO
+                        ChuyenBayDTO chuyenBay = new ChuyenBayDTO();
+                        chuyenBay.setMaChuyenBay(maChuyenBay);
+                        chuyenBay.setNgayXuatPhat(ngayXuatPhat);
+                        chuyenBay.setGioXuatPhat(gioXuatPhat);
+                        chuyenBay.setNgayDenNoi(ngayDenNoi);
+                        chuyenBay.setGioDenNoi(gioDenNoi);
+                        chuyenBay.setGiaThuong(giaThuong);
+                        chuyenBay.setGiaVip(giaVip);
+                        chuyenBay.setTrangThaiChuyenBay(trangThai);
+                        chuyenBay.setTongSoLuongGhe(tongSoLuongGhe);
+                        chuyenBay.setSoGheDaBan(soGheDaban);
+                        chuyenBay.setSoGheConLai(tongSoLuongGhe);
+                        chuyenBay.setMaMayBay(maMayBay);
+                        chuyenBay.setMaHanhTrinh(maHanhTrinh);
 
-                // Tính toán giá vé
-                int giaCoBan = TimKiemTable.layMotHanhTrinh(maHanhTrinh, dsHanhTrinh).getGiaCoBan();
-                String maLoaiMayBay = TimKiemTable.layMotMayBay(maMayBay, dsMayBay).getMaLoaiMayBay();
+                        // Thêm chuyến bay
+                        chuyenBayBUS.themChuyenBayBUS(chuyenBay);
 
-                double heSoGiaThuong = TimKiemTable.layMotLoaiMayBay(maLoaiMayBay, dsLoaiMayBay).getHeSoGiaThuong();
-                double heSoGiaVip = TimKiemTable.layMotLoaiMayBay(maLoaiMayBay, dsLoaiMayBay).getHeSoGiaVip();
+                        // Làm mới giao diện
+                        panelForm.clearForm();
+                        layDanhSachChuyenBay();
+                        System.out.println("Thêm thành công");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Vui lòng chọn mã hành trình hoặc mã máy bay");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Mã Chuyến Bay đã tồn tại");
+                }
 
-                int giaThuong = (int) (giaCoBan * heSoGiaThuong);
-                int giaVip = (int) (giaCoBan * heSoGiaVip);
-
-                // Tính tổng số lượng ghế
-                MayBayDTO mayBay = TimKiemTable.layMotMayBay(maMayBay, dsMayBay);
-                int tongSoLuongGhe = mayBay.getSoLuongGheThuong() + mayBay.getSoLuongGheVip();
-
-                // Tạo đối tượng ChuyenBayDTO
-                ChuyenBayDTO chuyenBay = new ChuyenBayDTO();
-                chuyenBay.setMaChuyenBay(maChuyenBay);
-                chuyenBay.setNgayXuatPhat(ngayXuatPhat);
-                chuyenBay.setGioXuatPhat(gioXuatPhat);
-                chuyenBay.setNgayDenNoi(ngayDenNoi);
-                chuyenBay.setGioDenNoi(gioDenNoi);
-                chuyenBay.setGiaThuong(giaThuong);
-                chuyenBay.setGiaVip(giaVip);
-                chuyenBay.setTrangThaiChuyenBay("Đang mở bán");
-                chuyenBay.setTongSoLuongGhe(tongSoLuongGhe);
-                chuyenBay.setSoGheDaBan(0);
-                chuyenBay.setSoGheConLai(tongSoLuongGhe);
-                chuyenBay.setMaMayBay(maMayBay);
-                chuyenBay.setMaHanhTrinh(maHanhTrinh);
-
-                // Thêm chuyến bay
-                chuyenBayBUS.themChuyenBayBUS(chuyenBay);
-
-                // Làm mới giao diện
-                panelForm.clearForm();
-                layDanhSachChuyenBay();
-                System.out.println("Thêm thành công");
             }
         });
 

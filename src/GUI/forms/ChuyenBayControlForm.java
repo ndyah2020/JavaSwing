@@ -18,7 +18,6 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         txtTimKiem = new javax.swing.JTextField();
         myButton2 = new GUI.panel.swing.MyButton();
-        btnXoa = new GUI.panel.swing.MyButton();
         btnThem = new GUI.panel.swing.MyButton();
         btnSua = new GUI.panel.swing.MyButton();
         btnXoaForm = new GUI.panel.swing.MyButton();
@@ -56,14 +55,6 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
         myButton2.setOpaque(true);
         myButton2.setPreferredSize(new java.awt.Dimension(31, 31));
         jPanel1.add(myButton2);
-
-        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/Xoa.png"))); // NOI18N
-        btnXoa.setText("Xóa");
-        btnXoa.setBorderColor(new java.awt.Color(204, 204, 204));
-        btnXoa.setColorClick(new java.awt.Color(0, 204, 255));
-        btnXoa.setColorOver(new java.awt.Color(0, 204, 255));
-        btnXoa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnXoa.setPreferredSize(new java.awt.Dimension(100, 31));
 
         btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/plus.png"))); // NOI18N
         btnThem.setText("Thêm");
@@ -103,9 +94,7 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
                         .addComponent(cmbXapXep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXoaForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnXoaForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -124,7 +113,7 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnXoaForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -133,9 +122,7 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
                             .addComponent(cmbXapXep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnXoaForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -152,9 +139,6 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
         btnSua.addActionListener(listener);
     }
     
-    public void addXoaListener(ActionListener listener) {
-        btnXoa.addActionListener(listener);
-    } 
     public void addTxtTimKiemListener(KeyAdapter listener) {
         txtTimKiem.addKeyListener(listener);
     }
@@ -167,7 +151,6 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
     private GUI.panel.swing.MyCombobox CmbtimKiemTheo;
     private GUI.panel.swing.MyButton btnSua;
     private GUI.panel.swing.MyButton btnThem;
-    private GUI.panel.swing.MyButton btnXoa;
     private GUI.panel.swing.MyButton btnXoaForm;
     private GUI.panel.swing.MyCombobox cmbXapXep;
     private javax.swing.JLabel jLabel1;

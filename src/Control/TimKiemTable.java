@@ -56,6 +56,16 @@ public class TimKiemTable {
         return null;
     }
     
+    public static LoaiMayBayDTO layMotLoaiTuMaMayBay(String maMayBay,  ArrayList<LoaiMayBayDTO> dsLoaiMayBay, ArrayList<MayBayDTO> dsMayBay) {
+        String maLoaiMayBay = layMotMayBay(maMayBay,dsMayBay).getMaLoaiMayBay();
+        for(LoaiMayBayDTO mb : dsLoaiMayBay) {
+            if (mb.getMaLoai().equals(maLoaiMayBay)) {
+                return mb;
+            }
+        }
+        return null;
+    }     
+    
     public static ArrayList<HanhTrinhDTO> danhSachTimTheoTenHanhTrinh(String tenHangTrinh, ArrayList<HanhTrinhDTO> dsHanhTrinh) {
         ArrayList<HanhTrinhDTO> dsHanhTrinhTimThay = new ArrayList<>();
         for (HanhTrinhDTO ht : dsHanhTrinh) {
@@ -88,6 +98,15 @@ public class TimKiemTable {
     public static ChuyenBayDTO layMotChuyenBay(String maChuyenBay, ArrayList<ChuyenBayDTO> dsChuyenBay) {
         for (ChuyenBayDTO cb : dsChuyenBay) {
             if (cb.getMaChuyenBay().equals(maChuyenBay)) {
+                return cb;
+            }
+        }
+        return null;
+    }
+    
+    public static ChuyenBayDTO layMotChuyenBayTuMaMayBay(String maMayBay, ArrayList<ChuyenBayDTO> dsChuyenBay) {
+        for (ChuyenBayDTO cb : dsChuyenBay) {
+            if (cb.getMaMayBay().equals(maMayBay)) {
                 return cb;
             }
         }

@@ -5,6 +5,7 @@ import Control.HanhTrinhController;
 import Control.LoaiMayBayController;
 import Control.MayBayController;
 import Control.SanBayController;
+import Control.VeController;
 import GUI.forms.ChuyenBayPanelForm;
 import GUI.forms.DatVeGroupForm;
 import GUI.forms.FormGroup;
@@ -17,7 +18,7 @@ import GUI.forms.MayBayPanelForm;
 import GUI.forms.NhanVienGroupForm;
 import GUI.forms.SanBayPanelForm;
 import GUI.forms.TaiKhoanGroupForm;
-import GUI.forms.VeGroupForm;
+import GUI.forms.VePanelForm;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -36,6 +37,7 @@ public final class Home extends javax.swing.JFrame {
     LoaiMayBayController loaiMayBayController;
     ChuyenBayController chuyenBayController;
     MayBayController mayBayController;
+    VeController veController;
     //Khoi tao cac panel
     private FormGroup formGroup;
     private DatVeGroupForm datVeForm;
@@ -46,7 +48,7 @@ public final class Home extends javax.swing.JFrame {
     private SanBayPanelForm sanBayForm;
     private ChuyenBayPanelForm chuyenBayForm;
     private HanhTrinhPanelForm hanhTrinhForm;
-    private VeGroupForm veForm;
+    private VePanelForm veForm;
     private HoaDonGroupForm hoaDonForm;
     private KhuyenMaiGroupForm khuyenMaiForm;
     private TaiKhoanGroupForm taiKhoanForm;
@@ -81,7 +83,7 @@ public final class Home extends javax.swing.JFrame {
         sanBayForm = new SanBayPanelForm();
         chuyenBayForm = new ChuyenBayPanelForm();
         hanhTrinhForm = new HanhTrinhPanelForm();
-        veForm = new VeGroupForm();
+        veForm = new VePanelForm();
         hoaDonForm = new HoaDonGroupForm();
         khuyenMaiForm = new KhuyenMaiGroupForm();
         taiKhoanForm = new TaiKhoanGroupForm();
@@ -379,8 +381,9 @@ public final class Home extends javax.swing.JFrame {
             hanhTrinhController.xuLySuKienHanhTrinhConTrol();
             
         } else if (selectedLabel == veMenu) {
-            System.out.println("Vé");
-            // Hiển thị form vé
+            veController = new VeController(veForm);
+            veController.layDanhSachVe();
+            veController.xuLySuKien();
         } else if (selectedLabel == hoaDonMenu) {
             System.out.println("Hóa đơn");
             // Hiển thị form hóa đơn

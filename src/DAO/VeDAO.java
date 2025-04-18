@@ -19,7 +19,7 @@ public class VeDAO {
         try {
             conn = ConnectToSQLServer.getConnection();
             Statement st = conn.createStatement();
-            ResultSet res = st.executeQuery("SELETE * FROM Ve");
+            ResultSet res = st.executeQuery("SELECT * FROM Ve");
 
             while (res.next()) {
                 VeDTO ve = new VeDTO();

@@ -63,15 +63,16 @@ public class ChuyenBayDAO {
             pst.setString(12, chuyenBay.getMaMayBay());
             pst.setString(13, chuyenBay.getMaHanhTrinh());
             int row = pst.executeUpdate();
-            if(row > 0) {
-                VeDAO ve = new VeDAO();
-                ve.sinhVeTuDong(chuyenBay.getMaChuyenBay());
-                pst.close();
-                ConnectToSQLServer.closeConnection(conn);
-                return true;
-            }else {
-                return false;
-            }
+            return true;
+//            if(row > 0) {
+//                VeDAO ve = new VeDAO();
+//                ve.sinhVeTuDong(chuyenBay.getMaChuyenBay());
+//                pst.close();
+//                ConnectToSQLServer.closeConnection(conn);
+//                return true;
+//            }else {
+//                return false;
+//            }
         }catch(SQLException e) {
             JOptionPane.showMessageDialog(null, "Khong the them chuyen bay");
             return false;

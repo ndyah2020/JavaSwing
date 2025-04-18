@@ -370,7 +370,7 @@ public class ChuyenBayForm extends javax.swing.JPanel {
     }
     
     public void showPopBangLayMaMayBay() {
-        popupMaMayBay.show(btnMaMayBay, -287, btnMaMayBay.getHeight() - 477);
+        popupMaMayBay.show(btnMaMayBay, -400, btnMaMayBay.getHeight() - 477);
     }
     
     public PopupFormSearch getBangLayMaMayBay() {

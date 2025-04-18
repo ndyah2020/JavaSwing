@@ -5,6 +5,7 @@ import DTO.HanhTrinhDTO;
 import DTO.LoaiMayBayDTO;
 import DTO.MayBayDTO;
 import DTO.SanBayDTO;
+import DTO.VeDTO;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
@@ -73,6 +74,19 @@ public class HienThiTable {
             row.add(ht.getSanBayDen());
             row.add(ht.getGiaCoBan());
             model.addRow(row);
+        }
+    }
+    
+    public static void taiDuLieuTableVe(DefaultTableModel model, ArrayList<VeDTO> danhSach) {
+        model.setRowCount(0);
+        for(VeDTO ve : danhSach) {
+            Vector row = new Vector();
+            row.add(ve.getMaVe());
+            row.add(ve.getTrangThaiVe());
+            row.add(ve.getGiaVe());
+            row.add(ve.getLoaiVe());
+            row.add(ve.getChuyenBay());
+            model.addRow(row);  
         }
     }
 }
