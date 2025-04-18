@@ -12,7 +12,7 @@ import GUI.forms.FormGroup;
 import GUI.forms.HanhTrinhPanelForm;
 import GUI.forms.HoaDonGroupForm;
 import GUI.forms.KhachHangGroupForm;
-import GUI.forms.KhuyenMaiGroupForm;
+import GUI.forms.KhuyenMaiPanelForm;
 import GUI.forms.LoaiMayBayPanelForm;
 import GUI.forms.MayBayPanelForm;
 import GUI.forms.NhanVienGroupForm;
@@ -50,7 +50,7 @@ public final class Home extends javax.swing.JFrame {
     private HanhTrinhPanelForm hanhTrinhForm;
     private VePanelForm veForm;
     private HoaDonGroupForm hoaDonForm;
-    private KhuyenMaiGroupForm khuyenMaiForm;
+    private KhuyenMaiPanelForm khuyenMaiForm;
     private TaiKhoanGroupForm taiKhoanForm;
 
     //cac phuong thuc
@@ -85,7 +85,7 @@ public final class Home extends javax.swing.JFrame {
         hanhTrinhForm = new HanhTrinhPanelForm();
         veForm = new VePanelForm();
         hoaDonForm = new HoaDonGroupForm();
-        khuyenMaiForm = new KhuyenMaiGroupForm();
+        khuyenMaiForm = new KhuyenMaiPanelForm();
         taiKhoanForm = new TaiKhoanGroupForm();
     }
 

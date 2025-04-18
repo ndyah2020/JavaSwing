@@ -4,21 +4,25 @@
  */
 package DTO;
 
+import java.util.Date;
+
 /**
  *
  * @author Lenovo
  */
 public class KhuyenMaiDTO {
     private String maKhuyenMai;
-    private String ngayBatDau;
-    private String ngayKetThuc;
+    private String tenKhuyenMai;
+    private Date ngayBatDau;
+    private Date ngayKetThuc;
     private String phanTramGiamGia;
 
-    public KhuyenMaiDTO(String maKhuyenMai, String ngayBatDau, String ngayKetThuc, String phanTramGiamGia) {
+    public KhuyenMaiDTO(String maKhuyenMai, String tenKhuyenMai, Date ngayBatDau, Date ngayKetThuc, String phanTramGiamGia) {
         this.maKhuyenMai = maKhuyenMai;
         this.ngayBatDau = ngayBatDau;
         this.ngayKetThuc = ngayKetThuc;
         this.phanTramGiamGia = phanTramGiamGia;
+        this.tenKhuyenMai = tenKhuyenMai;
     }
     public KhuyenMaiDTO() {
         
@@ -27,12 +31,16 @@ public class KhuyenMaiDTO {
     public String getMaKhuyenMai() {
         return maKhuyenMai;
     }
+    
+    public String getTenKhuyenMai() {
+        return tenKhuyenMai;
+    }
 
-    public String getNgayBatDau() {
+    public Date getNgayBatDau() {
         return ngayBatDau;
     }
 
-    public String getNgayKetThuc() {
+    public Date getNgayKetThuc() {
         return ngayKetThuc;
     }
 
@@ -43,12 +51,16 @@ public class KhuyenMaiDTO {
     public void setMaKhuyenMai(String maKhuyenMai) {
         this.maKhuyenMai = maKhuyenMai;
     }
+    
+    public void setTenKhuyenMai(String tenKhuyenMai) {
+        this.tenKhuyenMai = tenKhuyenMai;
+    }
 
-    public void setNgayBatDau(String ngayBatDau) {
+    public void setNgayBatDau(Date ngayBatDau) {
         this.ngayBatDau = ngayBatDau;
     }
 
-    public void setNgayKetThuc(String ngayKetThuc) {
+    public void setNgayKetThuc(Date ngayKetThuc) {
         this.ngayKetThuc = ngayKetThuc;
     }
 

@@ -1,22 +1,36 @@
 package GUI.forms;
 
+import GUI.PopupForm.PopupFormSearch;
 import GUI.panel.swing.dateChooser.DateChooser;
 import GUI.panel.swing.MyButton;
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 public class KhuyenMaiControlForm extends javax.swing.JPanel {
     private DateChooser dateChooserStart;
     private DateChooser dateChooserEnd;
+    private final PopupFormSearch bangLayMa = new PopupFormSearch();
     
     public KhuyenMaiControlForm() {
         initComponents();
         initDateChoosers();
         setupDateChoosers();
+        jPopupMenu.setLayout(new BorderLayout());
+        jPopupMenu.add(bangLayMa, BorderLayout.CENTER);
     }
+    
+    public PopupFormSearch getBangLayMa() {
+        return bangLayMa;
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
+        jPopupMenu = new javax.swing.JPopupMenu();
         jLabel1 = new javax.swing.JLabel();
         btnThem = new GUI.panel.swing.MyButton();
         btnSua = new GUI.panel.swing.MyButton();
@@ -38,9 +52,9 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
         lbDenNgay1 = new javax.swing.JLabel();
         txtNgayBatDau = new javax.swing.JTextField();
         btnNgayBatDau = new GUI.panel.swing.MyButton();
-        btnSua1 = new GUI.panel.swing.MyButton();
+        btnXoa = new GUI.panel.swing.MyButton();
         jPanel5 = new javax.swing.JPanel();
-        txtSearch = new javax.swing.JTextField();
+        txtTimKiem = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         lbPhanTramKhuyenMai = new javax.swing.JLabel();
@@ -157,18 +171,23 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
         btnNgayBatDau.setPreferredSize(new java.awt.Dimension(30, 30));
         jPanel7.add(btnNgayBatDau);
 
-        btnSua1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/hidden.png"))); // NOI18N
-        btnSua1.setText("Ẩn");
-        btnSua1.setBorderColor(new java.awt.Color(204, 204, 204));
-        btnSua1.setColorClick(new java.awt.Color(0, 153, 255));
-        btnSua1.setColorOver(new java.awt.Color(0, 204, 255));
-        btnSua1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnSua1.setPreferredSize(new java.awt.Dimension(72, 31));
+        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/hidden.png"))); // NOI18N
+        btnXoa.setText("Xóa");
+        btnXoa.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnXoa.setColorClick(new java.awt.Color(0, 153, 255));
+        btnXoa.setColorOver(new java.awt.Color(0, 204, 255));
+        btnXoa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnXoa.setPreferredSize(new java.awt.Dimension(72, 31));
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
 
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
 
-        txtSearch.setPreferredSize(new java.awt.Dimension(71, 30));
-        jPanel5.add(txtSearch);
+        txtTimKiem.setPreferredSize(new java.awt.Dimension(71, 30));
+        jPanel5.add(txtTimKiem);
 
         jLabel3.setBackground(new java.awt.Color(0, 204, 255));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/search.png"))); // NOI18N
@@ -215,7 +234,7 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSua1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)
@@ -246,7 +265,7 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(1, 1, 1))
-                    .addComponent(btnSua1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnXoa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -260,11 +279,15 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnXoaActionPerformed
     private void initDateChoosers() {
         dateChooserStart = new DateChooser();
         dateChooserEnd = new DateChooser();
     }
-   private void setupDateChoosers() {
+    private void setupDateChoosers() {
         setupDateChooser(btnNgayBatDau, dateChooserStart, txtNgayBatDau);
         setupDateChooser(btnNgayKetThuc, dateChooserEnd, txtNgayKetThuc);
     }
@@ -274,13 +297,81 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
         button.addActionListener(evt -> chooser.showPopup());
     }
     
+    public JTextField getTxtMaKhuyenMai() {
+        return txtMaKhuyenMai;
+    }
+    
+    public JTextField getTxtTenKhuyenMai() {
+        return txtTenKhuyenMai;
+    }
+    
+    public JTextField getTxtPhanTramKhuyenMai() {
+        return txtPhanTramKhuyenMai;
+    }
+    
+    public JTextField getTxtNgayBatDau() {
+        return txtNgayBatDau;
+    }
+    
+    public JTextField getTxtNgayKetThuc() {
+        return txtNgayKetThuc;
+    }
+    
+    public JTextField getTxtMaHanhTrinh() {
+        return txtMaHanhTrinh;
+    }
+    
+    public JTextField getTxtTimKiem() {
+        return txtTimKiem;
+    }
+    
+    public JPopupMenu getJPopupMenu() {
+        return jPopupMenu;
+    }
+    
+    public MyButton getBtnMaHanhTrinh() {
+        return btnMaHanhTrinh;
+    }
+    
+    public void showPopupMaHanhTrinh() {
+        jPopupMenu.show(btnMaHanhTrinh, -300, btnMaHanhTrinh.getWidth());
+    }
+    
+    public void resetForm() {
+        txtMaKhuyenMai.setText("");
+        txtTenKhuyenMai.setText("");
+        txtPhanTramKhuyenMai.setText("");
+        txtNgayBatDau.setText("");
+        txtNgayKetThuc.setText("");
+        txtMaHanhTrinh.setText("");
+    }
+    
+    public void addThemListener(ActionListener al) {
+        btnThem.addActionListener(al);
+    }
+    
+    public void addXoaListener(ActionListener al) {
+        btnXoa.addActionListener(al);
+    }
+    
+    public void addSuaListener(ActionListener al) {
+        btnSua.addActionListener(al);
+    }
+    
+    public void addTimKiemListener(KeyAdapter ka) {
+        txtTimKiem.addKeyListener(ka);
+    }
+    
+    public void addShowPopupMaHanhTrinh(ActionListener al) {
+        btnMaHanhTrinh.addActionListener(al);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.MyButton btnMaHanhTrinh;
     private GUI.panel.swing.MyButton btnNgayBatDau;
     private GUI.panel.swing.MyButton btnNgayKetThuc;
     private GUI.panel.swing.MyButton btnSua;
-    private GUI.panel.swing.MyButton btnSua1;
     private GUI.panel.swing.MyButton btnThem;
+    private GUI.panel.swing.MyButton btnXoa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -291,6 +382,7 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPopupMenu jPopupMenu;
     private javax.swing.JLabel lbDenNgay;
     private javax.swing.JLabel lbDenNgay1;
     private javax.swing.JLabel lbMaHanhTrinh;
@@ -302,7 +394,7 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
     private javax.swing.JTextField txtNgayBatDau;
     private javax.swing.JTextField txtNgayKetThuc;
     private javax.swing.JTextField txtPhanTramKhuyenMai;
-    private javax.swing.JTextField txtSearch;
     private javax.swing.JTextField txtTenKhuyenMai;
+    private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 }
