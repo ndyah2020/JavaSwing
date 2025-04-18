@@ -1,6 +1,8 @@
 package Control;
 
+import BUS.HanhTrinhBUS;
 import BUS.SanBayBUS;
+import DTO.HanhTrinhDTO;
 import DTO.SanBayDTO;
 import GUI.forms.SanBayControlForm;
 import GUI.forms.SanBayPanelForm;
@@ -73,6 +75,17 @@ public class SanBayController {
         panelControl.getTxtDiaChi().setText(sanBay.getDiaChi());
     }
     
+    private boolean kiemTraSanBayCoDuocSuDung(String maSanBay) {
+        HanhTrinhBUS hanhTrinhBUS = new HanhTrinhBUS();
+        ArrayList<HanhTrinhDTO> dsHanhTrinh = hanhTrinhBUS.getDanhSachHanhTrinhBUS();
+        for (HanhTrinhDTO ht : dsHanhTrinh) {
+            if (ht.getSanBayDen().equals(maSanBay) || ht.getSanBayDi().equals(maSanBay)) {              
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public void xuLySuKien() {
         //tai du lieu lem text field
         panelTable.addRowClick(new MouseAdapter() {
@@ -90,8 +103,8 @@ public class SanBayController {
         panelControl.addThemListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String ten = panelControl.getTxtTenSanBay().getText();
-                String diaChi = panelControl.getTxtDiaChi().getText();
+                String ten = panelControl.getTxtTenSanBay().getText().trim();
+                String diaChi = panelControl.getTxtDiaChi().getText().trim();
 
                 if (ten.isEmpty() || diaChi.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin!");
@@ -116,10 +129,14 @@ public class SanBayController {
                 int rowSeleted = panelTable.getMyTable().getSelectedRow();
                 if (rowSeleted != -1) {
                     String maSanBay = panelTable.getMyTable().getValueAt(rowSeleted, 0).toString();
-                    SanBayBUS bus = new SanBayBUS();
-                    bus.xoaSanBay(maSanBay);
-                    panelControl.clearFormData();
-                    hienThiDanhSachSanBay();
+                    if(!kiemTraSanBayCoDuocSuDung(maSanBay)){
+                        SanBayBUS bus = new SanBayBUS();
+                        bus.xoaSanBay(maSanBay);
+                        panelControl.clearFormData();
+                        hienThiDanhSachSanBay();
+                    }else
+                        JOptionPane.showMessageDialog(null, "Không thể xóa ! Sân Bay này đã được áp dụng vào hành trình ");
+                    
                 }
             }
         });
@@ -138,17 +155,19 @@ public class SanBayController {
                 int selectedRow = panelTable.getMyTable().getSelectedRow();
                 if (selectedRow != -1) {
                     String maSanBay = panelTable.getMyTable().getValueAt(selectedRow, 0).toString();
+                    if (!kiemTraSanBayCoDuocSuDung(maSanBay)) {
+                        SanBayDTO sanBay = new SanBayDTO();
+                        sanBay.setMaSanBay(maSanBay);
+                        sanBay.setTenSanBay(ten);
+                        sanBay.setDiaChi(diaChi);
 
-                    SanBayDTO sanBay = new SanBayDTO();
-                    sanBay.setMaSanBay(maSanBay);
-                    sanBay.setTenSanBay(ten);
-                    sanBay.setDiaChi(diaChi);
+                        SanBayBUS bus = new SanBayBUS();
+                        bus.suaSanBay(sanBay);
 
-                    SanBayBUS bus = new SanBayBUS();
-                    bus.suaSanBay(sanBay);
-
-                    panelControl.clearFormData();
-                    hienThiDanhSachSanBay();
+                        panelControl.clearFormData();
+                        hienThiDanhSachSanBay();
+                    }else
+                        JOptionPane.showMessageDialog(null, "Không thể sửa ! Sân Bay này đã được áp dụng vào hành trình ");          
                 } else {
                     JOptionPane.showMessageDialog(null, "Vui lòng chọn một dòng để sửa!");
                 }

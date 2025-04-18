@@ -159,8 +159,7 @@ public class ChuyenBayController {
                     hienThiMayBayLenPopup();
                 }
             }
-        });
-        
+        });       
         //Them Chuyen Bay
         panelControl.addThemListener(new ActionListener() {
             @Override

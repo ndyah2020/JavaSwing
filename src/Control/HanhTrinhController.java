@@ -1,8 +1,10 @@
 package Control;
 
+import BUS.ChuyenBayBUS;
 import DTO.SanBayDTO;
 import BUS.HanhTrinhBUS;
 import BUS.SanBayBUS;
+import DTO.ChuyenBayDTO;
 import DTO.HanhTrinhDTO;
 import GUI.forms.HanhTrinhControlForm;
 import GUI.forms.HanhTrinhPanelForm;
@@ -69,7 +71,6 @@ public class HanhTrinhController {
         panelTable.getMyTable().setModel(modelDsHT);
     }
 
-    //Tạo ra mã hành tình
     public String generateRandom() {
         String prefix = "HT";
         String random = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 8).toUpperCase();
@@ -97,6 +98,17 @@ public class HanhTrinhController {
            }
        }
        return dsHanhTrinhTimThay;
+    }
+    
+    private boolean kiemTraHanhTrinhSuDung(String maHanhtrinh) {
+        ChuyenBayBUS bus = new ChuyenBayBUS();
+        ArrayList<ChuyenBayDTO> dsChuyenBay = bus.getDanhSachChuyenBay();
+        for(ChuyenBayDTO cb : dsChuyenBay) {
+            if(cb.getMaHanhTrinh().equals(maHanhtrinh)){
+                return true;
+            }         
+        }
+        return false;
     }
     
     public void xuLySuKienHanhTrinhConTrol() {
@@ -149,12 +161,15 @@ public class HanhTrinhController {
                 int rowSeleted = panelTable.getMyTable().getSelectedRow();
                 if (rowSeleted != -1) {
                     String maHanhTrinh = panelTable.getMyTable().getValueAt(rowSeleted, 0).toString();
-                    HanhTrinhBUS bus = new HanhTrinhBUS();
-                    bus.xoaHanhTrinhBUS(maHanhTrinh);
-                    panelControl.clearFormData();
-                    hienThiDanhSachHanhTrinh();
+                    if (!kiemTraHanhTrinhSuDung(maHanhTrinh)) {
+                        HanhTrinhBUS bus = new HanhTrinhBUS();
+                        bus.xoaHanhTrinhBUS(maHanhTrinh);
+                        panelControl.clearFormData();
+                        hienThiDanhSachHanhTrinh();
+                    }else{
+                          JOptionPane.showMessageDialog(null, "Không thể xóa! Hành trình này đã được áp dụng");
+                    }
                 }
-
             }
         });
         //Sua hanh Trinh
@@ -165,17 +180,22 @@ public class HanhTrinhController {
                 int rowSeleted = panelTable.getMyTable().getSelectedRow();
                 if (rowSeleted != -1) {
                     String maHanhTrinh = panelTable.getMyTable().getValueAt(rowSeleted, 0).toString();
-                    HanhTrinhDTO hanhTrinh = new HanhTrinhDTO();
-                    hanhTrinh.setMaHanhTrinh(maHanhTrinh);
-                    hanhTrinh.setTenHanhTrinh(panelControl.getTxtTenHanhTrinh().getText());
-                    hanhTrinh.setSanBayDi(panelControl.getTxtSanBayDi().getText());
-                    hanhTrinh.setSanBayDen(panelControl.getTxtSanBayDen().getText());
-                    hanhTrinh.setGiaCoBan(Integer.parseInt(panelControl.getTxtGiaCoBan().getText()));
+                    if (!kiemTraHanhTrinhSuDung(maHanhTrinh)) {
+                        HanhTrinhDTO hanhTrinh = new HanhTrinhDTO();
+                        hanhTrinh.setMaHanhTrinh(maHanhTrinh);
+                        hanhTrinh.setTenHanhTrinh(panelControl.getTxtTenHanhTrinh().getText());
+                        hanhTrinh.setSanBayDi(panelControl.getTxtSanBayDi().getText());
+                        hanhTrinh.setSanBayDen(panelControl.getTxtSanBayDen().getText());
+                        hanhTrinh.setGiaCoBan(Integer.parseInt(panelControl.getTxtGiaCoBan().getText()));
 
-                    HanhTrinhBUS bus = new HanhTrinhBUS();
-                    bus.suaHanhTrinhBUS(hanhTrinh);
-                    panelControl.clearFormData();
-                    hienThiDanhSachHanhTrinh();
+                        HanhTrinhBUS bus = new HanhTrinhBUS();
+                        bus.suaHanhTrinhBUS(hanhTrinh);
+                        panelControl.clearFormData();
+                        hienThiDanhSachHanhTrinh();
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Không thể sửa! Hành trình này đã được áp dụng");
+                    }
+                    
                 }
             }
         });

@@ -1,7 +1,9 @@
 package Control;
 
+import BUS.ChuyenBayBUS;
 import BUS.LoaiMayBayBus;
 import BUS.MayBayBUS;
+import DTO.ChuyenBayDTO;
 import DTO.LoaiMayBayDTO;
 import DTO.MayBayDTO;
 import GUI.forms.MayBayControlForm;
@@ -67,6 +69,16 @@ public class MayBayController {
         panelMayBayTable.getMyTable().setModel(model);
     }
     
+    private boolean kiemTraMaMayBaySuDung(String maMayBay) {
+        ChuyenBayBUS bus = new ChuyenBayBUS();
+        ArrayList<ChuyenBayDTO> dsChuyenBay = bus.getDanhSachChuyenBay();
+        for(ChuyenBayDTO cb : dsChuyenBay) {
+            if(cb.getMaMayBay().equals(maMayBay)){
+                return true;
+            }         
+        }
+        return false;
+    }
     public void xuLySuKienMayBayControl() {
         panelMayBayTable.addRowClick(new MouseAdapter() {
             @Override
@@ -121,11 +133,15 @@ public class MayBayController {
                 int row = panelMayBayTable.getMyTable().getSelectedRow();
                 if (row != -1) {
                     String maMayBay = panelMayBayTable.getMyTable().getValueAt(row, 0).toString();
-                    mayBayBUS.xoaMayBay(maMayBay);
-                    panelMayBayControl.resetForm();
-                    hienThiDanhSachMayBay();
-                    JOptionPane.showMessageDialog(null, "Xóa thành công!");
-                 }
+                    if (!kiemTraMaMayBaySuDung(maMayBay)) {
+                        mayBayBUS.xoaMayBay(maMayBay);
+                        panelMayBayControl.resetForm();
+                        hienThiDanhSachMayBay();
+                        JOptionPane.showMessageDialog(null, "Xóa thành công!");
+                    } else
+                        JOptionPane.showMessageDialog(null, "Không thể xóa! máy bay đã được áp dụng");
+
+                }
             }
         });
         
@@ -136,23 +152,28 @@ public class MayBayController {
                 if (row != -1) {
                     try {
                         String maMayBay = panelMayBayControl.getTxtMaMayBay().getText().trim(); 
-                        String tenMayBay = panelMayBayControl.getTxtTenMayBay().getText().trim();
-                        int gheThuong = Integer.parseInt(panelMayBayControl.getTxtSoLuongGheThuong().getText().trim());
-                        int gheVip = Integer.parseInt(panelMayBayControl.getTxtSoLuongGheVip().getText().trim());
-                        String maLoai = panelMayBayControl.getTxtGetMaLoaiMayBay().getText().trim();
+                        if (!kiemTraMaMayBaySuDung(maMayBay)) {
+                            String tenMayBay = panelMayBayControl.getTxtTenMayBay().getText().trim();
+                            int gheThuong = Integer.parseInt(panelMayBayControl.getTxtSoLuongGheThuong().getText().trim());
+                            int gheVip = Integer.parseInt(panelMayBayControl.getTxtSoLuongGheVip().getText().trim());
+                            String maLoai = panelMayBayControl.getTxtGetMaLoaiMayBay().getText().trim();
+
+                            MayBayDTO mb = new MayBayDTO();
+                            mb.setMaMayBay(maMayBay);
+                            mb.setTenMayBay(tenMayBay);
+                            mb.setSoLuongGheThuong(gheThuong);
+                            mb.setSoLuongGheVip(gheVip);
+                            mb.setTongSoLuongGhe(gheThuong + gheVip);
+                            mb.setMaLoaiMayBay(maLoai);
+
+                            mayBayBUS.suaMayBayBUS(mb);
+                            panelMayBayControl.resetForm();
+                            hienThiDanhSachMayBay();
+                            JOptionPane.showMessageDialog(null, "Cập nhật máy bay thành công!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Không thể sửa! máy bay đã được áp dụng");
+                        }
                         
-                        MayBayDTO mb = new MayBayDTO();
-                        mb.setMaMayBay(maMayBay);
-                        mb.setTenMayBay(tenMayBay);
-                        mb.setSoLuongGheThuong(gheThuong);
-                        mb.setSoLuongGheVip(gheVip);
-                        mb.setTongSoLuongGhe(gheThuong + gheVip);
-                        mb.setMaLoaiMayBay(maLoai);
-                        
-                        mayBayBUS.suaMayBayBUS(mb);
-                        panelMayBayControl.resetForm();
-                        hienThiDanhSachMayBay();
-                        JOptionPane.showMessageDialog(null, "Cập nhật máy bay thành công!");
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, "Lỗi nhập dữ liệu! " + e.getMessage());
                     }

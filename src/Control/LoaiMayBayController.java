@@ -1,7 +1,9 @@
 package Control;
 
 import BUS.LoaiMayBayBus;
+import BUS.MayBayBUS;
 import DTO.LoaiMayBayDTO;
+import DTO.MayBayDTO;
 import GUI.forms.LoaiMayBayPanelForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -63,6 +65,16 @@ public class LoaiMayBayController {
     }
 
 
+    private boolean kiemTraMaMayBaySuDung(String maLoaiMayBay) {
+        MayBayBUS bus = new MayBayBUS();
+        ArrayList<MayBayDTO> dsChuyenBay = bus.getDanhSachMayBayBUS();
+        for(MayBayDTO mb : dsChuyenBay) {
+            if(mb.getMaLoaiMayBay().equals(maLoaiMayBay)){
+                return true;
+            }         
+        }
+        return false;
+    }
     
     public void xuLySuKienLoaiMayBay() {
         loaiMayBayPanel.getLoaiMayBayTableForm().addRowClick(new MouseAdapter() {
@@ -120,12 +132,16 @@ public class LoaiMayBayController {
                     int confirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa loại máy bay này?", "Xác nhận xóa", JOptionPane.YES_NO_OPTION);
                     if (confirm == JOptionPane.YES_OPTION) {
                         String maLoaiMayBay = loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().getValueAt(rowSelected, 0).toString();
-                        LoaiMayBayBus bus = new LoaiMayBayBus();
-                        bus.xoaLoaiMayBay(maLoaiMayBay);
+                        if (!kiemTraMaMayBaySuDung(maLoaiMayBay)) {
+                            LoaiMayBayBus bus = new LoaiMayBayBus();
+                            bus.xoaLoaiMayBay(maLoaiMayBay);
 
-                        JOptionPane.showMessageDialog(null, "Xóa loại máy bay thành công!");
-                        hienThiDanhSachLoaiMayBay();
-                        loaiMayBayPanel.getLoaiMayBayControlForm().clearFormData();
+                            JOptionPane.showMessageDialog(null, "Xóa loại máy bay thành công!");
+                            hienThiDanhSachLoaiMayBay();
+                            loaiMayBayPanel.getLoaiMayBayControlForm().clearFormData();
+                        }else{
+                           JOptionPane.showMessageDialog(null, "Không thể xóa! Loại máy bay đã được áp dụng");
+                        }
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Vui lòng chọn một dòng để xóa!");
@@ -155,20 +171,24 @@ public class LoaiMayBayController {
                 int selectedRow = loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().getSelectedRow();
                 if (selectedRow != -1) {
                     String maLoaiMayBay = loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().getValueAt(selectedRow, 0).toString();
-                    
-                    LoaiMayBayDTO loaiMayBay = new LoaiMayBayDTO();
-                    loaiMayBay.setMaLoai(maLoaiMayBay);
-                    loaiMayBay.setTenLoai(tenLoaiMayBay);
-                    loaiMayBay.setHeSoGiaThuong(heSoGiaThuong);
-                    loaiMayBay.setHeSoGiaVip(heSoGiaVip);
-                    
-                    LoaiMayBayDTO dto = danhSachLoaiMayBay.set(selectedRow, loaiMayBay);
-                    
-                    LoaiMayBayBus bus = new LoaiMayBayBus();
-                    bus.suaLoaiMayBay(loaiMayBay);
-                    
-                    loaiMayBayPanel.getLoaiMayBayControlForm().clearFormData();
-                    hienThiDanhSachLoaiMayBay();
+                    if (!kiemTraMaMayBaySuDung(maLoaiMayBay)) {
+                        LoaiMayBayDTO loaiMayBay = new LoaiMayBayDTO();
+                        loaiMayBay.setMaLoai(maLoaiMayBay);
+                        loaiMayBay.setTenLoai(tenLoaiMayBay);
+                        loaiMayBay.setHeSoGiaThuong(heSoGiaThuong);
+                        loaiMayBay.setHeSoGiaVip(heSoGiaVip);
+
+                        LoaiMayBayDTO dto = danhSachLoaiMayBay.set(selectedRow, loaiMayBay);
+
+                        LoaiMayBayBus bus = new LoaiMayBayBus();
+                        bus.suaLoaiMayBay(loaiMayBay);
+
+                        loaiMayBayPanel.getLoaiMayBayControlForm().clearFormData();
+                        hienThiDanhSachLoaiMayBay();
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Không thể sửa! Loại máy bay đã được áp dụng");
+                    }
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Vui lòng chọn một dòng để sửa!");
                 }
