@@ -44,14 +44,7 @@ public class MayBayController {
         panelMayBayControl.getBangLayMaLoaiMayBay().getMyTable().setModel(model);
     }
     
-    private MayBayDTO layMotMayBay(String maMayBay) {
-        for(MayBayDTO mb : dsMayBay) {
-            if (mb.getMaMayBay().equals(maMayBay)) {
-                return mb;
-            }
-        }
-        return null;
-    }
+   
     
     private void setForm(MayBayDTO mb) {
         panelMayBayControl.getTxtMaMayBay().setText(mb.getMaMayBay());
@@ -86,7 +79,7 @@ public class MayBayController {
                 int row = panelMayBayTable.getMyTable().getSelectedRow();
                 if(row != -1) {
                     String maMayBay = panelMayBayTable.getMyTable().getValueAt(row, 0).toString();
-                    MayBayDTO mb = layMotMayBay(maMayBay);
+                    MayBayDTO mb = TimKiemTable.layMotMayBay(maMayBay,dsMayBay);
                     if(mb != null) {
                         setForm(mb);
                     }
@@ -173,7 +166,6 @@ public class MayBayController {
                         }else{
                             JOptionPane.showMessageDialog(null, "Không thể sửa! máy bay đã được áp dụng");
                         }
-                        
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, "Lỗi nhập dữ liệu! " + e.getMessage());
                     }

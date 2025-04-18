@@ -17,7 +17,7 @@ public class TimKiemTable {
             }
         return danhSachTimThay;
     }
-    
+
     public static ArrayList<MayBayDTO> danhSachTimTheoTenMayBay(String tuKhoa, ArrayList<MayBayDTO> dsMayBay) {
         ArrayList<MayBayDTO> ketQua = new ArrayList<>();
         for (MayBayDTO mb : dsMayBay) {
@@ -26,6 +26,15 @@ public class TimKiemTable {
             }
         }
         return ketQua;
+    }
+    
+    public static MayBayDTO layMotMayBay(String maMayBay,  ArrayList<MayBayDTO> dsMayBay) {
+        for(MayBayDTO mb : dsMayBay) {
+            if (mb.getMaMayBay().equals(maMayBay)) {
+                return mb;
+            }
+        }
+        return null;
     }
     
     public static ArrayList<LoaiMayBayDTO> danhSachTimTheoTenLoaiMB(String tenLoai,  ArrayList<LoaiMayBayDTO> danhSachLoaiMayBay) {
@@ -38,6 +47,15 @@ public class TimKiemTable {
         return danhSachTimThay;
     }
     
+    public static LoaiMayBayDTO layMotLoaiMayBay(String maLoai,  ArrayList<LoaiMayBayDTO> dsLoaiMayBay) {
+        for(LoaiMayBayDTO mb : dsLoaiMayBay) {
+            if (mb.getMaLoai().equals(maLoai)) {
+                return mb;
+            }
+        }
+        return null;
+    }
+    
     public static ArrayList<HanhTrinhDTO> danhSachTimTheoTenHanhTrinh(String tenHangTrinh, ArrayList<HanhTrinhDTO> dsHanhTrinh) {
         ArrayList<HanhTrinhDTO> dsHanhTrinhTimThay = new ArrayList<>();
         for (HanhTrinhDTO ht : dsHanhTrinh) {
@@ -48,6 +66,15 @@ public class TimKiemTable {
         return dsHanhTrinhTimThay;
     }
     
+    public static HanhTrinhDTO layMotHanhTrinh(String maHanhTrinh, ArrayList<HanhTrinhDTO> dsHanhTrinh) {
+        for (HanhTrinhDTO ht : dsHanhTrinh) {
+            if (ht.getMaHanhTrinh().equals(maHanhTrinh)) {
+                return ht;
+            }
+        }
+        return null;
+    }
+    
     public static ArrayList<ChuyenBayDTO> danhSachTimKiemTheoMaChuyenBay(String maChuyenBay, ArrayList<ChuyenBayDTO> dsChuyenBay) {
         ArrayList<ChuyenBayDTO> dsChuyenBayTimThay = new ArrayList<>();
         for(ChuyenBayDTO cb : dsChuyenBay) {
@@ -56,5 +83,14 @@ public class TimKiemTable {
             }
         }
         return dsChuyenBayTimThay;
+    }
+    
+    public static ChuyenBayDTO layMotChuyenBay(String maChuyenBay, ArrayList<ChuyenBayDTO> dsChuyenBay) {
+        for (ChuyenBayDTO cb : dsChuyenBay) {
+            if (cb.getMaChuyenBay().equals(maChuyenBay)) {
+                return cb;
+            }
+        }
+        return null;
     }
 }

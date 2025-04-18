@@ -56,7 +56,6 @@ public class LoaiMayBayController {
         if (input == null || input.trim().isEmpty()) {
             return null;
         }
-
         try {
             return Float.parseFloat(input.trim().replace(",", "."));
         } catch (NumberFormatException e) {

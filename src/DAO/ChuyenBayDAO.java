@@ -45,7 +45,8 @@ public class ChuyenBayDAO {
     
     public boolean themChuyenBay(ChuyenBayDTO chuyenBay) {
         try {
-            String sql = "INSERT INTO ChuyenBay (MaChuyenBay, NgayXuatPhat, GioXuatPhat, NgayDenNoi, GioDenNoi, GiaThuong, GiaVip, TrangThaiChuyenBay, TongSoLuongGhe, SoGheDaBan, SoGheConLai, MaMayBay, MaHanhTrinh) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO ChuyenBay (MaChuyenBay, NgayXuatPhat, GioXuatPhat, NgayDenNoi, GioDenNoi, GiaThuong, GiaVip, TrangThaiChuyenBay, TongSoLuongGhe, SoGheDaBan, SoGheConLai, MaMayBay, MaHanhTrinh) "
+                        + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
             conn = ConnectToSQLServer.getConnection();
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, chuyenBay.getMaChuyenBay());

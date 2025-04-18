@@ -26,6 +26,12 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         txtNgayDenNoi.setEditable(false);
         txtMaMayBay.setEditable(false);
         txtMaHanhTrinh.setEditable(false);
+        txtGiaThuong.setEditable(false);
+        txtGiaVip.setEditable(false);
+        txtSoGheConLai.setEditable(false);
+        txtTongSLGhe.setEditable(false);
+        txtTrangThai.setEditable(false);
+        txtSoGheDaBan.setEditable(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -68,7 +74,7 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         txtSoGheDaBan = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        txtSoGheConLaij = new javax.swing.JTextField();
+        txtSoGheConLai = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         txtMaHanhTrinh = new javax.swing.JTextField();
@@ -269,9 +275,9 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         jLabel12.setPreferredSize(new java.awt.Dimension(110, 31));
         jPanel11.add(jLabel12);
 
-        txtSoGheConLaij.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtSoGheConLaij.setPreferredSize(new java.awt.Dimension(150, 31));
-        jPanel11.add(txtSoGheConLaij);
+        txtSoGheConLai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtSoGheConLai.setPreferredSize(new java.awt.Dimension(150, 31));
+        jPanel11.add(txtSoGheConLai);
 
         jPanel14.add(jPanel11);
 
@@ -428,7 +434,7 @@ public class ChuyenBayForm extends javax.swing.JPanel {
     }
 
     public JTextField getTxtSoGheConLai() {
-        return txtSoGheConLaij;
+        return txtSoGheConLai;
     }
 
     public JTextField getTxtSoGheDaBan() {
@@ -458,7 +464,7 @@ public class ChuyenBayForm extends javax.swing.JPanel {
         txtMaChuyenBay.setText("");
         txtMaHanhTrinh.setText("");
         txtMaMayBay.setText("");
-        txtSoGheConLaij.setText("");
+        txtSoGheConLai.setText("");
         txtSoGheDaBan.setText("");
         txtTongSLGhe.setText("");
         txtTrangThai.setText("");
@@ -507,7 +513,7 @@ public class ChuyenBayForm extends javax.swing.JPanel {
     private javax.swing.JTextField txtMaMayBay;
     private javax.swing.JTextField txtNgayDenNoi;
     private javax.swing.JTextField txtNgayXuatPhat;
-    private javax.swing.JTextField txtSoGheConLaij;
+    private javax.swing.JTextField txtSoGheConLai;
     private javax.swing.JTextField txtSoGheDaBan;
     private javax.swing.JTextField txtTongSLGhe;
     private javax.swing.JTextField txtTrangThai;

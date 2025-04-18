@@ -44,18 +44,7 @@ public class HanhTrinhController {
         HienThiTable.taiDuLieuLenTabelSanBay(model, dsSanBay);
         panelControl.getBangLayMa().getMyTable().setModel(model);
     }
-    
-    private HanhTrinhDTO layMotHanhTrinh(String maHanhTrinh) {
-       HanhTrinhDTO hanhTrinh = new HanhTrinhDTO();
-        for (HanhTrinhDTO ht : dsHanhTrinh) {
-            if (ht.getMaHanhTrinh().equals(maHanhTrinh)) {
-                hanhTrinh = ht;
-                break;
-            }
-        }
-        return hanhTrinh;
-    }
-    
+   
     private void setForm(HanhTrinhDTO hanhTrinh) {
         panelControl.getTxtTenHanhTrinh().setText(hanhTrinh.getTenHanhTrinh());
         panelControl.getTxtSanBayDi().setText(hanhTrinh.getSanBayDi());
@@ -120,7 +109,11 @@ public class HanhTrinhController {
                 int rowSeleted = panelTable.getMyTable().getSelectedRow();
                 if (rowSeleted != -1) {
                     String maHanhTrinh = panelTable.getMyTable().getValueAt(rowSeleted, 0 ).toString();
-                    setForm(layMotHanhTrinh(maHanhTrinh));       
+                    HanhTrinhDTO motHanhTrinh = TimKiemTable.layMotHanhTrinh(maHanhTrinh,dsHanhTrinh);
+                    if(motHanhTrinh != null){
+                        setForm(motHanhTrinh);
+                    }
+                               
                 }
             }
         });
