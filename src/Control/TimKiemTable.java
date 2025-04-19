@@ -2,6 +2,7 @@ package Control;
 
 import DTO.ChuyenBayDTO;
 import DTO.HanhTrinhDTO;
+import DTO.KhuyenMaiDTO;
 import DTO.LoaiMayBayDTO;
 import DTO.MayBayDTO;
 import DTO.SanBayDTO;
@@ -111,5 +112,22 @@ public class TimKiemTable {
             }
         }
         return null;
+    }
+    
+    public static KhuyenMaiDTO layMotKhuyenMai(String maKhuyenMai, ArrayList<KhuyenMaiDTO> danhSach) {
+        for (KhuyenMaiDTO km : danhSach) {
+            if (km.getMaKhuyenMai().equals(maKhuyenMai)) return km;
+        }
+        return null;
+    }
+    
+    public static ArrayList<KhuyenMaiDTO> danhSachTimKiemTheoTenKM(String ten, ArrayList<KhuyenMaiDTO> danhSach) {
+        ArrayList<KhuyenMaiDTO> dsKhuyenMaiTimThay = new ArrayList<>();
+        for (KhuyenMaiDTO km : danhSach) {
+            if (km.getTenKhuyenMai().toLowerCase().contains(ten.toLowerCase())) {
+                dsKhuyenMaiTimThay.add(km);
+            }
+        }
+        return dsKhuyenMaiTimThay;
     }
 }

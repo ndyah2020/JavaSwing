@@ -6,6 +6,10 @@ import GUI.panel.swing.MyButton;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 public class KhuyenMaiControlForm extends javax.swing.JPanel {
@@ -295,6 +299,42 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
     private void setupDateChooser(MyButton button, DateChooser chooser, JTextField textField) {
         chooser.setTextRefernce(textField);
         button.addActionListener(evt -> chooser.showPopup());
+    }
+    
+    public Date getNgayBatDau() {
+        try {
+            String text = txtNgayBatDau.getText().trim();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); // Format giống SQL
+            return sdf.parse(text);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Date getNgayKetThuc() {
+        try {
+            String text = txtNgayKetThuc.getText().trim();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            return sdf.parse(text);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    public void setNgayBatDau(Date ngayBatDau) {
+        if (ngayBatDau != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            txtNgayBatDau.setText(sdf.format(ngayBatDau));
+        }
+    }
+    
+    public void setNgayKetThuc(Date ngayKetThuc) {
+        if (ngayKetThuc != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            txtNgayKetThuc.setText(sdf.format(ngayKetThuc));
+        }
     }
     
     public JTextField getTxtMaKhuyenMai() {

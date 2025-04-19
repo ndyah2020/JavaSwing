@@ -17,7 +17,7 @@ public class KhuyenMaiChiTietBUS {
         danhSach = khuyenMaiChiTietDAO.docDanhSach();
     }
     
-    ArrayList<CTKhuyenMaiDTO> getDanhSachChiTietKhuyenMai() {
+    public ArrayList<CTKhuyenMaiDTO> getDanhSachChiTietKhuyenMai() {
         if (danhSach.isEmpty()) {
             docDanhSachBUS();
         }
@@ -45,7 +45,7 @@ public class KhuyenMaiChiTietBUS {
         return result;
     }
     
-    public boolean xoaCTKhuyenBUS(String maCT) {
+    public boolean xoaCTKhuyenMaiBUS(String maCT) {
         boolean result = khuyenMaiChiTietDAO.xoaCTKhuyenMai(maCT);
         if (result) {
             danhSach.removeIf(ct -> ct.getMaCTKhuyenMai().equals(maCT));

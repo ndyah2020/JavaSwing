@@ -9,7 +9,7 @@ public class KhuyenMaiChiTietTableForm extends javax.swing.JPanel {
     
     public KhuyenMaiChiTietTableForm() {
         initComponents();
-        String[] columnNames = {"Mã chi tiết", "Mã khuyến mãi", "Mã hành trình" };
+        String[] columnNames = {"Mã chi tiết", "Mã hành trình" , "Mã khuyến mãi"};
         model = new DefaultTableModel(columnNames, 0);
         myTable.setModel(model);
     }
