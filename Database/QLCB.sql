@@ -1,4 +1,4 @@
-﻿﻿DROP DATABASE QLCB
+﻿﻿﻿DROP DATABASE QLCB
 CREATE DATABASE QLCB
 GO
 USE QLCB;
@@ -173,29 +173,60 @@ CREATE TABLE NhanVien (
 );
 GO
 
+Drop Table KhuyenMai
 CREATE TABLE KhuyenMai (
-    MaKhuyenMai VARCHAR(10) PRIMARY KEY NOT NULL,
+    MaKhuyenMai VARCHAR(20) PRIMARY KEY NOT NULL,
+	TenKhuyenMai NVARCHAR(255) NOT NULL,
     NgayBatDau DATE NOT NULL,
     NgayKetThuc DATE NOT NULL,
     PhanTramGiamGia VARCHAR(10) NOT NULL
 );
 GO
 
+Update KhuyenMai (MaKhuyenMai, TenKhuyenMai, NgayBatDau, NgayKetThuc, PhanTramGiamGia) VALUES
+('KM0001', N'Khuyến mãi Tết', '2025-01-01', '2025-02-01', '10'),
+('KM0002', N'Ưu đãi Hè', '2025-06-01', '2025-06-30', '15'),
+('KM0003', N'Giảm giá Quốc tế Lao động', '2025-04-25', '2025-05-05', '20'),
+('KM0004', N'Black Friday', '2025-11-25', '2025-11-30', '30'),
+('KM0005', N'Giáng sinh yêu thương', '2025-12-20', '2025-12-31', '25'),
+('KM0006', N'Back to School', '2025-08-01', '2025-08-31', '18'),
+('KM0007', N'Mùa du lịch', '2025-07-01', '2025-07-20', '12'),
+('KM0008', N'Flash Sale tháng 9', '2025-09-10', '2025-09-15', '50'),
+('KM0009', N'Tri ân khách VIP', '2025-10-01', '2025-10-15', '60'),
+('KM0010', N'Khuyến mãi mùa xuân', '2025-03-01', '2025-03-31', '8');
+
+
+
+Drop Table CTKhuyenMai
 CREATE TABLE CTKhuyenMai (
-    MaCTKhuyenMai VARCHAR(10) PRIMARY KEY NOT NULL,
-    MaHanhTrinh VARCHAR(10) NOT NULL,
-    MaKhuyenMai VARCHAR(10) NOT NULL,
+    MaCTKhuyenMai VARCHAR(20) PRIMARY KEY NOT NULL,
+    MaHanhTrinh VARCHAR(20) NOT NULL,
+    MaKhuyenMai VARCHAR(20) NOT NULL,
     FOREIGN KEY (MaHanhTrinh) REFERENCES HanhTrinh(MaHanhTrinh),
     FOREIGN KEY (MaKhuyenMai) REFERENCES KhuyenMai(MaKhuyenMai)
 );
 GO
 
+INSERT INTO CTKhuyenMai (MaCTKhuyenMai, MaHanhTrinh, MaKhuyenMai) VALUES
+('CTKM-A12B3C4', 'HT-0001', 'KM0001'),
+('CTKM-D56E7F8', 'HT-0002', 'KM0002'),
+('CTKM-G91H2J3', 'HT-0003', 'KM0003'),
+('CTKM-K45L6M7', 'HT-0004', 'KM0004'),
+('CTKM-N89O0P1', 'HT-0005', 'KM0005'),
+('CTKM-Q23R4S5', 'HT-0001', 'KM0006'),
+('CTKM-T67U8V9', 'HT-0002', 'KM0007'),
+('CTKM-W01X2Y3', 'HT-0003', 'KM0008'),
+('CTKM-Z45A6B7', 'HT-0004', 'KM0009'),
+('CTKM-C89D0E1', 'HT-0005', 'KM0010');
+
+
+Drop Table HoaDon
 CREATE TABLE HoaDon (
     MaHoaDon VARCHAR(10) PRIMARY KEY NOT NULL,
     ThoiGian DATETIME NOT NULL,
     TongTien DECIMAL(10,2) NOT NULL,
     MaNV VARCHAR(10) NOT NULL,
-    MaKhuyenMai VARCHAR(10),
+    MaKhuyenMai VARCHAR(20),
     MaKhachHang VARCHAR(10) NOT NULL,
     FOREIGN KEY (MaKhachHang) REFERENCES KhachHang(MaKhachHang),
     FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNhanVien),
@@ -203,16 +234,18 @@ CREATE TABLE HoaDon (
 );
 GO
 
+Drop Table CTHoaDon
 CREATE TABLE CTHoaDon (
     MaCTHD VARCHAR(10) PRIMARY KEY NOT NULL,
     SoLuong INT NOT NULL,
     Gia INT NOT NULL,
     MaHoaDon VARCHAR(10) NOT NULL,
-    MaVe VARCHAR(10) NOT NULL,
+    MaVe VARCHAR(20) NOT NULL,
     FOREIGN KEY (MaHoaDon) REFERENCES HoaDon(MaHoaDon),
     FOREIGN KEY (MaVe) REFERENCES Ve(MaVe)
 );
 GO
+
 INSERT INTO KhachHang (MaKhachHang, Ho, Ten, GioiTinh, NgaySinh, SDT, email)
 VALUES 
 ('KH8A7B3D1', 'Nguyen', 'An', 'Nam', '1990-05-10', '0912345678', 'nguyenan1@gmail.com'),
