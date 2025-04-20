@@ -11,9 +11,10 @@ public class SanBayBUS {
     public SanBayBUS() {
         dao = new SanBayDAO();
         danhSachSanBay = new ArrayList<>();
+        layDanhSachSanBay();
     }
     
-    public void layDanhSachSanBay() {
+    private void layDanhSachSanBay() {
         danhSachSanBay = dao.layDanhSach();
     }
     

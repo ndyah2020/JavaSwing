@@ -11,9 +11,10 @@ public class LoaiMayBayBus {
     public LoaiMayBayBus() {
         dao = new LoaiMayBayDAO();
         danhSachLoaiMayBay = new ArrayList<>();
+        docDanhSachLoaiMayBay();
     }
     
-    public void docDanhSachLoaiMayBay() {
+    private void docDanhSachLoaiMayBay() {
         danhSachLoaiMayBay = dao.docDanhSach();
     }
     

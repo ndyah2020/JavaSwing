@@ -11,9 +11,10 @@ public class VeBUS {
     public VeBUS() {
         danhSachVe = new ArrayList<>();
         dao = new VeDAO();
+        layDanhSachVe();
     }
     
-    public void layDanhSachVe() {
+    private void layDanhSachVe() {
         danhSachVe = dao.layDanhSachVe();
     }
     

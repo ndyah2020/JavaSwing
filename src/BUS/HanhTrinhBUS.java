@@ -11,9 +11,10 @@ public class HanhTrinhBUS {
    public HanhTrinhBUS() {
        danhSachHanhTrinh = new  ArrayList<>();
        dao = new HanhTrinhDAO();
+       layDanhSachHanhTrinhBUS();
    }
    
-   public void layDanhSachHanhTrinhBUS() {
+   private void layDanhSachHanhTrinhBUS() {
        danhSachHanhTrinh = dao.layDanhSachHanhTrinhDAO();
    }
    public ArrayList<HanhTrinhDTO> getDanhSachHanhTrinhBUS() {
@@ -34,6 +35,7 @@ public class HanhTrinhBUS {
            danhSachHanhTrinh.removeIf(ht -> ht.getMaHanhTrinh().equals(maHanhTrinh));
        }
    }
+   
    public void suaHanhTrinhBUS(HanhTrinhDTO hanhTrinh) {
        if(dao.suaHanhTrinhDAO(hanhTrinh)){
            for(int i = 0; i< danhSachHanhTrinh.size(); i++){
@@ -44,4 +46,23 @@ public class HanhTrinhBUS {
            }
        }
    }
+   
+   public ArrayList<HanhTrinhDTO> danhSachTimTheoTenHanhTrinh(String tenHangTrinh) {
+        ArrayList<HanhTrinhDTO> dsHanhTrinhTimThay = new ArrayList<>();
+        for (HanhTrinhDTO ht : danhSachHanhTrinh) {
+            if (ht.getTenHanhTrinh().toLowerCase().trim().contains(tenHangTrinh.toLowerCase().trim())) {
+                dsHanhTrinhTimThay.add(ht);
+            }
+        }
+        return dsHanhTrinhTimThay;
+    }
+    
+    public HanhTrinhDTO layMotHanhTrinh(String maHanhTrinh) {
+        for (HanhTrinhDTO ht : danhSachHanhTrinh) {
+            if (ht.getMaHanhTrinh().equals(maHanhTrinh)) {
+                return ht;
+            }
+        }
+        return null;
+    }
 }

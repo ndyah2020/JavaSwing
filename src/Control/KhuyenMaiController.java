@@ -28,7 +28,8 @@ public class KhuyenMaiController {
     private final KhuyenMaiControlForm panelControl;
     private final KhuyenMaiBUS kmBUS = new KhuyenMaiBUS();
     private final KhuyenMaiChiTietBUS ctkmBUS = new KhuyenMaiChiTietBUS();
-//    private ArrayList<KhuyenMaiDTO> dsKhuyenMai;
+    private final HanhTrinhBUS hanhTrinhBUS  = new HanhTrinhBUS();
+;//    private ArrayList<KhuyenMaiDTO> dsKhuyenMai;
 //    private ArrayList<CTKhuyenMaiDTO> dsCTKhuyenMai;
     
     public KhuyenMaiController(KhuyenMaiPanelForm panel) {
@@ -89,7 +90,7 @@ public class KhuyenMaiController {
                 int kmRow = panelKhuyenMaiTable.getMyTable().getSelectedRow();
                 if (kmRow == -1) return;
                 String maKM = panelKhuyenMaiTable.getMyTable().getValueAt(kmRow, 0).toString();
-                KhuyenMaiDTO km = TimKiemTable.layMotKhuyenMai(maKM, kmBUS.getDanhSachKhuyenMai());
+                KhuyenMaiDTO km = kmBUS.layMotKhuyenMai(maKM);
 //                panelControl.getTxtMaKhuyenMai().setText(km.getMaKhuyenMai());
 //                panelControl.getTxtTenKhuyenMai().setText(km.getTenKhuyenMai());
 //                panelControl.getTxtPhanTramKhuyenMai().setText(km.getPhanTramGiamGia());
@@ -251,7 +252,7 @@ public class KhuyenMaiController {
             public void keyReleased(KeyEvent e) {
                 String tuKhoa = panelControl.getTxtTimKiem().getText().trim();
                 if (!tuKhoa.isEmpty()) {
-                    ArrayList<KhuyenMaiDTO> kq = TimKiemTable.danhSachTimKiemTheoTenKM(tuKhoa, kmBUS.getDanhSachKhuyenMai());
+                    ArrayList<KhuyenMaiDTO> kq = kmBUS.danhSachTimKiemTheoTenKM(tuKhoa);
                     HienThiTable.taiDuLieuTableKhuyenMai(
                             panelKhuyenMaiTable.getModel(), kq
                     );
@@ -282,8 +283,9 @@ public class KhuyenMaiController {
         panelControl.getBangLayMa().addSearchPopupListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
+               
                 String tuKhoa = panelControl.getBangLayMa().getTxtSearch().getText();
-                ArrayList<HanhTrinhDTO> hanhTrinh = TimKiemTable.danhSachTimTheoTenHanhTrinh(tuKhoa, new HanhTrinhBUS().getDanhSachHanhTrinhBUS());
+                ArrayList<HanhTrinhDTO> hanhTrinh = hanhTrinhBUS.danhSachTimTheoTenHanhTrinh(tuKhoa);
                 DefaultTableModel modelTimKiem = panelControl.getBangLayMa().getModel();
                 HienThiTable.taiDuLieuTableHanhTrinh(modelTimKiem, hanhTrinh);
                 

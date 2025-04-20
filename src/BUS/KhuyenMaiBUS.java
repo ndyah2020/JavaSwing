@@ -11,9 +11,10 @@ public class KhuyenMaiBUS {
     public KhuyenMaiBUS() {
         khuyenMaiDAO = new KhuyenMaiDAO();
         danhSach = new ArrayList<>();
+        docDanhSachBUS();
     }
     
-    public void docDanhSachBUS() {
+    private void docDanhSachBUS() {
         danhSach = khuyenMaiDAO.docDanhSach();
     }
     
@@ -52,5 +53,22 @@ public class KhuyenMaiBUS {
             danhSach.removeIf(km -> km.getMaKhuyenMai().equals(maKM));
         }
         return result;
+    }
+    
+    public KhuyenMaiDTO layMotKhuyenMai(String maKhuyenMai) {
+        for (KhuyenMaiDTO km : danhSach) {
+            if (km.getMaKhuyenMai().equals(maKhuyenMai)) return km;
+        }
+        return null;
+    }
+    
+    public ArrayList<KhuyenMaiDTO> danhSachTimKiemTheoTenKM(String ten) {
+        ArrayList<KhuyenMaiDTO> dsKhuyenMaiTimThay = new ArrayList<>();
+        for (KhuyenMaiDTO km : danhSach) {
+            if (km.getTenKhuyenMai().toLowerCase().contains(ten.toLowerCase())) {
+                dsKhuyenMaiTimThay.add(km);
+            }
+        }
+        return dsKhuyenMaiTimThay;
     }
 }

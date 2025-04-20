@@ -11,9 +11,10 @@ public class ChuyenBayBUS {
     public ChuyenBayBUS() {
         danhSachChuyenBay = new ArrayList<>();
         dao = new ChuyenBayDAO();
+        layDanhSachChuyenBay();
     }
     
-    public void layDanhSachChuyenBay() {
+    private void layDanhSachChuyenBay() {
         danhSachChuyenBay = dao.layDanhSachChuyenBayDAO();
     }
     
@@ -29,9 +30,47 @@ public class ChuyenBayBUS {
             danhSachChuyenBay.add(chuyenBay);
         }
     }
-    public void xoaHanhTrinh(String maHanhTrinh){
-        if(dao.xoaChuyenBay(maHanhTrinh)) {
-            danhSachChuyenBay.removeIf(ht -> ht.getMaHanhTrinh().equals(maHanhTrinh));
+    
+    public void xoaChuyenBay(String maChuyenBay){
+        if(dao.xoaChuyenBay(maChuyenBay)) {
+            danhSachChuyenBay.removeIf(ht -> ht.getMaHanhTrinh().equals(maChuyenBay));
         }
+    }
+    
+    public ArrayList<ChuyenBayDTO> danhSachTimKiemTheoMaChuyenBay(String maChuyenBay) {
+        if(danhSachChuyenBay.isEmpty()){
+            layDanhSachChuyenBay();
+        }
+        ArrayList<ChuyenBayDTO> dsChuyenBayTimThay = new ArrayList<>();
+        for(ChuyenBayDTO cb : danhSachChuyenBay) {
+            if(cb.getMaChuyenBay().toLowerCase().trim().contains((maChuyenBay.toLowerCase().trim()))) {
+                dsChuyenBayTimThay.add(cb);
+            }
+        }
+        return dsChuyenBayTimThay;
+    }
+    
+    public ChuyenBayDTO layMotChuyenBay(String maChuyenBay) {
+        if(danhSachChuyenBay.isEmpty()){
+            layDanhSachChuyenBay();
+        }
+        for (ChuyenBayDTO cb : danhSachChuyenBay) {
+            if (cb.getMaChuyenBay().equals(maChuyenBay)) {
+                return cb;
+            }
+        }
+        return null;
+    }
+    
+    public ChuyenBayDTO layMotChuyenBayTuMaMayBay(String maMayBay) {
+        if(danhSachChuyenBay.isEmpty()){
+            layDanhSachChuyenBay();
+        }
+        for (ChuyenBayDTO cb : danhSachChuyenBay) {
+            if (cb.getMaMayBay().equals(maMayBay)) {
+                return cb;
+            }
+        }
+        return null;
     }
 }

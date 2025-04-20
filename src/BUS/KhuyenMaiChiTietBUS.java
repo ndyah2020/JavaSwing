@@ -11,9 +11,10 @@ public class KhuyenMaiChiTietBUS {
     public KhuyenMaiChiTietBUS() {
         khuyenMaiChiTietDAO = new KhuyenMaiChiTIetDAO();
         danhSach = new ArrayList<>();
+        docDanhSachBUS();
     }
     
-    public void docDanhSachBUS() {
+    private void docDanhSachBUS() {
         danhSach = khuyenMaiChiTietDAO.docDanhSach();
     }
     

@@ -32,10 +32,10 @@ public class ChuyenBayController {
     private final ChuyenBayControlForm panelControl;
     private final ChuyenBayTableForm panelTable;
     private String popupModel = "";
-    private final ChuyenBayBUS chuyeBayBUS = new ChuyenBayBUS();
     private final MayBayBUS mayBayBUS = new MayBayBUS();
     private final HanhTrinhBUS hanhTrinhBUS = new HanhTrinhBUS();
     private final LoaiMayBayBus loaiMayBayBUS = new LoaiMayBayBus();
+    private final ChuyenBayBUS chuyenBayBUS = new ChuyenBayBUS();
     
     public ChuyenBayController(ChuyenBayPanelForm panel) {
         this.panelForm = panel.getChuyenBayForm();
@@ -45,7 +45,7 @@ public class ChuyenBayController {
 
     public void layDanhSachChuyenBay() {
         DefaultTableModel modelDS = panelTable.getModel();      
-        dsChuyenBay = chuyeBayBUS.getDanhSachChuyenBay();
+        dsChuyenBay = chuyenBayBUS.getDanhSachChuyenBay();
         HienThiTable.taiDuLieuTableChuyenBay(modelDS, dsChuyenBay);
         panelTable.getMyTable().setModel(modelDS);
     }
@@ -117,7 +117,7 @@ public class ChuyenBayController {
                 if (rowSelected != -1) {
                     panelForm.getTxtMaChuyenBay().setEditable(false);
                     String maChuyenBay = panelTable.getMyTable().getValueAt(rowSelected, 0).toString();
-                    ChuyenBayDTO motChuyenBay = TimKiemTable.layMotChuyenBay(maChuyenBay, dsChuyenBay);
+                    ChuyenBayDTO motChuyenBay = chuyenBayBUS.layMotChuyenBay(maChuyenBay);
                     if (motChuyenBay != null) {
                         setForm(motChuyenBay);
                     }
@@ -158,7 +158,7 @@ public class ChuyenBayController {
                 HanhTrinhBUS bus = new HanhTrinhBUS();
                 String tenHanhtrinh = panelForm.getBangLayMaHanhTrinh().getTxtSearch().getText();
                 if (!tenHanhtrinh.isEmpty()) {
-                    ArrayList<HanhTrinhDTO> dsHanhTrinhTimThay = TimKiemTable.danhSachTimTheoTenHanhTrinh(tenHanhtrinh, bus.getDanhSachHanhTrinhBUS());
+                    ArrayList<HanhTrinhDTO> dsHanhTrinhTimThay = hanhTrinhBUS.danhSachTimTheoTenHanhTrinh(tenHanhtrinh);
                     HienThiTable.taiDuLieuTableHanhTrinh(modelTimKiem, dsHanhTrinhTimThay);
                 } else {
                     hienThiHanhTrinhLenPopup();
@@ -199,9 +199,9 @@ public class ChuyenBayController {
                                   .toString();
                 String maHanhTrinh = panelForm.getTxtMaHanhTrinh().getText();
                 if(!maHanhTrinh.isEmpty()) {
-                    if (TimKiemTable.layMotChuyenBayTuMaMayBay(maMayBay, dsChuyenBay) == null) {
+                    if (chuyenBayBUS.layMotChuyenBayTuMaMayBay(maMayBay) == null) {
                         panelForm.getTxtMaMayBay().setText(maMayBay);
-                        int giaCoBan = TimKiemTable.layMotHanhTrinh(maHanhTrinh, dsHanhTrinh).getGiaCoBan();
+                        int giaCoBan = hanhTrinhBUS.layMotHanhTrinh(maHanhTrinh).getGiaCoBan();
                         MayBayDTO mayBay = mayBayBUS.layMotMayBay(maMayBay);
                         
                         double heSoGiaThuong = loaiMayBayBUS.layMotLoaiMayBay(mayBay.getMaLoaiMayBay()).getHeSoGiaThuong();
@@ -235,7 +235,7 @@ public class ChuyenBayController {
                     return;
                 }
 
-                if (TimKiemTable.layMotChuyenBay(maChuyenBay, dsChuyenBay) != null) {
+                if (chuyenBayBUS.layMotChuyenBay(maChuyenBay) != null) {
                     JOptionPane.showMessageDialog(null, "Mã Chuyến Bay đã tồn tại!");
                     return;
                 }
@@ -275,18 +275,14 @@ public class ChuyenBayController {
                     chuyenBay.setMaMayBay(maMayBay);
                     chuyenBay.setMaHanhTrinh(maHanhTrinh);
 
-                    chuyeBayBUS.themChuyenBayBUS(chuyenBay);
+                    chuyenBayBUS.themChuyenBayBUS(chuyenBay);
                     panelForm.clearForm();
                     layDanhSachChuyenBay();
                     JOptionPane.showMessageDialog(null, "Thêm chuyến bay thành công!");
-                    return;
-
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Lỗi nhập dữ liệu: " + ex.getMessage());
                 }
             }
         });
-
-
     }
 }

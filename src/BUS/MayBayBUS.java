@@ -12,9 +12,10 @@ public class MayBayBUS {
     public MayBayBUS() {
         dao = new MayBayDAO();
         danhSachMayBay = new ArrayList<>();
+        docDanhSachMayBayBUS();
     }
     
-    public void docDanhSachMayBayBUS() {
+    private void docDanhSachMayBayBUS() {
         danhSachMayBay = dao.docDanhSach();
     }
     

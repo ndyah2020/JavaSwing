@@ -26,7 +26,7 @@ public class MayBayController {
     private final MayBayControlForm panelMayBayControl;
     private final MayBayBUS mayBayBUS = new MayBayBUS();
     private final LoaiMayBayBus loaiMayBayBUS = new LoaiMayBayBus();
-    private String popupModel = "";
+    private final String popupModel = "";
     
     public MayBayController(MayBayPanelForm panelForm) {
         this.panelMayBayTable = panelForm.getMayBayTableForm();
@@ -137,17 +137,22 @@ public class MayBayController {
         panelMayBayControl.addXoaListenner(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                int row = panelMayBayTable.getMyTable().getSelectedRow();
-                if (row != -1) {
-                    String maMayBay = panelMayBayTable.getMyTable().getValueAt(row, 0).toString();
-                    if (!kiemTraMaMayBaySuDung(maMayBay)) {
-                        mayBayBUS.xoaMayBay(maMayBay);
-                        panelMayBayControl.resetForm();
-                        hienThiDanhSachMayBay();
-                        JOptionPane.showMessageDialog(null, "Xóa thành công!");
-                    } else
-                        JOptionPane.showMessageDialog(null, "Không thể xóa! máy bay đã được áp dụng");
-
+                try {
+                    int row = panelMayBayTable.getMyTable().getSelectedRow();
+                    if (row != -1) {
+                        String maMayBay = panelMayBayTable.getMyTable().getValueAt(row, 0).toString();
+                        if (!kiemTraMaMayBaySuDung(maMayBay)) {
+                            mayBayBUS.xoaMayBay(maMayBay);
+                            panelMayBayControl.resetForm();
+                            hienThiDanhSachMayBay();
+                            JOptionPane.showMessageDialog(null, "Xóa thành công!");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Không thể xóa! máy bay đã được áp dụng");
+                        }
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Đã xảy ra lỗi khi xóa: " + e.getMessage());
+                    e.printStackTrace();
                 }
             }
         });
@@ -186,7 +191,7 @@ public class MayBayController {
                 }
             }
         });
-        
+
         panelMayBayControl.addTimKiemListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent ke) {

@@ -110,7 +110,7 @@ public class HanhTrinhController {
                 int rowSeleted = panelTable.getMyTable().getSelectedRow();
                 if (rowSeleted != -1) {
                     String maHanhTrinh = panelTable.getMyTable().getValueAt(rowSeleted, 0 ).toString();
-                    HanhTrinhDTO motHanhTrinh = TimKiemTable.layMotHanhTrinh(maHanhTrinh,dsHanhTrinh);
+                    HanhTrinhDTO motHanhTrinh = hanhTrinhBUS.layMotHanhTrinh(maHanhTrinh);
                     if(motHanhTrinh != null){
                         setForm(motHanhTrinh);
                     }
@@ -242,7 +242,7 @@ public class HanhTrinhController {
                 DefaultTableModel modeTimKiem = panelTable.getModel();
                 String tenHanhTrinhTimKiem = panelControl.getTxtTimKiem().getText();
                 if (!tenHanhTrinhTimKiem.isEmpty()) {
-                    ArrayList<HanhTrinhDTO> hanhTrinh = TimKiemTable.danhSachTimTheoTenHanhTrinh(tenHanhTrinhTimKiem, dsHanhTrinh);
+                    ArrayList<HanhTrinhDTO> hanhTrinh = hanhTrinhBUS.danhSachTimTheoTenHanhTrinh(tenHanhTrinhTimKiem);
                     HienThiTable.taiDuLieuTableHanhTrinh(modeTimKiem, hanhTrinh);
                 } else {
                     hienThiDanhSachHanhTrinh();
