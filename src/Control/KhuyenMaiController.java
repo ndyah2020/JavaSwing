@@ -28,8 +28,8 @@ public class KhuyenMaiController {
     private final KhuyenMaiControlForm panelControl;
     private final KhuyenMaiBUS kmBUS = new KhuyenMaiBUS();
     private final KhuyenMaiChiTietBUS ctkmBUS = new KhuyenMaiChiTietBUS();
-    private ArrayList<KhuyenMaiDTO> dsKhuyenMai;
-    private ArrayList<CTKhuyenMaiDTO> dsCTKhuyenMai;
+//    private ArrayList<KhuyenMaiDTO> dsKhuyenMai;
+//    private ArrayList<CTKhuyenMaiDTO> dsCTKhuyenMai;
     
     public KhuyenMaiController(KhuyenMaiPanelForm panel) {
         this.panelKhuyenMaiTable = panel.getKhuyenMaiTableForm();
@@ -49,27 +49,30 @@ public class KhuyenMaiController {
         }
     }
     
-    public void hienThiDuLieu() {
-        dsKhuyenMai = kmBUS.getDanhSachKhuyenMai();
-        dsCTKhuyenMai = ctkmBUS.getDanhSachChiTietKhuyenMai();
+    public void hienThiKhuyenMai() {
+        ArrayList<KhuyenMaiDTO> dsKhuyenMai = kmBUS.getDanhSachKhuyenMai();
         HienThiTable.taiDuLieuTableKhuyenMai(panelKhuyenMaiTable.getModel(), dsKhuyenMai);
-        HienThiTable.taiDuLieuTableCTKhuyenMai(panelCTKhuyenMaiTable.getModel(), dsCTKhuyenMai);
+        panelKhuyenMaiTable.getMyTable().setModel(panelKhuyenMaiTable.getModel());
+        panelCTKhuyenMaiTable.getModel().setRowCount(0);
     }
     
-    private KhuyenMaiDTO layMotKhuyenMai(String ma) {
-        return TimKiemTable.layMotKhuyenMai(ma, dsKhuyenMai);
-    }
-    
-    private CTKhuyenMaiDTO layMotCTKhuyenMai(String maKM) {
-        for (CTKhuyenMaiDTO ct : dsCTKhuyenMai) {
-            if (ct.getMaKhuyenMai().equals(maKM)) return ct;
+    private KhuyenMaiDTO layMotKhuyenMai(String maKM) {
+        for (KhuyenMaiDTO km : kmBUS.getDanhSachKhuyenMai()) {
+            if (km.getMaKhuyenMai().equals(maKM)) return km;
         }
         return null;
     }
     
-    private String generateMaCTKhuyenMai() {
-        return "CTKM-" + UUID.randomUUID().toString().substring(0,6).toUpperCase();
+    private CTKhuyenMaiDTO layMotCTKhuyenMai(String maCT) {
+        for (CTKhuyenMaiDTO ct : ctkmBUS.getDanhSachChiTietKhuyenMai()) {
+            if (ct.getMaKhuyenMai().equals(maCT)) return ct;
+        }
+        return null;
     }
+    
+//    private String generateMaCTKhuyenMai() {
+//        return "CTKM-" + UUID.randomUUID().toString().substring(0,6).toUpperCase();
+//    }   
     
     private void hienThiHanhTrinhLenPopup() {
         String[] cols = {"Mã hành trinh", "Tên Hành Trình"};
@@ -83,20 +86,22 @@ public class KhuyenMaiController {
         panelKhuyenMaiTable.addRowClick(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int row = panelKhuyenMaiTable.getMyTable().getSelectedRow();
-                if (row != -1) {
-                    String ma = panelKhuyenMaiTable.getMyTable().getValueAt(row, 0).toString();
-                    KhuyenMaiDTO km = layMotKhuyenMai(ma);
-                    CTKhuyenMaiDTO ct = layMotCTKhuyenMai(ma);
-                    setForm(km, ct);
-                    
-                    for (int i =0; i <panelCTKhuyenMaiTable.getMyTable().getRowCount(); i++) {
-                        if (panelCTKhuyenMaiTable.getMyTable().getValueAt(i, 2).toString().equals(ma)) {
-                            panelCTKhuyenMaiTable.getMyTable().setRowSelectionInterval(i, i);
-                            break;
-                        }
-                    }
-                }
+                int kmRow = panelKhuyenMaiTable.getMyTable().getSelectedRow();
+                if (kmRow == -1) return;
+                String maKM = panelKhuyenMaiTable.getMyTable().getValueAt(kmRow, 0).toString();
+                KhuyenMaiDTO km = TimKiemTable.layMotKhuyenMai(maKM, kmBUS.getDanhSachKhuyenMai());
+//                panelControl.getTxtMaKhuyenMai().setText(km.getMaKhuyenMai());
+//                panelControl.getTxtTenKhuyenMai().setText(km.getTenKhuyenMai());
+//                panelControl.getTxtPhanTramKhuyenMai().setText(km.getPhanTramGiamGia());
+//                panelControl.setNgayBatDau(km.getNgayBatDau());
+//                panelControl.setNgayKetThuc(km.getNgayKetThuc());
+                CTKhuyenMaiDTO ct0 = ctkmBUS.getDanhSachTheoMaKhuyenMai(maKM)
+                                        .stream().findFirst().orElse(null);
+                setForm(km, ct0);
+                
+                ArrayList<CTKhuyenMaiDTO> dsCT = ctkmBUS.getDanhSachTheoMaKhuyenMai(maKM);
+                HienThiTable.taiDuLieuTableCTKhuyenMai(panelCTKhuyenMaiTable.getModel(), dsCT);
+                panelCTKhuyenMaiTable.getMyTable().setModel(panelCTKhuyenMaiTable.getModel());
             }
         });
         
@@ -110,64 +115,134 @@ public class KhuyenMaiController {
                 Date nkt = panelControl.getNgayKetThuc();
                 String maHT = panelControl.getTxtMaHanhTrinh().getText().trim();
                 
-                if (maKM.isEmpty() || maHT.isEmpty() || ptgg.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin.");
+                if (maKM.isEmpty() || tenKM.isEmpty() || ptgg.isEmpty() || nbd==null || nkt==null || maHT.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ thông tin và chọn hành trình.");
                     return;
                 }
 
                 KhuyenMaiDTO km = new KhuyenMaiDTO(maKM, tenKM, nbd, nkt, ptgg);
-                CTKhuyenMaiDTO ct = new CTKhuyenMaiDTO(generateMaCTKhuyenMai(), maHT, maKM);
-                kmBUS.themKhuyenMaiBUS(km);
-                ctkmBUS.themCTKhuyenMaiBUS(ct);
-                hienThiDuLieu();
-                panelControl.resetForm();
-                JOptionPane.showMessageDialog(null, "Thêm thành công!");
+                if (!kmBUS.themKhuyenMaiBUS(km)) {
+                JOptionPane.showMessageDialog(null, "Không thể thêm khuyến mãi!");
+                return;
+    }
+                
+                if (ctkmBUS.kiemTraTonTaiVoiMaHanhTrinh(maKM, maHT)) {
+                    JOptionPane.showMessageDialog(null, "Chi tiết khuyến mãi đã tồn tại cho hành trình này!");
+                    return;
+                } 
+                
+                CTKhuyenMaiDTO ct = new CTKhuyenMaiDTO(
+                    "CTKM-" + UUID.randomUUID().toString().substring(0,6).toUpperCase(),
+                    maHT, maKM
+                );
+                
+                if (ctkmBUS.themCTKhuyenMaiBUS(ct)) {
+                    hienThiKhuyenMai();
+                    hienThiKhuyenMai();
+                    panelControl.resetForm();
+                    JOptionPane.showMessageDialog(null, "Thêm thành công!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Không thể thêm chi tiết khuyến mãi!");
+                }  
             }
         });
         
         panelControl.addSuaListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String maKM = panelControl.getTxtMaKhuyenMai().getText().trim();
-                KhuyenMaiDTO km = layMotKhuyenMai(maKM);
-                CTKhuyenMaiDTO ct = layMotCTKhuyenMai(maKM);
-                if (km != null && ct != null) {
-                    km.setTenKhuyenMai(panelControl.getTxtTenKhuyenMai().getText().trim());
-                    km.setPhanTramGiamGia(panelControl.getTxtPhanTramKhuyenMai().getText().trim());
-                    km.setNgayBatDau(panelControl.getNgayBatDau());
-                    km.setNgayKetThuc(panelControl.getNgayKetThuc());
+                int ctkmRow = panelCTKhuyenMaiTable.getMyTable().getSelectedRow();
+                int kmRow = panelKhuyenMaiTable.getMyTable().getSelectedRow();
+                
+                if (ctkmRow != -1) {
+//                    panelControl.getTxtMaHanhTrinh().setEditable(true);
+                    String maCT = panelCTKhuyenMaiTable.getMyTable().getValueAt(ctkmRow, 0).toString();
+                    String maHT = panelControl.getTxtMaHanhTrinh().getText().trim();
+                    String maKM = panelControl.getTxtMaKhuyenMai().getText().trim();
+                    
+                    boolean conflict = ctkmBUS.getDanhSachTheoMaKhuyenMai(maKM)
+                        .stream()
+                        .anyMatch(ct ->
+                            ct.getMaHanhTrinh().equals(maHT)
+                            && !ct.getMaCTKhuyenMai().equals(maCT)
+                        );
+                    if (conflict) {
+                        JOptionPane.showMessageDialog(null,
+                          "Hành trình này đã có trong chi tiết khuyến mãi rồi!");
+                        return;
+                    }
+                    
+                    CTKhuyenMaiDTO ct = new CTKhuyenMaiDTO(maCT, maHT, maKM);
+                    
+                    if (ctkmBUS.suaCTKhuyenMaiBUS(ct)) {
+                        ArrayList<CTKhuyenMaiDTO> ds = ctkmBUS.getDanhSachTheoMaKhuyenMai(maKM);
+                        HienThiTable.taiDuLieuTableCTKhuyenMai(panelCTKhuyenMaiTable.getModel(), ds);
+                        JOptionPane.showMessageDialog(null, "Cập nhật chi tiết thành công!");
+                        return;
 
-                    ct.setMaHanhTrinh(panelControl.getTxtMaHanhTrinh().getText().trim());
-
-                    kmBUS.suaKhuyenMaiBUS(km);
-                    ctkmBUS.suaCTKhuyenMaiBUS(ct);
-                    hienThiDuLieu();
-                    panelControl.resetForm();
-                    JOptionPane.showMessageDialog(null, "Cập nhật thành công!");
+                    }
+//                    panelControl.getTxtMaHanhTrinh().setEditable(false);
+                } else if (kmRow != -1) {
+                    String maKM = panelControl.getTxtMaKhuyenMai().getText().trim();
+                    String tenKM = panelControl.getTxtTenKhuyenMai().getText().trim();
+                    String ptgg = panelControl.getTxtPhanTramKhuyenMai().getText().trim();
+                    Date nbd = panelControl.getNgayBatDau();
+                    Date nkt = panelControl.getNgayKetThuc();
+                    KhuyenMaiDTO km = new KhuyenMaiDTO(maKM, tenKM, nbd, nkt, ptgg);
+                    if (kmBUS.suaKhuyenMaiBUS(km)) {
+                        HienThiTable.taiDuLieuTableKhuyenMai(
+                                panelKhuyenMaiTable.getModel(), 
+                                kmBUS.getDanhSachKhuyenMai()
+                        );
+                        JOptionPane.showMessageDialog(null, "Cập nhật khuyến mãi thành công!");
+                    }
+                    return;
                 }
+                JOptionPane.showMessageDialog(null, "Vui lòng chọn một chi tiết để sửa, hoặc nếu muốn sửa khuyến mãi thì chọn một khuyến mãi.");
+//                String maKM = panelControl.getTxtMaKhuyenMai().getText().trim();
+//                KhuyenMaiDTO km = layMotKhuyenMai(maKM);
+//                CTKhuyenMaiDTO ct = layMotCTKhuyenMai(maKM);
+//                if (km != null && ct != null) {
+//                    km.setTenKhuyenMai(panelControl.getTxtTenKhuyenMai().getText().trim());
+//                    km.setPhanTramGiamGia(panelControl.getTxtPhanTramKhuyenMai().getText().trim());
+//                    km.setNgayBatDau(panelControl.getNgayBatDau());
+//                    km.setNgayKetThuc(panelControl.getNgayKetThuc());
+//
+//                    ct.setMaHanhTrinh(panelControl.getTxtMaHanhTrinh().getText().trim());
+//
+//                    kmBUS.suaKhuyenMaiBUS(km);
+//                    ctkmBUS.suaCTKhuyenMaiBUS(ct);
+//                    hienThiDuLieu();
+//                    panelControl.resetForm();
+//                    JOptionPane.showMessageDialog(null, "Cập nhật thành công!");
+//                }
             }
         });
         
         panelControl.addXoaListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int row = panelKhuyenMaiTable.getMyTable().getSelectedRow();
-                if (row != -1) {
-                    String maKM = panelKhuyenMaiTable.getMyTable().getValueAt(row, 0).toString();
-                    KhuyenMaiDTO km = layMotKhuyenMai(maKM);
-                    if (km != null) {
-                        ctkmBUS.xoaCTKMTheoMaKhuyenMai(maKM);
-                        kmBUS.xoaKhuyenMaiBUS(maKM);
-                        hienThiDuLieu();
-                        panelControl.resetForm();
-
-                        JOptionPane.showMessageDialog(null, "Xóa thành công!");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Không tìm thấy khuyến mãi cần xóa.");
-                    }
+                int ctkmRow = panelCTKhuyenMaiTable.getMyTable().getSelectedRow();
+                int kmRow = panelKhuyenMaiTable.getMyTable().getSelectedRow();
+                if (ctkmRow != -1) {
+                    String maCT = panelCTKhuyenMaiTable.getMyTable().getValueAt(ctkmRow, 0).toString();
+                    if (ctkmBUS.xoaCTKhuyenMaiBUS(maCT)) {
+                        String maKM = panelControl.getTxtMaKhuyenMai().getText().trim();
+                        ArrayList<CTKhuyenMaiDTO> ds = ctkmBUS.getDanhSachTheoMaKhuyenMai(maKM);
+                        HienThiTable.taiDuLieuTableCTKhuyenMai(
+                                panelCTKhuyenMaiTable.getModel(), ds
+                        );
+                        JOptionPane.showMessageDialog(null, "Xóa chi tiết thành công!");
+                    } 
+                } else if (kmRow != -1) {
+                    String maKM = panelKhuyenMaiTable.getMyTable().getValueAt(kmRow, 0).toString();
+                    ctkmBUS.xoaCTKMTheoMaKhuyenMai(maKM);
+                    kmBUS.xoaKhuyenMaiBUS(maKM);
+                    hienThiKhuyenMai();
+                    panelControl.resetForm();
+                    JOptionPane.showMessageDialog(null, "Xóa khuyến mãi và tất cả chi tiết thành công!");
                 } else {
-                    JOptionPane.showMessageDialog(null, "Vui lòng chọn một khuyến mãi để xóa.");
-                }
+                    JOptionPane.showMessageDialog(null, "Vui lòng chọn chi tiết hoặc khuyến mãi để xóa.");
+                } 
             }
         });
         
@@ -176,10 +251,12 @@ public class KhuyenMaiController {
             public void keyReleased(KeyEvent e) {
                 String tuKhoa = panelControl.getTxtTimKiem().getText().trim();
                 if (!tuKhoa.isEmpty()) {
-                    ArrayList<KhuyenMaiDTO> kq = TimKiemTable.danhSachTimKiemTheoTenKM(tuKhoa, dsKhuyenMai);
-                    HienThiTable.taiDuLieuTableKhuyenMai(panelKhuyenMaiTable.getModel(), kq);
+                    ArrayList<KhuyenMaiDTO> kq = TimKiemTable.danhSachTimKiemTheoTenKM(tuKhoa, kmBUS.getDanhSachKhuyenMai());
+                    HienThiTable.taiDuLieuTableKhuyenMai(
+                            panelKhuyenMaiTable.getModel(), kq
+                    );
                 } else {
-                    hienThiDuLieu();
+                    hienThiKhuyenMai();
                 }
             }
         });

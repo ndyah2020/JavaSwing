@@ -391,7 +391,7 @@ public final class Home extends javax.swing.JFrame {
             // Hiển thị form hóa đơn
         } else if (selectedLabel == khuyenMaiMenu) {
             khuyenMaiController = new KhuyenMaiController(khuyenMaiForm);
-            khuyenMaiController.hienThiDuLieu();
+            khuyenMaiController.hienThiKhuyenMai();
             khuyenMaiController.xuLySuKienKhuyenMai();
         } else if (selectedLabel == taiKhoanMenu) {
             System.out.println("Tài khoản");

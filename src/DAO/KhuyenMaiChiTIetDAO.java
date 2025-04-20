@@ -32,63 +32,95 @@ public class KhuyenMaiChiTIetDAO {
         return dsCTKM;
     }
     
+    public ArrayList<CTKhuyenMaiDTO> docChiTietKMtheoMaKM(String maKM) {
+        var list = new ArrayList<CTKhuyenMaiDTO>();
+        String sql = "SELECT * FROM CTKhuyenMai WHERE MaKhuyenMai = ?";
+        try (Connection conn = ConnectToSQLServer.getConnection();
+             PreparedStatement p = conn.prepareStatement(sql)) {
+            p.setString(1, maKM);
+            try (ResultSet rs = p.executeQuery()) {
+                while (rs.next()) {
+                    var ct = new CTKhuyenMaiDTO();
+                    ct.setMaCTKhuyenMai(rs.getString("MaCTKhuyenMai"));
+                    ct.setMaHanhTrinh  (rs.getString("MaHanhTrinh"));
+                    ct.setMaKhuyenMai  (rs.getString("MaKhuyenMai"));
+                    list.add(ct);
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Không thể đọc chi tiết khuyến mãi theo mã KM!");
+        }
+        return list;
+    }
+    
+    public boolean kiemTraTonTaiCTKMVoiMaHanhTrinh(String maKM, String maHT) {
+        String sql = "SELECT 1 FROM CTKhuyenMai WHERE MaKhuyenMai=? AND MaHanhTrinh=?";
+        try (Connection conn = ConnectToSQLServer.getConnection();
+             PreparedStatement p = conn.prepareStatement(sql)) {
+            p.setString(1, maKM);
+            p.setString(2, maHT);
+            try (ResultSet rs = p.executeQuery()) {
+                return rs.next();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+    
     public boolean themCTKhuyenMai(CTKhuyenMaiDTO ct) {
-        try {
-            String query = "INSERT INTO CTKhuyenMai (MaCTKhuyenMai, MaHanhTrinh, MaKhuyenMai) VALUES (?, ?, ?)";
-            conn = ConnectToSQLServer.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(query);
-
-            pstmt.setString(1, ct.getMaCTKhuyenMai());
-            pstmt.setString(2, ct.getMaHanhTrinh());
-            pstmt.setString(3, ct.getMaKhuyenMai());
-
-            pstmt.executeUpdate();
-            pstmt.close();
-            ConnectToSQLServer.closeConnection(conn);
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
+        String sql = "INSERT INTO CTKhuyenMai(MaCTKhuyenMai,MaHanhTrinh,MaKhuyenMai) VALUES(?,?,?)";
+        try (Connection conn = ConnectToSQLServer.getConnection();
+             PreparedStatement p = conn.prepareStatement(sql)) {
+            p.setString(1, ct.getMaCTKhuyenMai());
+            p.setString(2, ct.getMaHanhTrinh());
+            p.setString(3, ct.getMaKhuyenMai());
+            return p.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Không thể thêm chi tiết khuyến mãi!");
             return false;
         }
     }
     
     public boolean suaCTKhuyenMai(CTKhuyenMaiDTO ct) {
-        try {
-            String query = "UPDATE CTKhuyenMai SET MaHanhTrinh = ?, MaKhuyenMai = ? WHERE MaCTKhuyenMai = ?";
-            conn = ConnectToSQLServer.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(query);
-
-            pstmt.setString(1, ct.getMaHanhTrinh());
-            pstmt.setString(2, ct.getMaKhuyenMai());
-            pstmt.setString(3, ct.getMaCTKhuyenMai());
-
-            pstmt.executeUpdate();
-            pstmt.close();
-            ConnectToSQLServer.closeConnection(conn);
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
+        String sql = "UPDATE CTKhuyenMai SET MaHanhTrinh=?,MaKhuyenMai=? WHERE MaCTKhuyenMai=?";
+        try (Connection conn = ConnectToSQLServer.getConnection();
+             PreparedStatement p = conn.prepareStatement(sql)) {
+            p.setString(1, ct.getMaHanhTrinh());
+            p.setString(2, ct.getMaKhuyenMai());
+            p.setString(3, ct.getMaCTKhuyenMai());
+            return p.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Không thể sửa chi tiết khuyến mãi!");
             return false;
         }
     }
     
     public boolean xoaCTKhuyenMai(String maCTKhuyenMai) {
-        try {
-            String query = "DELETE FROM CTKhuyenMai WHERE MaCTKhuyenMai = ?";
-            conn = ConnectToSQLServer.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(query);
-
-            pstmt.setString(1, maCTKhuyenMai);
-
-            pstmt.executeUpdate();
-            pstmt.close();
-            ConnectToSQLServer.closeConnection(conn);
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
+        String sql = "DELETE FROM CTKhuyenMai WHERE MaCTKhuyenMai=?";
+        try (Connection conn = ConnectToSQLServer.getConnection();
+             PreparedStatement p = conn.prepareStatement(sql)) {
+            p.setString(1, maCTKhuyenMai);
+            return p.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Không thể xóa chi tiết khuyến mãi!");
+            return false;
+        }
+    }
+    
+    public boolean xoaTheoMaKhuyenMai(String maKM) {
+        String sql = "DELETE FROM CTKhuyenMai WHERE MaKhuyenMai=?";
+        try (Connection conn = ConnectToSQLServer.getConnection();
+             PreparedStatement p = conn.prepareStatement(sql)) {
+            p.setString(1, maKM);
+            return p.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Không thể xóa chi tiết khuyến mãi theo mã KM!");
             return false;
         }
     }
