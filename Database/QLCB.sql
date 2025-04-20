@@ -183,7 +183,7 @@ CREATE TABLE KhuyenMai (
 );
 GO
 
-Update KhuyenMai (MaKhuyenMai, TenKhuyenMai, NgayBatDau, NgayKetThuc, PhanTramGiamGia) VALUES
+INSERT INTO KhuyenMai (MaKhuyenMai, TenKhuyenMai, NgayBatDau, NgayKetThuc, PhanTramGiamGia) VALUES
 ('KM0001', N'Khuyến mãi Tết', '2025-01-01', '2025-02-01', '10'),
 ('KM0002', N'Ưu đãi Hè', '2025-06-01', '2025-06-30', '15'),
 ('KM0003', N'Giảm giá Quốc tế Lao động', '2025-04-25', '2025-05-05', '20'),
@@ -194,6 +194,7 @@ Update KhuyenMai (MaKhuyenMai, TenKhuyenMai, NgayBatDau, NgayKetThuc, PhanTramGi
 ('KM0008', N'Flash Sale tháng 9', '2025-09-10', '2025-09-15', '50'),
 ('KM0009', N'Tri ân khách VIP', '2025-10-01', '2025-10-15', '60'),
 ('KM0010', N'Khuyến mãi mùa xuân', '2025-03-01', '2025-03-31', '8');
+
 
 
 

@@ -1,11 +1,14 @@
 package Control;
 
+import DTO.CTKhuyenMaiDTO;
 import DTO.ChuyenBayDTO;
 import DTO.HanhTrinhDTO;
+import DTO.KhuyenMaiDTO;
 import DTO.LoaiMayBayDTO;
 import DTO.MayBayDTO;
 import DTO.SanBayDTO;
 import DTO.VeDTO;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
@@ -87,6 +90,31 @@ public class HienThiTable {
             row.add(ve.getLoaiVe());
             row.add(ve.getChuyenBay());
             model.addRow(row);  
+        }
+    }
+    
+    public static void taiDuLieuTableKhuyenMai(DefaultTableModel model, ArrayList<KhuyenMaiDTO> danhSach) {
+        model.setRowCount(0);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        for (KhuyenMaiDTO km : danhSach) {
+            Vector row = new Vector();
+            row.add(km.getMaKhuyenMai());
+            row.add(km.getTenKhuyenMai());
+            row.add(sdf.format(km.getNgayBatDau()));
+            row.add(sdf.format(km.getNgayKetThuc()));
+            row.add(km.getPhanTramGiamGia() + "%");
+            model.addRow(row);
+        }
+    }
+    
+    public static void taiDuLieuTableCTKhuyenMai(DefaultTableModel model, ArrayList<CTKhuyenMaiDTO> danhSach) {
+        model.setRowCount(0);
+        for (CTKhuyenMaiDTO ct : danhSach) {
+            Vector row = new Vector();
+            row.add(ct.getMaCTKhuyenMai());
+            row.add(ct.getMaHanhTrinh());
+            row.add(ct.getMaKhuyenMai());
+            model.addRow(row);
         }
     }
 }
