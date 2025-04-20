@@ -21,13 +21,12 @@ public class LoaiMayBayController {
     
     private ArrayList<LoaiMayBayDTO> danhSachLoaiMayBay;
     private final LoaiMayBayPanelForm loaiMayBayPanel;
-    
+    private final LoaiMayBayBus loaiMayBayBUS = new LoaiMayBayBus();
     public LoaiMayBayController(LoaiMayBayPanelForm panel) {
         this.loaiMayBayPanel = panel;
     }
     
     public void hienThiDanhSachLoaiMayBay() {
-        LoaiMayBayBus loaiMayBayBUS = new LoaiMayBayBus();
         DefaultTableModel modelDanhSach = loaiMayBayPanel.getLoaiMayBayTableForm().getModel();
         danhSachLoaiMayBay = loaiMayBayBUS.getDanhSachLoaiMayBay();
          HienThiTable.taiDuLieuTableLoaiMayBay(modelDanhSach, danhSachLoaiMayBay);
@@ -115,8 +114,7 @@ public class LoaiMayBayController {
                 loaiMayBay.setHeSoGiaThuong(heSoGiaThuong);
                 loaiMayBay.setHeSoGiaVip(heSoGiaVip);
 
-                LoaiMayBayBus bus = new LoaiMayBayBus();
-                bus.themLoaiMayBay(loaiMayBay);
+                loaiMayBayBUS.themLoaiMayBay(loaiMayBay);
 
                 loaiMayBayPanel.getLoaiMayBayControlForm().clearFormData();
                 hienThiDanhSachLoaiMayBay();
@@ -131,9 +129,8 @@ public class LoaiMayBayController {
                     int confirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa loại máy bay này?", "Xác nhận xóa", JOptionPane.YES_NO_OPTION);
                     if (confirm == JOptionPane.YES_OPTION) {
                         String maLoaiMayBay = loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().getValueAt(rowSelected, 0).toString();
-                        if (!kiemTraMaMayBaySuDung(maLoaiMayBay)) {
-                            LoaiMayBayBus bus = new LoaiMayBayBus();
-                            bus.xoaLoaiMayBay(maLoaiMayBay);
+                        if (!kiemTraMaMayBaySuDung(maLoaiMayBay)) {                           
+                            loaiMayBayBUS.xoaLoaiMayBay(maLoaiMayBay);
 
                             JOptionPane.showMessageDialog(null, "Xóa loại máy bay thành công!");
                             hienThiDanhSachLoaiMayBay();
@@ -178,9 +175,8 @@ public class LoaiMayBayController {
                         loaiMayBay.setHeSoGiaVip(heSoGiaVip);
 
                         LoaiMayBayDTO dto = danhSachLoaiMayBay.set(selectedRow, loaiMayBay);
-
-                        LoaiMayBayBus bus = new LoaiMayBayBus();
-                        bus.suaLoaiMayBay(loaiMayBay);
+                     
+                        loaiMayBayBUS.suaLoaiMayBay(loaiMayBay);
 
                         loaiMayBayPanel.getLoaiMayBayControlForm().clearFormData();
                         hienThiDanhSachLoaiMayBay();
@@ -201,7 +197,7 @@ public class LoaiMayBayController {
 
                 String tenDauVao = loaiMayBayPanel.getLoaiMayBayControlForm().getTxtTimKiem().getText();
                 if (!tenDauVao.isEmpty()) {
-                    ArrayList<LoaiMayBayDTO> danhSachLMBMoi = TimKiemTable.danhSachTimTheoTenLoaiMB(tenDauVao, danhSachLoaiMayBay);
+                    ArrayList<LoaiMayBayDTO> danhSachLMBMoi = loaiMayBayBUS.danhSachTimTheoTenLoaiMB(tenDauVao);
                      HienThiTable.taiDuLieuTableLoaiMayBay(modelTimKiem, danhSachLMBMoi);
                     loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().setModel(modelTimKiem);
                 } else {

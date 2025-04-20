@@ -37,11 +37,23 @@ public class SanBayBUS {
     public void suaSanBay(SanBayDTO sanBay) {
         if(dao.suaSanBay(sanBay)){
             for(int i = 0; i < danhSachSanBay.size(); i++){
-                if(danhSachSanBay.get(i).equals(sanBay.getMaSanBay())){
+                if(danhSachSanBay.get(i).getMaSanBay().equals(sanBay.getMaSanBay())){
                    danhSachSanBay.set(i, sanBay);
                    break;
                 }
             }
         }
+    }
+    public ArrayList<SanBayDTO> danhSachTimTheoTenSanBay(String tenSanBay) {
+        if(danhSachSanBay.isEmpty()){
+            layDanhSachSanBay();
+        }
+        ArrayList<SanBayDTO> danhSachTimThay = new ArrayList<>();
+            for (SanBayDTO sb : danhSachSanBay) {
+                if (sb.getTenSanBay().toLowerCase().trim().contains(tenSanBay.toLowerCase().trim())) {
+                    danhSachTimThay.add(sb);
+                }
+            }
+        return danhSachTimThay;
     }
 }

@@ -12,16 +12,15 @@ public class VeController {
     private ArrayList<VeDTO> dsVe;
     private final ThongTinChuyenbayForm panelForm;
     private final VeTableForm tableForm;
-    
+    private final VeBUS veBUS = new VeBUS();
     public VeController(VePanelForm panel) {
         this.panelForm = panel.getThongTinChuyenbayForm();
         this.tableForm = panel.getVeTableForm();
     }
     
     public void layDanhSachVe() {
-        DefaultTableModel modelDs = tableForm.getModel();
-        VeBUS bus = new VeBUS();
-        dsVe = bus.getDanhSachVe();
+        DefaultTableModel modelDs = tableForm.getModel();       
+        dsVe = veBUS.getDanhSachVe();
         HienThiTable.taiDuLieuTableVe(modelDs, dsVe);
         tableForm.getMyTable().setModel(modelDs);
     }

@@ -25,6 +25,7 @@ public class MayBayController {
     private final MayBayTableForm panelMayBayTable;
     private final MayBayControlForm panelMayBayControl;
     private final MayBayBUS mayBayBUS = new MayBayBUS();
+    private final LoaiMayBayBus loaiMayBayBUS = new LoaiMayBayBus();
     private String popupModel = "";
     
     public MayBayController(MayBayPanelForm panelForm) {
@@ -61,44 +62,55 @@ public class MayBayController {
         HienThiTable.taiDuLieuTabelMayBay(model, dsMayBay);
         panelMayBayTable.getMyTable().setModel(model);
     }
-    
+
     private boolean kiemTraMaMayBaySuDung(String maMayBay) {
         ChuyenBayBUS bus = new ChuyenBayBUS();
         ArrayList<ChuyenBayDTO> dsChuyenBay = bus.getDanhSachChuyenBay();
-        for(ChuyenBayDTO cb : dsChuyenBay) {
-            if(cb.getMaMayBay().equals(maMayBay)){
+        for (ChuyenBayDTO cb : dsChuyenBay) {
+            if (cb.getMaMayBay().equals(maMayBay)) {
                 return true;
-            }         
+            }
         }
         return false;
     }
+
     public void xuLySuKienMayBayControl() {
         panelMayBayTable.addRowClick(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me) {
                 int row = panelMayBayTable.getMyTable().getSelectedRow();
-                if(row != -1) {
+                if (row != -1) {
                     String maMayBay = panelMayBayTable.getMyTable().getValueAt(row, 0).toString();
-                    MayBayDTO mb = TimKiemTable.layMotMayBay(maMayBay,dsMayBay);
-                    if(mb != null) {
+                    MayBayDTO mb = mayBayBUS.layMotMayBay(maMayBay);
+                    if (mb != null) {
                         setForm(mb);
                     }
                 }
             }
         });
-        
+
         panelMayBayControl.addThemListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                try {
-                    String maMayBay = panelMayBayControl.getTxtMaMayBay().getText().trim();
-                    String tenMayBay = panelMayBayControl.getTxtTenMayBay().getText().trim();
-                    int gheThuong = Integer.parseInt(panelMayBayControl.getTxtSoLuongGheThuong().getText().trim());
-                    int gheVip = Integer.parseInt(panelMayBayControl.getTxtSoLuongGheVip().getText().trim());
-                    String maLoai = panelMayBayControl.getTxtGetMaLoaiMayBay().getText().trim();
+                String maMayBay = panelMayBayControl.getTxtMaMayBay().getText().trim();
+                String tenMayBay = panelMayBayControl.getTxtTenMayBay().getText().trim();
+                String gheThuongStr = panelMayBayControl.getTxtSoLuongGheThuong().getText().trim();
+                String gheVipStr = panelMayBayControl.getTxtSoLuongGheVip().getText().trim();
+                String maLoai = panelMayBayControl.getTxtGetMaLoaiMayBay().getText().trim();
 
-                    if (maMayBay.isEmpty() || tenMayBay.isEmpty() || maLoai.isEmpty() || gheThuong < 0 || gheVip < 0) {
-                        JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin!");
+                // Kiểm tra các ô bắt buộc đã nhập chưa
+                if (maMayBay.isEmpty() || tenMayBay.isEmpty() || maLoai.isEmpty()
+                        || gheThuongStr.isEmpty() || gheVipStr.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin!");
+                    return;
+                }
+
+                try {
+                    int gheThuong = Integer.parseInt(gheThuongStr);
+                    int gheVip = Integer.parseInt(gheVipStr);
+
+                    if (gheThuong < 0 || gheVip < 0) {
+                        JOptionPane.showMessageDialog(null, "Số lượng ghế phải lớn hơn hoặc bằng 0!");
                         return;
                     }
 
@@ -114,12 +126,14 @@ public class MayBayController {
                     panelMayBayControl.resetForm();
                     hienThiDanhSachMayBay();
                     JOptionPane.showMessageDialog(null, "Thêm máy bay thành công!");
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Số lượng ghế phải là số nguyên hợp lệ!");
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "Lỗi nhập dữ liệu!" + e.getMessage());
-                }  
-        }
+                    JOptionPane.showMessageDialog(null, "Lỗi nhập dữ liệu: " + e.getMessage());
+                }
+            }
         });
-        
+
         panelMayBayControl.addXoaListenner(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -179,7 +193,7 @@ public class MayBayController {
                 String tuKhoa = panelMayBayControl.getTxtTimKiem().getText().trim();
                 DefaultTableModel model = panelMayBayTable.getModel();
                 if(!tuKhoa.isEmpty()) {
-                    ArrayList<MayBayDTO> dsTimThay = TimKiemTable.danhSachTimTheoTenMayBay(tuKhoa, dsMayBay);
+                    ArrayList<MayBayDTO> dsTimThay = mayBayBUS.danhSachTimTheoTenMayBay(tuKhoa);
                     HienThiTable.taiDuLieuTabelMayBay(model, dsTimThay);
                 } else {
                     hienThiDanhSachMayBay();
@@ -211,11 +225,10 @@ public class MayBayController {
             @Override
             public void keyReleased(KeyEvent e) {
                 DefaultTableModel modelLoaiMBTimKiem = panelMayBayControl.getBangLayMaLoaiMayBay().getModel();
-                LoaiMayBayBus bus = new LoaiMayBayBus();
                 String loaiMayBayTimKiem = panelMayBayControl.getBangLayMaLoaiMayBay().getTxtSearch().getText();
                 
                 if(!loaiMayBayTimKiem.isEmpty()) {
-                    ArrayList<LoaiMayBayDTO> loaMB = TimKiemTable.danhSachTimTheoTenLoaiMB(loaiMayBayTimKiem, bus.getDanhSachLoaiMayBay());
+                    ArrayList<LoaiMayBayDTO> loaMB = loaiMayBayBUS.danhSachTimTheoTenLoaiMB(loaiMayBayTimKiem);
                     HienThiTable.taiDuLieuTableLoaiMayBay(modelLoaiMBTimKiem, loaMB);
                 }else{
                     layDanhSachLoaiMayBayVaHienThiLenPopup();

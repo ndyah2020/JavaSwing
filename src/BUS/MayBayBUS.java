@@ -1,6 +1,7 @@
 package BUS;
 
 import DAO.MayBayDAO;
+import DTO.LoaiMayBayDTO;
 import DTO.MayBayDTO;
 import java.util.ArrayList;
 
@@ -46,4 +47,27 @@ public class MayBayBUS {
             }
         }
     }
+    public ArrayList<MayBayDTO> danhSachTimTheoTenMayBay(String tuKhoa) {
+        if(danhSachMayBay.isEmpty()) {
+            docDanhSachMayBayBUS();
+        }
+        ArrayList<MayBayDTO> ketQua = new ArrayList<>();
+        for (MayBayDTO mb : danhSachMayBay) {
+            if (mb.getTenMayBay().toLowerCase().contains(tuKhoa.toLowerCase())) {
+                ketQua.add(mb);
+            }
+        }
+        return ketQua;
+    }
+    public MayBayDTO layMotMayBay(String maMayBay) {
+        if(danhSachMayBay.isEmpty()) {
+            docDanhSachMayBayBUS();
+        }
+        for(MayBayDTO mb : danhSachMayBay) {
+            if (mb.getMaMayBay().equals(maMayBay)) {
+                return mb;
+            }
+        }
+        return null;
+    }  
 }

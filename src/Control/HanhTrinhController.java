@@ -27,6 +27,7 @@ public class HanhTrinhController {
     private final HanhTrinhTableForm panelTable;
     private final HanhTrinhControlForm panelControl;
     private String popupModel = "";
+    private final HanhTrinhBUS hanhTrinhBUS = new HanhTrinhBUS();
     public HanhTrinhController(HanhTrinhPanelForm panel) {
         this.panelTable = panel.getHanhTrinhTableForm();
         this.panelControl = panel.getHanhTrinhControlForm();
@@ -53,9 +54,9 @@ public class HanhTrinhController {
     }
     
     public void hienThiDanhSachHanhTrinh() {
-        HanhTrinhBUS bus = new HanhTrinhBUS();
+        
         DefaultTableModel modelDsHT = panelTable.getModel();
-        dsHanhTrinh = bus.getDanhSachHanhTrinhBUS();
+        dsHanhTrinh = hanhTrinhBUS.getDanhSachHanhTrinhBUS();
         HienThiTable.taiDuLieuTableHanhTrinh(modelDsHT, dsHanhTrinh);
         panelTable.getMyTable().setModel(modelDsHT);
     }
@@ -120,17 +121,30 @@ public class HanhTrinhController {
         panelControl.addThemListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String sanBayDi = panelControl.getTxtSanBayDi().getText();
-                String sanBayDen = panelControl.getTxtSanBayDen().getText();
-                String tenHanhTrinh = panelControl.getTxtTenHanhTrinh().getText();
-                int giaCoBan = Integer.parseInt(panelControl.getTxtGiaCoBan().getText());
+                String sanBayDi = panelControl.getTxtSanBayDi().getText().trim();
+                String sanBayDen = panelControl.getTxtSanBayDen().getText().trim();
+                String tenHanhTrinh = panelControl.getTxtTenHanhTrinh().getText().trim();
+                String giaCoBanStr = panelControl.getTxtGiaCoBan().getText().trim();
 
-                if (tenHanhTrinh.isEmpty() || sanBayDi.isEmpty() || sanBayDen.isEmpty() || giaCoBan < 0) {
+                if (tenHanhTrinh.isEmpty() || sanBayDi.isEmpty() || sanBayDen.isEmpty() || giaCoBanStr.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin!");
                     return;
                 }
-                if (sanBayDi.equals(sanBayDen)) {
-                    JOptionPane.showMessageDialog(null, "Mã sân bay đi và sân bay đến không được trùng nhau");
+
+                if (sanBayDi.equalsIgnoreCase(sanBayDen)) {
+                    JOptionPane.showMessageDialog(null, "Sân bay đi và sân bay đến không được trùng nhau!");
+                    return;
+                }
+
+                int giaCoBan;
+                try {
+                    giaCoBan = Integer.parseInt(giaCoBanStr);
+                    if (giaCoBan < 0) {
+                        JOptionPane.showMessageDialog(null, "Giá cơ bản phải lớn hơn hoặc bằng 0!");
+                        return;
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Giá cơ bản phải là một số hợp lệ!");
                     return;
                 }
 
@@ -141,12 +155,12 @@ public class HanhTrinhController {
                 hanhTrinh.setSanBayDen(sanBayDen);
                 hanhTrinh.setGiaCoBan(giaCoBan);
 
-                HanhTrinhBUS bus = new HanhTrinhBUS();
-                bus.themHanhTrinhBUS(hanhTrinh);
+                hanhTrinhBUS.themHanhTrinhBUS(hanhTrinh);
                 panelControl.clearFormData();
                 hienThiDanhSachHanhTrinh();
             }
         });
+
         //Xoa hanh Trinh
         panelControl.addXoaListener(new ActionListener() {
             @Override
@@ -155,8 +169,7 @@ public class HanhTrinhController {
                 if (rowSeleted != -1) {
                     String maHanhTrinh = panelTable.getMyTable().getValueAt(rowSeleted, 0).toString();
                     if (!kiemTraHanhTrinhSuDung(maHanhTrinh)) {
-                        HanhTrinhBUS bus = new HanhTrinhBUS();
-                        bus.xoaHanhTrinhBUS(maHanhTrinh);
+                        hanhTrinhBUS.xoaHanhTrinhBUS(maHanhTrinh);
                         panelControl.clearFormData();
                         hienThiDanhSachHanhTrinh();
                     }else{
@@ -180,9 +193,7 @@ public class HanhTrinhController {
                         hanhTrinh.setSanBayDi(panelControl.getTxtSanBayDi().getText());
                         hanhTrinh.setSanBayDen(panelControl.getTxtSanBayDen().getText());
                         hanhTrinh.setGiaCoBan(Integer.parseInt(panelControl.getTxtGiaCoBan().getText()));
-
-                        HanhTrinhBUS bus = new HanhTrinhBUS();
-                        bus.suaHanhTrinhBUS(hanhTrinh);
+                        hanhTrinhBUS.suaHanhTrinhBUS(hanhTrinh);
                         panelControl.clearFormData();
                         hienThiDanhSachHanhTrinh();
                     }else{
@@ -271,7 +282,7 @@ public class HanhTrinhController {
                 String tenSaBay =String.valueOf(panelControl.getBangLayMa().getTxtSearch().getText());
                 SanBayBUS bus = new SanBayBUS();               
                 if(!tenSaBay.isEmpty()){
-                    ArrayList<SanBayDTO> sanBay = TimKiemTable.danhSachTimTheoTenSanBay(tenSaBay, bus.getDanhSachSanBay());
+                    ArrayList<SanBayDTO> sanBay = bus.danhSachTimTheoTenSanBay(tenSaBay);
                     HienThiTable.taiDuLieuLenTabelSanBay(modeTimKiemPopup, sanBay);
                 } else {
                     layDanhSachSanBayVaHienThiLenPopup();

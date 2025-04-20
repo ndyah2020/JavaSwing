@@ -25,6 +25,7 @@ public class SanBayController {
     
     private final SanBayTableForm panelTable;
     private final SanBayControlForm panelControl;
+    private final SanBayBUS sanBayBUS = new SanBayBUS();
     
     public SanBayController(SanBayPanelForm panel) {
         this.panelTable = panel.getSanBayTableForm();
@@ -33,7 +34,6 @@ public class SanBayController {
     } 
     
     public void hienThiDanhSachSanBay() {
-        SanBayBUS sanBayBUS = new SanBayBUS();
         DefaultTableModel modelDs = panelTable.getModel();
         dsSanBay = sanBayBUS.getDanhSachSanBay();
          HienThiTable.taiDuLieuLenTabelSanBay(modelDs, dsSanBay);
@@ -115,8 +115,8 @@ public class SanBayController {
                 sanBay.setTenSanBay(ten);
                 sanBay.setDiaChi(diaChi);
 
-                SanBayBUS bus = new SanBayBUS();
-                bus.themSanBay(sanBay);
+              
+                sanBayBUS.themSanBay(sanBay);
 
                 panelControl.clearFormData();
                 hienThiDanhSachSanBay();
@@ -130,8 +130,7 @@ public class SanBayController {
                 if (rowSeleted != -1) {
                     String maSanBay = panelTable.getMyTable().getValueAt(rowSeleted, 0).toString();
                     if(!kiemTraSanBayCoDuocSuDung(maSanBay)){
-                        SanBayBUS bus = new SanBayBUS();
-                        bus.xoaSanBay(maSanBay);
+                        sanBayBUS.xoaSanBay(maSanBay);
                         panelControl.clearFormData();
                         hienThiDanhSachSanBay();
                     }else
@@ -151,7 +150,6 @@ public class SanBayController {
                     JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin!");
                     return;
                 }
-
                 int selectedRow = panelTable.getMyTable().getSelectedRow();
                 if (selectedRow != -1) {
                     String maSanBay = panelTable.getMyTable().getValueAt(selectedRow, 0).toString();
@@ -160,10 +158,7 @@ public class SanBayController {
                         sanBay.setMaSanBay(maSanBay);
                         sanBay.setTenSanBay(ten);
                         sanBay.setDiaChi(diaChi);
-
-                        SanBayBUS bus = new SanBayBUS();
-                        bus.suaSanBay(sanBay);
-
+                        sanBayBUS.suaSanBay(sanBay);
                         panelControl.clearFormData();
                         hienThiDanhSachSanBay();
                     }else
@@ -178,10 +173,9 @@ public class SanBayController {
             @Override
             public void keyReleased(KeyEvent e) {
                 DefaultTableModel modelTimKiem = panelTable.getModel();
-                
                 String tenNhapVao = panelControl.getTxtTimKiem().getText();
                 if(!tenNhapVao.isEmpty()){
-                    ArrayList<SanBayDTO> danhSachSBMoi = TimKiemTable.danhSachTimTheoTenSanBay(tenNhapVao, dsSanBay);
+                    ArrayList<SanBayDTO> danhSachSBMoi = sanBayBUS.danhSachTimTheoTenSanBay(tenNhapVao);
                     HienThiTable.taiDuLieuLenTabelSanBay(modelTimKiem, danhSachSBMoi);
                     panelTable.getMyTable().setModel(modelTimKiem);
                 }else{

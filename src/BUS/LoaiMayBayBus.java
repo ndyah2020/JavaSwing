@@ -46,4 +46,22 @@ public class LoaiMayBayBus {
             }
         }
     }
+    public ArrayList<LoaiMayBayDTO> danhSachTimTheoTenLoaiMB(String tenLoai) {
+        ArrayList<LoaiMayBayDTO> danhSachTimThay = new ArrayList<>();
+        for (LoaiMayBayDTO lmb : danhSachLoaiMayBay) {
+            if (lmb.getTenLoai().toLowerCase().trim().contains(tenLoai.toLowerCase().trim())) {
+                danhSachTimThay.add(lmb);
+            }
+        }
+        return danhSachTimThay;
+    }
+    
+    public LoaiMayBayDTO layMotLoaiMayBay(String maLoai) {
+        for(LoaiMayBayDTO mb : danhSachLoaiMayBay) {
+            if (mb.getMaLoai().equals(maLoai)) {
+                return mb;
+            }
+        }
+        return null;
+    }
 }
