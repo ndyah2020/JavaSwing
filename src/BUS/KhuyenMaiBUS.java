@@ -26,7 +26,8 @@ public class KhuyenMaiBUS {
     
     public boolean themKhuyenMaiBUS(KhuyenMaiDTO km) {
         boolean result = khuyenMaiDAO.themKhuyenMai(km);
-        if(result) {
+        boolean already = danhSach.stream().anyMatch(x -> x.getMaKhuyenMai().equals(km.getMaKhuyenMai()));
+        if(result && !already) {
             danhSach.add(km);
         }
         return result;

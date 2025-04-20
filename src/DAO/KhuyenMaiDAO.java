@@ -36,22 +36,33 @@ public class KhuyenMaiDAO {
         return dsKM;
     }
     
+    public boolean kiemTraMaKhuyenMaiDaTonTai(String maKM) {
+        String sql = "SELECT 1 FROM KhuyenMai WHERE MaKhuyenMai = ?";
+        try (Connection conn = ConnectToSQLServer.getConnection();
+             PreparedStatement p = conn.prepareStatement(sql)) {
+            p.setString(1, maKM);
+            try (ResultSet rs = p.executeQuery()) {
+                return rs.next();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
     public boolean themKhuyenMai(KhuyenMaiDTO km) {
-        try {
-            String query = "INSERT INTO KhuyenMai (MaKhuyenMai, TenKhuyenMai, NgayBatDau, NgayKetThuc, PhanTramGiamGia) VALUES (?, ?, ?, ?, ?)";
-            conn = ConnectToSQLServer.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(query);
-
-            pstmt.setString(1, km.getMaKhuyenMai());
-            pstmt.setString(2, km.getTenKhuyenMai());
-            pstmt.setDate(3, new java.sql.Date(km.getNgayBatDau().getTime()));
-            pstmt.setDate(4, new java.sql.Date(km.getNgayKetThuc().getTime()));
-            pstmt.setString(5, km.getPhanTramGiamGia());
-
-            pstmt.executeUpdate();
-            pstmt.close();
-            ConnectToSQLServer.closeConnection(conn);
+        if (kiemTraMaKhuyenMaiDaTonTai(km.getMaKhuyenMai())) {
             return true;
+        }
+        String sql = "INSERT INTO KhuyenMai (MaKhuyenMai, TenKhuyenMai, NgayBatDau, NgayKetThuc, PhanTramGiamGia) VALUES (?, ?, ?, ?, ?)";
+        try (Connection conn = ConnectToSQLServer.getConnection();
+             PreparedStatement p = conn.prepareStatement(sql)) {
+            p.setString(1, km.getMaKhuyenMai());
+            p.setString(2, km.getTenKhuyenMai());
+            p.setDate(  3, new java.sql.Date(km.getNgayBatDau().getTime()));
+            p.setDate(  4, new java.sql.Date(km.getNgayKetThuc().getTime()));
+            p.setString(5, km.getPhanTramGiamGia());
+            return p.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Không thể thêm khuyến mãi!");

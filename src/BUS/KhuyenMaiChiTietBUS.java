@@ -24,6 +24,26 @@ public class KhuyenMaiChiTietBUS {
         return danhSach;
     }
     
+    public ArrayList<CTKhuyenMaiDTO> getDanhSachTheoMaKhuyenMai(String maKhuyenMai) {
+        ArrayList<CTKhuyenMaiDTO> ketQua = new ArrayList<>();
+        for (CTKhuyenMaiDTO ct : getDanhSachChiTietKhuyenMai()) {
+            if (ct.getMaKhuyenMai().equals(maKhuyenMai)) {
+                ketQua.add(ct);
+            }
+        }
+        return ketQua;
+    }
+    
+    public boolean kiemTraTonTaiVoiMaHanhTrinh(String maKhuyenMai, String maHanhTrinh) {
+        for (CTKhuyenMaiDTO ct : getDanhSachChiTietKhuyenMai()) {
+            if (ct.getMaKhuyenMai().equals(maKhuyenMai)
+             && ct.getMaHanhTrinh().equals(maHanhTrinh)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public boolean themCTKhuyenMaiBUS(CTKhuyenMaiDTO ct) {
         boolean result = khuyenMaiChiTietDAO.themCTKhuyenMai(ct);
         if (result) {
@@ -54,13 +74,17 @@ public class KhuyenMaiChiTietBUS {
     }
     
     public boolean xoaCTKMTheoMaKhuyenMai(String maKhuyenMai) {
+        boolean kq = false;
         ArrayList<CTKhuyenMaiDTO> dsXoa = new ArrayList<>();
-        for (CTKhuyenMaiDTO ct : danhSach) {
+        for (CTKhuyenMaiDTO ct : getDanhSachChiTietKhuyenMai()) {
             if (ct.getMaKhuyenMai().equals(maKhuyenMai)) {
-                khuyenMaiChiTietDAO.xoaCTKhuyenMai(ct.getMaCTKhuyenMai());
-                dsXoa.add(ct);
+                if (khuyenMaiChiTietDAO.xoaCTKhuyenMai(ct.getMaCTKhuyenMai())) {                                 
+                    dsXoa.add(ct);
+                    kq = true;
+                }
             }
         }
+        danhSach.removeAll(dsXoa);
         return danhSach.removeAll(dsXoa);
     }
 }
