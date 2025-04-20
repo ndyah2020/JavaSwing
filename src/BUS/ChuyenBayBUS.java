@@ -37,6 +37,17 @@ public class ChuyenBayBUS {
         }
     }
     
+    public void suaChuyenBay(ChuyenBayDTO chuyenBay) {
+        if(dao.suaChuyenBay(chuyenBay)){
+            for(int i = 0; i < danhSachChuyenBay.size(); i++) {
+                if(danhSachChuyenBay.get(i).getMaChuyenBay().equals(chuyenBay.getMaChuyenBay())){
+                    System.out.println(chuyenBay.getMaChuyenBay());
+                    danhSachChuyenBay.set(i, chuyenBay);
+                    break;
+                }
+            }
+        }
+    }
     public ArrayList<ChuyenBayDTO> danhSachTimKiemTheoMaChuyenBay(String maChuyenBay) {
         if(danhSachChuyenBay.isEmpty()){
             layDanhSachChuyenBay();

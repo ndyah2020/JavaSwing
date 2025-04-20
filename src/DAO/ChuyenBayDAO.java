@@ -93,4 +93,22 @@ public class ChuyenBayDAO {
             return false;
         }
     }
+    
+    public boolean suaChuyenBay(ChuyenBayDTO chuyenBay) {
+        try {
+            String sql = "UPDATE ChuyenBay SET NgayXuatPhat = ? , GioXuatPhat = ?, NgayDenNoi = ?, GioDenNoi = ? WHERE MaChuyenBay = ?";
+            conn = ConnectToSQLServer.getConnection();
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setDate(1, chuyenBay.getNgayXuatPhat());
+            pst.setTime(2, chuyenBay.getGioXuatPhat());
+            pst.setDate(3, chuyenBay.getNgayDenNoi());
+            pst.setTime(4, chuyenBay.getGioDenNoi());
+            pst.setString(5, chuyenBay.getMaChuyenBay());
+            return true;
+        } catch(SQLException e) {
+            JOptionPane.showMessageDialog(null, "Không thể sửa chuyến bay");
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

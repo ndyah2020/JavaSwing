@@ -4,6 +4,7 @@ import BUS.ChuyenBayBUS;
 import BUS.HanhTrinhBUS;
 import BUS.LoaiMayBayBus;
 import BUS.MayBayBUS;
+import BUS.VeBUS;
 import DTO.ChuyenBayDTO;
 import DTO.HanhTrinhDTO;
 import DTO.LoaiMayBayDTO;
@@ -36,7 +37,7 @@ public class ChuyenBayController {
     private final HanhTrinhBUS hanhTrinhBUS = new HanhTrinhBUS();
     private final LoaiMayBayBus loaiMayBayBUS = new LoaiMayBayBus();
     private final ChuyenBayBUS chuyenBayBUS = new ChuyenBayBUS();
-    
+    private final VeBUS veBUS = new VeBUS();
     public ChuyenBayController(ChuyenBayPanelForm panel) {
         this.panelForm = panel.getChuyenBayForm();
         this.panelControl = panel.getChuyenBayControlForm();
@@ -116,6 +117,8 @@ public class ChuyenBayController {
                 int rowSelected = panelTable.getMyTable().getSelectedRow();
                 if (rowSelected != -1) {
                     panelForm.getTxtMaChuyenBay().setEditable(false);
+                    panelForm.getBtnMaHanhTrinh().setEnabled(false);
+                    panelForm.getBtnMaMayBay().setEnabled(false);
                     String maChuyenBay = panelTable.getMyTable().getValueAt(rowSelected, 0).toString();
                     ChuyenBayDTO motChuyenBay = chuyenBayBUS.layMotChuyenBay(maChuyenBay);
                     if (motChuyenBay != null) {
@@ -129,6 +132,8 @@ public class ChuyenBayController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 panelForm.getTxtMaChuyenBay().setEditable(true);
+                panelForm.getBtnMaHanhTrinh().setEnabled(true);
+                panelForm.getBtnMaMayBay().setEnabled(true);
                 panelTable.getMyTable().clearSelection();
                 panelForm.clearForm();
             }
@@ -284,5 +289,64 @@ public class ChuyenBayController {
                 }
             }
         });
+  
+        panelControl.addSuaListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int rowClick = panelTable.getMyTable().getSelectedRow();
+                if (rowClick != -1) {
+                    String maChuyenBay = panelTable.getMyTable().getValueAt(rowClick, 0).toString();
+                    if(veBUS.timVeDaDatTuChuyenBay(maChuyenBay) == null) {
+                        try {              
+                            System.out.println(maChuyenBay);
+                            String maMayBay = panelForm.getTxtMaMayBay().getText().trim();
+                            String maHanhTrinh = panelForm.getTxtMaHanhTrinh().getText().trim();
+
+                            Date ngayXuatPhat = Date.valueOf(panelForm.getTxtNgayXuatPhat().getText());
+                            Time gioXuatPhat = new Time(((java.util.Date) panelForm.getSpinnerGioXuatPhat().getValue()).getTime());
+                            Date ngayDenNoi = Date.valueOf(panelForm.getTxtNgayDenNoi().getText());
+                            Time gioDenNoi = new Time(((java.util.Date) panelForm.getSpinnerGioDenNoi().getValue()).getTime());
+
+                            int giaThuong = Integer.parseInt(panelForm.getTxtGiaThuong().getText());
+                            int giaVip = Integer.parseInt(panelForm.getTxtGiaVip().getText());
+                            int tongSoLuongGhe = Integer.parseInt(panelForm.getTxtTongSLGhe().getText());
+                            String trangThai = panelForm.getTxtTrangThai().getText();
+                            int soGheDaban = Integer.parseInt(panelForm.getTxtSoGheDaBan().getText());
+
+                            ChuyenBayDTO chuyenBay = new ChuyenBayDTO();
+                            chuyenBay.setMaChuyenBay(maChuyenBay);
+                            chuyenBay.setMaMayBay(maMayBay);
+                            chuyenBay.setMaHanhTrinh(maHanhTrinh);
+                            chuyenBay.setNgayXuatPhat(ngayXuatPhat);
+                            chuyenBay.setGioXuatPhat(gioXuatPhat);
+                            chuyenBay.setNgayDenNoi(ngayDenNoi);
+                            chuyenBay.setGioDenNoi(gioDenNoi);
+                            chuyenBay.setGiaThuong(giaThuong);
+                            chuyenBay.setGiaVip(giaVip);
+                            chuyenBay.setTongSoLuongGhe(tongSoLuongGhe);
+                            chuyenBay.setTrangThaiChuyenBay(trangThai);
+                            chuyenBay.setSoGheDaBan(soGheDaban);
+
+                            chuyenBayBUS.suaChuyenBay(chuyenBay);
+                            panelForm.clearForm();
+                            layDanhSachChuyenBay();
+
+                            JOptionPane.showMessageDialog(null, "Sửa thành công");
+                            panelForm.getBtnMaHanhTrinh().setEnabled(true);
+                            panelForm.getBtnMaMayBay().setEnabled(true);
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                            JOptionPane.showMessageDialog(null, "Lỗi nhập liệu: " + ex.getMessage());
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Không thể sửa chuyến bay vì vé chuyến bay đã được bán");
+                    }
+                        
+                } else {
+                    JOptionPane.showMessageDialog(null, "Vui lòng chọn chuyến bay cần sửa!");
+                }
+            }
+        });
+
     }
 }
