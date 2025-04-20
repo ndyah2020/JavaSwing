@@ -29,7 +29,7 @@ public class KhuyenMaiTableForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         myTable = new GUI.panel.swing.MyTable();
 
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
@@ -45,14 +45,14 @@ public class KhuyenMaiTableForm extends javax.swing.JPanel {
 
             }
         ));
-        jScrollPane2.setViewportView(myTable);
+        jScrollPane1.setViewportView(myTable);
 
-        add(jScrollPane2);
+        add(jScrollPane1);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private GUI.panel.swing.MyTable myTable;
     // End of variables declaration//GEN-END:variables
 }
