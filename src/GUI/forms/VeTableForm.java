@@ -46,7 +46,7 @@ public class VeTableForm extends javax.swing.JPanel {
         return myTable;
     }
     
-    public void addClickRow(MouseAdapter listener) {
+    public void addRowClick(MouseAdapter listener) {
         myTable.addMouseListener(listener);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

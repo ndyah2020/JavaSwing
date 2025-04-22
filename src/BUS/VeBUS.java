@@ -36,4 +36,14 @@ public class VeBUS {
         }
         return null;
     }
+    
+    public ArrayList<VeDTO> locDanhSachVe(String trangThai, String giaVe, String loaiVe) {
+        ArrayList<VeDTO> danhSachVeTimDuoc = new ArrayList<>();
+        if(!trangThai.isEmpty() || !giaVe.isEmpty() || !loaiVe.isEmpty()) {
+            
+        } else {
+            danhSachVeTimDuoc.addAll(danhSachVe);
+        }
+        return danhSachVeTimDuoc;
+    }
 }

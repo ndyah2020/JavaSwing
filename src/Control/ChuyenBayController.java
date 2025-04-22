@@ -51,18 +51,6 @@ public class ChuyenBayController {
         panelTable.getMyTable().setModel(modelDS);
     }
 
-    private HanhTrinhDTO layHanhTrinhTheoMa(String maHanhTrinh) {
-        HanhTrinhDTO hanhTrinh = new HanhTrinhDTO();
-        HanhTrinhBUS bus = new HanhTrinhBUS();
-        ArrayList<HanhTrinhDTO> dsHT = bus.getDanhSachHanhTrinhBUS();
-        for (HanhTrinhDTO ht : dsHT) {
-            if (ht.getMaHanhTrinh().equals(maHanhTrinh)) {
-                hanhTrinh = ht;
-                break;
-            }
-        }
-        return hanhTrinh;
-    }
 
     private void setForm(ChuyenBayDTO chuyenBay) {
         panelForm.getTxtMaChuyenBay().setText(chuyenBay.getMaChuyenBay());
@@ -103,13 +91,6 @@ public class ChuyenBayController {
     }
 
     public void xuLySuKien() {
-        //Khởi tạo các danh sách cần thiết
-        
-
-        ArrayList<HanhTrinhDTO> dsHanhTrinh = hanhTrinhBUS.getDanhSachHanhTrinhBUS();
-        ArrayList<MayBayDTO> dsMayBay = mayBayBUS.getDanhSachMayBayBUS();
-        ArrayList<LoaiMayBayDTO> dsLoaiMayBay = loaiMayBayBUS.getDanhSachLoaiMayBay();
-        
         //set các dữ liệu lên text field
         panelTable.addRowClick(new MouseAdapter() {
             @Override
@@ -265,21 +246,9 @@ public class ChuyenBayController {
                     String trangThai = panelForm.getTxtTrangThai().getText();
                     int soGheDaban = Integer.parseInt(panelForm.getTxtSoGheDaBan().getText());
 
-                    ChuyenBayDTO chuyenBay = new ChuyenBayDTO();
-                    chuyenBay.setMaChuyenBay(maChuyenBay);
-                    chuyenBay.setNgayXuatPhat(ngayXuatPhat);
-                    chuyenBay.setGioXuatPhat(gioXuatPhat);
-                    chuyenBay.setNgayDenNoi(ngayDenNoi);
-                    chuyenBay.setGioDenNoi(gioDenNoi);
-                    chuyenBay.setGiaThuong(giaThuong);
-                    chuyenBay.setGiaVip(giaVip);
-                    chuyenBay.setTrangThaiChuyenBay(trangThai);
-                    chuyenBay.setTongSoLuongGhe(tongSoLuongGhe);
-                    chuyenBay.setSoGheDaBan(soGheDaban);
-                    chuyenBay.setSoGheConLai(tongSoLuongGhe - soGheDaban);
-                    chuyenBay.setMaMayBay(maMayBay);
-                    chuyenBay.setMaHanhTrinh(maHanhTrinh);
-
+                    ChuyenBayDTO chuyenBay = new ChuyenBayDTO(maChuyenBay, ngayXuatPhat, gioXuatPhat, ngayDenNoi, gioDenNoi, 
+                                    giaThuong, giaVip, trangThai,tongSoLuongGhe, soGheDaban, tongSoLuongGhe - soGheDaban, 
+                                    maMayBay, maHanhTrinh);              
                     chuyenBayBUS.themChuyenBayBUS(chuyenBay);
                     panelForm.clearForm();
                     layDanhSachChuyenBay();

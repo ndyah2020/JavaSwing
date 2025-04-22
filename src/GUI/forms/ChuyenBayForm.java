@@ -105,14 +105,14 @@ public class ChuyenBayForm extends javax.swing.JPanel {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jLabel1)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         jPanel14.add(jPanel15);

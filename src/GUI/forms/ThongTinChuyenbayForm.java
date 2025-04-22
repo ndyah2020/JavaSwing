@@ -1,4 +1,7 @@
 package GUI.forms;
+
+import javax.swing.JLabel;
+
 public class ThongTinChuyenbayForm extends javax.swing.JPanel {
     public ThongTinChuyenbayForm() {
         initComponents();
@@ -11,22 +14,22 @@ public class ThongTinChuyenbayForm extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        ctMaNhanVien = new javax.swing.JLabel();
+        ctMaChuyenBay = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        ctHoNhanVien = new javax.swing.JLabel();
+        ctNgayXuatPhat = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        ctTenNhanVien = new javax.swing.JLabel();
+        ctGioXuatPhat = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        ctChucVu = new javax.swing.JLabel();
+        ctNgayDen = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        ctGioiTinhNhanVien = new javax.swing.JLabel();
+        ctGioDen = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         lbEmial = new javax.swing.JLabel();
-        ctEmail = new javax.swing.JLabel();
+        ctTongSoLuongGhe = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.PAGE_AXIS));
@@ -50,10 +53,10 @@ public class ThongTinChuyenbayForm extends javax.swing.JPanel {
         jLabel11.setPreferredSize(new java.awt.Dimension(86, 30));
         jPanel2.add(jLabel11);
 
-        ctMaNhanVien.setBackground(new java.awt.Color(255, 255, 255));
-        ctMaNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctMaNhanVien.setPreferredSize(new java.awt.Dimension(51, 30));
-        jPanel2.add(ctMaNhanVien);
+        ctMaChuyenBay.setBackground(new java.awt.Color(255, 255, 255));
+        ctMaChuyenBay.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ctMaChuyenBay.setPreferredSize(new java.awt.Dimension(51, 30));
+        jPanel2.add(ctMaChuyenBay);
 
         jPanel1.add(jPanel2);
 
@@ -66,10 +69,10 @@ public class ThongTinChuyenbayForm extends javax.swing.JPanel {
         jLabel17.setPreferredSize(new java.awt.Dimension(86, 30));
         jPanel5.add(jLabel17);
 
-        ctHoNhanVien.setBackground(new java.awt.Color(255, 255, 255));
-        ctHoNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctHoNhanVien.setPreferredSize(new java.awt.Dimension(51, 30));
-        jPanel5.add(ctHoNhanVien);
+        ctNgayXuatPhat.setBackground(new java.awt.Color(255, 255, 255));
+        ctNgayXuatPhat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ctNgayXuatPhat.setPreferredSize(new java.awt.Dimension(51, 30));
+        jPanel5.add(ctNgayXuatPhat);
 
         jPanel1.add(jPanel5);
 
@@ -82,10 +85,10 @@ public class ThongTinChuyenbayForm extends javax.swing.JPanel {
         jLabel13.setPreferredSize(new java.awt.Dimension(86, 30));
         jPanel3.add(jLabel13);
 
-        ctTenNhanVien.setBackground(new java.awt.Color(255, 255, 255));
-        ctTenNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctTenNhanVien.setPreferredSize(new java.awt.Dimension(51, 30));
-        jPanel3.add(ctTenNhanVien);
+        ctGioXuatPhat.setBackground(new java.awt.Color(255, 255, 255));
+        ctGioXuatPhat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ctGioXuatPhat.setPreferredSize(new java.awt.Dimension(51, 30));
+        jPanel3.add(ctGioXuatPhat);
 
         jPanel1.add(jPanel3);
 
@@ -98,10 +101,10 @@ public class ThongTinChuyenbayForm extends javax.swing.JPanel {
         jLabel15.setPreferredSize(new java.awt.Dimension(86, 30));
         jPanel4.add(jLabel15);
 
-        ctChucVu.setBackground(new java.awt.Color(255, 255, 255));
-        ctChucVu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctChucVu.setPreferredSize(new java.awt.Dimension(51, 30));
-        jPanel4.add(ctChucVu);
+        ctNgayDen.setBackground(new java.awt.Color(255, 255, 255));
+        ctNgayDen.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ctNgayDen.setPreferredSize(new java.awt.Dimension(51, 30));
+        jPanel4.add(ctNgayDen);
 
         jPanel1.add(jPanel4);
 
@@ -114,10 +117,10 @@ public class ThongTinChuyenbayForm extends javax.swing.JPanel {
         jLabel19.setPreferredSize(new java.awt.Dimension(86, 30));
         jPanel6.add(jLabel19);
 
-        ctGioiTinhNhanVien.setBackground(new java.awt.Color(255, 255, 255));
-        ctGioiTinhNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctGioiTinhNhanVien.setPreferredSize(new java.awt.Dimension(51, 30));
-        jPanel6.add(ctGioiTinhNhanVien);
+        ctGioDen.setBackground(new java.awt.Color(255, 255, 255));
+        ctGioDen.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ctGioDen.setPreferredSize(new java.awt.Dimension(51, 30));
+        jPanel6.add(ctGioDen);
 
         jPanel1.add(jPanel6);
 
@@ -130,24 +133,55 @@ public class ThongTinChuyenbayForm extends javax.swing.JPanel {
         lbEmial.setPreferredSize(new java.awt.Dimension(86, 30));
         jPanel8.add(lbEmial);
 
-        ctEmail.setBackground(new java.awt.Color(255, 255, 255));
-        ctEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctEmail.setPreferredSize(new java.awt.Dimension(51, 30));
-        jPanel8.add(ctEmail);
+        ctTongSoLuongGhe.setBackground(new java.awt.Color(255, 255, 255));
+        ctTongSoLuongGhe.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ctTongSoLuongGhe.setPreferredSize(new java.awt.Dimension(51, 30));
+        jPanel8.add(ctTongSoLuongGhe);
 
         jPanel1.add(jPanel8);
 
         add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
+    
+    public JLabel getCtGioDen() {
+        return ctGioDen;
+    }
 
+    public JLabel getCtGioXuatPhat() {
+        return ctGioXuatPhat;
+    }
 
+    public JLabel getCtMaChuyenBay() {
+        return ctMaChuyenBay;
+    }
+
+    public JLabel getCtNgayXuatPhat() {
+        return ctNgayXuatPhat;
+    }
+
+    public JLabel getCtTongSoLuongGhe() {
+        return ctTongSoLuongGhe;
+    }
+
+    public JLabel getCtNgayDen() {
+        return ctNgayDen;
+    }
+    
+    public void clearForm() {
+        ctGioDen.setText("");
+        ctGioXuatPhat.setText("");
+        ctMaChuyenBay.setText("");
+        ctNgayXuatPhat.setText("");
+        ctTongSoLuongGhe.setText("");
+        ctNgayDen.setText("");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ctChucVu;
-    private javax.swing.JLabel ctEmail;
-    private javax.swing.JLabel ctGioiTinhNhanVien;
-    private javax.swing.JLabel ctHoNhanVien;
-    private javax.swing.JLabel ctMaNhanVien;
-    private javax.swing.JLabel ctTenNhanVien;
+    private javax.swing.JLabel ctGioDen;
+    private javax.swing.JLabel ctGioXuatPhat;
+    private javax.swing.JLabel ctMaChuyenBay;
+    private javax.swing.JLabel ctNgayDen;
+    private javax.swing.JLabel ctNgayXuatPhat;
+    private javax.swing.JLabel ctTongSoLuongGhe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
