@@ -5,7 +5,7 @@ import java.awt.event.MouseAdapter;
 import javax.swing.table.DefaultTableModel;
 
 public class VeTableForm extends javax.swing.JPanel {
-    private DefaultTableModel model;
+    private final DefaultTableModel model;
     public VeTableForm() {
         initComponents();
         String[] columnNames = {"Mã vé", "Trạng Thái vé", "Giá Vé", "Loại Vé", "Mã Chuyến Bay"};

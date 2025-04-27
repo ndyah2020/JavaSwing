@@ -265,7 +265,7 @@ public class ChuyenBayController {
                 int rowClick = panelTable.getMyTable().getSelectedRow();
                 if (rowClick != -1) {
                     String maChuyenBay = panelTable.getMyTable().getValueAt(rowClick, 0).toString();
-                    if(veBUS.timVeDaDatTuChuyenBay(maChuyenBay) == null) {
+                    if(veBUS.timKiemVeTheoMaChuyenBayDaDat(maChuyenBay) == null) {
                         try {              
                             System.out.println(maChuyenBay);
                             String maMayBay = panelForm.getTxtMaMayBay().getText().trim();
