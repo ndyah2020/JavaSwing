@@ -24,11 +24,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="nhanVienControlForm1" pref="1080" max="32767" attributes="0"/>
+          <Component id="nhanVienControlForm" pref="1080" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
-              <Component id="nhanVienTableForm1" max="32767" attributes="0"/>
+              <Component id="nhanVienTableForm" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="nhanVienForm2" min="-2" max="-2" attributes="0"/>
+              <Component id="nhanVienForm" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -36,20 +36,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="nhanVienControlForm1" min="-2" max="-2" attributes="0"/>
+              <Component id="nhanVienControlForm" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="nhanVienTableForm1" max="32767" attributes="0"/>
-                  <Component id="nhanVienForm2" pref="572" max="32767" attributes="0"/>
+                  <Component id="nhanVienTableForm" max="32767" attributes="0"/>
+                  <Component id="nhanVienForm" pref="572" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="GUI.forms.NhanVienControlForm" name="nhanVienControlForm1">
+    <Component class="GUI.forms.NhanVienControlForm" name="nhanVienControlForm">
     </Component>
-    <Component class="GUI.forms.NhanVienTableForm" name="nhanVienTableForm1">
+    <Component class="GUI.forms.NhanVienTableForm" name="nhanVienTableForm">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -60,7 +60,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.forms.NhanVienForm" name="nhanVienForm2">
+    <Component class="GUI.forms.NhanVienForm" name="nhanVienForm">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">

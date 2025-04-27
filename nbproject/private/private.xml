@@ -15,6 +15,7 @@
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/HoaDonTableForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/VeControlForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/ChuyenBayTableForm.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DAO/LoaiMayBayDAO.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/LoaiMayBayControlForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/KhachHangGroupForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/ThongTinNhanVienForm.java</file>
@@ -33,10 +34,13 @@
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/KhuyenMaiController.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DAO/KhuyenMaiChiTIetDAO.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/LoaiMayBayController.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/MayBayTableForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/KhuyenMaiControlForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/panel/swing/dateChooser/EventDateChooser.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/frame/Home.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/BUS/MayBayBUS.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/NhanVienForm.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/NhanVienPanelForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/KhuyenMaiPanelForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Config/database_connection/ConnectToSQLServer.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/RanDomCode.java</file>
@@ -50,15 +54,23 @@
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/VeTableForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/ThongTinKhachHangForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/DatVeGroupForm.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DAO/MayBayDAO.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DAO/SanBayDAO.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/KhachHangControlForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/ChuyenBayPanelForm.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/NhanVienControlForm.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/BUS/NhanVienBUS.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/HoaDonPanelForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/HienThiTable.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/SanBayControlForm.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/NhanVienTableForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/BUS/ChuyenBayBUS.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/MayBayControlForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DTO/LoaiMayBayDTO.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/HoaDonCTTableForm.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DAO/NhanVienDAO.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/ChuyenBayForm.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/NhanVienController.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/KhuyenMaiTableForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/VeController.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/panel/swing/WelcomeLoginPanel.java</file>

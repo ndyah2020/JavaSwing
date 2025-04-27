@@ -5,6 +5,7 @@ import Control.HanhTrinhController;
 import Control.KhuyenMaiController;
 import Control.LoaiMayBayController;
 import Control.MayBayController;
+import Control.NhanVienController;
 import Control.SanBayController;
 import Control.VeController;
 import GUI.forms.ChuyenBayPanelForm;
@@ -40,6 +41,7 @@ public final class Home extends javax.swing.JFrame {
     MayBayController mayBayController;
     VeController veController;
     KhuyenMaiController khuyenMaiController;
+    NhanVienController nhanVienController;
     //Khoi tao cac panel
     private FormGroup formGroup;
     private DatVeGroupForm datVeForm;
@@ -358,9 +360,11 @@ public final class Home extends javax.swing.JFrame {
         } else if (selectedLabel == khachHangMenu) {
             System.out.println("Khách hàng");
             // Hiển thị form khách hàng
-        } else if (selectedLabel == nhanVienMenu) {
-            System.out.println("Nhân viên");
+        } else if (selectedLabel == nhanVienMenu) {                  
             // Hiển thị form nhân viên
+            nhanVienController = new NhanVienController(nhanVienForm);
+            nhanVienController.layDanhSachNhanvien();
+            nhanVienController.xuLySuKien();
         } else if (selectedLabel == loaiMayBayMenu) {
             loaiMayBayController = new LoaiMayBayController(loaiMayBayForm);
             loaiMayBayController.hienThiDanhSachLoaiMayBay();

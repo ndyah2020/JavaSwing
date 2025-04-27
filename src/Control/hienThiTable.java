@@ -6,6 +6,7 @@ import DTO.HanhTrinhDTO;
 import DTO.KhuyenMaiDTO;
 import DTO.LoaiMayBayDTO;
 import DTO.MayBayDTO;
+import DTO.NhanVienDTO;
 import DTO.SanBayDTO;
 import DTO.VeDTO;
 import java.text.SimpleDateFormat;
@@ -114,6 +115,23 @@ public class HienThiTable {
             row.add(ct.getMaCTKhuyenMai());
             row.add(ct.getMaHanhTrinh());
             row.add(ct.getMaKhuyenMai());
+            model.addRow(row);
+        }
+    }
+
+    public static void taiDuLieuTableNhanVien(DefaultTableModel model, ArrayList<NhanVienDTO> danhSach) {
+        model.setRowCount(0);
+        for (NhanVienDTO nv : danhSach) {
+            Vector row = new Vector();
+            row.add(nv.getMaNhanVien());
+            row.add(nv.getHo());
+            row.add(nv.getTen());
+            row.add(nv.getGioiTinh());
+            row.add(nv.getSdt());
+            row.add(nv.getEmail());
+            row.add(nv.getChucVu());
+            row.add(nv.getLuongCoBan());
+            row.add(nv.getMaTaiKhoan());
             model.addRow(row);
         }
     }

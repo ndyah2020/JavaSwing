@@ -16,10 +16,10 @@ public class NhanVienDTO {
     private String sdt;
     private String email;
     private String chucVu;
-    private double luongCoBan;
+    private int luongCoBan;
     private String maTaiKhoan;
 
-    public NhanVienDTO(String maNhanVien, String ho, String ten, String gioiTinh, String sdt, String email, String chucVu, double luongCoBan, String maTaiKhoan) {
+    public NhanVienDTO(String maNhanVien, String ho, String ten, String gioiTinh, String sdt, String email, String chucVu, int luongCoBan, String maTaiKhoan) {
         this.maNhanVien = maNhanVien;
         this.ho = ho;
         this.ten = ten;
@@ -64,7 +64,7 @@ public class NhanVienDTO {
         return chucVu;
     }
 
-    public double getLuongCoBan() {
+    public int getLuongCoBan() {
         return luongCoBan;
     }
 
@@ -100,7 +100,7 @@ public class NhanVienDTO {
         this.chucVu = chucVu;
     }
 
-    public void setLuongCoBan(double luongCoBan) {
+    public void setLuongCoBan(int luongCoBan) {
         this.luongCoBan = luongCoBan;
     }
 

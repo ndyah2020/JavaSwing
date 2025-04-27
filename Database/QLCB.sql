@@ -147,9 +147,9 @@ CREATE TABLE KhachHang (
     email VARCHAR(100) NOT NULL
 );
 GO
-
+DROP TABLE TaiKhoan
 CREATE TABLE TaiKhoan (
-    MaTaiKhoan VARCHAR(10) PRIMARY KEY NOT NULL,
+    MaTaiKhoan VARCHAR(20) PRIMARY KEY NOT NULL,
     Email VARCHAR(100) NOT NULL,
     MatKhau VARCHAR(255) NOT NULL,
     VaiTro VARCHAR(50) NOT NULL,
@@ -157,21 +157,37 @@ CREATE TABLE TaiKhoan (
     HanOTP DATETIME,
     TrangThai VARCHAR(50) NOT NULL
 );
+
 GO
+INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, OTP, HanOTP, TrangThai) VALUES
+('TK-001', 'admin@example.com', 'matkhau123', 'Admin', NULL, NULL, 'Hoạt Động'),
+('TK-002', 'nhanvien1@example.com', 'matkhau123', 'Nhân Viên', NULL, NULL, 'Hoạt Động'),
+('TK-003', 'nhanvien2@example.com', 'matkhau123', 'Nhân Viên', NULL, NULL, 'Hoạt Động'),
+('TK-004', 'nhanvien3@example.com', 'matkhau123', 'Nhân Viên', NULL, NULL, 'Hoạt Động'),
+('TK-005', 'nhanvien4@example.com', 'matkhau123', 'Nhân Viên', NULL, NULL, 'Hoạt Động');
+GO
+DROP TABLE NhanVien
 
 CREATE TABLE NhanVien (
-    MaNhanVien VARCHAR(10) PRIMARY KEY NOT NULL,
-    Ho VARCHAR(50) NOT NULL,
-    Ten VARCHAR(50) NOT NULL,
-    GioiTinh VARCHAR(10) NOT NULL,
+    MaNhanVien VARCHAR(20) PRIMARY KEY NOT NULL,
+    Ho NVARCHAR(50) NOT NULL,
+    Ten NVARCHAR(50) NOT NULL,
+    GioiTinh NVARCHAR(10) NOT NULL,
     SDT VARCHAR(15) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    ChucVu VARCHAR(50) NOT NULL,
-    LuongCoBan DECIMAL(10,2) NOT NULL,
-    MaTaiKhoan VARCHAR(10) NOT NULL,
+    ChucVu NVARCHAR(50) NOT NULL,
+    LuongCoBan INT NOT NULL,
+    MaTaiKhoan VARCHAR(20) NOT NULL,
     FOREIGN KEY (MaTaiKhoan) REFERENCES TaiKhoan(MaTaiKhoan)
 );
 GO
+INSERT INTO NhanVien (MaNhanVien, Ho, Ten, GioiTinh, SDT, Email, ChucVu, LuongCoBan, MaTaiKhoan) VALUES
+('NV-001', N'Nguyễn', N'An', N'Nam', '0901234567', 'admin@example.com', N'Quản lý', 15000000, 'TK-001'),
+('NV-002', N'Trần', N'Bình', N'Nam', '0912345678', 'nhanvien1@example.com', N'Nhân viên bán vé', 8000000, 'TK-002'),
+('NV-003', N'Lê', N'Cúc', N'Nữ', '0923456789', 'nhanvien2@example.com', N'Nhân viên kiểm soát', 8500000, 'TK-003'),
+('NV-004', N'Phạm', N'Dung', N'Nữ', '0934567890', 'nhanvien3@example.com', N'Nhân viên bán vé', 8000000, 'TK-004'),
+('NV-005', N'Hoàng', N'Em', N'Nam', '0945678901', 'nhanvien4@example.com', N'Nhân viên hỗ trợ', 7800000, 'TK-005');
+
 
 Drop Table KhuyenMai
 CREATE TABLE KhuyenMai (
