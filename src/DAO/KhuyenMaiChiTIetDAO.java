@@ -124,4 +124,19 @@ public class KhuyenMaiChiTIetDAO {
             return false;
         }
     }
+    
+    public boolean capNhatMaKhuyenMai(String maCu, String maMoi) {
+        String sql = "UPDATE CTKhuyenMai SET MaKhuyenMai=? WHERE MaKhuyenMai=?";
+        try (Connection c = ConnectToSQLServer.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setString(1, maMoi);
+            ps.setString(2, maCu);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Lỗi cập nhật mã CTKM: " + e.getMessage());
+            return false;
+        }
+    }
 }
