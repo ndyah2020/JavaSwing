@@ -75,17 +75,14 @@ public class KhuyenMaiChiTietBUS {
     }
     
     public boolean xoaCTKMTheoMaKhuyenMai(String maKhuyenMai) {
-        boolean kq = false;
-        ArrayList<CTKhuyenMaiDTO> dsXoa = new ArrayList<>();
-        for (CTKhuyenMaiDTO ct : getDanhSachChiTietKhuyenMai()) {
-            if (ct.getMaKhuyenMai().equals(maKhuyenMai)) {
-                if (khuyenMaiChiTietDAO.xoaCTKhuyenMai(ct.getMaCTKhuyenMai())) {                                 
-                    dsXoa.add(ct);
-                    kq = true;
-                }
-            }
+        boolean kq = khuyenMaiChiTietDAO.xoaTheoMaKhuyenMai(maKhuyenMai);
+        if (kq) {
+            danhSach.removeIf(ctkm -> ctkm.getMaKhuyenMai().equals(maKhuyenMai));
         }
-        danhSach.removeAll(dsXoa);
-        return danhSach.removeAll(dsXoa);
+        return kq;
+    }
+    
+    public boolean capNhatMaKhuyenMai(String maKMCu, String maKMMoi) {
+        return khuyenMaiChiTietDAO.capNhatMaKhuyenMai(maKMCu, maKMMoi);
     }
 }

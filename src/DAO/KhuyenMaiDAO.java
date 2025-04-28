@@ -64,7 +64,7 @@ public class KhuyenMaiDAO {
             p.setString(5, km.getPhanTramGiamGia());
             return p.executeUpdate() > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Không thể thêm khuyến mãi!");
             return false;
         }
@@ -90,6 +90,22 @@ public class KhuyenMaiDAO {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Không thể sửa khuyến mãi!");
             return false;
+        }
+    }
+    
+    public boolean capNhatMaKhuyenMai(String maCu, String maMoi) {
+        String query = "UPDATE KhuyenMai SET MaKhuyenMai=? WHERE MaKhuyenMai=?";
+        try {
+            conn = ConnectToSQLServer.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            
+            pstmt.setString(1, maMoi);
+            pstmt.setString(2, maCu);
+            return pstmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Không thể đổi mã KM:");
+            return false;       
         }
     }
     

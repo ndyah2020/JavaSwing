@@ -55,6 +55,10 @@ public class KhuyenMaiBUS {
         return result;
     }
     
+    public boolean capNhatMaKhuyenMai(String maCu, String maMoi) {
+        return khuyenMaiDAO.capNhatMaKhuyenMai(maCu, maMoi);
+    }
+    
     public KhuyenMaiDTO layMotKhuyenMai(String maKhuyenMai) {
         for (KhuyenMaiDTO km : danhSach) {
             if (km.getMaKhuyenMai().equals(maKhuyenMai)) return km;
