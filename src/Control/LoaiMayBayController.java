@@ -76,6 +76,7 @@ public class LoaiMayBayController {
     
     public void xuLySuKienLoaiMayBay() {
         loaiMayBayPanel.getLoaiMayBayTableForm().addRowClick(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) {
                 int rowSelected = loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().getSelectedRow();
                 

@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
+import java.sql.PreparedStatement;
 public class NhanVienDAO {
     Connection conn = null;
     
@@ -31,9 +31,86 @@ public class NhanVienDAO {
                 nhanVien.setMaTaiKhoan(res.getString("MaTaiKhoan"));
                 danhSachNhanVien.add(nhanVien);
             }
+            ConnectToSQLServer.closeConnection(conn);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Không thể lấy danh sách nhân viên");
         }
         return danhSachNhanVien;
+    }
+
+    public boolean themNhanvien(NhanVienDTO nhanVien) {
+        try {
+            String sql = "INSERT INTO NhanVien (MaNhanVien, Ho, Ten, GioiTinh, SDT, Email, ChucVu, LuongCoBan, MaTaiKhoan)"
+                    + "VALUES (?,?,?,?,?,?,?,?,?)";
+            conn = ConnectToSQLServer.getConnection();
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, nhanVien.getMaNhanVien());
+            st.setString(2, nhanVien.getHo());
+            st.setString(3, nhanVien.getTen());
+            st.setString(4, nhanVien.getGioiTinh());
+            st.setString(5, nhanVien.getSdt());
+            st.setString(6, nhanVien.getEmail());
+            st.setString(7, nhanVien.getChucVu());
+            st.setInt(8, nhanVien.getLuongCoBan());
+            st.setString(9, nhanVien.getMaTaiKhoan());
+            st.executeUpdate();
+            ConnectToSQLServer.closeConnection(conn);
+
+            return true;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Không thể thêm nhân viên");
+            return false;
+        }
+    }
+
+    public boolean suaNhanVienDAO(NhanVienDTO nhanVien) {
+        try {
+            String sql = "UPDATE NhanVien "
+                    + "SET Ho = ?, "
+                    + "    Ten = ?, "
+                    + "    GioiTinh = ?, "
+                    + "    SDT = ?, "
+                    + "    Email = ?, "
+                    + "    ChucVu = ?, "
+                    + "    LuongCoBan = ?, "
+                    + "    MaTaiKhoan = ? "
+                    + "WHERE MaNhanVien = ?;";
+            conn = ConnectToSQLServer.getConnection();
+
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, nhanVien.getHo());
+            st.setString(2, nhanVien.getTen());
+            st.setString(3, nhanVien.getGioiTinh());
+            st.setString(4, nhanVien.getSdt());
+            st.setString(5, nhanVien.getEmail());
+            st.setString(6, nhanVien.getChucVu());
+            st.setInt(7, nhanVien.getLuongCoBan());
+            st.setString(8, nhanVien.getMaTaiKhoan());
+            st.setString(9, nhanVien.getMaNhanVien());
+            
+            st.executeUpdate();
+            st.close();
+            ConnectToSQLServer.closeConnection(conn);
+            return true;
+        } catch (SQLException e) {      
+            JOptionPane.showMessageDialog(null, "Không thể sửa nhân viên");
+            return false;
+        }
+    }
+    
+    public boolean xoaNhanVien(String maNhanVien) {
+        try {
+            String sql = "DELETE FROM NhanVien WHERE  MaNhanVien = ?";
+            conn = ConnectToSQLServer.getConnection();
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, maNhanVien);
+            st.executeUpdate();
+            ConnectToSQLServer.closeConnection(conn);
+            st.close();
+            return true;
+        } catch(SQLException e) {
+            JOptionPane.showMessageDialog(null, "Không thể xóa nhân viên");
+            return false;
+        }
     }
 }

@@ -275,6 +275,21 @@ public class NhanVienForm extends javax.swing.JPanel {
         return txtTenNhanVien;
     }
     
+    public void xoaForm() {
+        
+        radioGroupGioiTinh.clearSelection();
+        txtMaNhanVien.setEditable(true);
+        txtMaNhanVien.setText("");
+        txtHoNhanVien.setText("");
+        txtTenNhanVien.setText("");
+        txtEmail.setText("");
+        txtChucVu.setText("");
+        txtLuong.setText("");
+        txtSoDienThoai.setText("");
+        txtMaTaiKhoan.setEditable(true);
+        txtMaTaiKhoan.setText("");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.MyButton btnLayMaTaiKhoan;
     private javax.swing.JLabel jLabel1;

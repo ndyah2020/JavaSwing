@@ -64,6 +64,7 @@ public class MayBayTableForm extends javax.swing.JPanel {
         myTable.addMouseListener(ma);
     }
     
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private GUI.panel.swing.MyTable myTable;
