@@ -8,6 +8,8 @@ import GUI.forms.NhanVienPanelForm;
 import GUI.forms.NhanVienTableForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -178,6 +180,31 @@ public class NhanVienController {
                     panelForm.xoaForm();
                     layDanhSachNhanvien();
                 }
+            }
+        });
+        
+        panelControl.addTxtSearchListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent evt) {
+                int selectetCmb = panelControl.getCmbLoaiTimKiem().getSelectedIndex();
+                String tuKhoa = panelControl.getTxtSearch().getText();
+                DefaultTableModel model = panelTable.getModel();
+                if (!tuKhoa.isEmpty()) {
+                    switch (selectetCmb) {
+                        case 1:
+                            HienThiTable.taiDuLieuTableNhanVien(model, nhanVienBUS.timKiemNhanVienTheoHoTen(tuKhoa));
+                            break;
+                        case 2:                
+                            HienThiTable.taiDuLieuTableNhanVien(model, nhanVienBUS.timKiemNhanVienTheoSoDienThoai(tuKhoa));
+                            break;
+                        default:
+                            HienThiTable.taiDuLieuTableNhanVien(model,nhanVienBUS.timKiemToanCuc(tuKhoa));
+                            break;
+                    }
+                }else {
+                    layDanhSachNhanvien();
+                }
+
             }
         });
     }

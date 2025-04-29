@@ -49,9 +49,9 @@
                   <Group type="102" attributes="0">
                       <Component id="cmbLoaiTimKiem" min="-2" pref="129" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="cmbGiaVe" min="-2" pref="116" max="-2" attributes="0"/>
+                      <Component id="cmbGiaVeTu" min="-2" pref="116" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="cmbTrangThai" min="-2" pref="118" max="-2" attributes="0"/>
+                      <Component id="cmbGiaVeDen" min="-2" pref="118" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="cmbLoaiVe" min="-2" pref="110" max="-2" attributes="0"/>
                   </Group>
@@ -71,8 +71,8 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cmbTrangThai" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cmbGiaVe" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbGiaVeDen" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbGiaVeTu" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cmbLoaiVe" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cmbLoaiTimKiem" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -126,13 +126,15 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="GUI.panel.swing.MyCombobox" name="cmbTrangThai">
+    <Component class="GUI.panel.swing.MyCombobox" name="cmbGiaVeDen">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Tr&#x1ea1;ng th&#xe1;i"/>
-            <StringItem index="1" value="Ch&#x1b0;a &#x110;&#x1eb7;t"/>
-            <StringItem index="2" value="&#x110;&#xe3; &#x110;&#x1eb7;t"/>
+          <StringArray count="5">
+            <StringItem index="0" value="Gi&#xe1; V&#xe9; &#x110;&#x1ebf;n"/>
+            <StringItem index="1" value="1000000"/>
+            <StringItem index="2" value="2000000"/>
+            <StringItem index="3" value="3000000"/>
+            <StringItem index="4" value="5000000"/>
           </StringArray>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -140,14 +142,15 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.panel.swing.MyCombobox" name="cmbGiaVe">
+    <Component class="GUI.panel.swing.MyCombobox" name="cmbGiaVeTu">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Gi&#xe1; V&#xe9;"/>
-            <StringItem index="1" value="D&#x1b0;&#x1edb;i 1TR"/>
-            <StringItem index="2" value="1TR-2TR"/>
-            <StringItem index="3" value="Tr&#xea;n 2TR"/>
+          <StringArray count="5">
+            <StringItem index="0" value="Gi&#xe1; V&#xe9; T&#x1eeb;"/>
+            <StringItem index="1" value="1000000"/>
+            <StringItem index="2" value="2000000"/>
+            <StringItem index="3" value="3000000"/>
+            <StringItem index="4" value="5000000"/>
           </StringArray>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">

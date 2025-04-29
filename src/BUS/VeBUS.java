@@ -3,6 +3,8 @@ package BUS;
 import DAO.VeDAO;
 import DTO.VeDTO;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class VeBUS {
     private ArrayList<VeDTO> danhSachVe;
@@ -79,47 +81,17 @@ public class VeBUS {
         return danhSachTimThay;
     }
     
-    public ArrayList<VeDTO> locDanhSachVe(int indexTrangThai, int indexGiaVe, int loaiVe) {
+    public ArrayList<VeDTO> locDanhSachVe(int giaVeTu, int giaVeDen, int loaiVe) {
         ArrayList<VeDTO> danhSachVeTimDuoc = new ArrayList<>();
         for (VeDTO ve : danhSachVe) {
             boolean kiemTra = true;
-            
-            if (indexTrangThai > 0) {
-                String trangThaiVe = ve.getTrangThaiVe().trim();     
-                
-                switch(indexTrangThai) {
-                    case 1 :
-                        if(!trangThaiVe.equals("Chưa Đặt")) {
-                            kiemTra = false;
-                        }
-                        break;
-                    case 2:
-                        if(!trangThaiVe.equals("Đã Đặt")) {
-                            kiemTra = false;
-                        }
-                        break;         
+  
+            if(giaVeTu > 0 && giaVeDen > 0) {
+                int giaVe = ve.getGiaVe();
+                if(giaVe < giaVeTu || giaVe > giaVeDen){
+                    kiemTra = false;
                 }
             }
-            if (indexGiaVe > 0) {
-                int giaVe = ve.getGiaVe();       
-                switch(indexGiaVe) {
-                    case 1 :
-                        if(giaVe >= 1_000_000) {
-                            kiemTra = false;
-                        }
-                        break;
-                    case 2:
-                        if(giaVe < 1_000_000 || giaVe > 2_000_000) {
-                            kiemTra = false;
-                        }
-                        break;
-                    case 3: 
-                        if(giaVe <= 2_000_000) {
-                            kiemTra = false;
-                        }
-                        break;             
-                }
-            }            
             
             if(loaiVe > 0) {
                 String loaiVeString = ve.getLoaiVe().trim();
@@ -142,5 +114,31 @@ public class VeBUS {
         }
 
         return danhSachVeTimDuoc;
+    }
+
+    public ArrayList<VeDTO> timKiemToanCuc(String tuKhoa) {
+        ArrayList<VeDTO> dsTimThay = new ArrayList<>();
+        String tuKhoaFm = tuKhoa.toLowerCase().trim();
+        for (VeDTO ve : danhSachVe) {
+            if (ve.getMaVe().toLowerCase().contains(tuKhoaFm)
+                    || ve.getLoaiVe().toLowerCase().contains(tuKhoaFm)
+                    || ve.getTrangThaiVe().toLowerCase().contains(tuKhoaFm)
+                    || ve.getChuyenBay().toLowerCase().contains(tuKhoaFm)) {
+                dsTimThay.add(ve);
+            }
+        }
+        return dsTimThay;
+    }
+
+    public ArrayList<VeDTO> timKiemToanCucVer2(String tuKhoa) {
+        String tuKhoaFm = tuKhoa.toLowerCase().trim();
+        return (ArrayList<VeDTO>) danhSachVe.stream()
+                .filter(ve -> 
+                        ve.getMaVe().toLowerCase().contains(tuKhoaFm) ||
+                        ve.getChuyenBay().toLowerCase().contains(tuKhoaFm) ||
+                        ve.getLoaiVe().toLowerCase().contains(tuKhoaFm) ||
+                        ve.getTrangThaiVe().toLowerCase().contains(tuKhoaFm)
+                )
+                .collect(Collectors.toList());
     }
 }

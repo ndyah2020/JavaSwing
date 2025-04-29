@@ -86,4 +86,21 @@ public class NhanVienBUS {
         return dsTimThay;
     }
   
+    public ArrayList<NhanVienDTO> timKiemToanCuc(String tuKhoa) {
+        String tuKhoaFM = tuKhoa.toLowerCase().trim();
+        ArrayList<NhanVienDTO> dsTimThay = new ArrayList<>();
+        for(NhanVienDTO nv : danhSachNhanVien) {
+            if( nv.getMaNhanVien().toLowerCase().contains(tuKhoaFM)
+                    || nv.getTen().toLowerCase().contains(tuKhoaFM)
+                    || nv.getHo().toLowerCase().contains(tuKhoaFM)
+                    || nv.getGioiTinh().toLowerCase().contains(tuKhoaFM)
+                    || nv.getEmail().toLowerCase().contains(tuKhoaFM)
+                    || nv.getChucVu().toLowerCase().contains(tuKhoaFM)
+                    || nv.getMaTaiKhoan().toLowerCase().contains(tuKhoaFM)
+                    ) {
+                dsTimThay.add(nv);
+            }
+        }
+        return dsTimThay;
+    }
 }

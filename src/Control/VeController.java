@@ -17,6 +17,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class VeController {
@@ -58,28 +59,38 @@ public class VeController {
                 }
             }
         });
-        
+      
         ItemListener cmbListener = new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-                if(e.getStateChange() == ItemEvent.SELECTED) {
-                    int indexTrangThai = panelControl.getCmbTrangThai().getSelectedIndex();
-                    int indexLoaiVe = panelControl.getCmbLoaiVe().getSelectedIndex();                    
-                    int indexGiaVe = panelControl.getCmbGiaVe().getSelectedIndex(); 
-                    if(indexGiaVe == 0 && indexLoaiVe == 0 && indexTrangThai == 0) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    int indexGiaVeTu = panelControl.getCmbGiaVeTu().getSelectedIndex();
+                    int indexGiaVeDen = panelControl.getCmbGiaVeDen().getSelectedIndex();
+                    int indexLoaiVe = panelControl.getCmbLoaiVe().getSelectedIndex();
+                    if (indexGiaVeTu > 0 || indexGiaVeDen > 0 || indexLoaiVe > 0) {
+                        DefaultTableModel model = panelTable.getModel();
+                        int giaVeTu = -1;
+                        int giaVeDen = -1;
+                        if (indexGiaVeTu > 0 && indexGiaVeDen > 0) {
+                            try {
+                                giaVeTu = Integer.parseInt(panelControl.getCmbGiaVeTu().getSelectedItem().toString());
+                                giaVeDen = Integer.parseInt(panelControl.getCmbGiaVeDen().getSelectedItem().toString());
+                            } catch (NumberFormatException evt) {
+                                JOptionPane.showMessageDialog(null, "Lỗi Định dạng ");
+                            }
+                        }
+                        HienThiTable.taiDuLieuTableVe(model, veBUS.locDanhSachVe(giaVeTu, giaVeDen, indexLoaiVe));
+                    }else {
                         layDanhSachVe();
-                        return;
-                    }                    
-                    DefaultTableModel modelLoc = panelTable.getModel();                  
-                    ArrayList<VeDTO>  danhSachLoc =  veBUS.locDanhSachVe(indexTrangThai, indexGiaVe ,indexLoaiVe);
-                    HienThiTable.taiDuLieuTableVe(modelLoc, danhSachLoc);
+                    }                  
                 }
             }
         };
-        panelControl.addCmbTrangThaiListener(cmbListener);
-        panelControl.addCmbLoaiVeListener(cmbListener);
-        panelControl.addCmbGiaVeListener(cmbListener);
         
+        panelControl.addCmbGiaVeTuListener(cmbListener);
+        panelControl.addCmbGiaVeDenListener(cmbListener);
+        panelControl.addCmbLoaiVeListener(cmbListener);
+       
         panelControl.addtxtSearch(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -87,12 +98,7 @@ public class VeController {
                 if (!tukhoa.isEmpty()) {
                     int loaiTimKiem = panelControl.getCmbLoaiTimKiem().getSelectedIndex();
                     DefaultTableModel model = panelTable.getModel();
-
                     switch (loaiTimKiem) {
-                        case 0:
-                            panelControl.getTxtSearch().setText("");
-                            layDanhSachVe();
-                            break;
                         case 1:
                             //Ma chuyen bau
                             HienThiTable.taiDuLieuTableVe(model, veBUS.timKiemVeTheoMaChuyenBay(tukhoa));
@@ -105,7 +111,8 @@ public class VeController {
                             //Loai ve
                             HienThiTable.taiDuLieuTableVe(model, veBUS.timKiemVeTheoLoaiVe(tukhoa));
                             break;
-
+                        default:
+                            HienThiTable.taiDuLieuTableVe(model, veBUS.timKiemToanCucVer2(tukhoa));
                     }
                 } else {
                     layDanhSachVe();
