@@ -2,6 +2,7 @@ package GUI.forms;
 
 import GUI.panel.swing.MyCombobox;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import javax.swing.JTextField;
 
@@ -14,8 +15,8 @@ public class NhanVienControlForm extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        mucLuongComboBox = new GUI.panel.swing.MyCombobox();
-        gioiTinhComboBox = new GUI.panel.swing.MyCombobox();
+        cmbMucLuongTu = new GUI.panel.swing.MyCombobox();
+        cmbGioiTinh = new GUI.panel.swing.MyCombobox();
         jPanel1 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -24,7 +25,7 @@ public class NhanVienControlForm extends javax.swing.JPanel {
         btnXoa = new GUI.panel.swing.MyButton();
         btnXoaForm = new GUI.panel.swing.MyButton();
         cmbLoaiTimKiem = new GUI.panel.swing.MyCombobox();
-        mucLuongComboBox1 = new GUI.panel.swing.MyCombobox();
+        cmbMucLuongDen = new GUI.panel.swing.MyCombobox();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1070, 100));
@@ -32,13 +33,13 @@ public class NhanVienControlForm extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Danh sách nhân viên");
 
-        mucLuongComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mức lương Từ", "1TR", "2TR", "3TR", "5TR", "7TR", "10TR", "Trở Xuống" }));
-        mucLuongComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        mucLuongComboBox.setPreferredSize(new java.awt.Dimension(150, 31));
+        cmbMucLuongTu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mức lương Từ", "5000000", "7000000", "9000000", "1000000", "15000000", "20000000" }));
+        cmbMucLuongTu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cmbMucLuongTu.setPreferredSize(new java.awt.Dimension(150, 31));
 
-        gioiTinhComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Giới tính", "Nam", "Nữ" }));
-        gioiTinhComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        gioiTinhComboBox.setPreferredSize(new java.awt.Dimension(120, 31));
+        cmbGioiTinh.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Giới tính", "Nam", "Nữ" }));
+        cmbGioiTinh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cmbGioiTinh.setPreferredSize(new java.awt.Dimension(120, 31));
 
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -88,9 +89,9 @@ public class NhanVienControlForm extends javax.swing.JPanel {
         cmbLoaiTimKiem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cmbLoaiTimKiem.setPreferredSize(new java.awt.Dimension(150, 31));
 
-        mucLuongComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mức lương đến", "1TR", "2TR", "3TR", "5TR", "7TR", "10TR", "Trở Lên" }));
-        mucLuongComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        mucLuongComboBox1.setPreferredSize(new java.awt.Dimension(150, 31));
+        cmbMucLuongDen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mức lương đến", "5000000", "7000000", "9000000", "10000000", "15000000", "20000000" }));
+        cmbMucLuongDen.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cmbMucLuongDen.setPreferredSize(new java.awt.Dimension(150, 31));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -104,15 +105,15 @@ public class NhanVienControlForm extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cmbLoaiTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(mucLuongComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbMucLuongTu, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(mucLuongComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbMucLuongDen, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXoaForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(gioiTinhComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -134,23 +135,26 @@ public class NhanVienControlForm extends javax.swing.JPanel {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mucLuongComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(gioiTinhComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbMucLuongTu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mucLuongComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbMucLuongDen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbLoaiTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
     
-    public MyCombobox getGioiTinhComboBox() {
-        return gioiTinhComboBox;
+    public MyCombobox getCmbGioiTinh() {
+        return cmbGioiTinh;
     }
 
-    public MyCombobox getMucLuongComboBox() {
-        return mucLuongComboBox;
+    public MyCombobox getCmbMucLuongTu() {
+        return cmbMucLuongTu;
     }
-
+    
+    public MyCombobox getCmbMucLuongDen() {
+        return cmbMucLuongDen;
+    }
     public JTextField getTxtSearch() {
         return txtSearch;
     }
@@ -178,18 +182,30 @@ public class NhanVienControlForm extends javax.swing.JPanel {
     public MyCombobox getCmbLoaiTimKiem(){
         return cmbLoaiTimKiem;
     }
+    
+    public void addItemCmbGioiTinhListener(ItemListener listener) {
+        cmbGioiTinh.addItemListener(listener);
+    }
+    
+    public void addItemCmbMucLuongTu(ItemListener listener) {
+        cmbMucLuongTu.addItemListener(listener);
+    }
+    
+    public void addItemCmbMucLuongDen(ItemListener listener) {
+        cmbMucLuongDen.addItemListener(listener);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.MyButton btnSua;
     private GUI.panel.swing.MyButton btnThem;
     private GUI.panel.swing.MyButton btnXoa;
     private GUI.panel.swing.MyButton btnXoaForm;
+    private GUI.panel.swing.MyCombobox cmbGioiTinh;
     private GUI.panel.swing.MyCombobox cmbLoaiTimKiem;
-    private GUI.panel.swing.MyCombobox gioiTinhComboBox;
+    private GUI.panel.swing.MyCombobox cmbMucLuongDen;
+    private GUI.panel.swing.MyCombobox cmbMucLuongTu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private GUI.panel.swing.MyCombobox mucLuongComboBox;
-    private GUI.panel.swing.MyCombobox mucLuongComboBox1;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

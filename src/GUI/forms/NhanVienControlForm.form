@@ -32,18 +32,18 @@
                   <Group type="102" attributes="0">
                       <Component id="cmbLoaiTimKiem" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="mucLuongComboBox" min="-2" pref="137" max="-2" attributes="0"/>
+                      <Component id="cmbMucLuongTu" min="-2" pref="137" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jPanel1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="14" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="mucLuongComboBox1" min="-2" pref="137" max="-2" attributes="0"/>
+                  <Component id="cmbMucLuongDen" min="-2" pref="137" max="-2" attributes="0"/>
                   <Component id="btnXoaForm" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="gioiTinhComboBox" min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="cmbGioiTinh" min="-2" pref="102" max="-2" attributes="0"/>
                   <Component id="btnXoa" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -72,10 +72,10 @@
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="mucLuongComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="gioiTinhComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbMucLuongTu" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbGioiTinh" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSua" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="mucLuongComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbMucLuongDen" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cmbLoaiTimKiem" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -92,18 +92,17 @@
         <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch nh&#xe2;n vi&#xea;n"/>
       </Properties>
     </Component>
-    <Component class="GUI.panel.swing.MyCombobox" name="mucLuongComboBox">
+    <Component class="GUI.panel.swing.MyCombobox" name="cmbMucLuongTu">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="8">
+          <StringArray count="7">
             <StringItem index="0" value="M&#x1ee9;c l&#x1b0;&#x1a1;ng T&#x1eeb;"/>
-            <StringItem index="1" value="1TR"/>
-            <StringItem index="2" value="2TR"/>
-            <StringItem index="3" value="3TR"/>
-            <StringItem index="4" value="5TR"/>
-            <StringItem index="5" value="7TR"/>
-            <StringItem index="6" value="10TR"/>
-            <StringItem index="7" value="Tr&#x1edf; Xu&#x1ed1;ng"/>
+            <StringItem index="1" value="5000000"/>
+            <StringItem index="2" value="7000000"/>
+            <StringItem index="3" value="9000000"/>
+            <StringItem index="4" value="1000000"/>
+            <StringItem index="5" value="15000000"/>
+            <StringItem index="6" value="20000000"/>
           </StringArray>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -114,7 +113,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.panel.swing.MyCombobox" name="gioiTinhComboBox">
+    <Component class="GUI.panel.swing.MyCombobox" name="cmbGioiTinh">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
@@ -270,18 +269,17 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.panel.swing.MyCombobox" name="mucLuongComboBox1">
+    <Component class="GUI.panel.swing.MyCombobox" name="cmbMucLuongDen">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="8">
+          <StringArray count="7">
             <StringItem index="0" value="M&#x1ee9;c l&#x1b0;&#x1a1;ng &#x111;&#x1ebf;n"/>
-            <StringItem index="1" value="1TR"/>
-            <StringItem index="2" value="2TR"/>
-            <StringItem index="3" value="3TR"/>
-            <StringItem index="4" value="5TR"/>
-            <StringItem index="5" value="7TR"/>
-            <StringItem index="6" value="10TR"/>
-            <StringItem index="7" value="Tr&#x1edf; L&#xea;n"/>
+            <StringItem index="1" value="5000000"/>
+            <StringItem index="2" value="7000000"/>
+            <StringItem index="3" value="9000000"/>
+            <StringItem index="4" value="10000000"/>
+            <StringItem index="5" value="15000000"/>
+            <StringItem index="6" value="20000000"/>
           </StringArray>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

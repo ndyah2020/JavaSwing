@@ -8,6 +8,8 @@ import GUI.forms.NhanVienPanelForm;
 import GUI.forms.NhanVienTableForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -37,6 +39,14 @@ public class NhanVienController {
         panelTable.getMyTable().setModel(model);
     }
 
+    private void hienThiTaiKhoanLenPopup() {
+        String[] tenCot = {"Mã Tài Khoản", "Tên Tài Khoản"};
+        panelForm.getBangLayMaTaiKhoan().setcolumnDefaultTableModel(tenCot);
+//        DefaultTableModel model = panelForm.getBangLayMaMayBay().getModel();
+//        MayBayBUS bus = new MayBayBUS();
+//        ArrayList<MayBayDTO> mayBay = bus.getDanhSachMayBayBUS();
+//        HienThiTable.taiDuLieuTabelMayBay(model, mayBay);
+    }
     public void xuLySuKien() {
         panelTable.addRowClick(new MouseAdapter() {
             @Override
@@ -204,7 +214,47 @@ public class NhanVienController {
                 }else {
                     layDanhSachNhanvien();
                 }
+            }
+        });
 
+        ItemListener cbmListener = new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                int indexMucLuongTu = panelControl.getCmbMucLuongTu().getSelectedIndex();
+                int indexMucLuongDen = panelControl.getCmbMucLuongDen().getSelectedIndex();
+                int indexGioiTinh = panelControl.getCmbGioiTinh().getSelectedIndex();
+                if (indexMucLuongTu > 0 || indexMucLuongDen > 0 || indexGioiTinh > 0) {
+                    int giaTriMucLuongTu = 0;
+                    int giaTriMucLuongDen = 0;
+                    DefaultTableModel model = panelTable.getModel();
+
+                    if (indexMucLuongTu > 0 && indexMucLuongDen > 0) {
+                        try {
+                            giaTriMucLuongTu = Integer.parseInt(panelControl.getCmbMucLuongTu().getSelectedItem().toString());
+                            giaTriMucLuongDen = Integer.parseInt(panelControl.getCmbMucLuongDen().getSelectedItem().toString());
+                        } catch (NumberFormatException evt) {
+                            JOptionPane.showMessageDialog(null, "Lỗi định dạng số ");
+                        }
+                    }
+
+                    ArrayList<NhanVienDTO> dsLoc = nhanVienBUS.locNhanVien(indexGioiTinh, giaTriMucLuongTu, giaTriMucLuongDen);
+                    HienThiTable.taiDuLieuTableNhanVien(model, dsLoc);
+                    panelTable.getMyTable().setModel(model);
+                }else {
+                    layDanhSachNhanvien();
+                }
+            }
+        };
+        
+        panelControl.addItemCmbGioiTinhListener(cbmListener);
+        panelControl.addItemCmbMucLuongTu(cbmListener);
+        panelControl.addItemCmbMucLuongDen(cbmListener);
+        
+        panelForm.addBtnLayMaTaiKhoan(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                panelForm.showPopupBangLayMaTaiKhoan();
+                hienThiTaiKhoanLenPopup();
             }
         });
     }

@@ -4,6 +4,12 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="radioGroupGioiTinh">
     </Component>
+    <Container class="javax.swing.JPopupMenu" name="popupMaTaiKhoan">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

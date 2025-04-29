@@ -103,4 +103,38 @@ public class NhanVienBUS {
         }
         return dsTimThay;
     }
+    
+    public ArrayList<NhanVienDTO> locNhanVien(int indexGioiTinh, int luongTu, int LuongDen) {
+        ArrayList<NhanVienDTO> dsLoc = new ArrayList<>();
+        for(NhanVienDTO nv : danhSachNhanVien) {
+            boolean kiemTra = true;
+            
+            if(indexGioiTinh > 0) {
+              switch(indexGioiTinh)  {
+                  case 1: 
+                      if(!nv.getGioiTinh().trim().equals("Nam")) {
+                          kiemTra = false;
+                      }
+                      break;
+                  case 2:
+                      if(!nv.getGioiTinh().equals("Nữ")) {
+                          kiemTra = false;
+                      }
+                      break;
+              }
+            }
+            
+            if(luongTu > 0 && LuongDen > 0) {
+                int mucLuong = nv.getLuongCoBan();
+                if(luongTu > mucLuong || LuongDen < mucLuong) {
+                    kiemTra = false;
+                }
+            }
+            
+            if(kiemTra) {
+                dsLoc.add(nv);
+            }
+        }
+        return dsLoc;
+    }
 }

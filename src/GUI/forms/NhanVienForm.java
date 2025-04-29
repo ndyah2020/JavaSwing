@@ -1,19 +1,26 @@
 package GUI.forms;
 
+import GUI.PopupForm.PopupFormSearch;
 import GUI.panel.swing.MyButton;
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class NhanVienForm extends javax.swing.JPanel {
-    public NhanVienForm() {
+    private PopupFormSearch bangLayMaTaiKhoan;
+    
+    public NhanVienForm() {  
         initComponents();
+        bangLayMaTaiKhoanPopup();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         radioGroupGioiTinh = new javax.swing.ButtonGroup();
+        popupMaTaiKhoan = new javax.swing.JPopupMenu();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -226,7 +233,22 @@ public class NhanVienForm extends javax.swing.JPanel {
 
         add(jPanel10);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private void bangLayMaTaiKhoanPopup() {
+        bangLayMaTaiKhoan = new PopupFormSearch();
+        
+        popupMaTaiKhoan.setLayout(new BorderLayout());
+        popupMaTaiKhoan.add(bangLayMaTaiKhoan, BorderLayout.CENTER);
+    }
+    
+    public void showPopupBangLayMaTaiKhoan() {
+        popupMaTaiKhoan.show(btnLayMaTaiKhoan, -300, btnLayMaTaiKhoan.getHeight() - 500);
+    }
+    
+    public PopupFormSearch getBangLayMaTaiKhoan() {
+        return bangLayMaTaiKhoan;
+    }
+    
     public MyButton getBtnLayMaTaiKhoan() {
         return btnLayMaTaiKhoan;
     }
@@ -275,6 +297,9 @@ public class NhanVienForm extends javax.swing.JPanel {
         return txtTenNhanVien;
     }
     
+    public void addBtnLayMaTaiKhoan(ActionListener listener) {
+        btnLayMaTaiKhoan.addActionListener(listener);
+    }
     public void xoaForm() {
         
         radioGroupGioiTinh.clearSelection();
@@ -313,6 +338,7 @@ public class NhanVienForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPopupMenu popupMaTaiKhoan;
     private javax.swing.ButtonGroup radioGroupGioiTinh;
     private javax.swing.JRadioButton radioNam;
     private javax.swing.JRadioButton radioNu;
