@@ -3,6 +3,7 @@ package Control;
 import DTO.CTKhuyenMaiDTO;
 import DTO.ChuyenBayDTO;
 import DTO.HanhTrinhDTO;
+import DTO.KhachHangDTO;
 import DTO.KhuyenMaiDTO;
 import DTO.LoaiMayBayDTO;
 import DTO.MayBayDTO;
@@ -117,6 +118,19 @@ public class HienThiTable {
             row.add(ct.getMaHanhTrinh());
             row.add(ct.getMaKhuyenMai());
             model.addRow(row);
+        }
+    }
+
+    public static void taiDuLieuTableKhachHang(DefaultTableModel model, ArrayList<KhachHangDTO> danhSach){
+        for(KhachHangDTO kh : danhSach) {
+            Vector row = new Vector();
+            row.add(kh.getMaKhachHang());
+            row.add(kh.getHo());
+            row.add(kh.getTen());
+            row.add(kh.getGioiTinh());
+            row.add(kh.getNgaySinh());
+            row.add(kh.getSdt());
+            row.add(kh.getEmail());
         }
     }
 

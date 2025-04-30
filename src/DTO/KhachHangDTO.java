@@ -4,6 +4,8 @@
  */
 package DTO;
 
+import java.sql.Date;
+
 /**
  *
  * @author Lenovo
@@ -13,11 +15,11 @@ public class KhachHangDTO {
     private String ho;
     private String ten;
     private String gioiTinh;
-    private String ngaySinh;
+    private Date ngaySinh;
     private String sdt;
     private String email;
 
-    public KhachHangDTO(String maKhachHang, String ho, String ten, String gioiTinh, String ngaySinh, String sdt, String email) {
+    public KhachHangDTO(String maKhachHang, String ho, String ten, String gioiTinh, Date ngaySinh, String sdt, String email) {
         this.maKhachHang = maKhachHang;
         this.ho = ho;
         this.ten = ten;
@@ -46,7 +48,7 @@ public class KhachHangDTO {
         return gioiTinh;
     }
 
-    public String getNgaySinh() {
+    public Date getNgaySinh() {
         return ngaySinh;
     }
 
@@ -74,7 +76,7 @@ public class KhachHangDTO {
         this.gioiTinh = gioiTinh;
     }
 
-    public void setNgaySinh(String ngaySinh) {
+    public void setNgaySinh(Date ngaySinh) {
         this.ngaySinh = ngaySinh;
     }
 
