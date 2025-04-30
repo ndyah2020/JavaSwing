@@ -88,7 +88,4 @@ public class TaiKhoanDTO {
     public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
     }
-
-   
-
 }

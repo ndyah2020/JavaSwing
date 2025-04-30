@@ -7,6 +7,7 @@ import Control.LoaiMayBayController;
 import Control.MayBayController;
 import Control.NhanVienController;
 import Control.SanBayController;
+import Control.TaiKhoanController;
 import Control.VeController;
 import GUI.forms.ChuyenBayPanelForm;
 import GUI.forms.DatVeGroupForm;
@@ -19,7 +20,7 @@ import GUI.forms.LoaiMayBayPanelForm;
 import GUI.forms.MayBayPanelForm;
 import GUI.forms.NhanVienPanelForm;
 import GUI.forms.SanBayPanelForm;
-import GUI.forms.TaiKhoanGroupForm;
+import GUI.forms.TaiKhoanPanelForm;
 import GUI.forms.VePanelForm;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -34,14 +35,15 @@ public final class Home extends javax.swing.JFrame {
     Color hoverColor = new Color(0, 204, 255);
     private static JLabel selectedLabel = null;
     //Khoi tao các controller
-    SanBayController sanBayController;
-    HanhTrinhController hanhTrinhController;
-    LoaiMayBayController loaiMayBayController;
-    ChuyenBayController chuyenBayController;
-    MayBayController mayBayController;
-    VeController veController;
-    KhuyenMaiController khuyenMaiController;
-    NhanVienController nhanVienController;
+    private SanBayController sanBayController;
+    private HanhTrinhController hanhTrinhController;
+    private LoaiMayBayController loaiMayBayController;
+    private ChuyenBayController chuyenBayController;
+    private MayBayController mayBayController;
+    private VeController veController;
+    private KhuyenMaiController khuyenMaiController;
+    private NhanVienController nhanVienController;
+    private TaiKhoanController taiKhoancontroller;
     //Khoi tao cac panel
     private FormGroup formGroup;
     private DatVeGroupForm datVeForm;
@@ -55,7 +57,7 @@ public final class Home extends javax.swing.JFrame {
     private VePanelForm veForm;
     private HoaDonPanelForm hoaDonForm;
     private KhuyenMaiPanelForm khuyenMaiForm;
-    private TaiKhoanGroupForm taiKhoanForm;
+    private TaiKhoanPanelForm taiKhoanForm;
 
     //cac phuong thuc
     public Home() {
@@ -90,7 +92,7 @@ public final class Home extends javax.swing.JFrame {
         veForm = new VePanelForm();
         hoaDonForm = new HoaDonPanelForm();
         khuyenMaiForm = new KhuyenMaiPanelForm();
-        taiKhoanForm = new TaiKhoanGroupForm();
+        taiKhoanForm = new TaiKhoanPanelForm();
     }
 
     @SuppressWarnings("unchecked")
@@ -398,8 +400,9 @@ public final class Home extends javax.swing.JFrame {
             khuyenMaiController.hienThiKhuyenMai();
             khuyenMaiController.xuLySuKienKhuyenMai();
         } else if (selectedLabel == taiKhoanMenu) {
-            System.out.println("Tài khoản");
-            // Hiển thị form tài khoản
+            taiKhoancontroller = new TaiKhoanController(taiKhoanForm);
+            taiKhoancontroller.layDanhSachTaiKhoan();
+            taiKhoancontroller.xuLySuKien();
         } else {
             System.out.println("Không có menu phù hợp");
         }

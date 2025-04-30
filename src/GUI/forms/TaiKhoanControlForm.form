@@ -131,9 +131,6 @@
           <Dimension value="[72, 31]"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuaActionPerformed"/>
-      </Events>
     </Component>
     <Component class="GUI.panel.swing.MyCombobox" name="myCombobox1">
       <Properties>
@@ -149,9 +146,6 @@
           <Dimension value="[100, 31]"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="myCombobox1ActionPerformed"/>
-      </Events>
     </Component>
     <Component class="GUI.panel.swing.MyCombobox" name="myCombobox2">
       <Properties>

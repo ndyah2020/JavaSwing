@@ -1,7 +1,9 @@
 package Control;
 
 import BUS.NhanVienBUS;
+import BUS.TaiKhoanBUS;
 import DTO.NhanVienDTO;
+import DTO.TaiKhoanDTO;
 import GUI.forms.NhanVienControlForm;
 import GUI.forms.NhanVienForm;
 import GUI.forms.NhanVienPanelForm;
@@ -14,6 +16,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -24,6 +27,7 @@ public class NhanVienController {
     private final NhanVienControlForm panelControl;
     private final NhanVienTableForm panelTable;
     private final NhanVienBUS nhanVienBUS = new NhanVienBUS();
+    private final TaiKhoanBUS taiKhoanBUS = new TaiKhoanBUS();
     private ArrayList<NhanVienDTO> dsNhanVien;
 
     public NhanVienController(NhanVienPanelForm panel) {
@@ -42,11 +46,12 @@ public class NhanVienController {
     private void hienThiTaiKhoanLenPopup() {
         String[] tenCot = {"Mã Tài Khoản", "Tên Tài Khoản"};
         panelForm.getBangLayMaTaiKhoan().setcolumnDefaultTableModel(tenCot);
-//        DefaultTableModel model = panelForm.getBangLayMaMayBay().getModel();
-//        MayBayBUS bus = new MayBayBUS();
-//        ArrayList<MayBayDTO> mayBay = bus.getDanhSachMayBayBUS();
-//        HienThiTable.taiDuLieuTabelMayBay(model, mayBay);
+        DefaultTableModel modelPopup = panelForm.getBangLayMaTaiKhoan().getModel();
+        ArrayList<TaiKhoanDTO> taiKhoan = taiKhoanBUS.getDanhSachTaiKhoan();
+        HienThiTable.taiDuLieuTaiKhoan(modelPopup, taiKhoan);
+        panelForm.getBangLayMaTaiKhoan().getMyTable().setModel(modelPopup);
     }
+    
     public void xuLySuKien() {
         panelTable.addRowClick(new MouseAdapter() {
             @Override
@@ -132,6 +137,8 @@ public class NhanVienController {
                     nhanVienBUS.themNhanvien(nhanVien);
                     panelForm.xoaForm();
                     layDanhSachNhanvien();
+                }else {
+                    JOptionPane.showMessageDialog(null, "Mã Nhan viên bị trùng");
                 }
             }
         });
@@ -255,6 +262,17 @@ public class NhanVienController {
             public void actionPerformed(ActionEvent evt) {
                 panelForm.showPopupBangLayMaTaiKhoan();
                 hienThiTaiKhoanLenPopup();
+            }
+        });
+        
+        panelForm.getBangLayMaTaiKhoan().addRowClickPopup(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                int row = panelForm.getBangLayMaTaiKhoan().getMyTable().getSelectedRow();
+                if(row != -1) {
+                    String maTaiKhoan = panelForm.getBangLayMaTaiKhoan().getMyTable().getValueAt(row, 0).toString();
+                    panelForm.getTxtMaTaiKhoan().setText(maTaiKhoan);
+                }
             }
         });
     }

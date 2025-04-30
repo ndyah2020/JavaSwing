@@ -8,6 +8,7 @@ import DTO.LoaiMayBayDTO;
 import DTO.MayBayDTO;
 import DTO.NhanVienDTO;
 import DTO.SanBayDTO;
+import DTO.TaiKhoanDTO;
 import DTO.VeDTO;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -132,6 +133,18 @@ public class HienThiTable {
             row.add(nv.getChucVu());
             row.add(nv.getLuongCoBan());
             row.add(nv.getMaTaiKhoan());
+            model.addRow(row);
+        }
+    }
+    
+    public static void taiDuLieuTaiKhoan(DefaultTableModel model, ArrayList<TaiKhoanDTO> danhSach) {
+        model.setRowCount(0);
+        for(TaiKhoanDTO tk : danhSach) {
+            Vector row = new Vector();
+            row.add(tk.getMaTaiKhoan());
+            row.add(tk.getEmail());
+            row.add(tk.getVaiTro());
+            row.add(tk.getTrangThai());      
             model.addRow(row);
         }
     }

@@ -152,19 +152,19 @@ CREATE TABLE TaiKhoan (
     MaTaiKhoan VARCHAR(20) PRIMARY KEY NOT NULL,
     Email VARCHAR(100) NOT NULL,
     MatKhau VARCHAR(255) NOT NULL,
-    VaiTro VARCHAR(50) NOT NULL,
+    VaiTro NVARCHAR(50) NOT NULL,
     OTP VARCHAR(10),
     HanOTP DATETIME,
-    TrangThai VARCHAR(50) NOT NULL
+    TrangThai NVARCHAR(50) NOT NULL
 );
 
 GO
 INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, OTP, HanOTP, TrangThai) VALUES
-('TK-001', 'admin@example.com', 'matkhau123', 'Admin', NULL, NULL, 'Hoạt Động'),
-('TK-002', 'nhanvien1@example.com', 'matkhau123', 'Nhân Viên', NULL, NULL, 'Hoạt Động'),
-('TK-003', 'nhanvien2@example.com', 'matkhau123', 'Nhân Viên', NULL, NULL, 'Hoạt Động'),
-('TK-004', 'nhanvien3@example.com', 'matkhau123', 'Nhân Viên', NULL, NULL, 'Hoạt Động'),
-('TK-005', 'nhanvien4@example.com', 'matkhau123', 'Nhân Viên', NULL, NULL, 'Hoạt Động');
+('TK-001', 'admin@example.com', 'matkhau123', N'Admin', NULL, NULL, N'Hoạt Động'),
+('TK-002', 'nhanvien1@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-003', 'nhanvien2@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-004', 'nhanvien3@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-005', 'nhanvien4@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động');
 GO
 DROP TABLE NhanVien
 
