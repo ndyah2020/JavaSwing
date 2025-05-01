@@ -41,7 +41,7 @@
               </Group>
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btnSua" max="32767" attributes="0"/>
+                  <Component id="btnXoaForm" max="32767" attributes="0"/>
                   <Component id="btnThem" pref="101" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -64,7 +64,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="myCombobox1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="myCombobox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSua" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnXoaForm" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="myCombobox3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
@@ -128,9 +128,6 @@
           <Dimension value="[100, 31]"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="myCombobox1ActionPerformed"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="comboSearch">
 
@@ -165,7 +162,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="GUI.panel.swing.MyButton" name="btnSua">
+    <Component class="GUI.panel.swing.MyButton" name="btnXoaForm">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/assets/icon/reloadNhanVien.png"/>
@@ -187,9 +184,6 @@
           <Dimension value="[72, 31]"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuaActionPerformed"/>
-      </Events>
     </Component>
     <Component class="GUI.panel.swing.MyButton" name="btnThem">
       <Properties>
