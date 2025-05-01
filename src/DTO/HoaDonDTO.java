@@ -1,24 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package DTO;
 
-import java.util.Date;
-
-/**
- *
- * @author Lenovo
- */
+import java.sql.Date;
+import java.sql.Time;
 public class HoaDonDTO {
     private String maHoaDon;
-    private Date thoiGian;
-    private double tongTien;
+    private Time thoiGian;
+    private int tongTien;
     private String maNhanVien;
     private String maKhuyenMai;
     private String maKhachHang;
 
-    public HoaDonDTO(String maHoaDon, Date thoiGian, double tongTien, String maNhanVien, String maKhuyenMai, String maKhachHang) {
+    public HoaDonDTO(String maHoaDon, Time thoiGian, int tongTien, String maNhanVien, String maKhuyenMai, String maKhachHang) {
         this.maHoaDon = maHoaDon;
         this.thoiGian = thoiGian;
         this.tongTien = tongTien;
@@ -34,11 +27,11 @@ public class HoaDonDTO {
         return maHoaDon;
     }
 
-    public Date getThoiGian() {
+    public Time getThoiGian() {
         return thoiGian;
     }
 
-    public double getTongTien() {
+    public int getTongTien() {
         return tongTien;
     }
 
@@ -58,11 +51,11 @@ public class HoaDonDTO {
         this.maHoaDon = maHoaDon;
     }
 
-    public void setThoiGian(Date thoiGian) {
+    public void setThoiGian(Time thoiGian) {
         this.thoiGian = thoiGian;
     }
 
-    public void setTongTien(double tongTien) {
+    public void setTongTien(int tongTien) {
         this.tongTien = tongTien;
     }
 

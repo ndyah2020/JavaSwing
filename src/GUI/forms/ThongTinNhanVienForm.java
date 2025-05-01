@@ -34,7 +34,17 @@ public class ThongTinNhanVienForm extends javax.swing.JPanel {
     public JLabel getCtTenNhanVien() {
         return ctTenNhanVien;
     }
-    
+
+    public void clearForm() {
+        ctMaNhanVien.setText("");
+        ctHoNhanVien.setText("");
+        ctTenNhanVien.setText("");
+        ctGioiTinhNhanVien.setText("");
+        ctNgaySinh.setText("");
+        ctEmail.setText("");
+        ctChucVu.setText("");
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -219,7 +229,7 @@ public class ThongTinNhanVienForm extends javax.swing.JPanel {
 
         add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ctChucVu;

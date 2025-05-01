@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
-  <NonVisualComponents>
-    <Container class="javax.swing.JMenuBar" name="jMenuBar1">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-        <Property name="useNullLayout" type="boolean" value="true"/>
-      </Layout>
-      <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="File"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Edit"/>
-          </Properties>
-        </Menu>
-      </SubComponents>
-    </Container>
-  </NonVisualComponents>
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -42,40 +22,40 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="hoaDonTableForm1" pref="0" max="32767" attributes="0"/>
+              <Component id="hoaDonTableForm" pref="0" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="hoaDonCTTableForm1" min="-2" pref="363" max="-2" attributes="0"/>
+              <Component id="hoaDonCTTableForm" min="-2" pref="363" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="thongTinKhachHangForm2" min="-2" pref="276" max="-2" attributes="0"/>
-                  <Component id="thongTinNhanVienForm2" min="-2" pref="275" max="-2" attributes="0"/>
+                  <Component id="thongTinKhachHangForm" min="-2" pref="276" max="-2" attributes="0"/>
+                  <Component id="thongTinNhanVienForm" min="-2" pref="275" max="-2" attributes="0"/>
               </Group>
           </Group>
-          <Component id="hoaDonControlForm1" alignment="0" pref="1072" max="32767" attributes="0"/>
+          <Component id="hoaDonControlForm" alignment="0" pref="1072" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="hoaDonControlForm1" min="-2" max="-2" attributes="0"/>
+              <Component id="hoaDonControlForm" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="thongTinKhachHangForm2" min="-2" pref="236" max="-2" attributes="0"/>
+                      <Component id="thongTinKhachHangForm" min="-2" pref="236" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="thongTinNhanVienForm2" pref="373" max="32767" attributes="0"/>
+                      <Component id="thongTinNhanVienForm" pref="373" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="hoaDonTableForm1" max="32767" attributes="0"/>
-                  <Component id="hoaDonCTTableForm1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="hoaDonTableForm" max="32767" attributes="0"/>
+                  <Component id="hoaDonCTTableForm" alignment="0" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="GUI.forms.HoaDonControlForm" name="hoaDonControlForm1">
+    <Component class="GUI.forms.HoaDonControlForm" name="hoaDonControlForm">
     </Component>
-    <Component class="GUI.forms.HoaDonTableForm" name="hoaDonTableForm1">
+    <Component class="GUI.forms.HoaDonTableForm" name="hoaDonTableForm">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -86,7 +66,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.forms.HoaDonCTTableForm" name="hoaDonCTTableForm1">
+    <Component class="GUI.forms.HoaDonCTTableForm" name="hoaDonCTTableForm">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -97,7 +77,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.forms.ThongTinNhanVienForm" name="thongTinNhanVienForm2">
+    <Component class="GUI.forms.ThongTinNhanVienForm" name="thongTinNhanVienForm">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -108,7 +88,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.forms.ThongTinKhachHangForm" name="thongTinKhachHangForm2">
+    <Component class="GUI.forms.ThongTinKhachHangForm" name="thongTinKhachHangForm">
     </Component>
   </SubComponents>
 </Form>

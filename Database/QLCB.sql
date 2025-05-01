@@ -224,9 +224,6 @@ INSERT INTO KhuyenMai (MaKhuyenMai, TenKhuyenMai, NgayBatDau, NgayKetThuc, PhanT
 ('KM0009', N'Tri ân khách VIP', '2025-10-01', '2025-10-15', '60'),
 ('KM0010', N'Khuyến mãi mùa xuân', '2025-03-01', '2025-03-31', '8');
 
-
-
-
 Drop Table CTKhuyenMai
 CREATE TABLE CTKhuyenMai (
     MaCTKhuyenMai VARCHAR(20) PRIMARY KEY NOT NULL,
@@ -254,7 +251,7 @@ Drop Table HoaDon
 CREATE TABLE HoaDon (
     MaHoaDon VARCHAR(10) PRIMARY KEY NOT NULL,
     ThoiGian DATETIME NOT NULL,
-    TongTien DECIMAL(10,2) NOT NULL,
+    TongTien INT NOT NULL,
     MaNV VARCHAR(10) NOT NULL,
     MaKhuyenMai VARCHAR(20),
     MaKhachHang VARCHAR(10) NOT NULL,
@@ -275,30 +272,3 @@ CREATE TABLE CTHoaDon (
     FOREIGN KEY (MaVe) REFERENCES Ve(MaVe)
 );
 GO
-
-
-
-
-
---Triger ràng buộc dữ liệu
-
---Không được xóa mã sân bay khi sân bay đã được chọn ở hành trình
-create trigger trg_KhongXoaSanBay
-on SanBay instead of delete 
-as
-begin
-	if exists(
-		
-	)
-end
-
-
-SELECT ht.GiaCoBan, mb.SoLuongGheThuong, mb.SoLuongGheVip,lmb.HeSoGiaThuong, lmb.HeSoGiaVip 
-FROM ChuyenBay cb
-JOIN HanhTrinh ht On cb.MaHanhTrinh = ht.MaHanhTrinh
-JOIN MayBay mb ON cb.MaMayBay = mb.MaMaybay
-JOIN LoaiMayBay lmb ON lmb.MaLoai = mb.MaLoaiMayBay
-WHERE cb.MaChuyenBay = 'CB-0006';
-
-SELECT *
-FROM HanhTrinh

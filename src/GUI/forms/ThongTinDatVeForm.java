@@ -72,9 +72,6 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         jTextField17 = new javax.swing.JTextField();
         myButton2 = new GUI.panel.swing.MyButton();
         jPanel20 = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
         jPanel21 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jTextField18 = new javax.swing.JTextField();
@@ -285,26 +282,12 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         jPanel20.setBackground(new java.awt.Color(255, 255, 255));
         jPanel20.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel12.setLayout(new javax.swing.BoxLayout(jPanel12, javax.swing.BoxLayout.LINE_AXIS));
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel15.setText("Mã vé:");
-        jLabel15.setPreferredSize(new java.awt.Dimension(70, 30));
-        jPanel12.add(jLabel15);
-
-        jTextField14.setMinimumSize(new java.awt.Dimension(30, 22));
-        jTextField14.setPreferredSize(new java.awt.Dimension(40, 30));
-        jPanel12.add(jTextField14);
-
-        jPanel20.add(jPanel12);
-
         jPanel21.setBackground(new java.awt.Color(255, 255, 255));
         jPanel21.setLayout(new javax.swing.BoxLayout(jPanel21, javax.swing.BoxLayout.LINE_AXIS));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel19.setText("Mã CB:");
-        jLabel19.setPreferredSize(new java.awt.Dimension(50, 30));
+        jLabel19.setPreferredSize(new java.awt.Dimension(70, 30));
         jPanel21.add(jLabel19);
 
         jTextField18.setPreferredSize(new java.awt.Dimension(71, 30));
@@ -392,7 +375,6 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -404,7 +386,6 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
@@ -424,7 +405,6 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
