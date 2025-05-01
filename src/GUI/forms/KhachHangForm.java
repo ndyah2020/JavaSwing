@@ -21,12 +21,6 @@ public class KhachHangForm extends javax.swing.JPanel {
         initDateChoosers();
         buttonGroup1.add(btnNam);
         buttonGroup1.add(btnNu);
-        txtMa.setEditable(false);
-        txtTen.setEditable(false);
-        txtHo.setEditable(false);
-        txtNgaySinh.setEditable(false);
-        txtSdt.setEditable(false);
-        txtEmail.setEditable(false);
     }
 
     @SuppressWarnings("unchecked")
