@@ -195,7 +195,6 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         jPanel13.add(jTextField13);
 
         myButton1.setText("Kiểm tra");
-        myButton1.setActionCommand("Kiểm tra");
         myButton1.setBorderColor(new java.awt.Color(204, 204, 204));
         myButton1.setColorClick(new java.awt.Color(0, 153, 255));
         myButton1.setColorOver(new java.awt.Color(0, 204, 255));
@@ -339,7 +338,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(90, 90, 90)
                 .addComponent(myButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

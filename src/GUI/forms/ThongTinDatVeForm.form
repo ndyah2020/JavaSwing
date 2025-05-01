@@ -46,7 +46,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
               <Component id="myButton2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="90" max="32767" attributes="0"/>
+              <EmptySpace pref="70" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -388,7 +388,6 @@
         <Component class="GUI.panel.swing.MyButton" name="myButton1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ki&#x1ec3;m tra"/>
-            <Property name="actionCommand" type="java.lang.String" value="Ki&#x1ec3;m tra"/>
             <Property name="borderColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
