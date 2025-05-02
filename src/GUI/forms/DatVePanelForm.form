@@ -21,36 +21,50 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="datVeControlForm2" pref="1060" max="32767" attributes="0"/>
+          <Component id="datVeControlForm" alignment="1" pref="1069" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="datVeTableForm" pref="772" max="32767" attributes="0"/>
+                  <Component id="datVeTableThemForm" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="khachHangForm" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="datVeTableForm1" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="thongTinDatVeForm1" min="-2" pref="268" max="-2" attributes="0"/>
+                      <Component id="thongTinDatVeForm" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="datVeControlForm2" min="-2" max="-2" attributes="0"/>
+              <Component id="datVeControlForm" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="thongTinDatVeForm1" pref="643" max="32767" attributes="0"/>
-                  <Component id="datVeTableForm1" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="datVeTableForm" min="-2" pref="420" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="datVeTableThemForm" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="thongTinDatVeForm" pref="301" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="khachHangForm" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="GUI.forms.DatVeControlForm" name="datVeControlForm2">
+    <Component class="GUI.forms.DatVeControlForm" name="datVeControlForm">
     </Component>
-    <Component class="GUI.forms.ThongTinDatVeForm" name="thongTinDatVeForm1">
+    <Component class="GUI.forms.DatVeTableForm" name="datVeTableForm">
+    </Component>
+    <Component class="GUI.forms.DatVeTableThemForm" name="datVeTableThemForm">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -61,7 +75,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.forms.DatVeTableForm" name="datVeTableForm1">
+    <Component class="GUI.forms.KhachHangForm" name="khachHangForm">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -71,6 +85,8 @@
           </Border>
         </Property>
       </Properties>
+    </Component>
+    <Component class="GUI.forms.ThongTinDatVeForm" name="thongTinDatVeForm">
     </Component>
   </SubComponents>
 </Form>

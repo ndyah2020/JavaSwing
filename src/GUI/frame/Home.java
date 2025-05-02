@@ -1,6 +1,7 @@
 package GUI.frame;
 
 import Control.ChuyenBayController;
+import Control.DatVeController;
 import Control.HanhTrinhController;
 import Control.HoaDonVaCTController;
 import Control.KhachHangController;
@@ -48,6 +49,7 @@ public final class Home extends javax.swing.JFrame {
     private TaiKhoanController taiKhoancontroller;
     private KhachHangController  khachHangController;
     private HoaDonVaCTController hoaDonVaCTController;
+    private DatVeController datVeController;
     //Khoi tao cac panel
     private FormGroup formGroup;
     private DatVePanelForm datVeForm;
@@ -360,8 +362,9 @@ public final class Home extends javax.swing.JFrame {
             System.out.println("Trang chủ");
             // có thể xử lý hiển thị form trang chủ nếu có
         } else if (selectedLabel == datVeMenu) {
-            System.out.println("Đặt vé");
-            // Hiển thị form đặt vé
+            datVeController = new DatVeController(datVeForm);
+            datVeController.layDanhSachChuyenBayVaVe();
+            datVeController.xuLySuKien();
         } else if (selectedLabel == khachHangMenu) {
             khachHangController = new KhachHangController(khachHangForm);
             khachHangController.layDanhSachKhachHang();

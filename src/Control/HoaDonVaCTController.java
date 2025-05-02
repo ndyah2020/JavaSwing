@@ -166,6 +166,7 @@ public class HoaDonVaCTController {
                panelThongTinKH.clearForm();
                panelThongTinNV.clearForm();
                panelControl.clearForm();
+               panelTableCT.getModel().setRowCount(0);
                layDanhSachHoaDon();
             }
         });

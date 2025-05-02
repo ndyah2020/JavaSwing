@@ -4,11 +4,12 @@ import GUI.panel.swing.MyTable;
 import java.awt.event.MouseAdapter;
 import javax.swing.table.DefaultTableModel;
 
-public class DatVeTableForm extends javax.swing.JPanel {
+public class DatVeTableThemForm extends javax.swing.JPanel {
     private DefaultTableModel model;
-    public DatVeTableForm() {
+    public DatVeTableThemForm() {
         initComponents();
     }
+
     public DefaultTableModel getModel() {
         return model;
     }
@@ -27,6 +28,7 @@ public class DatVeTableForm extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         myTable = new GUI.panel.swing.MyTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
 
         myTable.setModel(new javax.swing.table.DefaultTableModel(

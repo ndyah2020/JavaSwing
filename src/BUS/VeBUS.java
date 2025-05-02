@@ -32,7 +32,19 @@ public class VeBUS {
             layDanhSachVe();
         }
         for(VeDTO ve : danhSachVe) {
-            if(ve.getChuyenBay().equals(maChuyenBay) && ve.getTrangThaiVe().equals("Đã đặt")){
+            if(ve.getChuyenBay().equals(maChuyenBay) && ve.getTrangThaiVe().equals("Đã Đặt")){
+                return ve;
+            }
+        }
+        return null;
+    }
+    
+    public VeDTO timKiemVeTheoMaChuyenBayChuaDat(String maChuyenBay){
+        if(danhSachVe.isEmpty()) {
+            layDanhSachVe();
+        }
+        for(VeDTO ve : danhSachVe) {
+            if(ve.getChuyenBay().equals(maChuyenBay) && ve.getTrangThaiVe().equals("Chưa Đặt")){
                 return ve;
             }
         }
