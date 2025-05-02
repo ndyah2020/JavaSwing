@@ -104,7 +104,6 @@ public final class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollBar1 = new javax.swing.JScrollBar();
         PanelTrangChu = new GUI.panel.swing.PanelBoderPanel();
         menuContainer = new javax.swing.JPanel();
         thongTinTaiKhoan = new javax.swing.JPanel();
@@ -472,7 +471,6 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JLabel hienThiChucVuTK;
     private javax.swing.JLabel hienThiTenTK;
     private javax.swing.JLabel hoaDonMenu;
-    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JLabel khachHangMenu;
     private javax.swing.JLabel khuyenMaiMenu;
     private javax.swing.JLabel loaiMayBayMenu;

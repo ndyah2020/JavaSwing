@@ -388,6 +388,7 @@ public class ChuyenBayForm extends javax.swing.JPanel {
     public DateChooser getNgayDenDateChooser() {
         return ngayDenDateChooser;
     }
+    
     public MyButton getBtnMaHanhTrinh() {
         return btnMaHanhTrinh;
     }

@@ -14,6 +14,8 @@ import GUI.forms.HoaDonPanelForm;
 import GUI.forms.HoaDonTableForm;
 import GUI.forms.ThongTinKhachHangForm;
 import GUI.forms.ThongTinNhanVienForm;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -22,6 +24,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.sql.Date;
 import javax.swing.table.DefaultTableModel;
 
 public class HoaDonVaCTController {
@@ -121,16 +124,50 @@ public class HoaDonVaCTController {
             }
         });
         
-        FocusListener timKiemkhoanMucGia = new FocusAdapter() {
+        panelControl.addCbmKieuLocListener(new ActionListener() {
             @Override
-            public void focusLost(FocusEvent evt) {
+            public void actionPerformed(ActionEvent evt ) {
                 int giaTu = (int )panelControl.getTxtMucGiaTu().getValue();
                 int giaDen = (int) panelControl.getTxtMucGiaDen().getValue();
-                
-                if(giaTu >= 0 && giaDen > 0) {
+                String ngayTuStr = panelControl.getTxtTuNgay().getText();
+                String ngayDenStr = panelControl.getTxtDenNgay().getText();
+                Date ngayTu = null;
+                Date ngayDen = null;
+                if (!ngayTuStr.isEmpty()) {
+                    ngayTu = Date.valueOf(ngayTuStr);
                     
                 }
+                if(!ngayDenStr.isEmpty()) {
+                    ngayDen = Date.valueOf(ngayDenStr);
+                }
+                
+                if (giaTu > 0 || giaDen > 0 || ngayTu != null || ngayDen != null) {
+                    int kieuLoc = panelControl.getCbmKieuLoc().getSelectedIndex();
+                    DefaultTableModel model = panelTable.getModel();
+
+                    if (kieuLoc == 0) {
+                        HienThiTable.taiDuLieuHoaDon(model, hoaDonBUS.locHoaDonVa(giaTu, giaDen, ngayTu, ngayDen));
+                    } else {
+                        HienThiTable.taiDuLieuHoaDon(model, hoaDonBUS.locHoaDonHoac(giaTu, giaDen, ngayTu, ngayDen));
+                    }
+
+                    panelTable.getMyTable().setModel(model);
+                } else {
+                    layDanhSachHoaDon();
+                }
+
             }
-        };
+        });
+        
+        panelControl.addBtnTaiLaiListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt ) {
+               panelTable.getMyTable().clearSelection();
+               panelThongTinKH.clearForm();
+               panelThongTinNV.clearForm();
+               panelControl.clearForm();
+               layDanhSachHoaDon();
+            }
+        });
     }
 }
