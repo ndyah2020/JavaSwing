@@ -61,6 +61,19 @@ public class KhachHangBUS {
         return dsKHTimThay;
     }
 
+    public ArrayList<KhachHangDTO> timDSKhachHangTheoCccd(String id) {
+        if(dsKhachHang.isEmpty()){
+            docdsKhachHang();
+        }
+        ArrayList<KhachHangDTO> dsKHTimThay = new ArrayList<>();
+        for(KhachHangDTO kh : dsKhachHang) {
+            if(kh.getCccd().trim().contains((id.trim()))) {
+                dsKHTimThay.add(kh);
+            }
+        }
+        return dsKHTimThay;
+    }
+
     public KhachHangDTO timMotKH(String maKH) {
         if(dsKhachHang.isEmpty()){
             docdsKhachHang();

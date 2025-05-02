@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/BUS/TaiKhoanBUS.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DTO/NhanVienDTO.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/HanhTrinhController.java</file>
@@ -32,6 +33,16 @@
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/HanhTrinhPanelForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/frame/Home.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/BUS/HoaDonBUS.java</file>
+=======
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/ChuyenBayControlForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/KhachHangControlForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/ChuyenBayTableForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/KhachHangTableForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/KhachHangGroupForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/KhachHangForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/ChuyenBayPanelForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/ChuyenBayForm.java</file>
+>>>>>>> 7e56ea99857f71fa11c679afca83e81ba49c7cfd
         </group>
     </open-files>
 </project-private>
