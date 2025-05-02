@@ -18,8 +18,9 @@ public class KhachHangDTO {
     private Date ngaySinh;
     private String sdt;
     private String email;
+    private String cccd;
 
-    public KhachHangDTO(String maKhachHang, String ho, String ten, String gioiTinh, Date ngaySinh, String sdt, String email) {
+    public KhachHangDTO(String maKhachHang, String ho, String ten, String gioiTinh, Date ngaySinh, String sdt, String email, String cccd) {
         this.maKhachHang = maKhachHang;
         this.ho = ho;
         this.ten = ten;
@@ -27,6 +28,7 @@ public class KhachHangDTO {
         this.ngaySinh = ngaySinh;
         this.sdt = sdt;
         this.email = email;
+        this.cccd = cccd;
     }
     public KhachHangDTO() {
         
@@ -60,6 +62,10 @@ public class KhachHangDTO {
         return email;
     }
 
+    public String getCccd() {
+        return cccd;
+    }
+
     public void setMaKhachHang(String maKhachHang) {
         this.maKhachHang = maKhachHang;
     }
@@ -86,6 +92,10 @@ public class KhachHangDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setCccd(String cccd) {
+        this.cccd = cccd;
     }
     
 }

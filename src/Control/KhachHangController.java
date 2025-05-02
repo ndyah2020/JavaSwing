@@ -114,6 +114,12 @@ public class KhachHangController {
                         JOptionPane.showMessageDialog(null, "Email bạn nhập không đúng vui lòng nhập lại!");
                         return;
                     }
+                    String cccd = panelForm.getCccd().getText().trim();
+                    if(cccd.matches("^0\\d{11}$" + //
+                                                "")) {
+                        JOptionPane.showMessageDialog(null, "Cccd bạn nhập không đúng vui lòng nhập lại!");
+                        return;
+                    }
                     KhachHangDTO kh = new KhachHangDTO();
                     kh.setMaKhachHang(maKh);
                     kh.setHo(ho);
@@ -161,6 +167,11 @@ public class KhachHangController {
                             String email = panelForm.getEmail().getText().trim();
                             if(email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
                                 JOptionPane.showMessageDialog(null, "Email bạn nhập không đúng vui lòng nhập lại!");
+                                return;
+                            }
+                            String cccd = panelForm.getCccd().getText().trim();
+                            if(cccd.matches("^0\\d{11}$")) {
+                                JOptionPane.showMessageDialog(null, "Cccd bạn nhập không đúng vui lòng nhập lại!");
                                 return;
                             }
                             KhachHangDTO kh = new KhachHangDTO();
