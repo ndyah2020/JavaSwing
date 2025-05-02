@@ -14,6 +14,11 @@ import GUI.forms.HoaDonPanelForm;
 import GUI.forms.HoaDonTableForm;
 import GUI.forms.ThongTinKhachHangForm;
 import GUI.forms.ThongTinNhanVienForm;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -100,5 +105,32 @@ public class HoaDonVaCTController {
                 }
             }
         });
+        
+        panelControl.addTxtSearchListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent evt) {
+                String tuKhoa = panelControl.getTxtSearch().getText();
+                if(!tuKhoa.isEmpty()) {
+                    ArrayList<HoaDonDTO> ds = hoaDonBUS.timKiemHoaDonToanCuc(tuKhoa);
+                    DefaultTableModel model = panelTable.getModel();
+                    HienThiTable.taiDuLieuHoaDon(model, ds);
+                    panelTable.getMyTable().setModel(model);
+                } else {
+                    layDanhSachHoaDon();
+                }
+            }
+        });
+        
+        FocusListener timKiemkhoanMucGia = new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent evt) {
+                int giaTu = (int )panelControl.getTxtMucGiaTu().getValue();
+                int giaDen = (int) panelControl.getTxtMucGiaDen().getValue();
+                
+                if(giaTu >= 0 && giaDen > 0) {
+                    
+                }
+            }
+        };
     }
 }

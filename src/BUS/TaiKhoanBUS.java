@@ -21,4 +21,18 @@ public class TaiKhoanBUS {
     public ArrayList<TaiKhoanDTO> getDanhSachTaiKhoan() {
         return danhSachTaiKhoan;
     }
+    
+    public ArrayList<TaiKhoanDTO> timTaiKhoanToanCuc(String tuKhoa) {
+        String tuKhoaFM = tuKhoa.toLowerCase().trim();
+        ArrayList<TaiKhoanDTO> ds = new ArrayList<>();
+        for(TaiKhoanDTO taiKhoan: danhSachTaiKhoan) {
+            if(taiKhoan.getMaTaiKhoan().toLowerCase().contains(tuKhoaFM)
+                    || taiKhoan.getEmail().toLowerCase().contains(tuKhoaFM)
+                    || taiKhoan.getVaiTro().toLowerCase().contains(tuKhoaFM)
+                    || taiKhoan.getTrangThai().toLowerCase().contains(tuKhoaFM)) {
+                ds.add(taiKhoan);
+            }
+        }
+        return ds;
+    }
 }

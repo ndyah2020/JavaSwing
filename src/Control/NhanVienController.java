@@ -274,5 +274,21 @@ public class NhanVienController {
                 }
             }
         });
+        
+        panelForm.getBangLayMaTaiKhoan().addSearchPopupListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent evt) {
+                String tuKhoa = panelForm.getBangLayMaTaiKhoan().getTxtSearch().getText();
+                
+                if(!tuKhoa.isEmpty()) {
+                    DefaultTableModel model = panelForm.getBangLayMaTaiKhoan().getModel();
+                    ArrayList<TaiKhoanDTO> ds  = taiKhoanBUS.timTaiKhoanToanCuc(tuKhoa);
+                    HienThiTable.taiDuLieuTaiKhoan(model, ds);
+                    panelForm.getBangLayMaTaiKhoan().getMyTable().setModel(model);
+                }else {
+                    hienThiTaiKhoanLenPopup();
+                }
+            }
+        });
     }
 }
