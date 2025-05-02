@@ -16,7 +16,7 @@ import GUI.forms.DatVePanelForm;
 import GUI.forms.FormGroup;
 import GUI.forms.HanhTrinhPanelForm;
 import GUI.forms.HoaDonPanelForm;
-import GUI.forms.KhachHangGroupForm;
+import GUI.forms.KhachHangPanelForm;
 import GUI.forms.KhuyenMaiPanelForm;
 import GUI.forms.LoaiMayBayPanelForm;
 import GUI.forms.MayBayPanelForm;
@@ -51,7 +51,7 @@ public final class Home extends javax.swing.JFrame {
     //Khoi tao cac panel
     private FormGroup formGroup;
     private DatVePanelForm datVeForm;
-    private KhachHangGroupForm khachHangForm;
+    private KhachHangPanelForm khachHangForm;
     private NhanVienPanelForm nhanVienForm;
     private LoaiMayBayPanelForm loaiMayBayForm;
     private MayBayPanelForm mayBayForm;
@@ -85,7 +85,7 @@ public final class Home extends javax.swing.JFrame {
     private void initForms() {
         formGroup = new FormGroup();
         datVeForm = new DatVePanelForm();
-        khachHangForm = new KhachHangGroupForm();
+        khachHangForm = new KhachHangPanelForm();
         nhanVienForm = new NhanVienPanelForm();
         loaiMayBayForm = new LoaiMayBayPanelForm();
         mayBayForm = new MayBayPanelForm();

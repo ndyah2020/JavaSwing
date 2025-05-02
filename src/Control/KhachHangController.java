@@ -6,7 +6,7 @@ import BUS.KhachHangBUS;
 import DTO.KhachHangDTO;
 import GUI.forms.KhachHangControlForm;
 import GUI.forms.KhachHangForm;
-import GUI.forms.KhachHangGroupForm;
+import GUI.forms.KhachHangPanelForm;
 import GUI.forms.KhachHangTableForm;
 
 import javax.swing.JOptionPane;
@@ -25,7 +25,7 @@ public class KhachHangController {
     private final KhachHangTableForm panelTable;
     private final KhachHangBUS khachHangBUS = new KhachHangBUS();
 
-    public KhachHangController(KhachHangGroupForm panel) {
+    public KhachHangController(KhachHangPanelForm panel) {
         this.panelForm = panel.getKhachHangForm();
         this.panelControl = panel.getKhachHangControlForm();
         this.panelTable = panel.getKhachHangTableForm();   
