@@ -1,5 +1,6 @@
 package GUI.forms;
 
+import GUI.panel.swing.MyTable;
 import javax.swing.table.DefaultTableModel;
 
 public class HoaDonCTTableForm extends javax.swing.JPanel {
@@ -9,13 +10,14 @@ public class HoaDonCTTableForm extends javax.swing.JPanel {
         String[] columnNames = {
             "Mã CTHD", // MaCTHD
             "Số lượng", // SoLuong
-            "Giá", // Gia
+            "Đơn Giá", // Gia
             "Mã hóa đơn", // MaHoaDon
             "Mã vé" // MaVe
         };
         model = new DefaultTableModel(columnNames, 0);
         myTable.setModel(model);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -40,7 +42,13 @@ public class HoaDonCTTableForm extends javax.swing.JPanel {
 
         add(jScrollPane1);
     }// </editor-fold>//GEN-END:initComponents
+    public MyTable getMyTable() {
+        return myTable;
+    }
 
+    public DefaultTableModel getModel() {
+        return model;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

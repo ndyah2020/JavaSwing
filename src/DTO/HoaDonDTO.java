@@ -5,15 +5,15 @@ import java.sql.Date;
 import java.sql.Time;
 public class HoaDonDTO {
     private String maHoaDon;
-    private Time thoiGian;
+    private Date ngayLap;
     private int tongTien;
     private String maNhanVien;
     private String maKhuyenMai;
     private String maKhachHang;
 
-    public HoaDonDTO(String maHoaDon, Time thoiGian, int tongTien, String maNhanVien, String maKhuyenMai, String maKhachHang) {
+    public HoaDonDTO(String maHoaDon, Date ngayLap, int tongTien, String maNhanVien, String maKhuyenMai, String maKhachHang) {
         this.maHoaDon = maHoaDon;
-        this.thoiGian = thoiGian;
+        this.ngayLap = ngayLap;
         this.tongTien = tongTien;
         this.maNhanVien = maNhanVien;
         this.maKhuyenMai = maKhuyenMai;
@@ -27,8 +27,8 @@ public class HoaDonDTO {
         return maHoaDon;
     }
 
-    public Time getThoiGian() {
-        return thoiGian;
+    public Date getNgayLap() {
+        return ngayLap;
     }
 
     public int getTongTien() {
@@ -51,8 +51,8 @@ public class HoaDonDTO {
         this.maHoaDon = maHoaDon;
     }
 
-    public void setThoiGian(Time thoiGian) {
-        this.thoiGian = thoiGian;
+    public void setNgayLap(Date ngayLap) {
+        this.ngayLap = ngayLap;
     }
 
     public void setTongTien(int tongTien) {

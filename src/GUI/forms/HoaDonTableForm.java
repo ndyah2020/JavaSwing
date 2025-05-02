@@ -1,6 +1,7 @@
 package GUI.forms;
 
 import GUI.panel.swing.MyTable;
+import java.awt.event.MouseAdapter;
 import javax.swing.table.DefaultTableModel;
 
 public class HoaDonTableForm extends javax.swing.JPanel {
@@ -10,14 +11,13 @@ public class HoaDonTableForm extends javax.swing.JPanel {
     public HoaDonTableForm() {
         initComponents();
         String[] columnNames = {
-            "Mã hóa đơn", // MaHoaDon
-            "Thời gian", // ThoiGian
+            "Mã HD", // MaHoaDon
+            "Ngày Lập", // ThoiGian
             "Tổng tiền", // TongTien
-            "Mã nhân viên", // MaNV
-            "Mã khuyến mãi", // MaKhuyenMai
-            "Mã khách hàng" // MaKhachHang
+            "Mã NV", // MaNV
+            "Mã KH", // MaKhachHang
+            "Mã KM", 
         };
-
         model = new DefaultTableModel(columnNames, 0);
         myTable.setModel(model);
     }
@@ -47,7 +47,7 @@ public class HoaDonTableForm extends javax.swing.JPanel {
         add(jScrollPane1);
     }// </editor-fold>//GEN-END:initComponents
 
-    public MyTable getMyTable1() {
+    public MyTable getMyTable() {
         return myTable;
     }
 
@@ -55,6 +55,9 @@ public class HoaDonTableForm extends javax.swing.JPanel {
         return model;
     }
     
+    public void addRowClickListener(MouseAdapter listner) {
+        myTable.addMouseListener(listner);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private GUI.panel.swing.MyTable myTable;

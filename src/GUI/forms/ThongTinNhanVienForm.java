@@ -27,8 +27,8 @@ public class ThongTinNhanVienForm extends javax.swing.JPanel {
         return ctMaNhanVien;
     }
 
-    public JLabel getCtNgaySinh() {
-        return ctNgaySinh;
+    public JLabel getCtSdt() {
+        return ctSdt;
     }
 
     public JLabel getCtTenNhanVien() {
@@ -40,7 +40,7 @@ public class ThongTinNhanVienForm extends javax.swing.JPanel {
         ctHoNhanVien.setText("");
         ctTenNhanVien.setText("");
         ctGioiTinhNhanVien.setText("");
-        ctNgaySinh.setText("");
+        ctSdt.setText("");
         ctEmail.setText("");
         ctChucVu.setText("");
     }
@@ -69,7 +69,7 @@ public class ThongTinNhanVienForm extends javax.swing.JPanel {
         ctGioiTinhNhanVien = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        ctNgaySinh = new javax.swing.JLabel();
+        ctSdt = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         lbEmial = new javax.swing.JLabel();
         ctEmail = new javax.swing.JLabel();
@@ -192,18 +192,18 @@ public class ThongTinNhanVienForm extends javax.swing.JPanel {
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel21.setText("Ngày Sinh: ");
+        jLabel21.setText("SDT:");
         jLabel21.setMaximumSize(new java.awt.Dimension(120, 30));
         jLabel21.setMinimumSize(new java.awt.Dimension(120, 30));
         jLabel21.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel7.add(jLabel21);
 
-        ctNgaySinh.setBackground(new java.awt.Color(255, 255, 255));
-        ctNgaySinh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ctNgaySinh.setMaximumSize(new java.awt.Dimension(200, 300));
-        ctNgaySinh.setMinimumSize(new java.awt.Dimension(120, 300));
-        ctNgaySinh.setPreferredSize(new java.awt.Dimension(120, 30));
-        jPanel7.add(ctNgaySinh);
+        ctSdt.setBackground(new java.awt.Color(255, 255, 255));
+        ctSdt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ctSdt.setMaximumSize(new java.awt.Dimension(200, 300));
+        ctSdt.setMinimumSize(new java.awt.Dimension(120, 300));
+        ctSdt.setPreferredSize(new java.awt.Dimension(120, 30));
+        jPanel7.add(ctSdt);
 
         jPanel1.add(jPanel7);
 
@@ -214,8 +214,8 @@ public class ThongTinNhanVienForm extends javax.swing.JPanel {
         lbEmial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbEmial.setText("Email: ");
         lbEmial.setMaximumSize(new java.awt.Dimension(120, 30));
-        lbEmial.setMinimumSize(new java.awt.Dimension(120, 30));
-        lbEmial.setPreferredSize(new java.awt.Dimension(120, 30));
+        lbEmial.setMinimumSize(new java.awt.Dimension(40, 30));
+        lbEmial.setPreferredSize(new java.awt.Dimension(50, 30));
         jPanel8.add(lbEmial);
 
         ctEmail.setBackground(new java.awt.Color(255, 255, 255));
@@ -237,7 +237,7 @@ public class ThongTinNhanVienForm extends javax.swing.JPanel {
     private javax.swing.JLabel ctGioiTinhNhanVien;
     private javax.swing.JLabel ctHoNhanVien;
     private javax.swing.JLabel ctMaNhanVien;
-    private javax.swing.JLabel ctNgaySinh;
+    private javax.swing.JLabel ctSdt;
     private javax.swing.JLabel ctTenNhanVien;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

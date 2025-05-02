@@ -1,8 +1,10 @@
 package Control;
 
+import DTO.CTHoaDonDTO;
 import DTO.CTKhuyenMaiDTO;
 import DTO.ChuyenBayDTO;
 import DTO.HanhTrinhDTO;
+import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 import DTO.KhuyenMaiDTO;
 import DTO.LoaiMayBayDTO;
@@ -159,6 +161,33 @@ public class HienThiTable {
             row.add(tk.getEmail());
             row.add(tk.getVaiTro());
             row.add(tk.getTrangThai());      
+            model.addRow(row);
+        }
+    }
+    
+    public static void taiDuLieuHoaDon(DefaultTableModel model, ArrayList<HoaDonDTO> danhSach) {
+        model.setRowCount(0);
+        for(HoaDonDTO hd : danhSach) {
+            Vector row = new Vector();
+            row.add(hd.getMaHoaDon());
+            row.add(hd.getNgayLap());
+            row.add(hd.getTongTien());
+            row.add(hd.getMaNhanVien());
+            row.add(hd.getMaKhachHang());
+            row.add(hd.getMaKhuyenMai());
+            model.addRow(row);
+        }
+    }
+    
+    public static void taiDuLieuCTHoaDon(DefaultTableModel model, ArrayList<CTHoaDonDTO> danhSach) {
+        model.setRowCount(0);
+        for(CTHoaDonDTO ct : danhSach) {
+            Vector row = new Vector();
+            row.add(ct.getMaCTHD());
+            row.add(ct.getSoLuong());
+            row.add(ct.getDonGia());
+            row.add(ct.getMaHoaDon());
+            row.add(ct.getMaVe()); 
             model.addRow(row);
         }
     }

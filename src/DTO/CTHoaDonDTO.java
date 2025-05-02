@@ -11,14 +11,14 @@ package DTO;
 public class CTHoaDonDTO {
     private String maCTHD;
     private int soLuong;
-    private int gia;
+    private int donGia;
     private String maHoaDon;
     private String maVe;
 
-    public CTHoaDonDTO(String maCTHD, int soLuong, int gia, String maHoaDon, String maVe) {
+    public CTHoaDonDTO(String maCTHD, int soLuong, int donGia, String maHoaDon, String maVe) {
         this.maCTHD = maCTHD;
         this.soLuong = soLuong;
-        this.gia = gia;
+        this.donGia = donGia;
         this.maHoaDon = maHoaDon;
         this.maVe = maVe;
     }
@@ -34,8 +34,8 @@ public class CTHoaDonDTO {
         return soLuong;
     }
 
-    public int getGia() {
-        return gia;
+    public int getDonGia() {
+        return donGia;
     }
 
     public String getMaHoaDon() {
@@ -54,8 +54,8 @@ public class CTHoaDonDTO {
         this.soLuong = soLuong;
     }
 
-    public void setGia(int gia) {
-        this.gia = gia;
+    public void setDonGia(int donGia) {
+        this.donGia = donGia;
     }
 
     public void setMaHoaDon(String maHoaDon) {

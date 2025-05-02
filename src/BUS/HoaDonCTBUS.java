@@ -21,4 +21,14 @@ public class HoaDonCTBUS {
     public ArrayList<CTHoaDonDTO> getDanhSachCTHoaDon() {
         return danhSachCTHoaDon;
     }
+    
+    public ArrayList<CTHoaDonDTO> timCTHoaDonTheoMaHoaDon(String maHoaDon) {
+        ArrayList<CTHoaDonDTO> hoaDonTimThay = new ArrayList<>();
+        for(CTHoaDonDTO hd: danhSachCTHoaDon) {
+            if(hd.getMaHoaDon().equals(maHoaDon.trim())) {
+                hoaDonTimThay.add(hd);
+            }
+        }
+        return hoaDonTimThay;
+    }
 }

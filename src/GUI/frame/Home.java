@@ -2,6 +2,7 @@ package GUI.frame;
 
 import Control.ChuyenBayController;
 import Control.HanhTrinhController;
+import Control.HoaDonVaCTController;
 import Control.KhachHangController;
 import Control.KhuyenMaiController;
 import Control.LoaiMayBayController;
@@ -46,6 +47,7 @@ public final class Home extends javax.swing.JFrame {
     private NhanVienController nhanVienController;
     private TaiKhoanController taiKhoancontroller;
     private KhachHangController  khachHangController;
+    private HoaDonVaCTController hoaDonVaCTController;
     //Khoi tao cac panel
     private FormGroup formGroup;
     private DatVePanelForm datVeForm;
@@ -396,8 +398,9 @@ public final class Home extends javax.swing.JFrame {
             veController.layDanhSachVe();
             veController.xuLySuKien();
         } else if (selectedLabel == hoaDonMenu) {
-            System.out.println("Hóa đơn");
-            // Hiển thị form hóa đơn
+            hoaDonVaCTController = new HoaDonVaCTController(hoaDonForm);
+            hoaDonVaCTController.layDanhSachHoaDon();
+            hoaDonVaCTController.xuLySuKien();
         } else if (selectedLabel == khuyenMaiMenu) {
             khuyenMaiController = new KhuyenMaiController(khuyenMaiForm);
             khuyenMaiController.hienThiKhuyenMai();

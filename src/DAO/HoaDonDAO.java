@@ -20,18 +20,24 @@ public class HoaDonDAO {
             while(res.next()) {
                 HoaDonDTO hoaDon = new HoaDonDTO();
                 hoaDon.setMaHoaDon(res.getString("MaHoaDon"));
-                hoaDon.setThoiGian(res.getTime("ThoiGian"));
+                hoaDon.setNgayLap(res.getDate("NgayLap"));
                 hoaDon.setTongTien(res.getInt("TongTien"));
-                hoaDon.setMaNhanVien(res.getString("MaNhanVien"));
+                hoaDon.setMaNhanVien(res.getString("MaNV"));
                 hoaDon.setMaKhachHang(res.getString("MaKhachHang"));
-                hoaDon.setMaKhuyenMai(res.getString("MakhuyenMai"));
+              
+                String maKhuyenMai = res.getString("MakhuyenMai");
+                if(maKhuyenMai == null) {
+                    hoaDon.setMaKhuyenMai("None");
+                }else {
+                    hoaDon.setMaKhuyenMai(res.getString("MakhuyenMai"));
+                }
+                
                 dsHoaDOn.add(hoaDon);
             }
             ConnectToSQLServer.closeConnection(conn);
         } catch(SQLException e) {
             JOptionPane.showConfirmDialog(null, "Không thể lấy danh sách hóa đơn");
         }
-        
         return dsHoaDOn;
     }
 }

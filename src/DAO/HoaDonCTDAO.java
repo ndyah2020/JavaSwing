@@ -18,7 +18,7 @@ public class HoaDonCTDAO {
                 CTHoaDonDTO ctHoaDon = new CTHoaDonDTO();
                 ctHoaDon.setMaCTHD(res.getString("MaCTHD"));
                 ctHoaDon.setSoLuong(res.getInt("SoLuong"));
-                ctHoaDon.setGia(res.getInt("Gia"));
+                ctHoaDon.setDonGia(res.getInt("DonGia"));
                 ctHoaDon.setMaHoaDon(res.getString("MaHoaDon"));
                 ctHoaDon.setMaVe(res.getString("MaVe"));
                 dsCtHoaDon.add(ctHoaDon);

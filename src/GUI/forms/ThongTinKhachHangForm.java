@@ -71,8 +71,8 @@ public class ThongTinKhachHangForm extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setText("Tên: ");
         jLabel11.setMaximumSize(new java.awt.Dimension(120, 30));
-        jLabel11.setMinimumSize(new java.awt.Dimension(120, 30));
-        jLabel11.setPreferredSize(new java.awt.Dimension(120, 30));
+        jLabel11.setMinimumSize(new java.awt.Dimension(10, 30));
+        jLabel11.setPreferredSize(new java.awt.Dimension(10, 30));
         jPanel3.add(jLabel11);
 
         ctTenKhachHang.setBackground(new java.awt.Color(255, 255, 255));
@@ -91,8 +91,8 @@ public class ThongTinKhachHangForm extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel17.setText("Email");
         jLabel17.setMaximumSize(new java.awt.Dimension(120, 30));
-        jLabel17.setMinimumSize(new java.awt.Dimension(120, 30));
-        jLabel17.setPreferredSize(new java.awt.Dimension(120, 30));
+        jLabel17.setMinimumSize(new java.awt.Dimension(0, 30));
+        jLabel17.setPreferredSize(new java.awt.Dimension(10, 30));
         jPanel6.add(jLabel17);
 
         ctEmail.setBackground(new java.awt.Color(255, 255, 255));
@@ -127,19 +127,19 @@ public class ThongTinKhachHangForm extends javax.swing.JPanel {
         add(jPanel4);
     }// </editor-fold>//GEN-END:initComponents
 
-    public JLabel getCtGioiTinhNhanVien() {
+    public JLabel getCtGioiTinh() {
         return ctGioiTinh;
     }
 
-    public JLabel getCtHoNhanVien() {
+    public JLabel getCtEmail() {
         return ctEmail;
     }
 
-    public JLabel getCtMaNhanVien() {
+    public JLabel getCtTenKhachHang() {
         return ctTenKhachHang;
     }
 
-    public JLabel getCtTenTaiKhoan() {
+    public JLabel getCtMaKhachHang() {
         return ctMaKhachHang;
     }
 
