@@ -29,7 +29,7 @@ public class KhuyenMaiController {
     private final KhuyenMaiBUS kmBUS = new KhuyenMaiBUS();
     private final KhuyenMaiChiTietBUS ctkmBUS = new KhuyenMaiChiTietBUS();
     private final HanhTrinhBUS hanhTrinhBUS  = new HanhTrinhBUS();
-;//    private ArrayList<KhuyenMaiDTO> dsKhuyenMai;
+//    private ArrayList<KhuyenMaiDTO> dsKhuyenMai;
 //    private ArrayList<CTKhuyenMaiDTO> dsCTKhuyenMai;
     
     public KhuyenMaiController(KhuyenMaiPanelForm panel) {
@@ -179,61 +179,64 @@ public class KhuyenMaiController {
                     int kmRow = panelKhuyenMaiTable.getMyTable().getSelectedRow();
 
                     if (ctkmRow != -1) {
+                        // Xử lý sửa chi tiết khuyến mãi
                         String maCT = panelCTKhuyenMaiTable.getMyTable().getValueAt(ctkmRow, 0).toString();
                         String maHT = panelControl.getTxtMaHanhTrinh().getText().trim();
                         String maKM = panelControl.getTxtMaKhuyenMai().getText().trim();
 
                         boolean conflict = ctkmBUS.getDanhSachTheoMaKhuyenMai(maKM)
-                            .stream()
-                            .anyMatch(ct ->
-                                ct.getMaHanhTrinh().equals(maHT)
-                                && !ct.getMaCTKhuyenMai().equals(maCT)
-                            );
+                                .stream()
+                                .anyMatch(ct -> ct.getMaHanhTrinh().equals(maHT) && !ct.getMaCTKhuyenMai().equals(maCT));
+
                         if (conflict) {
-                            JOptionPane.showMessageDialog(null,
-                              "Hành trình này đã có trong chi tiết khuyến mãi rồi!");
+                            JOptionPane.showMessageDialog(null, "Hành trình này đã có trong chi tiết khuyến mãi!");
                             return;
                         }
 
                         CTKhuyenMaiDTO ct = new CTKhuyenMaiDTO(maCT, maHT, maKM);
 
                         if (ctkmBUS.suaCTKhuyenMaiBUS(ct)) {
-                            ArrayList<CTKhuyenMaiDTO> ds = ctkmBUS.getDanhSachTheoMaKhuyenMai(maKM);
-                            HienThiTable.taiDuLieuTableCTKhuyenMai(panelCTKhuyenMaiTable.getModel(), ds);
+                            hienThiCTKM(maKM);
                             JOptionPane.showMessageDialog(null, "Cập nhật chi tiết thành công!");
-                            return;
-
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Lỗi cập nhật chi tiết!");
                         }
-    //                    panelControl.getTxtMaHanhTrinh().setEditable(false);
-                    } else if (kmRow != -1) {
-                        String maKMMoi = panelKhuyenMaiTable.getMyTable()
-                                            .getValueAt(kmRow,0).toString();
-                        String maKMCu = panelControl.getTxtMaKhuyenMai().getText().trim();
-                        String tenKM   = panelControl.getTxtTenKhuyenMai().getText().trim();
-                        Date nbd       = panelControl.getNgayBatDau();
-                        Date nkt       = panelControl.getNgayKetThuc();
-                        String ptgg    = panelControl.getTxtPhanTramKhuyenMai().getText().trim();
+                        return;
+                    }
 
-                        KhuyenMaiDTO km = new KhuyenMaiDTO(maKMCu, tenKM, nbd, nkt, ptgg);
-                        if (!kmBUS.suaKhuyenMaiBUS(km)) {
-                            JOptionPane.showMessageDialog(null, "Lỗi cập nhật Khuyến mãi!");
-                            return;
-                        }
+                    if (kmRow != -1) {
+                        // Xử lý sửa khuyến mãi
+                        String maKMCu = panelKhuyenMaiTable.getMyTable().getValueAt(kmRow, 0).toString();
+                        String maKMMoi = panelControl.getTxtMaKhuyenMai().getText().trim();
+                        String tenKM = panelControl.getTxtTenKhuyenMai().getText().trim();
+                        Date nbd = panelControl.getNgayBatDau();
+                        Date nkt = panelControl.getNgayKetThuc();
+                        String ptgg = panelControl.getTxtPhanTramKhuyenMai().getText().trim();
+
                         if (!maKMCu.equals(maKMMoi)) {
-                            kmBUS.capNhatMaKhuyenMai(maKMCu, maKMMoi);
-                            ctkmBUS.capNhatMaKhuyenMai(maKMCu, maKMMoi);
+                            JOptionPane.showMessageDialog(null,
+                                "Không thể sửa mã khuyến mãi! Vui lòng xóa và tạo lại khuyến mãi nếu cần thay đổi mã.");
+                            return;
+                        }
+
+                        KhuyenMaiDTO km = new KhuyenMaiDTO(maKMMoi, tenKM, nbd, nkt, ptgg);
+                        if (!kmBUS.suaKhuyenMaiBUS(km)) {
+                            JOptionPane.showMessageDialog(null, "Lỗi cập nhật thông tin khuyến mãi!");
+                            return;
                         }
 
                         hienThiKhuyenMai();
-                        JOptionPane.showMessageDialog(null, "Cập nhật thành công!");
+                        panelControl.resetForm();
+                        JOptionPane.showMessageDialog(null, "Cập nhật thông tin khuyến mãi thành công!");
                     }
-                
-                } catch(Exception ex) {
+
+                } catch (Exception ex) {
                     ex.printStackTrace();
-                }         
+                    JOptionPane.showMessageDialog(null, "Có lỗi xảy ra khi cập nhật!");
+                }        
             }
         });
-        
+    
         panelControl.addXoaListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -288,6 +291,76 @@ public class KhuyenMaiController {
                     ex.printStackTrace();
                 } 
             }
+        });
+        
+        panelControl.addTimKiemNangCaoListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    String  maKMTimKiem = panelControl.getTxtTimKiemMaKhuyenMai().getText().trim();
+                    String tenKMTimKiem = panelControl.getTxtTimKiemTenKhuyenMai().getText().trim();
+                    Date ngayBDTimKiem = panelControl.getTimKiemNgayBatDau();
+                    Date ngayKTTimKiem = panelControl.getTimKiemNgayKetThuc();
+                    
+                    if (maKMTimKiem.isEmpty() && tenKMTimKiem.isEmpty() && ngayBDTimKiem == null && ngayKTTimKiem == null) {
+                        JOptionPane.showMessageDialog(null, 
+                                                    "Vui lòng nhập ít nhất một tiêu chí để tìm kiếm.", 
+                                                    "Thiếu thông tin",
+                                                    JOptionPane.INFORMATION_MESSAGE
+                        );
+                        return;
+                    }
+
+                    // danh sách tìm thấy
+                    ArrayList<KhuyenMaiDTO> danhSachTimThay = kmBUS.danhSachTimKiemNangCao(maKMTimKiem, tenKMTimKiem, ngayBDTimKiem, ngayKTTimKiem);
+                    
+                    DefaultTableModel model = panelKhuyenMaiTable.getModel();
+                    HienThiTable.taiDuLieuTableKhuyenMai(model, danhSachTimThay);
+                    panelKhuyenMaiTable.getMyTable().setModel(model);
+                    
+                    if (danhSachTimThay.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, 
+                                                    "Không tìm thấy kết quả phù hợp.",
+                                                    "Kết quả tìm kiếm",
+                                                    JOptionPane.INFORMATION_MESSAGE
+                        );
+                    } else {
+                        JOptionPane.showMessageDialog(null, 
+                                                    "Tìm thấy " + danhSachTimThay.size() + "kết quả.",
+                                                    "Kết quả tìm kiếm",
+                                                    JOptionPane.INFORMATION_MESSAGE
+                        );
+                    }
+                    
+                } catch(Exception ex) {
+                    JOptionPane.showMessageDialog(null, 
+                                                "Có lỗi xảy ra khi tìm kiếm:\n" + ex.getMessage(),
+                                                "Lỗi", 
+                                                JOptionPane.ERROR_MESSAGE
+                    );
+                    ex.printStackTrace();
+                }
+            }
+        });
+        
+        panelControl.addReloadFormLisener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                panelControl.resetForm();
+
+                ArrayList<KhuyenMaiDTO> all = kmBUS.getDanhSachKhuyenMai();
+                DefaultTableModel model = panelKhuyenMaiTable.getModel();
+                HienThiTable.taiDuLieuTableKhuyenMai(model, all);
+                panelKhuyenMaiTable.getMyTable().setModel(model);
+
+                panelCTKhuyenMaiTable.getModel().setRowCount(0);
+                JOptionPane.showMessageDialog(null, "Đã làm mới khuyến mãi.");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Lỗi khi làm mới: " + ex.getMessage());
+            }
+                }
         });
         
         panelControl.addShowPopupMaHanhTrinh(new ActionListener() {

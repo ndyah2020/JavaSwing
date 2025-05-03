@@ -3,6 +3,7 @@ package BUS;
 import DAO.KhuyenMaiDAO;
 import DTO.KhuyenMaiDTO;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class KhuyenMaiBUS {
     private  final KhuyenMaiDAO khuyenMaiDAO;
@@ -74,5 +75,49 @@ public class KhuyenMaiBUS {
             }
         }
         return dsKhuyenMaiTimThay;
+    }
+    
+    public ArrayList<KhuyenMaiDTO> danhSachTimKiemNangCao(String ma, String ten, Date tu, Date den) {
+        ArrayList<KhuyenMaiDTO> danhSachKhuyenMai = khuyenMaiDAO.docDanhSach();
+        ArrayList<KhuyenMaiDTO> danhSachKhuyenMaiTimThay = new ArrayList<>();
+        
+        boolean isNhapDieuKien = (ma != null && !ma.isEmpty()) || (ten != null && !ten.isEmpty()) || (tu != null) || (den != null);
+        
+        if (! isNhapDieuKien) {
+            return danhSachKhuyenMaiTimThay;
+        }
+        
+        for (KhuyenMaiDTO km : danhSachKhuyenMai) {
+            boolean match = false;
+            
+            if (!ma.isEmpty() && ma != null) {
+                if (km.getMaKhuyenMai().equalsIgnoreCase(ma)) {
+                    match = true;
+                }
+            }
+            
+            if (!match && !ten.isEmpty() && ten != null) {
+                if (km.getTenKhuyenMai().toLowerCase().contains(ten.toLowerCase())) {
+                    match = true;
+                }
+            }
+
+            if (!match && tu != null) {
+                if (km.getNgayBatDau().equals(tu)) {
+                    match = true;
+                }
+            }
+
+            if (!match && den != null) {
+                if (km.getNgayKetThuc().equals(den)) {
+                    match = true;
+                }
+            }
+
+            if (match) {
+                danhSachKhuyenMaiTimThay.add(km);
+            }
+        }
+        return danhSachKhuyenMaiTimThay;
     }
 }

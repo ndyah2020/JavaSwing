@@ -51,9 +51,9 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="mucLuongComboBox1" pref="0" max="32767" attributes="0"/>
+                      <Component id="cmbLoc" pref="0" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="mucLuongComboBox" min="-2" pref="174" max="-2" attributes="0"/>
+                      <Component id="cmbSapXep" min="-2" pref="174" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jPanel6" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
@@ -97,8 +97,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="mucLuongComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="mucLuongComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbSapXep" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbLoc" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
@@ -331,7 +331,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="GUI.panel.swing.MyCombobox" name="mucLuongComboBox">
+    <Component class="GUI.panel.swing.MyCombobox" name="cmbSapXep">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
@@ -347,7 +347,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.panel.swing.MyCombobox" name="mucLuongComboBox1">
+    <Component class="GUI.panel.swing.MyCombobox" name="cmbLoc">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
@@ -363,7 +363,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mucLuongComboBox1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbLocActionPerformed"/>
       </Events>
     </Component>
     <Component class="GUI.panel.swing.MyButton" name="btnThem">

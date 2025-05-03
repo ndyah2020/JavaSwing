@@ -11,9 +11,9 @@ public class KhuyenMaiPanelForm extends javax.swing.JPanel {
     private void initComponents() {
 
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        khuyenMaiControlForm = new GUI.forms.KhuyenMaiControlForm();
         khuyenMaiTableForm = new GUI.forms.KhuyenMaiTableForm();
         khuyenMaiChiTietTableForm = new GUI.forms.KhuyenMaiChiTietTableForm();
+        khuyenMaiControlForm = new GUI.forms.KhuyenMaiControlForm();
 
         jFormattedTextField1.setText("jFormattedTextField1");
 
@@ -33,18 +33,20 @@ public class KhuyenMaiPanelForm extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(khuyenMaiTableForm, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(khuyenMaiChiTietTableForm, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-            .addComponent(khuyenMaiControlForm, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(khuyenMaiControlForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(khuyenMaiControlForm, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(khuyenMaiControlForm, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(khuyenMaiTableForm, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(khuyenMaiChiTietTableForm, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)))
+                    .addComponent(khuyenMaiTableForm, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+                    .addComponent(khuyenMaiChiTietTableForm, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
     public KhuyenMaiControlForm getKhuyenMaiControlForm() {
