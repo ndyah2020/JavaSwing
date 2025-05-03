@@ -89,6 +89,7 @@ public class NhanVienController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 panelForm.xoaForm();
+                panelTable.getMyTable().clearSelection();
             }
         });
 

@@ -16,6 +16,8 @@ import GUI.forms.DatVeTableThemForm;
 import GUI.forms.KhachHangForm;
 import GUI.forms.ThongTinDatVeForm;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -76,6 +78,14 @@ public class DatVeController {
      
         panelDatVe.getBangLayMaVe().getMyTable().setModel(model);
     }
+    private void hienThiNhanVien() {
+        String [] tenCot = {"Mã Nhân Viên", "Họ", "Tên"};
+        panelDatVe.getBangLayMaNhanVien().setcolumnDefaultTableModel(tenCot);
+        DefaultTableModel model = panelDatVe.getBangLayMaNhanVien().getModel();
+        
+        HienThiTable.taiDuLieuTableNhanVien(model, nhanVienBUS.getDanhSachNhanVien());
+        panelDatVe.getBangLayMaNhanVien().getMyTable().setModel(model);
+    }
     
     public void layDanhSachChuyenBayVaVe() {
         DefaultTableModel model = panelTable.getModel();
@@ -118,14 +128,37 @@ public class DatVeController {
                 if (row != -1) {
                     String maVe = panelDatVe.getBangLayMaVe().getMyTable().getValueAt(row, 0).toString();
                     panelDatVe.getTxtMaVe().setText(maVe);
-                    
 
+                    int rowTabel = panelTable.getMyTable().getSelectedRow();
+                    int cmbIndex = panelDatVe.getCmbLoaiVe().getSelectedIndex();
+                    try {
+                        if (cmbIndex == 1) {
+                            panelDatVe.getTxtGiaVe().setText(panelTable.getMyTable().getValueAt(rowTabel, 6).toString());
+                        } else {
+                            panelDatVe.getTxtGiaVe().setText(panelTable.getMyTable().getValueAt(rowTabel, 7).toString());
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Lỗi khi lấy giá vé!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
         
         panelDatVe.addShowPopupMaNhanVien(e -> {
             panelDatVe.showPopBangLayMaNV();
+            hienThiNhanVien();
+        });
+        
+        panelDatVe.getBangLayMaNhanVien().addRowClickPopup(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = panelDatVe.getBangLayMaNhanVien().getMyTable().getSelectedRow();
+                if(row != -1 ) {
+                    String maNhanVien = panelDatVe.getBangLayMaNhanVien().getMyTable().getValueAt(row, 0).toString();
+                    panelDatVe.getTxtMaNhanVien().setText(maNhanVien);
+                }
+            }
         });
         
         panelDatVe.addCmbLoaiVeListener(e -> {
@@ -152,14 +185,48 @@ public class DatVeController {
             }else {
                 KhachHangDTO khachHang = khachHangBUS.layMotKhachHangTheoCccd(cccd);
                 
-                if(khachHang != null) {
-                    System.out.println("khach hang kh null");
+                if(khachHang != null) {                   
                     setFormKH(khachHang);
+                    panelFormKH.setEditKhachHangForm(false);
                 }else {
+                    panelFormKH.clearForm();
+                    panelFormKH.setEditKhachHangForm(true);
                     JOptionPane.showMessageDialog(null, "Khách Hàng không tồn tại vui lòng nhập thông tin mới cho khách hàng");
                 }
             }
         });
         
+        panelDatVe.getBangLayMaVe().addSearchPopupListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent evt) {
+                String tuKhoa = panelDatVe.getBangLayMaVe().getTxtSearch().getText();
+                if(!tuKhoa.isEmpty()) {
+                    DefaultTableModel model = panelDatVe.getBangLayMaVe().getModel();
+                    HienThiTable.taiDuLieuTableVepopup(model, veBUS.timKiemToanCuc(tuKhoa));
+                }else {
+                    String maChuyenBay = panelDatVe.getTxtMaChuyenBay().getText();
+                    int indexLoaiVe = panelDatVe.getCmbLoaiVe().getSelectedIndex();
+                    hienThiVe(maChuyenBay, indexLoaiVe);
+                }
+                
+            }        
+        });
+        
+        panelDatVe.getBangLayMaNhanVien().addSearchPopupListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent evt) {
+               String tuKhoa = panelDatVe.getBangLayMaNhanVien().getTxtSearch().getText();
+               if(!tuKhoa.isEmpty()) {
+                   DefaultTableModel model = panelDatVe.getBangLayMaNhanVien().getModel();
+                   HienThiTable.taiDuLieuTableNhanVien(model, nhanVienBUS.timKiemToanCuc(tuKhoa));
+               }else {
+                   hienThiNhanVien();
+               }
+            }        
+        });
+        
+        panelDatVe.addBtnKiemTraKM(e -> {
+            
+        });
     }   
 }

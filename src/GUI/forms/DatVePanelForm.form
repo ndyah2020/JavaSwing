@@ -22,20 +22,20 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <Component id="datVeControlForm" min="-2" pref="1054" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="datVeTableForm" pref="772" max="32767" attributes="0"/>
                   <Component id="datVeTableThemForm" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="thongTinDatVeForm" pref="276" max="32767" attributes="0"/>
                   <Component id="khachHangForm" max="32767" attributes="0"/>
+                  <Component id="thongTinDatVeForm" pref="276" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <Component id="datVeControlForm" min="-2" pref="1054" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -44,16 +44,16 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="datVeControlForm" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
                       <Component id="datVeTableForm" min="-2" pref="420" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="datVeTableThemForm" pref="213" max="32767" attributes="0"/>
+                      <Component id="datVeTableThemForm" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="thongTinDatVeForm" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="thongTinDatVeForm" min="-2" pref="301" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="khachHangForm" pref="0" max="32767" attributes="0"/>
+                      <Component id="khachHangForm" min="-2" pref="332" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>

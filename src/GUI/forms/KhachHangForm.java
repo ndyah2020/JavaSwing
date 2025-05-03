@@ -265,6 +265,7 @@ public class KhachHangForm extends javax.swing.JPanel {
     }
 }
     
+    
     public void clearForm() {
         initDateChoosers();
         txtMa.setText("");
@@ -274,6 +275,19 @@ public class KhachHangForm extends javax.swing.JPanel {
         txtSdt.setText("");
         txtEmail.setText("");
         txtCccd.setText("");
+        buttonGroup1.clearSelection();
+    }
+
+    public void setEditKhachHangForm(boolean editable) {
+        txtMa.setEditable(editable);
+        txtHo.setEditable(editable);
+        txtTen.setEditable(editable);
+        txtNgaySinh.setEditable(editable);
+        txtSdt.setEditable(editable);
+        txtEmail.setEditable(editable);
+        txtCccd.setEditable(editable);
+        btnNam.setEnabled(editable);
+        btnNu.setEnabled(editable);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

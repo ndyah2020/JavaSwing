@@ -85,4 +85,11 @@ public class KhuyenMaiChiTietBUS {
     public boolean capNhatMaKhuyenMai(String maKMCu, String maKMMoi) {
         return khuyenMaiChiTietDAO.capNhatMaKhuyenMai(maKMCu, maKMMoi);
     }
+    
+    public CTKhuyenMaiDTO layMotKhuyenMaiTheoMaHanhtrinh(String maHanhTrinh) {
+        for(CTKhuyenMaiDTO km : danhSach) {
+            if(km.getMaHanhTrinh().equals(maHanhTrinh)) return km;
+        }
+        return null;
+    }
 }

@@ -9,6 +9,7 @@ import java.awt.BorderLayout;
 public class ThongTinDatVeForm extends javax.swing.JPanel {
     private PopupFormSearch bangLayMaVe;
     private PopupFormSearch bangLayMaNhanVien;
+    
     public ThongTinDatVeForm() {
         initComponents();
         intPopup();     
@@ -37,17 +38,21 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         txtMaVe = new javax.swing.JTextField();
         btnMaVe = new GUI.panel.swing.MyButton();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        txtGiaVe = new javax.swing.JTextField();
         jPanel13 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         txtCccd = new javax.swing.JTextField();
         btnKiemTracccd = new GUI.panel.swing.MyButton();
-        jPanel17 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        txtGiaVe = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         txtMaNhanVien = new javax.swing.JTextField();
         btnNhanVien = new GUI.panel.swing.MyButton();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        txtKhuyenMai = new javax.swing.JTextField();
+        btnKiemTraKM = new GUI.panel.swing.MyButton();
         jPanel1 = new javax.swing.JPanel();
         btnThemVe = new GUI.panel.swing.MyButton();
         btnDatVe = new GUI.panel.swing.MyButton();
@@ -81,6 +86,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         jPanel21.add(jLabel19);
 
         txtMaChuyenBay.setMaximumSize(new java.awt.Dimension(2147483647, 36));
+        txtMaChuyenBay.setMinimumSize(new java.awt.Dimension(0, 0));
         txtMaChuyenBay.setPreferredSize(new java.awt.Dimension(71, 30));
         jPanel21.add(txtMaChuyenBay);
 
@@ -99,6 +105,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         cmbLoaiVe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Chọn Loại Vé", "Vé Thường", "Vé Vip" }));
         cmbLoaiVe.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cmbLoaiVe.setMaximumSize(new java.awt.Dimension(32767, 36));
+        cmbLoaiVe.setMinimumSize(new java.awt.Dimension(0, 0));
         cmbLoaiVe.setPreferredSize(new java.awt.Dimension(150, 31));
         jPanel4.add(cmbLoaiVe);
 
@@ -113,6 +120,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         jPanel9.add(jLabel10);
 
         txtMaVe.setMaximumSize(new java.awt.Dimension(2147483647, 36));
+        txtMaVe.setMinimumSize(new java.awt.Dimension(0, 0));
         txtMaVe.setPreferredSize(new java.awt.Dimension(71, 30));
         jPanel9.add(txtMaVe);
 
@@ -122,36 +130,11 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         btnMaVe.setColorOver(new java.awt.Color(0, 204, 255));
         btnMaVe.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnMaVe.setMaximumSize(new java.awt.Dimension(30, 36));
-        btnMaVe.setMinimumSize(new java.awt.Dimension(30, 30));
+        btnMaVe.setMinimumSize(new java.awt.Dimension(0, 0));
         btnMaVe.setPreferredSize(new java.awt.Dimension(30, 30));
         jPanel9.add(btnMaVe);
 
         jPanel2.add(jPanel9);
-
-        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel13.setLayout(new javax.swing.BoxLayout(jPanel13, javax.swing.BoxLayout.LINE_AXIS));
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setText("CCCD");
-        jLabel14.setPreferredSize(new java.awt.Dimension(70, 30));
-        jPanel13.add(jLabel14);
-
-        txtCccd.setMargin(null);
-        txtCccd.setMaximumSize(new java.awt.Dimension(2147483647, 36));
-        txtCccd.setPreferredSize(new java.awt.Dimension(71, 30));
-        jPanel13.add(txtCccd);
-
-        btnKiemTracccd.setText("Kiểm tra");
-        btnKiemTracccd.setBorderColor(new java.awt.Color(204, 204, 204));
-        btnKiemTracccd.setColorClick(new java.awt.Color(0, 153, 255));
-        btnKiemTracccd.setColorOver(new java.awt.Color(0, 204, 255));
-        btnKiemTracccd.setMargin(null);
-        btnKiemTracccd.setMaximumSize(new java.awt.Dimension(74, 36));
-        btnKiemTracccd.setMinimumSize(new java.awt.Dimension(74, 30));
-        btnKiemTracccd.setPreferredSize(new java.awt.Dimension(74, 30));
-        jPanel13.add(btnKiemTracccd);
-
-        jPanel2.add(jPanel13);
 
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
         jPanel17.setLayout(new javax.swing.BoxLayout(jPanel17, javax.swing.BoxLayout.LINE_AXIS));
@@ -163,20 +146,48 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         jPanel17.add(jLabel17);
 
         txtGiaVe.setMaximumSize(new java.awt.Dimension(2147483647, 36));
+        txtGiaVe.setMinimumSize(new java.awt.Dimension(0, 0));
         txtGiaVe.setPreferredSize(new java.awt.Dimension(71, 30));
         jPanel17.add(txtGiaVe);
 
         jPanel2.add(jPanel17);
 
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setLayout(new javax.swing.BoxLayout(jPanel13, javax.swing.BoxLayout.LINE_AXIS));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel14.setText("CCCD");
+        jLabel14.setPreferredSize(new java.awt.Dimension(70, 30));
+        jPanel13.add(jLabel14);
+
+        txtCccd.setMargin(null);
+        txtCccd.setMaximumSize(new java.awt.Dimension(2147483647, 36));
+        txtCccd.setMinimumSize(new java.awt.Dimension(0, 0));
+        txtCccd.setPreferredSize(new java.awt.Dimension(71, 30));
+        jPanel13.add(txtCccd);
+
+        btnKiemTracccd.setText("Kiểm tra");
+        btnKiemTracccd.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnKiemTracccd.setColorClick(new java.awt.Color(0, 153, 255));
+        btnKiemTracccd.setColorOver(new java.awt.Color(0, 204, 255));
+        btnKiemTracccd.setMargin(null);
+        btnKiemTracccd.setMaximumSize(new java.awt.Dimension(74, 36));
+        btnKiemTracccd.setMinimumSize(new java.awt.Dimension(0, 0));
+        btnKiemTracccd.setPreferredSize(new java.awt.Dimension(74, 30));
+        jPanel13.add(btnKiemTracccd);
+
+        jPanel2.add(jPanel13);
+
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(new javax.swing.BoxLayout(jPanel10, javax.swing.BoxLayout.LINE_AXIS));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel11.setText("Mã NV:");
+        jLabel11.setText("NV Bán");
         jLabel11.setPreferredSize(new java.awt.Dimension(70, 30));
         jPanel10.add(jLabel11);
 
         txtMaNhanVien.setMaximumSize(new java.awt.Dimension(2147483647, 36));
+        txtMaNhanVien.setMinimumSize(new java.awt.Dimension(0, 0));
         txtMaNhanVien.setPreferredSize(new java.awt.Dimension(71, 30));
         jPanel10.add(txtMaNhanVien);
 
@@ -186,11 +197,37 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         btnNhanVien.setColorOver(new java.awt.Color(0, 204, 255));
         btnNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnNhanVien.setMaximumSize(new java.awt.Dimension(30, 36));
-        btnNhanVien.setMinimumSize(new java.awt.Dimension(30, 30));
+        btnNhanVien.setMinimumSize(new java.awt.Dimension(0, 0));
         btnNhanVien.setPreferredSize(new java.awt.Dimension(30, 30));
         jPanel10.add(btnNhanVien);
 
         jPanel2.add(jPanel10);
+
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setLayout(new javax.swing.BoxLayout(jPanel14, javax.swing.BoxLayout.LINE_AXIS));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel15.setText("Mã KM");
+        jLabel15.setPreferredSize(new java.awt.Dimension(70, 30));
+        jPanel14.add(jLabel15);
+
+        txtKhuyenMai.setMargin(null);
+        txtKhuyenMai.setMaximumSize(new java.awt.Dimension(2147483647, 36));
+        txtKhuyenMai.setMinimumSize(new java.awt.Dimension(0, 0));
+        txtKhuyenMai.setPreferredSize(new java.awt.Dimension(71, 30));
+        jPanel14.add(txtKhuyenMai);
+
+        btnKiemTraKM.setText("Kiểm tra");
+        btnKiemTraKM.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnKiemTraKM.setColorClick(new java.awt.Color(0, 153, 255));
+        btnKiemTraKM.setColorOver(new java.awt.Color(0, 204, 255));
+        btnKiemTraKM.setMargin(null);
+        btnKiemTraKM.setMaximumSize(new java.awt.Dimension(74, 36));
+        btnKiemTraKM.setMinimumSize(new java.awt.Dimension(0, 0));
+        btnKiemTraKM.setPreferredSize(new java.awt.Dimension(74, 30));
+        jPanel14.add(btnKiemTraKM);
+
+        jPanel2.add(jPanel14);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.GridLayout(1, 0, 12, 0));
@@ -201,7 +238,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         btnThemVe.setColorOver(new java.awt.Color(0, 204, 255));
         btnThemVe.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnThemVe.setMaximumSize(new java.awt.Dimension(74, 36));
-        btnThemVe.setMinimumSize(new java.awt.Dimension(74, 30));
+        btnThemVe.setMinimumSize(new java.awt.Dimension(0, 0));
         btnThemVe.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel1.add(btnThemVe);
 
@@ -211,7 +248,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         btnDatVe.setColorOver(new java.awt.Color(0, 204, 255));
         btnDatVe.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnDatVe.setMaximumSize(new java.awt.Dimension(432423, 36));
-        btnDatVe.setMinimumSize(new java.awt.Dimension(10, 10));
+        btnDatVe.setMinimumSize(new java.awt.Dimension(0, 0));
         btnDatVe.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel1.add(btnDatVe);
 
@@ -224,7 +261,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     }
     
     public void showPopBangLayMaNV() {
-        popupLayMaVe.show(btnNhanVien, -287, btnNhanVien.getHeight() - 200);
+        popupLayMaNV.show(btnNhanVien, -287, btnNhanVien.getHeight() - 200);
     }
     
     private void intPopup() {
@@ -236,6 +273,11 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         popupLayMaNV.setLayout(new BorderLayout());
         popupLayMaNV.add(bangLayMaNhanVien, BorderLayout.CENTER);
     }
+
+    public PopupFormSearch getBangLayMaNhanVien() {
+        return bangLayMaNhanVien;
+    }
+    
     public MyButton getBtnDatVe() {
         return btnDatVe;
     }
@@ -283,7 +325,10 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     public MyCombobox getCmbLoaiVe() {
         return cmbLoaiVe;
     }
-    
+
+    public JTextField getTxtKhuyenMai() {
+        return txtKhuyenMai;
+    }
     
     public void addBtnThemveListener(ActionListener listener) {
         btnThemVe.addActionListener(listener);
@@ -309,8 +354,13 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         cmbLoaiVe.addActionListener(listener);
     }
     
+    public void addBtnKiemTraKM(ActionListener listener) {
+        btnKiemTraKM.addActionListener(listener);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.MyButton btnDatVe;
+    private GUI.panel.swing.MyButton btnKiemTraKM;
     private GUI.panel.swing.MyButton btnKiemTracccd;
     private GUI.panel.swing.MyButton btnMaVe;
     private GUI.panel.swing.MyButton btnNhanVien;
@@ -321,11 +371,13 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
@@ -337,6 +389,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     private javax.swing.JPopupMenu popupLayMaVe;
     private javax.swing.JTextField txtCccd;
     private javax.swing.JTextField txtGiaVe;
+    private javax.swing.JTextField txtKhuyenMai;
     private javax.swing.JTextField txtMaChuyenBay;
     private javax.swing.JTextField txtMaNhanVien;
     private javax.swing.JTextField txtMaVe;
