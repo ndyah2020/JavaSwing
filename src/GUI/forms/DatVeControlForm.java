@@ -1,4 +1,8 @@
 package GUI.forms;
+
+import GUI.panel.swing.MyButton;
+import java.awt.event.ActionListener;
+
 public class DatVeControlForm extends javax.swing.JPanel {
     public DatVeControlForm() {
         initComponents();
@@ -20,6 +24,7 @@ public class DatVeControlForm extends javax.swing.JPanel {
         lbDenNgay = new javax.swing.JLabel();
         txtNgayKhoiHanh = new javax.swing.JTextField();
         btnNgayKhoiHanh = new GUI.panel.swing.MyButton();
+        btnTaiLai = new GUI.panel.swing.MyButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -89,6 +94,14 @@ public class DatVeControlForm extends javax.swing.JPanel {
         btnNgayKhoiHanh.setPreferredSize(new java.awt.Dimension(31, 31));
         jPanel6.add(btnNgayKhoiHanh);
 
+        btnTaiLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/reloadNhanVien.png"))); // NOI18N
+        btnTaiLai.setText("Tải Lại");
+        btnTaiLai.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnTaiLai.setColorClick(new java.awt.Color(0, 153, 255));
+        btnTaiLai.setColorOver(new java.awt.Color(0, 204, 255));
+        btnTaiLai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnTaiLai.setPreferredSize(new java.awt.Dimension(72, 31));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,31 +113,44 @@ public class DatVeControlForm extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ComboSanBayDi1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(ComboSanBayDi, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(btnTaiLai, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ComboSanBayDi, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ComboSanBayDi1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTaiLai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ComboSanBayDi, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ComboSanBayDi1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-
+    
+    public MyButton getBtnTaiLai() {
+        return btnTaiLai;
+    }
+    
+    public void addBtnTaiLaiListener(ActionListener listener) {
+        btnTaiLai.addActionListener(listener);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ComboSanBayDi;
     private javax.swing.JPanel ComboSanBayDi1;
     private GUI.panel.swing.MyButton btnNgayKhoiHanh;
     private GUI.panel.swing.MyButton btnSanBayDen;
     private GUI.panel.swing.MyButton btnSanBayDi;
+    private GUI.panel.swing.MyButton btnTaiLai;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

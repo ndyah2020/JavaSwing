@@ -39,16 +39,57 @@ public class VeBUS {
         return null;
     }
     
-    public VeDTO timKiemVeTheoMaChuyenBayChuaDat(String maChuyenBay){
-        if(danhSachVe.isEmpty()) {
-            layDanhSachVe();
-        }
+    public VeDTO layMotVe(String maVe) {
         for(VeDTO ve : danhSachVe) {
-            if(ve.getChuyenBay().equals(maChuyenBay) && ve.getTrangThaiVe().equals("Chưa Đặt")){
-                return ve;
+            if(ve.getMaVe().equals(maVe)) {
+                return ve;              
             }
         }
         return null;
+    }
+  
+    public ArrayList<VeDTO> timKiemVeTHTheoMaChuyenBayChuaDat(String maChuyenBay){
+        if(danhSachVe.isEmpty()) {
+            layDanhSachVe();
+        }
+        ArrayList<VeDTO> dsTimThay = new ArrayList<>();
+        for(VeDTO ve : danhSachVe) {
+            if(ve.getChuyenBay().equals(maChuyenBay) && ve.getTrangThaiVe().equals("Chưa Đặt") && ve.getLoaiVe().equals("LV-THU")){
+                dsTimThay.add(ve);
+            }
+        }
+        return dsTimThay;
+    }
+    
+    public ArrayList<VeDTO> timKiemVeVipTheoMaChuyenBayChuaDat(String maChuyenBay){
+        if(danhSachVe.isEmpty()) {
+            layDanhSachVe();
+        }
+        ArrayList<VeDTO> dsTimThay = new ArrayList<>();
+        for(VeDTO ve : danhSachVe) {
+            if(ve.getChuyenBay().equals(maChuyenBay) && ve.getTrangThaiVe().equals("Chưa Đặt") && ve.getLoaiVe().equals("LV-VIP")){
+                dsTimThay.add(ve);
+            }
+        }
+        return dsTimThay;
+    }
+    
+    public int soLuongVeVipConLaiMoiChuyenBay(String maChuyenBay) {
+        int count = 0;
+        for(VeDTO ve : danhSachVe) {
+            if(ve.getChuyenBay().equals(maChuyenBay) && ve.getLoaiVe().equals("LV-VIP") && ve.getTrangThaiVe().equals("Chưa Đặt"))
+                count ++;
+        }
+        return count;
+    }
+    
+    public int soLuongVeThuongConLaiMoiChuyenBay(String maChuyenBay) {
+        int count = 0;
+        for(VeDTO ve : danhSachVe) {
+            if(ve.getChuyenBay().equals(maChuyenBay) && ve.getLoaiVe().equals("LV-THU") && ve.getTrangThaiVe().equals("Chưa Đặt"))
+                count ++;
+        }
+        return count;
     }
     
     public ArrayList<VeDTO> timKiemVeTheoMaChuyenBay(String maChuyenBay){

@@ -8,6 +8,18 @@ public class DatVeTableForm extends javax.swing.JPanel {
     private DefaultTableModel model;
     public DatVeTableForm() {
         initComponents();
+        String[] columnNames = {
+            "Mã CB",
+            "Ngày đi",
+            "Ngày đến",
+            "Hành Trình",
+            "Số vé thường",
+            "Sô vé Vip",
+            "Giá Thường",
+            "Giá VIP",
+        };
+        model = new DefaultTableModel(columnNames, 0);
+        myTable.setModel(model);
     }
     public DefaultTableModel getModel() {
         return model;

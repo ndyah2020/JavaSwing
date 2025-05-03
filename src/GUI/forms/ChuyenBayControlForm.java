@@ -72,7 +72,8 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
         btnSua.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSua.setPreferredSize(new java.awt.Dimension(100, 31));
 
-        btnXoaForm.setText("Xóa form");
+        btnXoaForm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/reloadNhanVien.png"))); // NOI18N
+        btnXoaForm.setText("Tải Lại");
         btnXoaForm.setBorderColor(new java.awt.Color(204, 204, 204));
         btnXoaForm.setColorClick(new java.awt.Color(0, 204, 255));
         btnXoaForm.setColorOver(new java.awt.Color(0, 204, 255));

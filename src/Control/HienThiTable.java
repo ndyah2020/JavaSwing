@@ -97,6 +97,15 @@ public class HienThiTable {
             model.addRow(row);  
         }
     }
+    public static void taiDuLieuTableVepopup(DefaultTableModel model, ArrayList<VeDTO> danhSach) {
+        model.setRowCount(0);
+        for(VeDTO ve : danhSach) {
+            Vector row = new Vector();
+            row.add(ve.getMaVe());        
+            row.add(ve.getLoaiVe());
+            model.addRow(row);  
+        }
+    }
     
     public static void taiDuLieuTableKhuyenMai(DefaultTableModel model, ArrayList<KhuyenMaiDTO> danhSach) {
         model.setRowCount(0);

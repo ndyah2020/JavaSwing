@@ -2,20 +2,27 @@ package GUI.forms;
 
 import GUI.PopupForm.PopupFormSearch;
 import GUI.panel.swing.MyButton;
+import GUI.panel.swing.MyCombobox;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import java.awt.BorderLayout;
 public class ThongTinDatVeForm extends javax.swing.JPanel {
     private PopupFormSearch bangLayMaVe;
+    private PopupFormSearch bangLayMaNhanVien;
     public ThongTinDatVeForm() {
         initComponents();
         intPopup();     
+        txtMaChuyenBay.setEditable(false);
+        txtMaVe.setEditable(false);
+        txtMaNhanVien.setEditable(false);
+        txtGiaVe.setEditable(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         popupLayMaVe = new javax.swing.JPopupMenu();
+        popupLayMaNV = new javax.swing.JPopupMenu();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -23,6 +30,9 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         jPanel21 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         txtMaChuyenBay = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        cmbLoaiVe = new GUI.panel.swing.MyCombobox();
         jPanel9 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         txtMaVe = new javax.swing.JTextField();
@@ -34,6 +44,10 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         jPanel17 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         txtGiaVe = new javax.swing.JTextField();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        txtMaNhanVien = new javax.swing.JTextField();
+        btnNhanVien = new GUI.panel.swing.MyButton();
         jPanel1 = new javax.swing.JPanel();
         btnThemVe = new GUI.panel.swing.MyButton();
         btnDatVe = new GUI.panel.swing.MyButton();
@@ -53,7 +67,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(6, 6, 6, 6, new java.awt.Color(255, 255, 255)));
-        jPanel2.setLayout(new java.awt.GridLayout(0, 1, 0, 12));
+        jPanel2.setLayout(new java.awt.GridLayout(0, 1, 0, 6));
 
         jPanel20.setBackground(new java.awt.Color(255, 255, 255));
         jPanel20.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
@@ -73,6 +87,22 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         jPanel20.add(jPanel21);
 
         jPanel2.add(jPanel20);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel12.setText("Loại Vé");
+        jLabel12.setPreferredSize(new java.awt.Dimension(70, 30));
+        jPanel4.add(jLabel12);
+
+        cmbLoaiVe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Chọn Loại Vé", "Vé Thường", "Vé Vip" }));
+        cmbLoaiVe.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cmbLoaiVe.setMaximumSize(new java.awt.Dimension(32767, 36));
+        cmbLoaiVe.setPreferredSize(new java.awt.Dimension(150, 31));
+        jPanel4.add(cmbLoaiVe);
+
+        jPanel2.add(jPanel4);
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setLayout(new javax.swing.BoxLayout(jPanel9, javax.swing.BoxLayout.LINE_AXIS));
@@ -138,6 +168,30 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
 
         jPanel2.add(jPanel17);
 
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setLayout(new javax.swing.BoxLayout(jPanel10, javax.swing.BoxLayout.LINE_AXIS));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setText("Mã NV:");
+        jLabel11.setPreferredSize(new java.awt.Dimension(70, 30));
+        jPanel10.add(jLabel11);
+
+        txtMaNhanVien.setMaximumSize(new java.awt.Dimension(2147483647, 36));
+        txtMaNhanVien.setPreferredSize(new java.awt.Dimension(71, 30));
+        jPanel10.add(txtMaNhanVien);
+
+        btnNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/3dots.png"))); // NOI18N
+        btnNhanVien.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnNhanVien.setColorClick(new java.awt.Color(0, 153, 255));
+        btnNhanVien.setColorOver(new java.awt.Color(0, 204, 255));
+        btnNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnNhanVien.setMaximumSize(new java.awt.Dimension(30, 36));
+        btnNhanVien.setMinimumSize(new java.awt.Dimension(30, 30));
+        btnNhanVien.setPreferredSize(new java.awt.Dimension(30, 30));
+        jPanel10.add(btnNhanVien);
+
+        jPanel2.add(jPanel10);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.GridLayout(1, 0, 12, 0));
 
@@ -169,10 +223,18 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         popupLayMaVe.show(btnMaVe, -287, btnMaVe.getHeight() - 200);
     }
     
+    public void showPopBangLayMaNV() {
+        popupLayMaVe.show(btnNhanVien, -287, btnNhanVien.getHeight() - 200);
+    }
+    
     private void intPopup() {
         bangLayMaVe = new PopupFormSearch();
         popupLayMaVe.setLayout(new BorderLayout());
         popupLayMaVe.add(bangLayMaVe, BorderLayout.CENTER);
+        
+        bangLayMaNhanVien = new PopupFormSearch();
+        popupLayMaNV.setLayout(new BorderLayout());
+        popupLayMaNV.add(bangLayMaNhanVien, BorderLayout.CENTER);
     }
     public MyButton getBtnDatVe() {
         return btnDatVe;
@@ -205,6 +267,23 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     public JTextField getTxtMaVe() {
         return txtMaVe;
     }
+
+    public PopupFormSearch getBangLayMaVe() {
+        return bangLayMaVe;
+    }
+
+    public MyButton getBtnNhanVien() {
+        return btnNhanVien;
+    }
+
+    public JTextField getTxtMaNhanVien() {
+        return txtMaNhanVien;
+    }
+
+    public MyCombobox getCmbLoaiVe() {
+        return cmbLoaiVe;
+    }
+    
     
     public void addBtnThemveListener(ActionListener listener) {
         btnThemVe.addActionListener(listener);
@@ -221,28 +300,45 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     public void addShowPopopMaVe(ActionListener listener) {
         btnMaVe.addActionListener(listener);
     }
+    
+    public void addShowPopupMaNhanVien(ActionListener listener) {
+        btnNhanVien.addActionListener(listener);
+    }
+    
+    public void addCmbLoaiVeListener(ActionListener listener) {
+        cmbLoaiVe.addActionListener(listener);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.MyButton btnDatVe;
     private GUI.panel.swing.MyButton btnKiemTracccd;
     private GUI.panel.swing.MyButton btnMaVe;
+    private GUI.panel.swing.MyButton btnNhanVien;
     private GUI.panel.swing.MyButton btnThemVe;
+    private GUI.panel.swing.MyCombobox cmbLoaiVe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPopupMenu popupLayMaNV;
     private javax.swing.JPopupMenu popupLayMaVe;
     private javax.swing.JTextField txtCccd;
     private javax.swing.JTextField txtGiaVe;
     private javax.swing.JTextField txtMaChuyenBay;
+    private javax.swing.JTextField txtMaNhanVien;
     private javax.swing.JTextField txtMaVe;
     // End of variables declaration//GEN-END:variables
 }

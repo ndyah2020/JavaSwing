@@ -225,7 +225,10 @@
     </Component>
     <Component class="GUI.panel.swing.MyButton" name="btnXoaForm">
       <Properties>
-        <Property name="text" type="java.lang.String" value="X&#xf3;a form"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/assets/icon/reloadNhanVien.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="T&#x1ea3;i L&#x1ea1;i"/>
         <Property name="borderColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>

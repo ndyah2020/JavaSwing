@@ -73,6 +73,15 @@ public class KhachHangBUS {
         }
         return dsKHTimThay;
     }
+    
+    public KhachHangDTO layMotKhachHangTheoCccd(String cccd) {
+        for(KhachHangDTO kh : dsKhachHang) {
+            if(kh.getCccd().equals(cccd)){
+                return kh;
+            }
+        }
+        return null;
+    }
 
     public KhachHangDTO timMotKH(String maKH) {
         if(dsKhachHang.isEmpty()){
