@@ -7,17 +7,36 @@ import DTO.SanBayDTO;
 import GUI.forms.SanBayControlForm;
 import GUI.forms.SanBayPanelForm;
 import GUI.forms.SanBayTableForm;
+import GUI.panel.swing.MyTable;
+import org.apache.poi.ss.usermodel.Sheet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.Vector;
+import org.apache.poi.ss.usermodel.DateUtil;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class SanBayController {
 
@@ -85,7 +104,125 @@ public class SanBayController {
         }
         return false;
     }
-    
+
+    public void exportToExcel() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Chọn đường dẫn lưu file Excel");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("XLSX files", "xlsx");
+        fileChooser.setFileFilter(filter);
+        fileChooser.setAcceptAllFileFilterUsed(false);
+
+        int userChoice = fileChooser.showSaveDialog(null);
+        if (userChoice == JFileChooser.APPROVE_OPTION) {
+            String filePath = fileChooser.getSelectedFile().getAbsolutePath();
+            if (!filePath.toLowerCase().endsWith(".xlsx")) {
+                filePath += ".xlsx";
+            }
+
+            DefaultTableModel model = (DefaultTableModel) panelTable.getModel();
+            Workbook workbook = new XSSFWorkbook();
+            XSSFSheet sheet = (XSSFSheet) workbook.createSheet("Sân bay");
+//tao header row
+            XSSFRow headerRow = sheet.createRow(0);
+            for (int i = 0; i < model.getColumnCount(); i++) {
+                headerRow.createCell(i).setCellValue(model.getColumnName(i));
+            }
+//tao data row
+            for (int i = 0; i < model.getRowCount(); i++) {
+                XSSFRow dataRow = sheet.createRow(i + 1);
+                for (int j = 0; j < model.getColumnCount(); j++) {
+                    TableModel tableModel = panelTable.getModel();
+                    dataRow.createCell(j).setCellValue(tableModel.getValueAt(i, j).toString());
+                }
+            }
+//chinh size cot
+            for(int i = 0; i < model.getColumnCount(); i++){
+                sheet.autoSizeColumn(i);
+            }
+//viet file
+            JOptionPane.showMessageDialog(null, "Xuất file thành công");
+            
+            try {
+                FileOutputStream fileOut = new FileOutputStream(filePath);
+                workbook.write(fileOut);
+                fileOut.close();
+                workbook.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void importExcel() {
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setDialogTitle("Chọn file Excel để import");
+
+    int userChoice = fileChooser.showOpenDialog(null);
+    if (userChoice == JFileChooser.APPROVE_OPTION) {
+        File file = fileChooser.getSelectedFile();
+
+        try (FileInputStream fis = new FileInputStream(file);
+            Workbook workbook = WorkbookFactory.create(fis)) {
+
+            Sheet sheet = workbook.getSheetAt(0);
+            DefaultTableModel model = new DefaultTableModel();
+
+            boolean firstRow = true;
+            for (Row row : sheet) {
+                if (firstRow) {
+                    for (Cell cell : row) {
+                        model.addColumn(cell.toString());
+                    }
+                    firstRow = false;
+                } else {
+                    Object[] rowData = new Object[row.getLastCellNum()];
+                    for (int i = 0; i < row.getLastCellNum(); i++) {
+                        Cell cell = row.getCell(i, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+                        rowData[i] = getCellValue(cell);
+                    }
+                    model.addRow(rowData);
+                }
+            }
+
+            panelTable.setMytable(model);
+            JOptionPane.showMessageDialog(null, "Import thành công từ Excel!");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Lỗi khi import file Excel.");
+        }
+    }
+}
+
+private Object getCellValue(Cell cell) {
+     switch (cell.getCellType()) {
+        case STRING:
+            return cell.getStringCellValue();
+        case BOOLEAN:
+            return cell.getBooleanCellValue();
+        case NUMERIC:
+            if (DateUtil.isCellDateFormatted(cell)) {
+                java.util.Date date = cell.getDateCellValue();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                return dateFormat.format(date);
+            } else {
+                return cell.getNumericCellValue();
+            }
+        case FORMULA:
+            try {
+                return cell.getNumericCellValue();
+            } catch (IllegalStateException e) {
+                return cell.getStringCellValue();
+            }
+        case BLANK:
+            return "";
+        default:
+            return "";
+    }
+}
+
     public void xuLySuKien() {
         //tai du lieu lem text field
         panelTable.addRowClick(new MouseAdapter() {
@@ -182,6 +319,20 @@ public class SanBayController {
                     hienThiDanhSachSanBay();
                 }
                 
+            }
+        });
+
+        panelControl.addExportListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                exportToExcel();
+            }
+        });
+
+        panelControl.addImportListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                importExcel();
             }
         });
     }
