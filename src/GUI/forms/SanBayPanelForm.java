@@ -10,7 +10,7 @@ public class SanBayPanelForm extends javax.swing.JPanel {
 
         jScrollBar1 = new javax.swing.JScrollBar();
         sanBayTableForm = new GUI.forms.SanBayTableForm();
-        sanBayControlForm = new GUI.forms.SanBayControlForm();
+        sanBayControlForm1 = new GUI.forms.SanBayControlForm();
 
         setMaximumSize(new java.awt.Dimension(1065, 800));
         setMinimumSize(new java.awt.Dimension(0, 0));
@@ -23,19 +23,19 @@ public class SanBayPanelForm extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sanBayTableForm, javax.swing.GroupLayout.DEFAULT_SIZE, 1065, Short.MAX_VALUE)
-            .addComponent(sanBayControlForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(sanBayControlForm1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(sanBayControlForm, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sanBayControlForm1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sanBayTableForm, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE))
+                .addComponent(sanBayTableForm, javax.swing.GroupLayout.PREFERRED_SIZE, 694, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
     
     public SanBayControlForm getSanBayControlForm() {
-        return sanBayControlForm;
+        return sanBayControlForm1;
     }
 
     public SanBayTableForm getSanBayTableForm() {
@@ -44,7 +44,7 @@ public class SanBayPanelForm extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollBar jScrollBar1;
-    private GUI.forms.SanBayControlForm sanBayControlForm;
+    private GUI.forms.SanBayControlForm sanBayControlForm1;
     private GUI.forms.SanBayTableForm sanBayTableForm;
     // End of variables declaration//GEN-END:variables
 }
