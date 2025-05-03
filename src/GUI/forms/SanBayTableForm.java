@@ -55,6 +55,10 @@ public class SanBayTableForm extends javax.swing.JPanel {
         myTable.addMouseListener(listener);
     }
     
+    public void setMytable(DefaultTableModel model) {
+        myTable.setModel(model);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane2;
     private GUI.panel.swing.MyTable myTable;
