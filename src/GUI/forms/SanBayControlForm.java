@@ -25,6 +25,8 @@ public class SanBayControlForm extends javax.swing.JPanel {
         comboTimKiem = new javax.swing.JPanel();
         txtTimKiem = new javax.swing.JTextField();
         lblTimKiem = new javax.swing.JLabel();
+        btnExport = new GUI.panel.swing.MyButton();
+        btnImport = new GUI.panel.swing.MyButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1054, 300));
@@ -83,6 +85,22 @@ public class SanBayControlForm extends javax.swing.JPanel {
         lblTimKiem.setOpaque(true);
         comboTimKiem.add(lblTimKiem);
 
+        btnExport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/export.png"))); // NOI18N
+        btnExport.setText("Export");
+        btnExport.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnExport.setColorClick(new java.awt.Color(0, 153, 255));
+        btnExport.setColorOver(new java.awt.Color(0, 204, 255));
+        btnExport.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnExport.setPreferredSize(new java.awt.Dimension(100, 31));
+
+        btnImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/import.png"))); // NOI18N
+        btnImport.setText("Import");
+        btnImport.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnImport.setColorClick(new java.awt.Color(0, 153, 255));
+        btnImport.setColorOver(new java.awt.Color(0, 204, 255));
+        btnImport.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnImport.setPreferredSize(new java.awt.Dimension(100, 31));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,7 +116,7 @@ public class SanBayControlForm extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtTenSanBay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(230, 230, 230)
+                .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -106,8 +124,12 @@ public class SanBayControlForm extends javax.swing.JPanel {
                         .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(comboTimKiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(comboTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,12 +137,15 @@ public class SanBayControlForm extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(comboTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnExport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,7 +190,17 @@ public class SanBayControlForm extends javax.swing.JPanel {
     public void addTimKiemListenter(KeyAdapter listener){
         txtTimKiem.addKeyListener(listener);
     }
+    
+    public void addExportListener(ActionListener listener) {
+        btnExport.addActionListener(listener);
+    }
+    
+    public void addImportListener(ActionListener listener) {
+        btnImport.addActionListener(listener);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private GUI.panel.swing.MyButton btnExport;
+    private GUI.panel.swing.MyButton btnImport;
     private GUI.panel.swing.MyButton btnSua;
     private GUI.panel.swing.MyButton btnThem;
     private GUI.panel.swing.MyButton btnXoa;
