@@ -11,6 +11,7 @@ import DTO.ChuyenBayDTO;
 import DTO.HanhTrinhDTO;
 import DTO.KhachHangDTO;
 import DTO.KhuyenMaiDTO;
+import GUI.PDFDesign.GeneratePDF;
 import GUI.forms.DatVeControlForm;
 import GUI.forms.DatVePanelForm;
 import GUI.forms.DatVeTableForm;
@@ -48,6 +49,7 @@ public class DatVeController {
     private KhuyenMaiDTO khuyenMaiTimThay;
     private KhachHangDTO khachHangTimThay;
     private int tienPhaiTra;
+    private int tongSoTien;
     public DatVeController(DatVePanelForm panel) {
         this.panelControl = panel.getDatVeControlForm();
         this.panelTable = panel.getDatVeTableForm();
@@ -132,7 +134,6 @@ public class DatVeController {
             tongGia += value;
         }
         return tongGia;
-        
     }
     public void xuLySuKien() {
         panelDatVe.addShowPopopMaVe((e) -> {
@@ -338,17 +339,21 @@ public class DatVeController {
                 panelDatVe.getThongTinHoaDon().getThongTinKhachHangForm1().getCtEmail().setText(email);
                 panelDatVe.getThongTinHoaDon().getMyTable().setModel(model);
                 
-                int tongSoTien = tinhToanTongGia(model);
+                tongSoTien = tinhToanTongGia(model);
                 panelDatVe.getThongTinHoaDon().getLbTongTien().setText(""+tongSoTien);
                 
                 if(khuyenMaiTimThay != null) {
                     
-                    panelDatVe.getThongTinHoaDon().getLbGiamGia()
-                        .setText(khuyenMaiTimThay.getPhanTramGiamGia());
+                    
                     panelDatVe.getThongTinHoaDon().getLbMaKhuyenMai()
                         .setText(khuyenMaiTimThay.getMaKhuyenMai());
                     
-                    tienPhaiTra =  tongSoTien * Integer.parseInt(khuyenMaiTimThay.getPhanTramGiamGia())/100;
+                    int tienGiamGia =  tongSoTien * Integer.parseInt(khuyenMaiTimThay.getPhanTramGiamGia())/100;
+                    panelDatVe.getThongTinHoaDon().getLbGiamGia()
+                        .setText(""+tienGiamGia);
+                    
+                    tienPhaiTra = tongSoTien - tienGiamGia;
+                    
                     
                     panelDatVe.getThongTinHoaDon().getlBTienPhaiTra()
                             .setText(""+tienPhaiTra);
@@ -361,6 +366,11 @@ public class DatVeController {
                             .setText(""+tongSoTien);
                 }
             }
+        });
+        
+        panelDatVe.getThongTinHoaDon().addBtnXuatPDFListener(e -> {
+            DefaultTableModel model = panelTableThem.getModel();
+            GeneratePDF.xuatPDFHoaDon(khachHangTimThay, khuyenMaiTimThay, model, tongSoTien, tienPhaiTra);
         });
 
     }
