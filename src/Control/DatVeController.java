@@ -11,14 +11,14 @@ import DTO.ChuyenBayDTO;
 import DTO.HanhTrinhDTO;
 import DTO.KhachHangDTO;
 import DTO.KhuyenMaiDTO;
-import DTO.VeDTO;
 import GUI.forms.DatVeControlForm;
 import GUI.forms.DatVePanelForm;
 import GUI.forms.DatVeTableForm;
 import GUI.forms.DatVeTableThemForm;
 import GUI.forms.KhachHangForm;
 import GUI.forms.ThongTinDatVeForm;
-import java.awt.event.ActionListener;
+import java.awt.Component;
+import java.awt.Point;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -26,6 +26,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -35,14 +36,15 @@ public class DatVeController {
     private final DatVeTableThemForm panelTableThem;
     private final KhachHangForm panelFormKH;
     private final ThongTinDatVeForm panelDatVe;
-    private ChuyenBayBUS chuyenBayBUS = new ChuyenBayBUS();
-    private HanhTrinhBUS hanhTrinhBUS = new HanhTrinhBUS();
-    private VeBUS veBUS = new VeBUS();
-    private NhanVienBUS nhanVienBUS = new NhanVienBUS();
-    private KhachHangBUS khachHangBUS = new KhachHangBUS();
-    private KhuyenMaiBUS khuyenMaiBUS = new KhuyenMaiBUS();
-    private KhuyenMaiChiTietBUS khuyenMaiCTBUS = new KhuyenMaiChiTietBUS();
+    private final ChuyenBayBUS chuyenBayBUS = new ChuyenBayBUS();
+    private final HanhTrinhBUS hanhTrinhBUS = new HanhTrinhBUS();
+    private final VeBUS veBUS = new VeBUS();
+    private final NhanVienBUS nhanVienBUS = new NhanVienBUS();
+    private final KhachHangBUS khachHangBUS = new KhachHangBUS();
+    private final KhuyenMaiBUS khuyenMaiBUS = new KhuyenMaiBUS();
+    private final KhuyenMaiChiTietBUS khuyenMaiCTBUS = new KhuyenMaiChiTietBUS();
     private ArrayList<ChuyenBayDTO> dsChuyenBay;
+    private final ArrayList<String> maVeDaThem = new ArrayList<>();
     public DatVeController(DatVePanelForm panel) {
         this.panelControl = panel.getDatVeControlForm();
         this.panelTable = panel.getDatVeTableForm();
@@ -109,6 +111,16 @@ public class DatVeController {
         panelFormKH.getCccd().setText(kh.getCccd());
     }
 
+    private boolean kiemTraMaVeDaThem(String maVe) {
+        if(!maVeDaThem.isEmpty()) {
+            for(String maVeDaCo : maVeDaThem) {
+                if(maVeDaCo.equals(maVe))
+                    return true;
+            }
+        }
+        return false;
+    }
+    
     public void xuLySuKien() {
         panelDatVe.addShowPopopMaVe((e) -> {
             panelDatVe.showPopBangLayMaVe();
@@ -245,6 +257,40 @@ public class DatVeController {
                     JOptionPane.showMessageDialog(null, "Khuyến mãi không tồn tại hoặc không áp dụng cho hành trình này");
                 }
             }
+        });    
+        
+        panelDatVe.addBtnThemveListener(e -> {
+            String maChuyenBay = panelDatVe.getTxtMaChuyenBay().getText();
+            String maVe = panelDatVe.getTxtMaVe().getText();
+            String donGia = panelDatVe.getTxtGiaVe().getText();
+            boolean veDaThem = kiemTraMaVeDaThem(maVe);
+            if (!veDaThem) {
+                if (!maChuyenBay.isEmpty() && !maVe.isEmpty() && !donGia.isEmpty()) {
+                    Vector row = new Vector();
+                    row.add(maChuyenBay);
+                    row.add(1);
+                    row.add(maVe);
+                    row.add(donGia);
+                    maVeDaThem.add(maVe);
+                    panelTableThem.getModel().addRow(row);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Vui lòng điền đủ thông tin");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Vé đã được thêm vào vui lòng chọn vé khác");
+            }
+
         });
+        
+        panelDatVe.addBtnXoaVe(e -> {
+            int row = panelTableThem.getMyTable().getSelectedRow();
+            DefaultTableModel model = panelTableThem.getModel();
+            if(row != -1) {
+                String maVe = panelTableThem.getMyTable().getValueAt(row, 2).toString();
+                maVeDaThem.removeIf(maveDaCo -> maveDaCo.equals(maVe));
+                model.removeRow(row); 
+            }
+        });
+        
     }
 }

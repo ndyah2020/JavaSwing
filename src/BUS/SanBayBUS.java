@@ -72,7 +72,6 @@ public class SanBayBUS {
     }
 
     public void importFromExcel(File file) {
-        danhSachSanBay.clear();
         try (FileInputStream fis = new FileInputStream(file);
             Workbook workbook = WorkbookFactory.create(fis)) {
 

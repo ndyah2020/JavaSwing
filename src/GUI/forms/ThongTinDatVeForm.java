@@ -59,6 +59,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         lbPhanTramGiamGia = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnThemVe = new GUI.panel.swing.MyButton();
+        btnXoaVe = new GUI.panel.swing.MyButton();
         btnDatVe = new GUI.panel.swing.MyButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -264,6 +265,16 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         btnThemVe.setPreferredSize(new java.awt.Dimension(120, 30));
         jPanel1.add(btnThemVe);
 
+        btnXoaVe.setText("Xóa Vé");
+        btnXoaVe.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnXoaVe.setColorClick(new java.awt.Color(0, 153, 255));
+        btnXoaVe.setColorOver(new java.awt.Color(0, 204, 255));
+        btnXoaVe.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnXoaVe.setMaximumSize(new java.awt.Dimension(432423, 36));
+        btnXoaVe.setMinimumSize(new java.awt.Dimension(0, 0));
+        btnXoaVe.setPreferredSize(new java.awt.Dimension(120, 30));
+        jPanel1.add(btnXoaVe);
+
         btnDatVe.setText("Đặt Vé");
         btnDatVe.setBorderColor(new java.awt.Color(204, 204, 204));
         btnDatVe.setColorClick(new java.awt.Color(0, 153, 255));
@@ -301,7 +312,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     }
     
     public MyButton getBtnDatVe() {
-        return btnDatVe;
+        return btnXoaVe;
     }
 
     public MyButton getBtnKiemTracccd() {
@@ -361,7 +372,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     }
     
     public void addBtnDatVeListener(ActionListener listener) {
-        btnDatVe.addActionListener(listener);
+        btnXoaVe.addActionListener(listener);
     }
     
     public void addBtnKiemTraKH(ActionListener listener) {
@@ -384,6 +395,9 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         btnKiemTraKM.addActionListener(listener);
     }
     
+    public void addBtnXoaVe(ActionListener listener) {
+       btnXoaVe.addActionListener(listener);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.MyButton btnDatVe;
     private GUI.panel.swing.MyButton btnKiemTraKM;
@@ -391,6 +405,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     private GUI.panel.swing.MyButton btnMaVe;
     private GUI.panel.swing.MyButton btnNhanVien;
     private GUI.panel.swing.MyButton btnThemVe;
+    private GUI.panel.swing.MyButton btnXoaVe;
     private GUI.panel.swing.MyCombobox cmbLoaiVe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

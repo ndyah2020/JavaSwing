@@ -3,20 +3,19 @@ package GUI.forms;
 import GUI.panel.swing.MyTable;
 import java.awt.event.MouseAdapter;
 import javax.swing.table.DefaultTableModel;
-
 public class DatVeTableThemForm extends javax.swing.JPanel {
     private DefaultTableModel model;
     public DatVeTableThemForm() {
         initComponents();
         String[] columnNames = {
             "Mã CB",
-            "Số lượng",              
+            "Số lượng Vé",        
             "Mã vé" ,
             "Đơn Giá", 
-            "Xóa",
         };
         model = new DefaultTableModel(columnNames, 0);
         myTable.setModel(model);
+ 
     }
 
     public DefaultTableModel getModel() {
@@ -30,6 +29,8 @@ public class DatVeTableThemForm extends javax.swing.JPanel {
     public void addRowClickListener(MouseAdapter listener) {
         myTable.addMouseListener(listener);
     }
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
