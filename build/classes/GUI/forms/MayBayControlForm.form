@@ -334,9 +334,10 @@
     <Component class="GUI.panel.swing.MyCombobox" name="cmbSapXep">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="X&#x1eaf;p X&#x1ebf;p: T&#x103;ng D&#x1ea7;n"/>
-            <StringItem index="1" value="Gi&#x1ea3;m D&#x1ea7;n"/>
+          <StringArray count="3">
+            <StringItem index="0" value="S&#x1eaf;p X&#x1ebf;p"/>
+            <StringItem index="1" value="T&#x103;ng D&#x1ea7;n"/>
+            <StringItem index="2" value="Gi&#x1ea3;m D&#x1ea7;n"/>
           </StringArray>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -350,9 +351,10 @@
     <Component class="GUI.panel.swing.MyCombobox" name="cmbLoc">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="L&#x1ecd;c: Theo M&#xe3;"/>
-            <StringItem index="1" value="Theo T&#xea;n"/>
+          <StringArray count="3">
+            <StringItem index="0" value="L&#x1ecd;c theo"/>
+            <StringItem index="1" value="M&#xe3; m&#xe1;y bay"/>
+            <StringItem index="2" value="T&#xea;n m&#xe1;y bay"/>
           </StringArray>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

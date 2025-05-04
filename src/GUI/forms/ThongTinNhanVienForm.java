@@ -104,6 +104,7 @@ public class ThongTinNhanVienForm extends javax.swing.JPanel {
 
         ctMaNhanVien.setBackground(new java.awt.Color(255, 255, 255));
         ctMaNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ctMaNhanVien.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ctMaNhanVien.setMaximumSize(new java.awt.Dimension(200, 300));
         ctMaNhanVien.setMinimumSize(new java.awt.Dimension(120, 300));
         ctMaNhanVien.setPreferredSize(new java.awt.Dimension(120, 30));

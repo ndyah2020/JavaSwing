@@ -5,6 +5,7 @@ import GUI.panel.swing.MyButton;
 import GUI.panel.swing.MyCombobox;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
@@ -142,11 +143,11 @@ public class MayBayControlForm extends javax.swing.JPanel {
         btnGetMaLoaiMayBay.setPreferredSize(new java.awt.Dimension(32, 31));
         jPanel5.add(btnGetMaLoaiMayBay);
 
-        cmbSapXep.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Xắp Xếp: Tăng Dần", "Giảm Dần" }));
+        cmbSapXep.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sắp Xếp", "Tăng Dần", "Giảm Dần" }));
         cmbSapXep.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cmbSapXep.setPreferredSize(new java.awt.Dimension(150, 31));
 
-        cmbLoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lọc: Theo Mã", "Theo Tên" }));
+        cmbLoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lọc theo", "Mã máy bay", "Tên máy bay" }));
         cmbLoc.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cmbLoc.setPreferredSize(new java.awt.Dimension(150, 31));
         cmbLoc.addActionListener(new java.awt.event.ActionListener() {
@@ -324,7 +325,13 @@ public class MayBayControlForm extends javax.swing.JPanel {
         btnGetMaLoaiMayBay.addActionListener(al);
     }
     
+    public void addItemCmbLocListener(ItemListener il) {
+        cmbLoc.addItemListener(il);
+    }
     
+    public void addItemCmbSapXepListener(ItemListener il) {
+        cmbSapXep.addItemListener(il);
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.MyButton btnGetMaLoaiMayBay;
