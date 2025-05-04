@@ -16,18 +16,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.Vector;
-import org.apache.poi.ss.usermodel.DateUtil;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -41,7 +35,7 @@ import javax.swing.table.TableModel;
 public class SanBayController {
 
     private ArrayList<SanBayDTO> dsSanBay;
-    
+    private SanBayBUS bus = new SanBayBUS();
     private final SanBayTableForm panelTable;
     private final SanBayControlForm panelControl;
     private final SanBayBUS sanBayBUS = new SanBayBUS();
@@ -155,74 +149,6 @@ public class SanBayController {
         }
     }
 
-    public void importExcel() {
-    JFileChooser fileChooser = new JFileChooser();
-    fileChooser.setDialogTitle("Chọn file Excel để import");
-
-    int userChoice = fileChooser.showOpenDialog(null);
-    if (userChoice == JFileChooser.APPROVE_OPTION) {
-        File file = fileChooser.getSelectedFile();
-
-        try (FileInputStream fis = new FileInputStream(file);
-            Workbook workbook = WorkbookFactory.create(fis)) {
-
-            Sheet sheet = workbook.getSheetAt(0);
-            DefaultTableModel model = new DefaultTableModel();
-
-            boolean firstRow = true;
-            for (Row row : sheet) {
-                if (firstRow) {
-                    for (Cell cell : row) {
-                        model.addColumn(cell.toString());
-                    }
-                    firstRow = false;
-                } else {
-                    Object[] rowData = new Object[row.getLastCellNum()];
-                    for (int i = 0; i < row.getLastCellNum(); i++) {
-                        Cell cell = row.getCell(i, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
-                        rowData[i] = getCellValue(cell);
-                    }
-                    model.addRow(rowData);
-                }
-            }
-
-            panelTable.setMytable(model);
-            JOptionPane.showMessageDialog(null, "Import thành công từ Excel!");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Lỗi khi import file Excel.");
-        }
-    }
-}
-
-private Object getCellValue(Cell cell) {
-     switch (cell.getCellType()) {
-        case STRING:
-            return cell.getStringCellValue();
-        case BOOLEAN:
-            return cell.getBooleanCellValue();
-        case NUMERIC:
-            if (DateUtil.isCellDateFormatted(cell)) {
-                java.util.Date date = cell.getDateCellValue();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-                return dateFormat.format(date);
-            } else {
-                return cell.getNumericCellValue();
-            }
-        case FORMULA:
-            try {
-                return cell.getNumericCellValue();
-            } catch (IllegalStateException e) {
-                return cell.getStringCellValue();
-            }
-        case BLANK:
-            return "";
-        default:
-            return "";
-    }
-}
-
     public void xuLySuKien() {
         //tai du lieu lem text field
         panelTable.addRowClick(new MouseAdapter() {
@@ -332,7 +258,16 @@ private Object getCellValue(Cell cell) {
         panelControl.addImportListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                importExcel();
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setDialogTitle("Chọn file Excel để import");
+
+                int result = fileChooser.showOpenDialog(null);
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File file = fileChooser.getSelectedFile();
+
+                    bus.importFromExcel(file);
+                    hienThiDanhSachSanBay();
+                }
             }
         });
     }
