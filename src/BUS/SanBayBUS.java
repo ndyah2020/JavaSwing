@@ -71,6 +71,15 @@ public class SanBayBUS {
         return danhSachTimThay;
     }
 
+    private boolean checkID(String maNV) {
+    for (SanBayDTO nv : danhSachSanBay) {
+        if (nv.getMaSanBay().equalsIgnoreCase(maNV)) {
+            return true;
+        }
+    }
+    return false;
+}
+
     public void importFromExcel(File file) {
         try (FileInputStream fis = new FileInputStream(file);
             Workbook workbook = WorkbookFactory.create(fis)) {
@@ -83,8 +92,13 @@ public class SanBayBUS {
                     continue;
                 }
 
+                String id = row.getCell(0).toString();
+                if(checkID(id)) {
+                    continue;
+                }
+
                 SanBayDTO sb = new SanBayDTO();
-                sb.setMaSanBay(row.getCell(0).toString());
+                sb.setMaSanBay(id);
                 sb.setTenSanBay(row.getCell(1).toString());
                 sb.setDiaChi(row.getCell(2).toString());
 
