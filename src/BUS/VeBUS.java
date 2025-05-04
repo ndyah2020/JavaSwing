@@ -20,6 +20,10 @@ public class VeBUS {
         danhSachVe = dao.layDanhSachVe();
     }
     
+    public void capNhatDanhSach() {
+        layDanhSachVe();
+    }
+    
     public ArrayList<VeDTO> getDanhSachVe () {
         if(danhSachVe.isEmpty()) {
             layDanhSachVe();

@@ -126,4 +126,38 @@ public class KhuyenMaiDAO {
             return false;
         }
     }
+
+    public KhuyenMaiDTO layKhuyenMaiCoMaHanhTrinh(String maKhuyenMai, String maChuyenBay) {
+        KhuyenMaiDTO khuyenMai = null;
+        try {
+            String sql = "SELECT km.* "
+                    + "FROM KhuyenMai km "
+                    + "JOIN CTKhuyenMai ctkm ON km.MaKhuyenMai = ctkm.MaKhuyenMai "
+                    + "JOIN ChuyenBay cb ON ctkm.MaHanhTrinh = cb.MaHanhTrinh "
+                    + "WHERE km.MaKhuyenMai = ? "
+                    + "AND cb.MaChuyenBay = ? "
+                    + "AND GETDATE() BETWEEN km.NgayBatDau AND km.NgayKetThuc";
+
+            conn = ConnectToSQLServer.getConnection();
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, maKhuyenMai);
+            st.setString(2, maChuyenBay);
+
+            ResultSet res = st.executeQuery();
+            if (res.next()) {
+                khuyenMai = new KhuyenMaiDTO();
+                khuyenMai.setMaKhuyenMai(res.getString("MaKhuyenMai"));
+                khuyenMai.setTenKhuyenMai(res.getString("TenKhuyenMai"));
+                khuyenMai.setNgayBatDau(res.getDate("NgayBatDau"));
+                khuyenMai.setNgayKetThuc(res.getDate("NgayKetThuc"));
+                khuyenMai.setPhanTramGiamGia(res.getString("PhanTramGiamGia"));
+            }
+            res.close();
+            st.close();
+            ConnectToSQLServer.closeConnection(conn);
+        } catch (SQLException e) {
+            e.printStackTrace(); 
+        }
+        return khuyenMai;
+    }
 }

@@ -3,11 +3,14 @@ package Control;
 import BUS.ChuyenBayBUS;
 import BUS.HanhTrinhBUS;
 import BUS.KhachHangBUS;
+import BUS.KhuyenMaiBUS;
+import BUS.KhuyenMaiChiTietBUS;
 import BUS.NhanVienBUS;
 import BUS.VeBUS;
 import DTO.ChuyenBayDTO;
 import DTO.HanhTrinhDTO;
 import DTO.KhachHangDTO;
+import DTO.KhuyenMaiDTO;
 import DTO.VeDTO;
 import GUI.forms.DatVeControlForm;
 import GUI.forms.DatVePanelForm;
@@ -37,7 +40,8 @@ public class DatVeController {
     private VeBUS veBUS = new VeBUS();
     private NhanVienBUS nhanVienBUS = new NhanVienBUS();
     private KhachHangBUS khachHangBUS = new KhachHangBUS();
-    
+    private KhuyenMaiBUS khuyenMaiBUS = new KhuyenMaiBUS();
+    private KhuyenMaiChiTietBUS khuyenMaiCTBUS = new KhuyenMaiChiTietBUS();
     private ArrayList<ChuyenBayDTO> dsChuyenBay;
     public DatVeController(DatVePanelForm panel) {
         this.panelControl = panel.getDatVeControlForm();
@@ -224,9 +228,23 @@ public class DatVeController {
                }
             }        
         });
-        
+
         panelDatVe.addBtnKiemTraKM(e -> {
-            
+            String maKhuyenMai = panelDatVe.getTxtKhuyenMai().getText();
+            String maChuyenBay = panelDatVe.getTxtMaChuyenBay().getText();
+
+            if (maKhuyenMai.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Vui lòng nhập mã khuyến mãi");
+            } else if (maChuyenBay.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Vui lòng chọn chuyến bay");
+            } else {
+                KhuyenMaiDTO khuyenMai = khuyenMaiBUS.layMotKhuyenMaiTheoMaHT(maKhuyenMai, maChuyenBay);
+                if (khuyenMai != null) {
+                    panelDatVe.getLbPhanTramGiamGia().setText(khuyenMai.getPhanTramGiamGia());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Khuyến mãi không tồn tại hoặc không áp dụng cho hành trình này");
+                }
+            }
         });
-    }   
+    }
 }

@@ -17,6 +17,7 @@
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DAO/VeDAO.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/.gitignore</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DAO/HoaDonCTDAO.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DAO/KhuyenMaiDAO.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/ChuyenBayController.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/SanBayPanelForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/PopupForm/PopupFormSearch.java</file>
@@ -37,6 +38,7 @@
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/HanhTrinhController.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/DatVeControlForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/ThongTinKhachHangForm.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DTO/KhuyenMaiDTO.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/HanhTrinhTableForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/BUS/HoaDonCTBUS.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/KhachHangControlForm.java</file>
@@ -47,6 +49,7 @@
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/SanBayControlForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/nbproject/project.xml</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/MayBayControlForm.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/BUS/ChuyenBayBUS.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/HoaDonVaCTController.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/HoaDonCTTableForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/DatVeTableForm.java</file>

@@ -6,6 +6,7 @@ import GUI.panel.swing.MyCombobox;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import java.awt.BorderLayout;
+import javax.swing.JLabel;
 public class ThongTinDatVeForm extends javax.swing.JPanel {
     private PopupFormSearch bangLayMaVe;
     private PopupFormSearch bangLayMaNhanVien;
@@ -53,6 +54,9 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         txtKhuyenMai = new javax.swing.JTextField();
         btnKiemTraKM = new GUI.panel.swing.MyButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        lbPhanTramGiamGia = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnThemVe = new GUI.panel.swing.MyButton();
         btnDatVe = new GUI.panel.swing.MyButton();
@@ -229,6 +233,24 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
 
         jPanel2.add(jPanel14);
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setMaximumSize(new java.awt.Dimension(32767, 36));
+        jPanel5.setPreferredSize(new java.awt.Dimension(171, 36));
+        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Phần Trăm Giảm Giá");
+        jLabel3.setMaximumSize(new java.awt.Dimension(200, 36));
+        jLabel3.setMinimumSize(new java.awt.Dimension(100, 20));
+        jLabel3.setPreferredSize(new java.awt.Dimension(150, 36));
+        jPanel5.add(jLabel3);
+
+        lbPhanTramGiamGia.setMaximumSize(new java.awt.Dimension(10000, 36));
+        lbPhanTramGiamGia.setPreferredSize(new java.awt.Dimension(36, 36));
+        jPanel5.add(lbPhanTramGiamGia);
+
+        jPanel2.add(jPanel5);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.GridLayout(1, 0, 12, 0));
 
@@ -329,6 +351,10 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     public JTextField getTxtKhuyenMai() {
         return txtKhuyenMai;
     }
+
+    public JLabel getLbPhanTramGiamGia() {
+        return lbPhanTramGiamGia;
+    }
     
     public void addBtnThemveListener(ActionListener listener) {
         btnThemVe.addActionListener(listener);
@@ -374,6 +400,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel13;
@@ -384,7 +411,9 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel lbPhanTramGiamGia;
     private javax.swing.JPopupMenu popupLayMaNV;
     private javax.swing.JPopupMenu popupLayMaVe;
     private javax.swing.JTextField txtCccd;

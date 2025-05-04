@@ -282,3 +282,12 @@ VALUES
 ('CTHD002', 'HD001', 'CB-001-TH-10', 1, 1680000),
 ('CTHD003', 'HD002', 'CB-001-VIP-2', 1, 2520000),
 ('CTHD004', 'HD002', 'CB-001-VIP-22', 1, 2520000);
+
+--Lay Ma khuyenMai tu nhap vao va ma hanh trinh
+SELECT km.*
+FROM KhuyenMai km
+Join CTKhuyenMai ctkm on km.MaKhuyenMai = ctkm.MaKhuyenMai
+join ChuyenBay cb on ctkm.MaHanhTrinh = cb.MaHanhTrinh
+Where km.MaKhuyenMai = 'KM0001'
+	AND cb.MaHanhTrinh = 'HT-0002'
+	AND GETDATE() BETWEEN km.NgayBatDau AND km.NgayKetThuc

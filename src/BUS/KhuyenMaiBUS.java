@@ -76,6 +76,9 @@ public class KhuyenMaiBUS {
         }
         return dsKhuyenMaiTimThay;
     }
+    public KhuyenMaiDTO layMotKhuyenMaiTheoMaHT(String maKhuyenMai, String maChuyenBay) {
+        return khuyenMaiDAO.layKhuyenMaiCoMaHanhTrinh(maKhuyenMai, maChuyenBay);
+    }
     
     public ArrayList<KhuyenMaiDTO> danhSachTimKiemNangCao(String ma, String ten, Date tu, Date den) {
         ArrayList<KhuyenMaiDTO> danhSachKhuyenMai = khuyenMaiDAO.docDanhSach();

@@ -252,6 +252,7 @@ public class ChuyenBayController {
                     chuyenBayBUS.themChuyenBayBUS(chuyenBay);
                     panelForm.clearForm();
                     layDanhSachChuyenBay();
+                    veBUS.capNhatDanhSach();
                     JOptionPane.showMessageDialog(null, "Thêm chuyến bay thành công!");
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Lỗi nhập dữ liệu: " + ex.getMessage());
