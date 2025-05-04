@@ -120,7 +120,17 @@ public class DatVeController {
         }
         return false;
     }
-    
+
+    private int tinhToanTongGia(DefaultTableModel model) {
+        int tongGia = 0;
+
+        for (int i = 0; i < panelTableThem.getMyTable().getRowCount(); i++) {
+            int value = Integer.parseInt(panelTableThem.getMyTable().getValueAt(i, 3).toString());
+            tongGia += value;
+        }
+        return tongGia;
+        
+    }
     public void xuLySuKien() {
         panelDatVe.addShowPopopMaVe((e) -> {
             panelDatVe.showPopBangLayMaVe();
@@ -292,5 +302,50 @@ public class DatVeController {
             }
         });
         
+        panelDatVe.addBtnDatVeListener(e -> {
+            panelDatVe.showPopupThongTinHoaDon();
+            String maKhachgHang = panelFormKH.getMa().getText();
+            String tenKhachHang = panelFormKH.getTen().getText();
+            String hoKhachHang = panelFormKH.getHo().getText();
+            String email = panelFormKH.getEmail().getText();
+            String gioiTinh = panelFormKH.getGioiTinh();
+            String ngaySinh = panelFormKH.getNgaySinh().getText();
+            String sdt = panelFormKH.getSdt().getText();
+            String cccd = panelFormKH.getCccd().getText();
+
+            boolean kiemTraThongTin
+                    = !maKhachgHang.isEmpty()
+                    && !tenKhachHang.isEmpty()
+                    && !hoKhachHang.isEmpty()
+                    && !email.isEmpty()
+                    && !gioiTinh.isEmpty()
+                    && !ngaySinh.isEmpty()
+                    && !sdt.isEmpty()
+                    && !cccd.isEmpty();
+            
+            DefaultTableModel model = panelTableThem.getModel();
+            if(!kiemTraThongTin) {
+                JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin khách hàng");
+            }else if(model.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(null, "Vui lòng thêm vé");
+            }else {
+                panelDatVe.getThongTinHoaDon().getThongTinKhachHangForm1().getCtMaKhachHang().setText(maKhachgHang);
+                panelDatVe.getThongTinHoaDon().getThongTinKhachHangForm1().getCtTenKhachHang().setText(hoKhachHang + " " + tenKhachHang);
+                panelDatVe.getThongTinHoaDon().getThongTinKhachHangForm1().getCtGioiTinh().setText(gioiTinh);
+                panelDatVe.getThongTinHoaDon().getThongTinKhachHangForm1().getCtEmail().setText(email);
+                panelDatVe.getThongTinHoaDon().getMyTable().setModel(model);
+                
+                int tongSoTien = tinhToanTongGia(model);
+                panelDatVe.getThongTinHoaDon().getLbTongTien().setText(""+tongSoTien);
+                
+                String phanTramKhuyenMai = panelDatVe.getTxtKhuyenMai().getText();
+
+                panelDatVe.getThongTinHoaDon().getLbKhuyenMai()
+                        .setText((!phanTramKhuyenMai.isEmpty()) ? phanTramKhuyenMai : "0");
+
+            }
+
+        });
+
     }
 }

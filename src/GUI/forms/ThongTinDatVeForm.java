@@ -1,5 +1,6 @@
 package GUI.forms;
 
+import GUI.PopupForm.PopupFormHoaDon;
 import GUI.PopupForm.PopupFormSearch;
 import GUI.panel.swing.MyButton;
 import GUI.panel.swing.MyCombobox;
@@ -10,6 +11,7 @@ import javax.swing.JLabel;
 public class ThongTinDatVeForm extends javax.swing.JPanel {
     private PopupFormSearch bangLayMaVe;
     private PopupFormSearch bangLayMaNhanVien;
+    private PopupFormHoaDon thongTinHoaDon;
     
     public ThongTinDatVeForm() {
         initComponents();
@@ -25,6 +27,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
 
         popupLayMaVe = new javax.swing.JPopupMenu();
         popupLayMaNV = new javax.swing.JPopupMenu();
+        poupHienTHiHoaDon = new javax.swing.JPopupMenu();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -297,6 +300,10 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         popupLayMaNV.show(btnNhanVien, -287, btnNhanVien.getHeight() - 200);
     }
     
+    public void showPopupThongTinHoaDon() {
+        poupHienTHiHoaDon.show(btnDatVe, -800, btnDatVe.getHeight() - 350);
+    }
+    
     private void intPopup() {
         bangLayMaVe = new PopupFormSearch();
         popupLayMaVe.setLayout(new BorderLayout());
@@ -305,6 +312,14 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
         bangLayMaNhanVien = new PopupFormSearch();
         popupLayMaNV.setLayout(new BorderLayout());
         popupLayMaNV.add(bangLayMaNhanVien, BorderLayout.CENTER);
+        
+        thongTinHoaDon = new PopupFormHoaDon();
+        poupHienTHiHoaDon.setLayout(new BorderLayout());
+        poupHienTHiHoaDon.add(thongTinHoaDon, BorderLayout.CENTER);
+    }
+
+    public PopupFormHoaDon getThongTinHoaDon() {
+        return thongTinHoaDon;
     }
 
     public PopupFormSearch getBangLayMaNhanVien() {
@@ -372,7 +387,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     }
     
     public void addBtnDatVeListener(ActionListener listener) {
-        btnXoaVe.addActionListener(listener);
+        btnDatVe.addActionListener(listener);
     }
     
     public void addBtnKiemTraKH(ActionListener listener) {
@@ -431,6 +446,7 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     private javax.swing.JLabel lbPhanTramGiamGia;
     private javax.swing.JPopupMenu popupLayMaNV;
     private javax.swing.JPopupMenu popupLayMaVe;
+    private javax.swing.JPopupMenu poupHienTHiHoaDon;
     private javax.swing.JTextField txtCccd;
     private javax.swing.JTextField txtGiaVe;
     private javax.swing.JTextField txtKhuyenMai;
