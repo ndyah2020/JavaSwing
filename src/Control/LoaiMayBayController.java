@@ -198,8 +198,8 @@ public class LoaiMayBayController {
 
                 String tenDauVao = loaiMayBayPanel.getLoaiMayBayControlForm().getTxtTimKiem().getText();
                 if (!tenDauVao.isEmpty()) {
-                    ArrayList<LoaiMayBayDTO> danhSachLMBMoi = loaiMayBayBUS.danhSachTimTheoTenLoaiMB(tenDauVao);
-                     HienThiTable.taiDuLieuTableLoaiMayBay(modelTimKiem, danhSachLMBMoi);
+                    ArrayList<LoaiMayBayDTO> danhSachLMBMoi = loaiMayBayBUS.danhSachTimTheoTuKhoa(tenDauVao);
+                    HienThiTable.taiDuLieuTableLoaiMayBay(modelTimKiem, danhSachLMBMoi);
                     loaiMayBayPanel.getLoaiMayBayTableForm().getMyTable().setModel(modelTimKiem);
                 } else {
                     hienThiDanhSachLoaiMayBay();

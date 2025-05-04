@@ -270,5 +270,48 @@ public class SanBayController {
                 }
             }
         });
+        
+        panelControl.addTimKiemListenter(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent evt) {
+                String tuKhoa = panelControl.getTxtTimKiem().getText().trim().toLowerCase();
+
+                DefaultTableModel modelGoc = (DefaultTableModel) panelTable.getModel();
+                int columnCount = panelTable.getMyTable().getColumnCount();
+
+                String[] columnNames = new String[columnCount];
+                for (int i = 0; i < columnCount; i++) {
+                    columnNames[i] = panelTable.getMyTable().getColumnName(i);
+                }
+
+                if (!tuKhoa.isEmpty()) {
+                    DefaultTableModel modelLoc = new DefaultTableModel(columnNames, 0);
+
+                    for (int i = 0; i < modelGoc.getRowCount(); i++) {
+                        boolean match = false;
+
+                        for (int j = 0; j < columnCount; j++) {
+                            Object cell = modelGoc.getValueAt(i, j);
+                            if (cell != null && cell.toString().toLowerCase().contains(tuKhoa)) {
+                                match = true;
+                            break;
+                            }
+                        }
+
+                    if (match) {
+                        Object[] rowData = new Object[columnCount];
+                        for (int j = 0; j < columnCount; j++) {
+                            rowData[j] = modelGoc.getValueAt(i, j);
+                        }
+                        modelLoc.addRow(rowData);
+                    }
+                }
+
+                panelTable.getMyTable().setModel(modelLoc);
+                } else {
+                    hienThiDanhSachSanBay();
+                }
+            }
+        });
     }
 }

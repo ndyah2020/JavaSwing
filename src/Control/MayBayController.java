@@ -77,8 +77,9 @@ public class MayBayController {
     public void locVaSapXepMayBay () {
         String loc = panelMayBayControl.getCmbLoc().getSelectedItem().toString();
         String sapXep = panelMayBayControl.getCmbSapXep().getSelectedItem().toString();
+        String tuKhoa = panelMayBayControl.getTxtTimKiem().getText().trim();
         
-        ArrayList<MayBayDTO> danhSach = mayBayBUS.danhSachCmbMayBay(loc, sapXep);
+        ArrayList<MayBayDTO> danhSach = mayBayBUS.danhSachMayBaySapXep(loc, sapXep, tuKhoa);
         DefaultTableModel model = panelMayBayTable.getModel();
         HienThiTable.taiDuLieuTabelMayBay(model, danhSach);
     }
@@ -204,14 +205,7 @@ public class MayBayController {
         panelMayBayControl.addTimKiemListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent ke) {
-                String tuKhoa = panelMayBayControl.getTxtTimKiem().getText().trim();
-                DefaultTableModel model = panelMayBayTable.getModel();
-                if(!tuKhoa.isEmpty()) {
-                    ArrayList<MayBayDTO> dsTimThay = mayBayBUS.danhSachTimTheoTenMayBay(tuKhoa);
-                    HienThiTable.taiDuLieuTabelMayBay(model, dsTimThay);
-                } else {
-                    hienThiDanhSachMayBay();
-                }
+                locVaSapXepMayBay();
             }
         });
         
@@ -256,7 +250,7 @@ public class MayBayController {
                 String loaiMayBayTimKiem = panelMayBayControl.getBangLayMaLoaiMayBay().getTxtSearch().getText();
                 
                 if(!loaiMayBayTimKiem.isEmpty()) {
-                    ArrayList<LoaiMayBayDTO> loaMB = loaiMayBayBUS.danhSachTimTheoTenLoaiMB(loaiMayBayTimKiem);
+                    ArrayList<LoaiMayBayDTO> loaMB = loaiMayBayBUS.danhSachTimTheoTuKhoa(loaiMayBayTimKiem);
                     HienThiTable.taiDuLieuTableLoaiMayBay(modelLoaiMBTimKiem, loaMB);
                 }else{
                     layDanhSachLoaiMayBayVaHienThiLenPopup();

@@ -159,7 +159,7 @@ public class ChuyenBayController {
                 MayBayBUS bus = new MayBayBUS();
                 String mayBay = panelForm.getBangLayMaMayBay().getTxtSearch().getText();
                 if (!mayBay.isEmpty()) {
-                    ArrayList<MayBayDTO> dsMayBayTimThay = bus.danhSachTimTheoTenMayBay(mayBay);
+                    ArrayList<MayBayDTO> dsMayBayTimThay = bus.danhSachTimTheoTuKhoa(mayBay);
                     HienThiTable.taiDuLieuTabelMayBay(modelTableModel, dsMayBayTimThay);
                 } else {
                     hienThiMayBayLenPopup();

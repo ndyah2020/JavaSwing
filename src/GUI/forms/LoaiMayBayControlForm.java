@@ -1,5 +1,6 @@
 package GUI.forms;
 
+import GUI.panel.swing.MyCombobox;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import javax.swing.JTextField;
@@ -27,8 +28,6 @@ public class LoaiMayBayControlForm extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        mucLuongComboBox = new GUI.panel.swing.MyCombobox();
-        mucLuongComboBox1 = new GUI.panel.swing.MyCombobox();
         btnThem = new GUI.panel.swing.MyButton();
         btnXoa = new GUI.panel.swing.MyButton();
         btnSua = new GUI.panel.swing.MyButton();
@@ -85,19 +84,6 @@ public class LoaiMayBayControlForm extends javax.swing.JPanel {
         jLabel7.setPreferredSize(new java.awt.Dimension(30, 30));
         jPanel6.add(jLabel7);
 
-        mucLuongComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Xắp Xếp: Tăng Dần", "Giảm Dần" }));
-        mucLuongComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        mucLuongComboBox.setPreferredSize(new java.awt.Dimension(150, 31));
-
-        mucLuongComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lọc: Theo Mã", "Theo Tên" }));
-        mucLuongComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        mucLuongComboBox1.setPreferredSize(new java.awt.Dimension(150, 31));
-        mucLuongComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mucLuongComboBox1ActionPerformed(evt);
-            }
-        });
-
         btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon/plus.png"))); // NOI18N
         btnThem.setText("Thêm");
         btnThem.setBorderColor(new java.awt.Color(204, 204, 204));
@@ -135,12 +121,7 @@ public class LoaiMayBayControlForm extends javax.swing.JPanel {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(mucLuongComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(mucLuongComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,20 +147,12 @@ public class LoaiMayBayControlForm extends javax.swing.JPanel {
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(mucLuongComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mucLuongComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void mucLuongComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mucLuongComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mucLuongComboBox1ActionPerformed
 
     public JTextField getTxtTenLoaiMayBay() {
         return txtTenLoaiMayBay;
@@ -209,21 +182,22 @@ public class LoaiMayBayControlForm extends javax.swing.JPanel {
         txtHeSoGiaThuong.setText("");
     }
     
-    public void addThemListener (ActionListener action) {
+    public void addThemListener(ActionListener action) {
         btnThem.addActionListener(action);
     }
     
-    public void addXoaListener (ActionListener action) {
+    public void addXoaListener(ActionListener action) {
         btnXoa.addActionListener(action);
     }
     
-    public void addSuaListener (ActionListener action) {
+    public void addSuaListener(ActionListener action) {
         btnSua.addActionListener(action);
     }
     
-    public void addTimKiemListener (KeyAdapter key) {
+    public void addTimKiemListener(KeyAdapter key) {
         txtSearch.addKeyListener(key);
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.MyButton btnSua;
     private GUI.panel.swing.MyButton btnThem;
@@ -237,8 +211,6 @@ public class LoaiMayBayControlForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
-    private GUI.panel.swing.MyCombobox mucLuongComboBox;
-    private GUI.panel.swing.MyCombobox mucLuongComboBox1;
     private javax.swing.JTextField txtHeSoGiaThuong;
     private javax.swing.JTextField txtHeSoGiaVip;
     private javax.swing.JTextField txtSearch;

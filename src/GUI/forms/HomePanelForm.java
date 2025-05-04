@@ -8,12 +8,12 @@ package GUI.forms;
  *
  * @author Lenovo
  */
-public class HomeForm1 extends javax.swing.JPanel {
+public class HomePanelForm extends javax.swing.JPanel {
 
     /**
-     * Creates new form HomForm2
+     * Creates new form FormGroup
      */
-    public HomeForm1() {
+    public HomePanelForm() {
         initComponents();
     }
 
@@ -26,32 +26,29 @@ public class HomeForm1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-
-        setBackground(new java.awt.Color(51, 255, 204));
-
-        jLabel1.setText("Form 2");
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        homeThongKeQuyForm1 = new GUI.forms.HomeThongKeQuyForm();
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(420, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(218, 218, 218))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(homeThongKeQuyForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 518, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(188, 188, 188)
-                .addComponent(jLabel1)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(homeThongKeQuyForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private GUI.forms.HomeThongKeQuyForm homeThongKeQuyForm1;
     // End of variables declaration//GEN-END:variables
 }

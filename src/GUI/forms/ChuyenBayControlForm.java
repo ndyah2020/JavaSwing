@@ -13,8 +13,6 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        CmbtimKiemTheo = new GUI.panel.swing.MyCombobox();
-        cmbXapXep = new GUI.panel.swing.MyCombobox();
         jPanel1 = new javax.swing.JPanel();
         txtTimKiem = new javax.swing.JTextField();
         myButton2 = new GUI.panel.swing.MyButton();
@@ -29,14 +27,6 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
         jLabel1.setText("Danh Sách Chuyến Bay");
         jLabel1.setPreferredSize(new java.awt.Dimension(151, 31));
         jLabel1.setRequestFocusEnabled(false);
-
-        CmbtimKiemTheo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sắp xếp theo: Mã chuyến bay", "Sắp xếp theo: Giá thường", "Sắp xếp: Theo giá Vip" }));
-        CmbtimKiemTheo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        CmbtimKiemTheo.setPreferredSize(new java.awt.Dimension(250, 31));
-
-        cmbXapXep.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tăng dần", "Giảm dần" }));
-        cmbXapXep.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cmbXapXep.setPreferredSize(new java.awt.Dimension(119, 31));
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(274, 31));
@@ -88,12 +78,7 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(CmbtimKiemTheo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbXapXep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(btnXoaForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -115,15 +100,8 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnXoaForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CmbtimKiemTheo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbXapXep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -149,11 +127,9 @@ public class ChuyenBayControlForm extends javax.swing.JPanel {
     }
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private GUI.panel.swing.MyCombobox CmbtimKiemTheo;
     private GUI.panel.swing.MyButton btnSua;
     private GUI.panel.swing.MyButton btnThem;
     private GUI.panel.swing.MyButton btnXoaForm;
-    private GUI.panel.swing.MyCombobox cmbXapXep;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private GUI.panel.swing.MyButton myButton2;

@@ -14,7 +14,7 @@ import Control.TaiKhoanController;
 import Control.VeController;
 import GUI.forms.ChuyenBayPanelForm;
 import GUI.forms.DatVePanelForm;
-import GUI.forms.FormGroup;
+import GUI.forms.HomePanelForm;
 import GUI.forms.HanhTrinhPanelForm;
 import GUI.forms.HoaDonPanelForm;
 import GUI.forms.KhachHangPanelForm;
@@ -51,7 +51,7 @@ public final class Home extends javax.swing.JFrame {
     private HoaDonVaCTController hoaDonVaCTController;
     private DatVeController datVeController;
     //Khoi tao cac panel
-    private FormGroup formGroup;
+    private HomePanelForm formGroup;
     private DatVePanelForm datVeForm;
     private KhachHangPanelForm khachHangForm;
     private NhanVienPanelForm nhanVienForm;
@@ -85,7 +85,7 @@ public final class Home extends javax.swing.JFrame {
     }
 
     private void initForms() {
-        formGroup = new FormGroup();
+        formGroup = new HomePanelForm();
         datVeForm = new DatVePanelForm();
         khachHangForm = new KhachHangPanelForm();
         nhanVienForm = new NhanVienPanelForm();

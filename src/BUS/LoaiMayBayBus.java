@@ -3,6 +3,7 @@ package BUS;
 import DAO.LoaiMayBayDAO;
 import DTO.LoaiMayBayDTO;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class LoaiMayBayBus {
     private ArrayList<LoaiMayBayDTO> danhSachLoaiMayBay;
@@ -47,14 +48,21 @@ public class LoaiMayBayBus {
             }
         }
     }
-    public ArrayList<LoaiMayBayDTO> danhSachTimTheoTenLoaiMB(String tenLoai) {
-        ArrayList<LoaiMayBayDTO> danhSachTimThay = new ArrayList<>();
+    
+    public ArrayList<LoaiMayBayDTO> danhSachTimTheoTuKhoa(String tuKhoa) {
+        if(danhSachLoaiMayBay.isEmpty()) {
+            docDanhSachLoaiMayBay();
+        }
+        ArrayList<LoaiMayBayDTO> ketQua = new ArrayList<>();
         for (LoaiMayBayDTO lmb : danhSachLoaiMayBay) {
-            if (lmb.getTenLoai().toLowerCase().trim().contains(tenLoai.toLowerCase().trim())) {
-                danhSachTimThay.add(lmb);
+            if (lmb.getTenLoai().toLowerCase().contains(tuKhoa.toLowerCase()) ||
+                lmb.getMaLoai().toLowerCase().contains(tuKhoa.toLowerCase()) ||
+                String.valueOf(lmb.getHeSoGiaThuong()).toLowerCase().contains(tuKhoa) ||
+                String.valueOf(lmb.getHeSoGiaVip()).toLowerCase().contains(tuKhoa)) {
+                ketQua.add(lmb);
             }
         }
-        return danhSachTimThay;
+        return ketQua;
     }
     
     public LoaiMayBayDTO layMotLoaiMayBay(String maLoai) {

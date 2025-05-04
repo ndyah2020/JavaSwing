@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 public class KhuyenMaiControlForm extends javax.swing.JPanel {
@@ -421,23 +422,37 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
     }
     
     public Date getNgayBatDau() {
+        String text = txtNgayBatDau.getText().trim();
+        if (text.isEmpty()) {
+            return null;
+        }
         try {
-            String text = txtNgayBatDau.getText().trim();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); // Format giống SQL
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setLenient(false);
             return sdf.parse(text);
         } catch (ParseException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,
+            "Ngày bắt đầu không đúng định dạng yyyy-MM-dd.\n" + "Vui lòng chọn lại.", 
+            "Lỗi định dạng ngày",
+            JOptionPane.ERROR_MESSAGE);
             return null;
         }
     }
 
     public Date getNgayKetThuc() {
+        String text = txtNgayKetThuc.getText().trim();
+        if (text.isEmpty()) {
+            return null;
+        }
         try {
-            String text = txtNgayKetThuc.getText().trim();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setLenient(false);
             return sdf.parse(text);
         } catch (ParseException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,
+            "Ngày bắt đầu không đúng định dạng yyyy-MM-dd.\n" + "Vui lòng chọn lại.", 
+            "Lỗi định dạng ngày",
+            JOptionPane.ERROR_MESSAGE);
             return null;
         }
     }
@@ -457,23 +472,37 @@ public class KhuyenMaiControlForm extends javax.swing.JPanel {
     }
     
     public Date getTimKiemNgayBatDau() {
+        String text = txtTimKiemNgayBatDau.getText().trim();
+        if (text.isEmpty()) {
+            return null;
+        }
         try {
-            String text = txtTimKiemNgayBatDau.getText().trim();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setLenient(false);
             return sdf.parse(text);
-        } catch(ParseException e) {
-            e.printStackTrace();
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null,
+            "Ngày bắt đầu không đúng định dạng yyyy-MM-dd.\n" + "Vui lòng chọn lại.", 
+            "Lỗi định dạng ngày",
+            JOptionPane.ERROR_MESSAGE);
             return null;
         }
     }
     
     public Date getTimKiemNgayKetThuc() {
+        String text = txtTimKiemNgayKetThuc.getText().trim();
+        if (text.isEmpty()) {
+            return null;
+        }
         try {
-            String text = txtTimKiemNgayKetThuc.getText().trim();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setLenient(false);
             return sdf.parse(text);
-        } catch(ParseException e) {
-            e.printStackTrace();
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null,
+            "Ngày bắt đầu không đúng định dạng yyyy-MM-dd.\n" + "Vui lòng chọn lại.", 
+            "Lỗi định dạng ngày",
+            JOptionPane.ERROR_MESSAGE);
             return null;
         }
     }

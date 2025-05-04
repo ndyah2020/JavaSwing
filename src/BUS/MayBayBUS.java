@@ -49,41 +49,51 @@ public class MayBayBUS {
             }
         }
     }
-    public ArrayList<MayBayDTO> danhSachTimTheoTenMayBay(String tuKhoa) {
+    public ArrayList<MayBayDTO> danhSachTimTheoTuKhoa(String tuKhoa) {
         if(danhSachMayBay.isEmpty()) {
             docDanhSachMayBayBUS();
         }
         ArrayList<MayBayDTO> ketQua = new ArrayList<>();
         for (MayBayDTO mb : danhSachMayBay) {
-            if (mb.getTenMayBay().toLowerCase().contains(tuKhoa.toLowerCase())) {
+            if (mb.getTenMayBay().toLowerCase().contains(tuKhoa.toLowerCase()) ||
+                mb.getMaMayBay().toLowerCase().contains(tuKhoa.toLowerCase()) ||
+                mb.getMaLoaiMayBay().toLowerCase().contains(tuKhoa.toLowerCase()) ||
+                String.valueOf(mb.getSoLuongGheThuong()).toLowerCase().contains(tuKhoa) ||
+                String.valueOf(mb.getSoLuongGheVip()).toLowerCase().contains(tuKhoa) ||
+                String.valueOf(mb.getTongSoLuongGhe()).toLowerCase().contains(tuKhoa)   ) {
                 ketQua.add(mb);
             }
         }
         return ketQua;
     }
 
-    public ArrayList<MayBayDTO> danhSachCmbMayBay(String loc, String sapXep) {
+    public ArrayList<MayBayDTO> danhSachMayBaySapXep(String loc, String sapXep, String tuKhoa) {
         ArrayList<MayBayDTO> danhSachTam = getDanhSachMayBayBUS();
         
-        if ("Lọc theo".equals(loc) || "Sắp xếp".equals(sapXep)) {
-            return danhSachTam;
-        }
-        
-        Comparator<MayBayDTO> comp;
-        if ("Mã máy bay".equals(loc)) {
-            comp = Comparator.comparing(mb -> mb.getMaMayBay().toLowerCase());
-        } else if ("Tên máy bay".equals(loc)) {
-            comp = Comparator.comparing(mb -> mb.getTenMayBay().toLowerCase());
+        if (tuKhoa != null && !tuKhoa.trim().isEmpty()) {
+            danhSachTam = danhSachTimTheoTuKhoa(tuKhoa);
         } else {
-            return danhSachTam;
+            danhSachTam = getDanhSachMayBayBUS();
         }
         
-        if ("Giảm dần".equals(sapXep)) {
-            comp = comp.reversed();
+        if (!"Lọc theo".equals(loc) || !"Sắp xếp".equals(sapXep)) {
+            Comparator<MayBayDTO> comp;
+            
+            if ("Mã máy bay".equals(loc)) {
+                comp = Comparator.comparing(mb -> mb.getMaMayBay().toLowerCase());
+            } else if ("Tên máy bay".equals(loc)) {
+                comp = Comparator.comparing(mb -> mb.getTenMayBay().toLowerCase());
+            } else {
+                return danhSachTam;
+            }
+
+            if ("Giảm dần".equals(sapXep)) {
+                comp = comp.reversed();
+            }
+
+            danhSachTam.sort(comp);
         }
-        
-        danhSachTam.sort(comp);
-        return danhSachTam;
+        return danhSachTam;   
     }
     
     public MayBayDTO layMotMayBay(String maMayBay) {

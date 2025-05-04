@@ -22,7 +22,17 @@ VALUES
 ('SB-VQ3M4N', N'Sân Bay Vinh', N'Phường Quán Bàu, Vinh, Nghệ An, Việt Nam'),
 ('SB-BL5O6P', N'Sân Bay Buôn Ma Thuột', N'Phường Tân Lập, Buôn Ma Thuột, Đắk Lắk, Việt Nam'),
 ('SB-HDB7Q8R', N'Sân Bay Phú Quốc', N'Dương Tơ, Phú Quốc, Kiên Giang, Việt Nam'),
-('SB-SG9T0U', N'Sân Bay Cần Thơ', N'Phường An Hòa, Cần Thơ, Việt Nam');
+('SB-SG9T0U', N'Sân Bay Cần Thơ', N'Phường An Hòa, Cần Thơ, Việt Nam'),
+('SB-QN1A3B', N'Sân Bay Vân Đồn', N'Xã Đoàn Kết, Vân Đồn, Quảng Ninh, Việt Nam'),
+('SB-LD2C4D', N'Sân Bay Liên Khương', N'Quốc lộ 20, Liên Nghĩa, Đức Trọng, Lâm Đồng, Việt Nam'),
+('SB-PY3E5F', N'Sân Bay Tuy Hòa', N'Phường Phú Đông, Tuy Hòa, Phú Yên, Việt Nam'),
+('SB-TH4G6H', N'Sân Bay Thọ Xuân', N'Xã Sao Vàng, Thọ Xuân, Thanh Hóa, Việt Nam'),
+('SB-KG5I7J', N'Sân Bay Rạch Giá', N'Phường Vĩnh Lợi, Rạch Giá, Kiên Giang, Việt Nam'),
+('SB-NT6K8L', N'Sân Bay Nha Trang', N'Phường Phước Hòa, Nha Trang, Khánh Hòa, Việt Nam'),
+('SB-DL7M9N', N'Sân Bay Điện Biên Phủ', N'Phường Thanh Trường, TP. Điện Biên Phủ, Điện Biên, Việt Nam'),
+('SB-HG8O0P', N'Sân Bay Hà Giang', N'TP. Hà Giang, Hà Giang, Việt Nam'),
+('SB-BD9Q1R', N'Sân Bay Phú Tài', N'Phường Nhơn Bình, Quy Nhơn, Bình Định, Việt Nam'),
+('SB-TT0S2T', N'Sân Bay Thành Sơn', N'Thanh Sơn, Phan Rang - Tháp Chàm, Ninh Thuận, Việt Nam');
 
 GO
 
@@ -96,7 +106,27 @@ VALUES
 ('HT-0002', N'Tân Sơn Nhất - Đà Nẵng','SB-HCM3C4D', 'SB-DN5E6F', 1200000), 
 ('HT-0003',N'Đà Nẵng - Cát Bi','SB-DN5E6F', 'SB-CT7G8H', 1000000), 
 ('HT-0004',N'Phú Bài - Cam Ranh','SB-NV9I0J', 'SB-QT1K2L', 1100000),
-('HT-0005',N'Phú Quốc - Cần Thơ','SB-HDB7Q8R', 'SB-SG9T0U', 1300000);
+('HT-0005',N'Phú Quốc - Cần Thơ','SB-HDB7Q8R', 'SB-SG9T0U', 1300000),
+('HT-0006', N'Nội Bài - Đà Nẵng', 'SB-HV1A2B', 'SB-DN5E6F', 1250000),
+('HT-0007', N'Tân Sơn Nhất - Phú Quốc', 'SB-HCM3C4D', 'SB-HDB7Q8R', 1350000),
+('HT-0008', N'Đà Nẵng - Cần Thơ', 'SB-DN5E6F', 'SB-SG9T0U', 1200000),
+('HT-0009', N'Cát Bi - Vinh', 'SB-CT7G8H', 'SB-VQ3M4N', 950000),
+('HT-0010', N'Cam Ranh - Buôn Ma Thuột', 'SB-QT1K2L', 'SB-BL5O6P', 1150000),
+('HT-0011', N'Phú Bài - Phú Quốc', 'SB-NV9I0J', 'SB-HDB7Q8R', 1400000),
+('HT-0012', N'Vinh - Tân Sơn Nhất', 'SB-VQ3M4N', 'SB-HCM3C4D', 1250000),
+('HT-0013', N'Buôn Ma Thuột - Nội Bài', 'SB-BL5O6P', 'SB-HV1A2B', 1350000),
+('HT-0014', N'Phú Quốc - Cam Ranh', 'SB-HDB7Q8R', 'SB-QT1K2L', 1200000),
+('HT-0015', N'Cần Thơ - Đà Nẵng', 'SB-SG9T0U', 'SB-DN5E6F', 1150000),
+('HT-0016', N'Vân Đồn - Liên Khương', 'SB-QN1A3B', 'SB-LD2C4D', 1250000),
+('HT-0017', N'Tuy Hòa - Thọ Xuân', 'SB-PY3E5F', 'SB-TH4G6H', 1100000),
+('HT-0018', N'Rạch Giá - Nha Trang', 'SB-KG5I7J', 'SB-NT6K8L', 950000),
+('HT-0019', N'Điện Biên - Hà Giang', 'SB-DL7M9N', 'SB-HG8O0P', 1000000),
+('HT-0020', N'Phú Tài - Thành Sơn', 'SB-BD9Q1R', 'SB-TT0S2T', 1100000),
+('HT-0021', N'Thanh Sơn - Vinh', 'SB-TT0S2T', 'SB-VQ3M4N', 1200000),
+('HT-0022', N'Nội Bài - Vân Đồn', 'SB-HV1A2B', 'SB-QN1A3B', 900000),
+('HT-0023', N'Cam Ranh - Liên Khương', 'SB-QT1K2L', 'SB-LD2C4D', 1000000),
+('HT-0024', N'Buôn Ma Thuột - Tuy Hòa', 'SB-BL5O6P', 'SB-PY3E5F', 850000),
+('HT-0025', N'Nha Trang - Tân Sơn Nhất', 'SB-NT6K8L', 'SB-HCM3C4D', 1150000);
 GO
 DROP TABLE ChuyenBay
 CREATE TABLE ChuyenBay (
@@ -158,6 +188,26 @@ VALUES
 ('KH9E1D2F0', 'Le', 'Minh', 'Nam', '1991-11-25', '0945678910', 'leminh7@gmail.com', '012345678907'),
 ('KH3A8C5B2', 'Nguyen', 'Kien', 'Nam', '1995-04-07', '0935654321', 'nguyenkien8@gmail.com', '012345678908'),
 ('KH6F7D2C0', 'Phan', 'Nga', 'Nu', '1988-06-30', '0908123456', 'phannga9@gmail.com', '012345678909'),
+('KH5F7A8C2', 'Nguyen', 'Linh', 'Nu', '1995-03-12', '0912345678', 'nglinh95@gmail.com', '012345678901'),
+('KH9B2E6F1', 'Tran', 'Minh', 'Nam', '1994-11-05', '0987654321', 'minhtran94@gmail.com', '012345678902'),
+('KH3C9D1A7', 'Le', 'Hoa', 'Nu', '1999-06-20', '0975123456', 'lehoa99@yahoo.com', '012345678903'),
+('KH6A8F3B2', 'Pham', 'Tuan', 'Nam', '1992-08-14', '0908123456', 'ptuan92@outlook.com', '012345678904'),
+('KH7B3D9E4', 'Dang', 'Thao', 'Nu', '2000-10-01', '0934123456', 'thaodang00@gmail.com', '012345678905'),
+('KH1E2A6C9', 'Hoang', 'Long', 'Nam', '1996-12-25', '0945123456', 'hoanglong96@gmail.com', '012345678906'),
+('KH4D5C7B1', 'Ngo', 'Trang', 'Nu', '1998-01-17', '0956123456', 'trangngo98@gmail.com', '012345678907'),
+('KH8A7F2D3', 'Do', 'Khanh', 'Nam', '1993-07-09', '0967123456', 'khanhdo93@gmail.com', '012345678908'),
+('KH2B4E6A8', 'Bui', 'Lan', 'Nu', '1997-04-30', '0978123456', 'lanbui97@yahoo.com', '012345678909'),
+('KH9C1D7E5', 'Mai', 'Quang', 'Nam', '1991-05-11', '0989123456', 'quangmai91@gmail.com', '012345678910'),
+('KH5D8C2A4', 'Trinh', 'Thu', 'Nu', '2001-09-18', '0910123456', 'thutrinh01@gmail.com', '012345678911'),
+('KH6E3F1B7', 'Vu', 'Hung', 'Nam', '1989-02-02', '0921123456', 'hungvu89@outlook.com', '012345678912'),
+('KH7F2A9C5', 'Ly', 'Ngoc', 'Nu', '1995-06-06', '0932123456', 'ngocly95@gmail.com', '012345678913'),
+('KH1A9B7D3', 'Kieu', 'Tai', 'Nam', '1990-11-29', '0943123456', 'taikieu90@gmail.com', '012345678914'),
+('KH3E4D6C8', 'Phan', 'Yen', 'Nu', '1996-08-13', '0954123456', 'yenphan96@gmail.com', '012345678915'),
+('KH4B5A1F9', 'Nguyen', 'Quynh', 'Nu', '1998-12-04', '0965123456', 'quynhnguyen98@gmail.com', '012345678916'),
+('KH2C6F3D7', 'Dao', 'Hieu', 'Nam', '1993-03-03', '0976123456', 'hieudao93@gmail.com', '012345678917'),
+('KH8D7E1A2', 'Ton', 'Mai', 'Nu', '1999-07-27', '0987123456', 'maiton99@gmail.com', '012345678918'),
+('KH9A1B6F4', 'Ha', 'Phong', 'Nam', '1992-09-15', '0998123456', 'phongha92@gmail.com', '012345678919'),
+('KH5C2D8B1', 'Chau', 'Anh', 'Nu', '2000-05-07', '0909123456', 'anhchau00@gmail.com', '012345678920'),
 ('KH1B8D4E3', 'Tran', 'Tam', 'Nu', '1997-08-22', '0976123456', 'trantam10@gmail.com', '012345678910');
 GO
 DROP TABLE TaiKhoan
@@ -177,7 +227,27 @@ INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, OTP, HanOTP, TrangThai
 ('TK-002', 'nhanvien1@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
 ('TK-003', 'nhanvien2@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
 ('TK-004', 'nhanvien3@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
-('TK-005', 'nhanvien4@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động');
+('TK-005', 'nhanvien4@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-006', 'nhanvien5@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-007', 'nhanvien6@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-008', 'nhanvien7@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-009', 'nhanvien8@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-010', 'nhanvien9@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-011', 'nhanvien10@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-012', 'nhanvien11@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-013', 'nhanvien12@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-014', 'nhanvien13@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-015', 'nhanvien14@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-016', 'nhanvien15@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-017', 'nhanvien16@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-018', 'nhanvien17@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-019', 'nhanvien18@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-020', 'nhanvien19@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-021', 'nhanvien20@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-022', 'nhanvien21@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-023', 'nhanvien22@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-024', 'nhanvien23@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động'),
+('TK-025', 'nhanvien24@example.com', 'matkhau123', N'Nhân Viên', NULL, NULL, N'Hoạt Động');
 GO
 DROP TABLE NhanVien
 
@@ -199,7 +269,27 @@ INSERT INTO NhanVien (MaNhanVien, Ho, Ten, GioiTinh, SDT, Email, ChucVu, LuongCo
 ('NV-002', N'Trần', N'Bình', N'Nam', '0912345678', 'nhanvien1@example.com', N'Nhân viên bán vé', 8000000, 'TK-002'),
 ('NV-003', N'Lê', N'Cúc', N'Nữ', '0923456789', 'nhanvien2@example.com', N'Nhân viên kiểm soát', 8500000, 'TK-003'),
 ('NV-004', N'Phạm', N'Dung', N'Nữ', '0934567890', 'nhanvien3@example.com', N'Nhân viên bán vé', 8000000, 'TK-004'),
-('NV-005', N'Hoàng', N'Em', N'Nam', '0945678901', 'nhanvien4@example.com', N'Nhân viên hỗ trợ', 7800000, 'TK-005');
+('NV-005', N'Hoàng', N'Em', N'Nam', '0945678901', 'nhanvien4@example.com', N'Nhân viên hỗ trợ', 7800000, 'TK-005'),
+('NV-006', N'Võ', N'Phát', N'Nam', '0901111006', 'nhanvien5@example.com', N'Nhân viên bán vé', 8000000, 'TK-006'),
+('NV-007', N'Đỗ', N'Thủy', N'Nữ', '0901111007', 'nhanvien6@example.com', N'Nhân viên hỗ trợ', 7800000, 'TK-007'),
+('NV-008', N'Lý', N'Khánh', N'Nam', '0901111008', 'nhanvien7@example.com', N'Nhân viên kiểm soát', 8500000, 'TK-008'),
+('NV-009', N'Ngô', N'Mai', N'Nữ', '0901111009', 'nhanvien8@example.com', N'Nhân viên bán vé', 8000000, 'TK-009'),
+('NV-010', N'Tống', N'Bảo', N'Nam', '0901111010', 'nhanvien9@example.com', N'Nhân viên hỗ trợ', 7800000, 'TK-010'),
+('NV-011', N'Tạ', N'Hiền', N'Nữ', '0901111011', 'nhanvien10@example.com', N'Nhân viên kiểm soát', 8500000, 'TK-011'),
+('NV-012', N'Bùi', N'Giang', N'Nữ', '0901111012', 'nhanvien11@example.com', N'Nhân viên bán vé', 8000000, 'TK-012'),
+('NV-013', N'Huỳnh', N'Vũ', N'Nam', '0901111013', 'nhanvien12@example.com', N'Nhân viên hỗ trợ', 7800000, 'TK-013'),
+('NV-014', N'Trịnh', N'Linh', N'Nữ', '0901111014', 'nhanvien13@example.com', N'Nhân viên kiểm soát', 8500000, 'TK-014'),
+('NV-015', N'Chu', N'Tuấn', N'Nam', '0901111015', 'nhanvien14@example.com', N'Nhân viên bán vé', 8000000, 'TK-015'),
+('NV-016', N'Triệu', N'Hạnh', N'Nữ', '0901111016', 'nhanvien15@example.com', N'Nhân viên hỗ trợ', 7800000, 'TK-016'),
+('NV-017', N'Đặng', N'Phong', N'Nam', '0901111017', 'nhanvien16@example.com', N'Nhân viên kiểm soát', 8500000, 'TK-017'),
+('NV-018', N'Trần', N'Thảo', N'Nữ', '0901111018', 'nhanvien17@example.com', N'Nhân viên bán vé', 8000000, 'TK-018'),
+('NV-019', N'Phan', N'Quốc', N'Nam', '0901111019', 'nhanvien18@example.com', N'Nhân viên hỗ trợ', 7800000, 'TK-019'),
+('NV-020', N'Nguyễn', N'Yến', N'Nữ', '0901111020', 'nhanvien19@example.com', N'Nhân viên kiểm soát', 8500000, 'TK-020'),
+('NV-021', N'Tô', N'Khoa', N'Nam', '0901111021', 'nhanvien20@example.com', N'Nhân viên bán vé', 8000000, 'TK-021'),
+('NV-022', N'Lâm', N'Hà', N'Nữ', '0901111022', 'nhanvien21@example.com', N'Nhân viên hỗ trợ', 7800000, 'TK-022'),
+('NV-023', N'Mai', N'Tiến', N'Nam', '0901111023', 'nhanvien22@example.com', N'Nhân viên kiểm soát', 8500000, 'TK-023'),
+('NV-024', N'Từ', N'Như', N'Nữ', '0901111024', 'nhanvien23@example.com', N'Nhân viên bán vé', 8000000, 'TK-024'),
+('NV-025', N'Giáp', N'Đạt', N'Nam', '0901111025', 'nhanvien24@example.com', N'Nhân viên hỗ trợ', 7800000, 'TK-025');
 
 
 Drop Table KhuyenMai
