@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/build.xml</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/DatVePanelForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/BUS/TaiKhoanBUS.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DAO/ChuyenBayDAO.java</file>
@@ -14,12 +15,14 @@
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/ThongTinNhanVienForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/HoaDonControlForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DAO/VeDAO.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/.gitignore</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DAO/HoaDonCTDAO.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/ChuyenBayController.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/SanBayPanelForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/PopupForm/PopupFormSearch.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/BUS/VeBUS.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/MayBayController.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/SanBayController.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/KhachHangController.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/ChuyenBayControlForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/KhachHangTableForm.java</file>
@@ -41,6 +44,8 @@
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/BUS/NhanVienBUS.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/HoaDonPanelForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/HienThiTable.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/SanBayControlForm.java</file>
+            <file>file:/D:/Workplace/project/QuanLyChuyenBay/nbproject/project.xml</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/MayBayControlForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/Control/HoaDonVaCTController.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/HoaDonCTTableForm.java</file>

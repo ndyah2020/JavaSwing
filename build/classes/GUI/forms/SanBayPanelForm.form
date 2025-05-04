@@ -32,15 +32,15 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="sanBayTableForm" pref="1065" max="32767" attributes="0"/>
-          <Component id="sanBayControlForm" alignment="0" max="32767" attributes="0"/>
+          <Component id="sanBayControlForm1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Component id="sanBayControlForm" min="-2" pref="103" max="-2" attributes="0"/>
+              <Component id="sanBayControlForm1" min="-2" pref="100" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="sanBayTableForm" pref="615" max="32767" attributes="0"/>
+              <Component id="sanBayTableForm" min="-2" pref="694" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,7 +57,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="GUI.forms.SanBayControlForm" name="sanBayControlForm">
+    <Component class="GUI.forms.SanBayControlForm" name="sanBayControlForm1">
     </Component>
   </SubComponents>
 </Form>
