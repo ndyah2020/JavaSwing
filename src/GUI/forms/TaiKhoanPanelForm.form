@@ -31,16 +31,15 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="taiKhoanControlForm1" max="32767" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="taiKhoanControlForm1" pref="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="taiKhoanTableForm" min="-2" pref="774" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="taiKhoanForm2" min="-2" max="-2" attributes="0"/>
+                      <Component id="taiKhoanForm2" min="-2" pref="254" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,10 +50,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="taiKhoanTableForm" pref="632" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="taiKhoanForm2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="taiKhoanForm2" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -73,6 +69,15 @@
       </Properties>
     </Component>
     <Component class="GUI.forms.TaiKhoanForm" name="taiKhoanForm2">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+            <MatteColorBorder bottom="6" left="0" right="0" top="0">
+              <Color PropertyName="color" blue="cc" green="cc" red="cc" type="rgb"/>
+            </MatteColorBorder>
+          </Border>
+        </Property>
+      </Properties>
     </Component>
     <Component class="GUI.forms.TaiKhoanControlForm" name="taiKhoanControlForm1">
     </Component>
