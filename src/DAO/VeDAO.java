@@ -98,4 +98,21 @@ public class VeDAO {
             return false;
         }
     }
+    
+    public void capNhatTrangThaiVeDaDat(ArrayList<String> danhSachMaVe) {
+        try {
+            String sql = "UPDATE Ve SET TrangThaiVe = ? WHERE MaVe = ?";    
+            conn = ConnectToSQLServer.getConnection();
+              PreparedStatement st = conn.prepareStatement(sql);
+            for (String maVe : danhSachMaVe) {
+                st.setString(1, "Đã Đặt");
+                st.setString(2, maVe);
+                st.addBatch();
+            }
+            st.executeBatch();
+            ConnectToSQLServer.closeConnection(conn);
+        } catch (SQLException e) {
+            JOptionPane.showConfirmDialog(null, "Không thể cập nhật trạng thái vé");
+        }
+    }
 }

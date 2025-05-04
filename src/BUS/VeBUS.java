@@ -30,7 +30,13 @@ public class VeBUS {
         }
         return danhSachVe;
     }
-    
+    public void capNhatTrangThaiVe (String maVe) {
+        for(int i = 0 ; i < danhSachVe.size(); i++) {
+            if(danhSachVe.get(i).getMaVe().equals(maVe)) {
+                danhSachVe.get(i).setTrangThaiVe("Đã Đặt");
+            }
+        }
+    }
     public VeDTO timKiemVeTheoMaChuyenBayDaDat(String maChuyenBay){
         if(danhSachVe.isEmpty()) {
             layDanhSachVe();

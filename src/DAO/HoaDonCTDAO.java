@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 public class HoaDonCTDAO {
     Connection conn = null;
     public ArrayList<CTHoaDonDTO> layDanhSachCTHoaDon() {
@@ -29,4 +31,30 @@ public class HoaDonCTDAO {
         }      
         return dsCtHoaDon;
     }
+
+    public boolean themDanhSachCT(ArrayList<CTHoaDonDTO> danhSach) {
+        String sql = "INSERT INTO CTHoaDon (MaCTHD, MaHoaDon, MaVe, SoLuong, DonGia) VALUES (?, ?, ?, ?, ?)";
+
+        try {
+            conn = ConnectToSQLServer.getConnection();
+            PreparedStatement st = conn.prepareStatement(sql);
+
+            for (CTHoaDonDTO ct : danhSach) {
+                st.setString(1, ct.getMaCTHD());
+                st.setString(2, ct.getMaHoaDon());
+                st.setString(3, ct.getMaVe());
+                st.setInt(4, ct.getSoLuong());
+                st.setInt(5, ct.getDonGia());
+                st.addBatch();
+            }
+            st.executeBatch();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Không thể thêm chi tiết hóa đơn.\nLỗi: " + e.getMessage());
+            return false;
+        }
+    }
+
 }

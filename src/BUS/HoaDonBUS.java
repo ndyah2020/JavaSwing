@@ -1,13 +1,17 @@
 package BUS;
 
+import DAO.HoaDonCTDAO;
 import DAO.HoaDonDAO;
+import DTO.CTHoaDonDTO;
 import DTO.HoaDonDTO;
+import DTO.VeDTO;
 import java.util.ArrayList;
 import java.sql.Date;
 public class HoaDonBUS {
     private ArrayList<HoaDonDTO> dsHoaDon;
     private final HoaDonDAO dao;
-    
+    private final HoaDonCTBUS ctHoaDonBUS = new HoaDonCTBUS();
+    private final VeBUS veBUS = new VeBUS();
     public HoaDonBUS() {
         dao = new HoaDonDAO();
         dsHoaDon = new ArrayList<>();
@@ -21,6 +25,19 @@ public class HoaDonBUS {
     public ArrayList<HoaDonDTO> getDanhSachHoaODon() {
         return dsHoaDon;
     }
+    
+    public void themHoaDonBUS(HoaDonDTO hoaDon, ArrayList<CTHoaDonDTO> danhSachCT, ArrayList<String> danhSachMaVe) {
+        if(dao.themHoaDonVaChiTiet(hoaDon, danhSachCT, danhSachMaVe)) {
+            dsHoaDon.add(hoaDon);
+            
+            ctHoaDonBUS.themCTHoaDOn(danhSachCT);
+            
+            for(String mave : danhSachMaVe) {
+                veBUS.capNhatTrangThaiVe(mave);
+            }
+        }
+    }
+    
     
     public ArrayList<HoaDonDTO> timKiemHoaDonToanCuc(String tuKhoa) {
         String tuKhoaFM = tuKhoa.toLowerCase().trim();

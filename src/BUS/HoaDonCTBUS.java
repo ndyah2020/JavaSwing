@@ -22,6 +22,12 @@ public class HoaDonCTBUS {
         return danhSachCTHoaDon;
     }
     
+    public void themCTHoaDOn(ArrayList<CTHoaDonDTO> danhSachCT) {
+        for(CTHoaDonDTO ct : danhSachCT) {
+            danhSachCTHoaDon.add(ct);
+        }
+    }
+    
     public ArrayList<CTHoaDonDTO> timCTHoaDonTheoMaHoaDon(String maHoaDon) {
         ArrayList<CTHoaDonDTO> hoaDonTimThay = new ArrayList<>();
         for(CTHoaDonDTO hd: danhSachCTHoaDon) {
