@@ -106,27 +106,26 @@ public class ChuyenBayDAO {
             pst.executeUpdate();
             ConnectToSQLServer.closeConnection(conn);
             return true;
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Không thể sửa chuyến bay");
             e.printStackTrace();
             return false;
         }
     }
-    
-    public boolean capNhatSoLuongVe(String maChyuenBay, int soveDaBan, int tongSoVe) {
-        try{
-            String sql = "UPDATE ChuyenBay SET TongSoLuongGhe = ?, SoGheDaBan = ?, SoGheConLai = ? MaChuyenBay = ?";
+
+    public boolean capNhatSoLuongVe(String maChuyenBay, int soVeDaBan, int tongSoVe) {
+        try {
+            String sql = "UPDATE ChuyenBay SET SoGheDaBan = ?, SoGheConLai = ? WHERE MaChuyenBay = ?";
             conn = ConnectToSQLServer.getConnection();
             PreparedStatement st = conn.prepareStatement(sql);
-            st.setInt(1, tongSoVe);
-            st.setInt(2, soveDaBan);
-            st.setInt(3, tongSoVe - soveDaBan);
-            st.setString(4, maChyuenBay);
+            st.setInt(1, soVeDaBan);
+            st.setInt(2, tongSoVe - soVeDaBan);
+            st.setString(3, maChuyenBay);
             st.executeUpdate();
             ConnectToSQLServer.closeConnection(conn);
             return true;
         } catch (SQLException e) {
-            JOptionPane.showConfirmDialog(null,"Không thể cập nhật số ghế");
+            JOptionPane.showMessageDialog(null, "Không thể cập nhật số ghế");
             e.printStackTrace();
             return false;
         }

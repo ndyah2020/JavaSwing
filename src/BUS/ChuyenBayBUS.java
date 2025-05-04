@@ -31,6 +31,12 @@ public class ChuyenBayBUS {
         }
     }
     
+    public void capNhatSoLuongChuyenBay(String maCHuyenBay, int soVeDaBan, int tongSoLuongVe) {
+        if(dao.capNhatSoLuongVe(maCHuyenBay, soVeDaBan, tongSoLuongVe)) {
+            layDanhSachChuyenBay();
+        }
+    }
+    
     public void xoaChuyenBay(String maChuyenBay){
         if(dao.xoaChuyenBay(maChuyenBay)) {
             danhSachChuyenBay.removeIf(ht -> ht.getMaHanhTrinh().equals(maChuyenBay));

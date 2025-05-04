@@ -52,7 +52,7 @@ public class HoaDonDAO {
             conn = ConnectToSQLServer.getConnection();
             conn.setAutoCommit(false); // Bắt đầu transaction
 
-            // 1. Thêm hóa đơn
+            // Thêm hóa đơn
             String sqlHD = "INSERT INTO HoaDon (MaHoaDon, NgayLap, TongTien, MaKhachHang, MaNV) VALUES (?,?,?,?,?)";
             PreparedStatement stHD = conn.prepareStatement(sqlHD);
             stHD.setString(1, hoaDon.getMaHoaDon());
@@ -62,7 +62,7 @@ public class HoaDonDAO {
             stHD.setString(5, hoaDon.getMaNhanVien());
             stHD.executeUpdate();
 
-            // 2. Thêm chi tiết hóa đơn
+            // Thêm chi tiết hóa đơn
             String sqlCT = "INSERT INTO CTHoaDon (MaCTHD, MaHoaDon, MaVe, SoLuong, DonGia) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stCT = conn.prepareStatement(sqlCT);
             for (CTHoaDonDTO ct : danhSachCT) {
@@ -75,7 +75,7 @@ public class HoaDonDAO {
             }
             stCT.executeBatch();
 
-            // 3. Cập nhật trạng thái vé
+            // Cập nhật trạng thái vé
             String sqlVe = "UPDATE Ve SET TrangThaiVe = ? WHERE MaVe = ?";
             PreparedStatement stVe = conn.prepareStatement(sqlVe);
             for (String maVe : danhSachmaVe) {
@@ -103,7 +103,7 @@ public class HoaDonDAO {
         } finally {
             try {
                 if (conn != null) {
-                    conn.setAutoCommit(true); // Đưa lại trạng thái mặc định
+                    conn.setAutoCommit(true);
                 }
                 ConnectToSQLServer.closeConnection(conn);
             } catch (SQLException e) {

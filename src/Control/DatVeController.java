@@ -2,15 +2,19 @@
 package Control;
 import BUS.ChuyenBayBUS;
 import BUS.HanhTrinhBUS;
+import BUS.HoaDonBUS;
 import BUS.KhachHangBUS;
 import BUS.KhuyenMaiBUS;
 import BUS.KhuyenMaiChiTietBUS;
 import BUS.NhanVienBUS;
 import BUS.VeBUS;
+import DTO.CTHoaDonDTO;
 import DTO.ChuyenBayDTO;
 import DTO.HanhTrinhDTO;
+import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 import DTO.KhuyenMaiDTO;
+import DTO.SanBayDTO;
 import GUI.PDFDesign.GeneratePDF;
 import GUI.forms.DatVeControlForm;
 import GUI.forms.DatVePanelForm;
@@ -25,11 +29,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.UUID;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import java.sql.Date;
 
 public class DatVeController {
     private final DatVeControlForm panelControl;
@@ -44,6 +50,7 @@ public class DatVeController {
     private final KhachHangBUS khachHangBUS = new KhachHangBUS();
     private final KhuyenMaiBUS khuyenMaiBUS = new KhuyenMaiBUS();
     private final KhuyenMaiChiTietBUS khuyenMaiCTBUS = new KhuyenMaiChiTietBUS();
+    private final HoaDonBUS hoaDonBUS = new HoaDonBUS();
     private ArrayList<ChuyenBayDTO> dsChuyenBay;
     private final ArrayList<String> maVeDaThem = new ArrayList<>();
     private KhuyenMaiDTO khuyenMaiTimThay;
@@ -135,6 +142,52 @@ public class DatVeController {
         }
         return tongGia;
     }
+  
+    private ArrayList<CTHoaDonDTO> layChiTietHoaDonTuModel(DefaultTableModel model, String maHoaDon) {
+        ArrayList<CTHoaDonDTO> dsChiTiet = new ArrayList<>();
+
+        for (int row = 0; row < model.getRowCount(); row++) {
+            CTHoaDonDTO ct = new CTHoaDonDTO();
+            ct.setMaCTHD("CTHD" + maHoaDon + (row + 1)); 
+            ct.setMaHoaDon(maHoaDon);
+            ct.setSoLuong(Integer.parseInt(model.getValueAt(row, 1).toString())); 
+            ct.setMaVe(model.getValueAt(row, 2).toString()); 
+            ct.setDonGia(Integer.parseInt(model.getValueAt(row, 3).toString()));
+
+            dsChiTiet.add(ct);
+        }
+
+        return dsChiTiet;
+    }
+
+    private ArrayList<String> layMaVe(DefaultTableModel model) {
+        ArrayList<String> danhSachMaVe = new ArrayList<>();
+        for (int row = 0; row < model.getRowCount(); row++) {
+            String maVe = model.getValueAt(row, 2).toString();
+
+            danhSachMaVe.add(maVe);
+        }
+        return danhSachMaVe;
+    }
+    public String generateRandom(String ma) {
+        String prefix = ma;
+        String random = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 8).toUpperCase();
+        while (isCodeDuplicate(random)) {
+            random = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 8).toUpperCase();
+        }
+        return prefix + random;
+    }
+
+    //Kiểm tra mã duy nhất
+    private boolean isCodeDuplicate(String code) {
+        for (HoaDonDTO hd : hoaDonBUS.getDanhSachHoaODon()) {
+            if (hd.getMaHoaDon().equals(code)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public void xuLySuKien() {
         panelDatVe.addShowPopopMaVe((e) -> {
             panelDatVe.showPopBangLayMaVe();
@@ -372,6 +425,72 @@ public class DatVeController {
             DefaultTableModel model = panelTableThem.getModel();
             GeneratePDF.xuatPDFHoaDon(khachHangTimThay, khuyenMaiTimThay, model, tongSoTien, tienPhaiTra);
         });
-
+        
+        panelDatVe.getThongTinHoaDon().addBtnXacNhanListener(e -> {
+            String maNhanvien = panelDatVe.getTxtMaNhanVien().getText();
+            if(maNhanvien.isEmpty()) {
+                JOptionPane.showConfirmDialog(null, "Vui lòng nhập mã nhân viên");
+                return;
+            }
+            
+            if(khachHangTimThay == null) {
+                String maKhachHang = panelFormKH.getMa().getText();
+                if (khachHangBUS.timMotKH(maKhachHang) != null) {
+                    JOptionPane.showMessageDialog(null, "Mã khách hàng đã tồn tại!");
+                    return;
+                }
+                Date ngaySinh = Date.valueOf(panelFormKH.getNgaySinh().getText());
+                String gioiTinh = panelFormKH.getGioiTinh();
+                String ho = panelFormKH.getHo().getText().trim();
+                String ten = panelFormKH.getTen().getText().trim();
+                String sdt = panelFormKH.getSdt().getText().trim();
+                if (!sdt.matches("\\d{10}")) {
+                    JOptionPane.showMessageDialog(null, "Số điện thoại bạn nhập không đúng vui lòng nhập lại!");
+                    return;
+                }
+                String email = panelFormKH.getEmail().getText().trim();
+                if (!email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+                    JOptionPane.showMessageDialog(null, "Email bạn nhập không đúng vui lòng nhập lại!");
+                    return;
+                }
+                String cccd = panelFormKH.getCccd().getText().trim();
+                if (!cccd.matches("^0\\d{11}$"
+                        + //
+                        "")) {
+                    JOptionPane.showMessageDialog(null, "Cccd bạn nhập không đúng vui lòng nhập lại!");
+                    return;
+                }
+                KhachHangDTO khachHang = new KhachHangDTO(maKhachHang,ho, ten, gioiTinh, ngaySinh, sdt, email, cccd);
+                khachHangTimThay = khachHang;
+            }
+            
+            
+            
+            String maHoaDon = generateRandom("HD");
+            Date ngayLap = new Date(System.currentTimeMillis());
+            String maKhuyenMai = "";
+            if(khuyenMaiTimThay != null) {
+               maKhuyenMai = khuyenMaiTimThay.getMaKhuyenMai();
+            }
+            
+            HoaDonDTO hoaDon = new HoaDonDTO(maHoaDon, ngayLap, tongSoTien, maNhanvien, maKhuyenMai ,khachHangTimThay.getMaKhachHang());
+            ArrayList<CTHoaDonDTO> dsCtHoaDon = layChiTietHoaDonTuModel(panelTableThem.getModel(), maHoaDon);
+            ArrayList<String> danhSachMaVe = layMaVe(panelTableThem.getModel());
+            
+            if(hoaDonBUS.themHoaDonBUS(hoaDon, dsCtHoaDon, danhSachMaVe)) {
+                veBUS.capNhatDanhSach();
+                String maChuyenBay = panelDatVe.getTxtMaChuyenBay().getText();
+                int soVeDaBan = panelTableThem.getModel().getRowCount();
+                
+                int row = panelTable.getMyTable().getSelectedRow();
+                int tongSoLuongVe = 0;
+                if(row != -1) {
+                    tongSoLuongVe = Integer.parseInt(panelTable.getMyTable().getValueAt(row, 4).toString()) 
+                            + Integer.parseInt(panelTable.getMyTable().getValueAt(row, 5).toString());
+                 }
+                chuyenBayBUS.capNhatSoLuongChuyenBay(maChuyenBay, soVeDaBan, tongSoLuongVe);
+                JOptionPane.showConfirmDialog(null, "Đặt vé thành công");
+            }
+        });
     }
 }

@@ -26,16 +26,17 @@ public class HoaDonBUS {
         return dsHoaDon;
     }
     
-    public void themHoaDonBUS(HoaDonDTO hoaDon, ArrayList<CTHoaDonDTO> danhSachCT, ArrayList<String> danhSachMaVe) {
+    public boolean themHoaDonBUS(HoaDonDTO hoaDon, ArrayList<CTHoaDonDTO> danhSachCT, ArrayList<String> danhSachMaVe) {
         if(dao.themHoaDonVaChiTiet(hoaDon, danhSachCT, danhSachMaVe)) {
             dsHoaDon.add(hoaDon);
-            
             ctHoaDonBUS.themCTHoaDOn(danhSachCT);
             
             for(String mave : danhSachMaVe) {
                 veBUS.capNhatTrangThaiVe(mave);
             }
+            return true;
         }
+        return false;
     }
     
     
