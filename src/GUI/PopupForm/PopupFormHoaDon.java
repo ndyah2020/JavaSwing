@@ -39,7 +39,7 @@ public class PopupFormHoaDon extends javax.swing.JPanel {
         lbTongTien = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        lbKhuyenMai = new javax.swing.JLabel();
+        lbMaKhuyenMai = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         lbGiamGia = new javax.swing.JLabel();
@@ -121,11 +121,11 @@ public class PopupFormHoaDon extends javax.swing.JPanel {
         jLabel4.setPreferredSize(new java.awt.Dimension(130, 30));
         jPanel3.add(jLabel4);
 
-        lbKhuyenMai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbKhuyenMai.setMaximumSize(new java.awt.Dimension(80, 30));
-        lbKhuyenMai.setMinimumSize(new java.awt.Dimension(0, 30));
-        lbKhuyenMai.setPreferredSize(new java.awt.Dimension(120, 30));
-        jPanel3.add(lbKhuyenMai);
+        lbMaKhuyenMai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMaKhuyenMai.setMaximumSize(new java.awt.Dimension(80, 30));
+        lbMaKhuyenMai.setMinimumSize(new java.awt.Dimension(0, 30));
+        lbMaKhuyenMai.setPreferredSize(new java.awt.Dimension(120, 30));
+        jPanel3.add(lbMaKhuyenMai);
 
         jPanel2.add(jPanel3);
 
@@ -235,8 +235,8 @@ public class PopupFormHoaDon extends javax.swing.JPanel {
         return lbGiamGia;
     }
 
-    public JLabel getLbKhuyenMai() {
-        return lbKhuyenMai;
+    public JLabel getLbMaKhuyenMai() {
+        return lbMaKhuyenMai;
     }
 
     public JLabel getLbTongTien() {
@@ -270,7 +270,7 @@ public class PopupFormHoaDon extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lBTienPhaiTra;
     private javax.swing.JLabel lbGiamGia;
-    private javax.swing.JLabel lbKhuyenMai;
+    private javax.swing.JLabel lbMaKhuyenMai;
     private javax.swing.JLabel lbTongTien;
     private GUI.panel.swing.MyTable myTable;
     private GUI.forms.ThongTinKhachHangForm thongTinKhachHangForm1;

@@ -45,6 +45,9 @@ public class DatVeController {
     private final KhuyenMaiChiTietBUS khuyenMaiCTBUS = new KhuyenMaiChiTietBUS();
     private ArrayList<ChuyenBayDTO> dsChuyenBay;
     private final ArrayList<String> maVeDaThem = new ArrayList<>();
+    private KhuyenMaiDTO khuyenMaiTimThay;
+    private KhachHangDTO khachHangTimThay;
+    private int tienPhaiTra;
     public DatVeController(DatVePanelForm panel) {
         this.panelControl = panel.getDatVeControlForm();
         this.panelTable = panel.getDatVeTableForm();
@@ -209,10 +212,10 @@ public class DatVeController {
             if(cccd.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Vui lòng nhập căn cước công dân");
             }else {
-                KhachHangDTO khachHang = khachHangBUS.layMotKhachHangTheoCccd(cccd);
+                khachHangTimThay = khachHangBUS.layMotKhachHangTheoCccd(cccd);
                 
-                if(khachHang != null) {                   
-                    setFormKH(khachHang);
+                if(khachHangTimThay != null) {                   
+                    setFormKH(khachHangTimThay);
                     panelFormKH.setEditKhachHangForm(false);
                 }else {
                     panelFormKH.clearForm();
@@ -260,9 +263,9 @@ public class DatVeController {
             } else if (maChuyenBay.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Vui lòng chọn chuyến bay");
             } else {
-                KhuyenMaiDTO khuyenMai = khuyenMaiBUS.layMotKhuyenMaiTheoMaHT(maKhuyenMai, maChuyenBay);
-                if (khuyenMai != null) {
-                    panelDatVe.getLbPhanTramGiamGia().setText(khuyenMai.getPhanTramGiamGia());
+                khuyenMaiTimThay = khuyenMaiBUS.layMotKhuyenMaiTheoMaHT(maKhuyenMai, maChuyenBay);
+                if (khuyenMaiTimThay != null) {
+                    panelDatVe.getLbPhanTramGiamGia().setText(khuyenMaiTimThay.getPhanTramGiamGia());
                 } else {
                     JOptionPane.showMessageDialog(null, "Khuyến mãi không tồn tại hoặc không áp dụng cho hành trình này");
                 }
@@ -338,13 +341,26 @@ public class DatVeController {
                 int tongSoTien = tinhToanTongGia(model);
                 panelDatVe.getThongTinHoaDon().getLbTongTien().setText(""+tongSoTien);
                 
-                String phanTramKhuyenMai = panelDatVe.getTxtKhuyenMai().getText();
-
-                panelDatVe.getThongTinHoaDon().getLbKhuyenMai()
-                        .setText((!phanTramKhuyenMai.isEmpty()) ? phanTramKhuyenMai : "0");
-
+                if(khuyenMaiTimThay != null) {
+                    
+                    panelDatVe.getThongTinHoaDon().getLbGiamGia()
+                        .setText(khuyenMaiTimThay.getPhanTramGiamGia());
+                    panelDatVe.getThongTinHoaDon().getLbMaKhuyenMai()
+                        .setText(khuyenMaiTimThay.getMaKhuyenMai());
+                    
+                    tienPhaiTra =  tongSoTien * Integer.parseInt(khuyenMaiTimThay.getPhanTramGiamGia())/100;
+                    
+                    panelDatVe.getThongTinHoaDon().getlBTienPhaiTra()
+                            .setText(""+tienPhaiTra);
+                }else {
+                    panelDatVe.getThongTinHoaDon().getLbGiamGia()
+                        .setText("0");
+                    panelDatVe.getThongTinHoaDon().getLbMaKhuyenMai()
+                        .setText("");
+                     panelDatVe.getThongTinHoaDon().getlBTienPhaiTra()
+                            .setText(""+tongSoTien);
+                }
             }
-
         });
 
     }
