@@ -104,15 +104,17 @@ public class KhuyenMaiBUS {
                     match = true;
                 }
             }
-
-            if (!match && tu != null) {
-                if (km.getNgayBatDau().equals(tu)) {
+            
+            if (!match && tu != null && den != null) {
+                if (!km.getNgayBatDau().before(tu) && !km.getNgayKetThuc().after(den)) {
                     match = true;
                 }
-            }
-
-            if (!match && den != null) {
-                if (km.getNgayKetThuc().equals(den)) {
+            } else if (tu != null) {
+                if (km.getNgayBatDau().before(tu)) {
+                    match = true;
+                }
+            } else if (den != null) {
+                if (km.getNgayKetThuc().after(den)) {
                     match = true;
                 }
             }
