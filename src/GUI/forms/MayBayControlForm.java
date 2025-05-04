@@ -143,7 +143,7 @@ public class MayBayControlForm extends javax.swing.JPanel {
         btnGetMaLoaiMayBay.setPreferredSize(new java.awt.Dimension(32, 31));
         jPanel5.add(btnGetMaLoaiMayBay);
 
-        cmbSapXep.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sắp Xếp", "Tăng Dần", "Giảm Dần" }));
+        cmbSapXep.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sắp xếp", "Tăng dần", "Giảm dần" }));
         cmbSapXep.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cmbSapXep.setPreferredSize(new java.awt.Dimension(150, 31));
 
@@ -325,12 +325,12 @@ public class MayBayControlForm extends javax.swing.JPanel {
         btnGetMaLoaiMayBay.addActionListener(al);
     }
     
-    public void addItemCmbLocListener(ItemListener il) {
-        cmbLoc.addItemListener(il);
+    public void addCmbLocListener(ActionListener al) {
+        cmbLoc.addActionListener(al);
     }
     
-    public void addItemCmbSapXepListener(ItemListener il) {
-        cmbSapXep.addItemListener(il);
+    public void addCmbSapXepListener(ActionListener al) {
+        cmbSapXep.addActionListener(al);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

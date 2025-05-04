@@ -4,6 +4,7 @@ import DAO.MayBayDAO;
 import DTO.LoaiMayBayDTO;
 import DTO.MayBayDTO;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class MayBayBUS {
     private ArrayList<MayBayDTO> danhSachMayBay;
@@ -60,6 +61,31 @@ public class MayBayBUS {
         }
         return ketQua;
     }
+
+    public ArrayList<MayBayDTO> danhSachCmbMayBay(String loc, String sapXep) {
+        ArrayList<MayBayDTO> danhSachTam = getDanhSachMayBayBUS();
+        
+        if ("Lọc theo".equals(loc) || "Sắp xếp".equals(sapXep)) {
+            return danhSachTam;
+        }
+        
+        Comparator<MayBayDTO> comp;
+        if ("Mã máy bay".equals(loc)) {
+            comp = Comparator.comparing(mb -> mb.getMaMayBay().toLowerCase());
+        } else if ("Tên máy bay".equals(loc)) {
+            comp = Comparator.comparing(mb -> mb.getTenMayBay().toLowerCase());
+        } else {
+            return danhSachTam;
+        }
+        
+        if ("Giảm dần".equals(sapXep)) {
+            comp = comp.reversed();
+        }
+        
+        danhSachTam.sort(comp);
+        return danhSachTam;
+    }
+    
     public MayBayDTO layMotMayBay(String maMayBay) {
         if(danhSachMayBay.isEmpty()) {
             docDanhSachMayBayBUS();

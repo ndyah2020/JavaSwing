@@ -73,6 +73,15 @@ public class MayBayController {
         }
         return false;
     }
+    
+    public void locVaSapXepMayBay () {
+        String loc = panelMayBayControl.getCmbLoc().getSelectedItem().toString();
+        String sapXep = panelMayBayControl.getCmbSapXep().getSelectedItem().toString();
+        
+        ArrayList<MayBayDTO> danhSach = mayBayBUS.danhSachCmbMayBay(loc, sapXep);
+        DefaultTableModel model = panelMayBayTable.getModel();
+        HienThiTable.taiDuLieuTabelMayBay(model, danhSach);
+    }
 
     public void xuLySuKienMayBayControl() {
         panelMayBayTable.addRowClick(new MouseAdapter() {
@@ -203,6 +212,20 @@ public class MayBayController {
                 } else {
                     hienThiDanhSachMayBay();
                 }
+            }
+        });
+        
+        panelMayBayControl.addCmbLocListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                locVaSapXepMayBay();
+            }
+        });
+        
+        panelMayBayControl.addCmbSapXepListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                locVaSapXepMayBay();
             }
         });
         
