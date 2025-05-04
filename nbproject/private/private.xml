@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/nbproject/build-impl.xml</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/build.xml</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/DatVePanelForm.java</file>
@@ -71,6 +72,30 @@
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/DTO/HoaDonDTO.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/GUI/forms/HanhTrinhPanelForm.java</file>
             <file>file:/D:/Workplace/project/QuanLyChuyenBay/src/BUS/HoaDonBUS.java</file>
+=======
+            <file>file:/D:/project/java/JavaSwing/src/Control/SanBayController.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/KhachHangControlForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/TaiKhoanPanelForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/KhachHangForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/TaiKhoanTableForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/BUS/SanBayBUS.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/SanBayControlForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/ThongTinNhanVienForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/frame/Main.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/TaiKhoanControlForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/SanBayTableForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/ChuyenBayForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/ChuyenBayControlForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/SanBayPanelForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/ChuyenBayTableForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/KhachHangTableForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/NhanVienPanelForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/frame/Home.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/panel/swing/MyTable.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/frame/DangNhap.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/ChuyenBayPanelForm.java</file>
+            <file>file:/D:/project/java/JavaSwing/src/GUI/forms/NhanVienTableForm.java</file>
+>>>>>>> 09b12fa27526afafde560b9e2dc5123a610af593
         </group>
     </open-files>
 </project-private>

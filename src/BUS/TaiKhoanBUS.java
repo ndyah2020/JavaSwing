@@ -1,6 +1,7 @@
 package BUS;
 
 import DAO.TaiKhoanDAO;
+import DTO.KhachHangDTO;
 import DTO.TaiKhoanDTO;
 import java.util.ArrayList;
 
@@ -14,12 +15,22 @@ public class TaiKhoanBUS {
         layDanhSachTaiKhoanTuDao();
     }
     
+    private void docDSTaiKhoan(){
+        danhSachTaiKhoan = dao.layDanhSachTaiKhoanDAO();
+    }
+
     private void layDanhSachTaiKhoanTuDao() {
         danhSachTaiKhoan = dao.layDanhSachTaiKhoanDAO();
     }
     
     public ArrayList<TaiKhoanDTO> getDanhSachTaiKhoan() {
         return danhSachTaiKhoan;
+    }
+
+    public void themTaiKhoan(TaiKhoanDTO taiKhoan) {
+        if (dao.themTaiKhoanDAO(taiKhoan)) {
+            danhSachTaiKhoan.add(taiKhoan);
+        }
     }
     
     public ArrayList<TaiKhoanDTO> timTaiKhoanToanCuc(String tuKhoa) {
@@ -34,5 +45,17 @@ public class TaiKhoanBUS {
             }
         }
         return ds;
+    }
+
+    public TaiKhoanDTO timMotTK(String maTK) {
+        if(danhSachTaiKhoan.isEmpty()){
+            docDSTaiKhoan();
+        }
+        for (TaiKhoanDTO tk : danhSachTaiKhoan) {
+            if (tk.getMaTaiKhoan().equals(maTK)) {
+                return tk;
+            }
+        }
+        return null;
     }
 }

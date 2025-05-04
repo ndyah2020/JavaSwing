@@ -7,16 +7,14 @@ public class TaiKhoanPanelForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        taiKhoanControlForm = new GUI.forms.TaiKhoanControlForm();
-        thongTinNhanVienForm = new GUI.forms.ThongTinNhanVienForm();
         taiKhoanTableForm = new GUI.forms.TaiKhoanTableForm();
+        taiKhoanForm2 = new GUI.forms.TaiKhoanForm();
+        taiKhoanControlForm1 = new GUI.forms.TaiKhoanControlForm();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setMaximumSize(new java.awt.Dimension(1069, 730));
         setMinimumSize(new java.awt.Dimension(1069, 730));
         setPreferredSize(new java.awt.Dimension(1069, 730));
-
-        thongTinNhanVienForm.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 6, 0, new java.awt.Color(204, 204, 204)));
 
         taiKhoanTableForm.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 6, 0, new java.awt.Color(204, 204, 204)));
 
@@ -27,38 +25,41 @@ public class TaiKhoanPanelForm extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(taiKhoanControlForm, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
+                    .addComponent(taiKhoanControlForm1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(taiKhoanTableForm, javax.swing.GroupLayout.PREFERRED_SIZE, 774, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(thongTinNhanVienForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(taiKhoanForm2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(taiKhoanControlForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(taiKhoanControlForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(taiKhoanTableForm, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
-                    .addComponent(thongTinNhanVienForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(taiKhoanForm2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     public TaiKhoanControlForm getTaiKhoanControlForm() {
-        return taiKhoanControlForm;
+        return taiKhoanControlForm1;
     }
 
     public TaiKhoanTableForm getTaiKhoanTableForm() {
         return taiKhoanTableForm;
     }
 
-    public ThongTinNhanVienForm getThongTinNhanVienForm() {
-        return thongTinNhanVienForm;
+    public TaiKhoanForm getTaiKhoanForm() {
+        return taiKhoanForm2;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private GUI.forms.TaiKhoanControlForm taiKhoanControlForm;
+    private GUI.forms.TaiKhoanControlForm taiKhoanControlForm1;
+    private GUI.forms.TaiKhoanForm taiKhoanForm2;
     private GUI.forms.TaiKhoanTableForm taiKhoanTableForm;
-    private GUI.forms.ThongTinNhanVienForm thongTinNhanVienForm;
     // End of variables declaration//GEN-END:variables
 }
