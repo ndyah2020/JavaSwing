@@ -26,9 +26,6 @@ public class KhachHangControlForm extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        myCombobox3 = new GUI.panel.swing.MyCombobox();
-        myCombobox2 = new GUI.panel.swing.MyCombobox();
-        myCombobox1 = new GUI.panel.swing.MyCombobox();
         comboSearch = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -41,18 +38,6 @@ public class KhachHangControlForm extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Danh Sách Khách Hàng");
         jLabel1.setPreferredSize(new java.awt.Dimension(153, 30));
-
-        myCombobox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Giới Tính" }));
-        myCombobox3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        myCombobox3.setPreferredSize(new java.awt.Dimension(100, 31));
-
-        myCombobox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Xắp Xếp Theo: Mã KH" }));
-        myCombobox2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        myCombobox2.setPreferredSize(new java.awt.Dimension(100, 31));
-
-        myCombobox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tăng Dần" }));
-        myCombobox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        myCombobox1.setPreferredSize(new java.awt.Dimension(100, 31));
 
         comboSearch.setLayout(new javax.swing.BoxLayout(comboSearch, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -99,17 +84,9 @@ public class KhachHangControlForm extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(comboSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(btnSua1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(myCombobox3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addComponent(myCombobox2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(myCombobox1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(comboSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(btnSua1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnXoaForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -127,11 +104,7 @@ public class KhachHangControlForm extends javax.swing.JPanel {
                         .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnSua1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(myCombobox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(myCombobox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXoaForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(myCombobox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnXoaForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 6, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -162,9 +135,6 @@ public JTextField getTxtTimKiem() {
     private javax.swing.JPanel comboSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private GUI.panel.swing.MyCombobox myCombobox1;
-    private GUI.panel.swing.MyCombobox myCombobox2;
-    private GUI.panel.swing.MyCombobox myCombobox3;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

@@ -133,6 +133,7 @@ public class HienThiTable {
     }
 
     public static void taiDuLieuTableKhachHang(DefaultTableModel model, ArrayList<KhachHangDTO> danhSach){
+        model.setRowCount(0);
         for(KhachHangDTO kh : danhSach) {
             Vector row = new Vector();
             row.add(kh.getMaKhachHang());
@@ -142,6 +143,8 @@ public class HienThiTable {
             row.add(kh.getNgaySinh());
             row.add(kh.getSdt());
             row.add(kh.getEmail());
+            row.add(kh.getCccd());
+            model.addRow(row);
         }
     }
 

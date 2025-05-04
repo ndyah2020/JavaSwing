@@ -27,7 +27,7 @@ public class KhachHangDAO {
             khachHang.setGioiTinh(rs.getString("GioiTinh"));
             khachHang.setNgaySinh(rs.getDate("NgaySinh"));
             khachHang.setSdt(rs.getString("SDT"));
-            khachHang.setEmail(rs.getString("Email"));
+            khachHang.setEmail(rs.getString("email"));
             khachHang.setCccd(rs.getString("cccd"));
             dsKhachHang.add(khachHang);
         }
@@ -41,7 +41,7 @@ public class KhachHangDAO {
 
     public boolean themKhachHang(KhachHangDTO khachHang) {
         try {
-            String query = "Insert into KhachHang (MaKhachHang, Ho, Ten, GioiTinh, NgaySinh, SDT, Email, cccd) values (?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "Insert into KhachHang (MaKhachHang, Ho, Ten, GioiTinh, NgaySinh, SDT, email, cccd) values (?, ?, ?, ?, ?, ?, ?, ?)";
             conn = ConnectToSQLServer.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setString(1, khachHang.getMaKhachHang());
@@ -64,7 +64,7 @@ public class KhachHangDAO {
 
     public Boolean suaKhachHang(KhachHangDTO khachHang) {
         try {
-            String query = "UPDATE KhachHang SET Ho = ?, Ten = ?, GioiTinh = ?, NgaySinh = ?, SDT = ?, Email = ? Where MaKhachHang = ?";
+            String query = "UPDATE KhachHang SET Ho = ?, Ten = ?, GioiTinh = ?, NgaySinh = ?, SDT = ?, email = ?, cccd = ? Where MaKhachHang = ?";
             conn = ConnectToSQLServer.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setString(1, khachHang.getMaKhachHang());
@@ -74,6 +74,7 @@ public class KhachHangDAO {
             pstmt.setDate(5, khachHang.getNgaySinh());
             pstmt.setString(6, khachHang.getSdt());
             pstmt.setString(7, khachHang.getEmail());
+            pstmt.setString(8, khachHang.getCccd());
             pstmt.executeUpdate();
             pstmt.close();
             ConnectToSQLServer.closeConnection(conn);

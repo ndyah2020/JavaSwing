@@ -18,7 +18,7 @@ public class KhachHangTableForm extends javax.swing.JPanel {
     
     public KhachHangTableForm() {
         initComponents();
-    String[] columnNames = {
+        String[] columnNames = {
             "Mã Khách Hàng",
             "Họ",
             "Tên",
@@ -26,6 +26,7 @@ public class KhachHangTableForm extends javax.swing.JPanel {
             "Ngày Sinh",
             "Số Điện Thoại",
             "Email",
+            "Cccd"
         };
         model = new DefaultTableModel(columnNames, 0);
         myTable1.setModel(model);
@@ -50,19 +51,18 @@ public class KhachHangTableForm extends javax.swing.JPanel {
 
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
 
-        jScrollPane1.setBorder(null);
-
         myTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
 
             }
         ));
-        myTable1.setPreferredSize(new java.awt.Dimension(759, 152));
         jScrollPane1.setViewportView(myTable1);
-
         add(jScrollPane1);
     }// </editor-fold>//GEN-END:initComponents
 

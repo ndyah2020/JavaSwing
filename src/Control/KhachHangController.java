@@ -8,13 +8,14 @@ import GUI.forms.KhachHangControlForm;
 import GUI.forms.KhachHangForm;
 import GUI.forms.KhachHangPanelForm;
 import GUI.forms.KhachHangTableForm;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.Date;
 
 
@@ -58,6 +59,7 @@ public class KhachHangController {
         panelForm.getNgaySinh().setText(kh.getNgaySinh().toString());
         panelForm.getSdt().setText(kh.getSdt());
         panelForm.getEmail().setText(kh.getEmail());
+        panelForm.getEmail().setText(kh.getCccd());
     }
 
     public void conTrol() {
@@ -105,29 +107,30 @@ public class KhachHangController {
                     String ho = panelForm.getHo().getText().trim();
                     String ten = panelForm.getTen().getText().trim();
                     String sdt = panelForm.getSdt().getText().trim();
-                    if(sdt.matches("\\d{10}")) {
-                        JOptionPane.showMessageDialog(null, "Số điện thoại bạn nhập không đúng vui lòng nhập lại!");
-                        return;
-                    }
+                     if(!sdt.matches("\\d{10}")) {
+                         JOptionPane.showMessageDialog(null, "Số điện thoại bạn nhập không đúng vui lòng nhập lại!");
+                         return;
+                     }
                     String email = panelForm.getEmail().getText().trim();
-                    if(email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
-                        JOptionPane.showMessageDialog(null, "Email bạn nhập không đúng vui lòng nhập lại!");
-                        return;
-                    }
+                     if(!email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+                         JOptionPane.showMessageDialog(null, "Email bạn nhập không đúng vui lòng nhập lại!");
+                         return;
+                     }
                     String cccd = panelForm.getCccd().getText().trim();
-                    if(cccd.matches("^0\\d{11}$" + //
-                                                "")) {
-                        JOptionPane.showMessageDialog(null, "Cccd bạn nhập không đúng vui lòng nhập lại!");
-                        return;
-                    }
+                     if(!cccd.matches("^0\\d{11}$" + //
+                                                 "")) {
+                         JOptionPane.showMessageDialog(null, "Cccd bạn nhập không đúng vui lòng nhập lại!");
+                         return;
+                     }
                     KhachHangDTO kh = new KhachHangDTO();
                     kh.setMaKhachHang(maKh);
                     kh.setHo(ho);
-                    kh.setTen(ten);;
+                    kh.setTen(ten);
                     kh.setGioiTinh(gioiTinh);
                     kh.setNgaySinh(ngaySinh);
                     kh.setSdt(sdt);
                     kh.setEmail(email);
+                    kh.setCccd(cccd);
 
                     khachHangBUS.themKhachHang(kh);
                     panelForm.clearForm();
@@ -160,17 +163,17 @@ public class KhachHangController {
                             String ho = panelForm.getHo().getText().trim();
                             String ten = panelForm.getTen().getText().trim();
                             String sdt = panelForm.getSdt().getText().trim();
-                            if(sdt.matches("\\d{10}")) {
+                            if(!sdt.matches("\\d{10}")) {
                                 JOptionPane.showMessageDialog(null, "Số điện thoại bạn nhập không đúng vui lòng nhập lại!");
                                 return;
                             }
                             String email = panelForm.getEmail().getText().trim();
-                            if(email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+                            if(!email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
                                 JOptionPane.showMessageDialog(null, "Email bạn nhập không đúng vui lòng nhập lại!");
                                 return;
                             }
                             String cccd = panelForm.getCccd().getText().trim();
-                            if(cccd.matches("^0\\d{11}$")) {
+                            if(!cccd.matches("^0\\d{11}$")) {
                                 JOptionPane.showMessageDialog(null, "Cccd bạn nhập không đúng vui lòng nhập lại!");
                                 return;
                             }
@@ -182,6 +185,7 @@ public class KhachHangController {
                             kh.setNgaySinh(ngaySinh);
                             kh.setSdt(sdt);
                             kh.setEmail(email);
+                            kh.setCccd(cccd);
 
                             khachHangBUS.themKhachHang(kh);
                             panelForm.clearForm();
@@ -193,6 +197,49 @@ public class KhachHangController {
                     
                 }else {
                     JOptionPane.showMessageDialog(null, "Vui lòng chọn chuyến bay cần sửa!");
+                }
+            }
+        });
+
+        panelControl.addTxtTimKiemListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent evt) {
+                String tuKhoa = panelControl.getTxtTimKiem().getText().trim().toLowerCase();
+
+                DefaultTableModel modelGoc = (DefaultTableModel) panelTable.getModel();
+                int columnCount = panelTable.getMyTable().getColumnCount();
+
+                String[] columnNames = new String[columnCount];
+                for (int i = 0; i < columnCount; i++) {
+                    columnNames[i] = panelTable.getMyTable().getColumnName(i);
+                }
+
+                if (!tuKhoa.isEmpty()) {
+                    DefaultTableModel modelLoc = new DefaultTableModel(columnNames, 0);
+
+                    for (int i = 0; i < modelGoc.getRowCount(); i++) {
+                        boolean match = false;
+
+                        for (int j = 0; j < columnCount; j++) {
+                            Object cell = modelGoc.getValueAt(i, j);
+                            if (cell != null && cell.toString().toLowerCase().contains(tuKhoa)) {
+                                match = true;
+                            break;
+                            }
+                        }
+
+                    if (match) {
+                        Object[] rowData = new Object[columnCount];
+                        for (int j = 0; j < columnCount; j++) {
+                            rowData[j] = modelGoc.getValueAt(i, j);
+                        }
+                        modelLoc.addRow(rowData);
+                    }
+                }
+
+                panelTable.getMyTable().setModel(modelLoc);
+                } else {
+                    layDanhSachKhachHang();
                 }
             }
         });
