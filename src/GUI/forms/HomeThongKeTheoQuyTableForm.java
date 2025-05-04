@@ -42,13 +42,10 @@ public class HomeThongKeTheoQuyTableForm extends javax.swing.JPanel {
         return myTable;
     }
     
-    private DefaultTableModel getModel() {
+    public DefaultTableModel getModel() {
         return model;
     }
     
-    private void addRowClicke(MouseAdapter ma) {
-        myTable.addMouseListener(ma);
-    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

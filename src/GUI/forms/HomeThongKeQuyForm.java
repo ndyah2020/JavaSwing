@@ -81,8 +81,12 @@ public class HomeThongKeQuyForm extends javax.swing.JPanel {
         return cmbNam;
     }
     
-    public void addCmbNamListener(ActionListener al) {
-        cmbNam.addActionListener(al);
+    public void addCmbNamListener(ActionListener listener) {
+        cmbNam.addActionListener(listener);
+    }
+    
+    public HomeThongKeTheoQuyTableForm getHomeThongKeTheoQuyTableForm() {
+        return homeThongKeTheoQuyTableForm2;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.MyCombobox cmbNam;
