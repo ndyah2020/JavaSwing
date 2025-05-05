@@ -136,7 +136,7 @@ public class HomeThongKeKhoangNgayForm extends javax.swing.JPanel {
                 .addGap(12, 12, 12)
                 .addComponent(btnThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(homeThongKeKhoangNgayTableForm1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, Short.MAX_VALUE))
+                .addComponent(homeThongKeKhoangNgayTableForm1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

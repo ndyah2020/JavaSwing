@@ -22,6 +22,7 @@ public class HomeThongKeQuyForm extends javax.swing.JPanel {
         homeThongKeTheoQuyTableForm2 = new GUI.forms.HomeThongKeTheoQuyTableForm();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(505, 634));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -61,10 +62,8 @@ public class HomeThongKeQuyForm extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(159, 159, 159)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(homeThongKeTheoQuyTableForm2, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(166, Short.MAX_VALUE))
+            .addComponent(homeThongKeTheoQuyTableForm2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,8 +71,8 @@ public class HomeThongKeQuyForm extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(homeThongKeTheoQuyTableForm2, javax.swing.GroupLayout.PREFERRED_SIZE, 633, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(homeThongKeTheoQuyTableForm2, javax.swing.GroupLayout.PREFERRED_SIZE, 563, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

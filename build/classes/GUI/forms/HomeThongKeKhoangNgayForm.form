@@ -56,7 +56,7 @@
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Component id="btnThongKe" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="homeThongKeKhoangNgayTableForm1" pref="507" max="32767" attributes="0"/>
+              <Component id="homeThongKeKhoangNgayTableForm1" pref="555" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
