@@ -26,7 +26,9 @@ public class ThongKeDAO {
                 thongKe.setTenKhachHang(res.getString("Ten"));
                 thongKe.setNgayMua(res.getDate("NgayLap"));
                 thongKe.setTongSoTien(res.getInt("TongTien"));
+                danhSach.add(thongKe);
             }
+            ConnectToSQLServer.closeConnection(conn);
         }catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, "Không thể lấy danh  sách");
         }

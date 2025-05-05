@@ -2,6 +2,8 @@ package GUI.forms;
 
 import GUI.panel.swing.MyButton;
 import GUI.panel.swing.dateChooser.DateChooser;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,6 +35,7 @@ public class HomeThongKeKhoangNgayForm extends javax.swing.JPanel {
         txtNgayKetThuc = new javax.swing.JTextField();
         btnNgayKetThuc = new GUI.panel.swing.MyButton();
         homeThongKeKhoangNgayTableForm1 = new GUI.forms.HomeThongKeKhoangNgayTableForm();
+        btnThongKe = new GUI.panel.swing.MyButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -92,22 +95,35 @@ public class HomeThongKeKhoangNgayForm extends javax.swing.JPanel {
         btnNgayKetThuc.setPreferredSize(new java.awt.Dimension(30, 30));
         jPanel3.add(btnNgayKetThuc);
 
+        btnThongKe.setText("Thống Kê");
+        btnThongKe.setBorderColor(new java.awt.Color(204, 204, 204));
+        btnThongKe.setColorClick(new java.awt.Color(0, 153, 255));
+        btnThongKe.setColorOver(new java.awt.Color(0, 204, 255));
+        btnThongKe.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnThongKe.setMaximumSize(new java.awt.Dimension(30, 30));
+        btnThongKe.setMinimumSize(new java.awt.Dimension(30, 30));
+        btnThongKe.setPreferredSize(new java.awt.Dimension(30, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(homeThongKeKhoangNgayTableForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(178, 178, 178))
+            .addComponent(homeThongKeKhoangNgayTableForm1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,11 +133,16 @@ public class HomeThongKeKhoangNgayForm extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(homeThongKeKhoangNgayTableForm1, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addComponent(btnThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(homeThongKeKhoangNgayTableForm1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    public HomeThongKeKhoangNgayTableForm getHomeThongKeKhoangNgayTableForm1() {
+        return homeThongKeKhoangNgayTableForm1;
+    }
 
     private void initDateChoosers() {
         dateChooserStart = new DateChooser();
@@ -195,9 +216,15 @@ public class HomeThongKeKhoangNgayForm extends javax.swing.JPanel {
     public JTextField getTxtNgayKetThuc() {
         return txtNgayKetThuc;
     }
+    
+    public void addBtnThongKeListener(ActionListener listener) {
+        btnThongKe.addActionListener(listener);
+    } 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.MyButton btnNgayBatDau;
     private GUI.panel.swing.MyButton btnNgayKetThuc;
+    private GUI.panel.swing.MyButton btnThongKe;
     private GUI.forms.HomeThongKeKhoangNgayTableForm homeThongKeKhoangNgayTableForm1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

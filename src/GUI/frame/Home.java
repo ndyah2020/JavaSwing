@@ -11,6 +11,7 @@ import Control.MayBayController;
 import Control.NhanVienController;
 import Control.SanBayController;
 import Control.TaiKhoanController;
+import Control.ThongKeController;
 import Control.VeController;
 import GUI.forms.ChuyenBayPanelForm;
 import GUI.forms.DatVePanelForm;
@@ -50,8 +51,9 @@ public final class Home extends javax.swing.JFrame {
     private KhachHangController  khachHangController;
     private HoaDonVaCTController hoaDonVaCTController;
     private DatVeController datVeController;
+    private ThongKeController thongKeController;
     //Khoi tao cac panel
-    private HomePanelForm formGroup;
+    private HomePanelForm homeForm;
     private DatVePanelForm datVeForm;
     private KhachHangPanelForm khachHangForm;
     private NhanVienPanelForm nhanVienForm;
@@ -74,7 +76,7 @@ public final class Home extends javax.swing.JFrame {
         //Hiển thị home đầu tiên 
         headerPanel.initMoving(Home.this);
         desktopPanel.removeAll();
-        desktopPanel.add(formGroup);
+        desktopPanel.add(homeForm);
         desktopPanel.revalidate();
         desktopPanel.repaint();
         selectedLabel = trangChuMenu;
@@ -85,7 +87,7 @@ public final class Home extends javax.swing.JFrame {
     }
 
     private void initForms() {
-        formGroup = new HomePanelForm();
+        homeForm = new HomePanelForm();
         datVeForm = new DatVePanelForm();
         khachHangForm = new KhachHangPanelForm();
         nhanVienForm = new NhanVienPanelForm();
@@ -359,7 +361,8 @@ public final class Home extends javax.swing.JFrame {
             sanBayController.hienThiDanhSachSanBay();
             sanBayController.xuLySuKien();
         } else if (selectedLabel == trangChuMenu) {
-            System.out.println("Trang chủ");
+            thongKeController = new ThongKeController(homeForm);
+            thongKeController.controll();
             // có thể xử lý hiển thị form trang chủ nếu có
         } else if (selectedLabel == datVeMenu) {
             datVeController = new DatVeController(datVeForm);
@@ -448,7 +451,7 @@ public final class Home extends javax.swing.JFrame {
     }
 
     private void handleEventHoverChuot() {
-        addHoverEffect(trangChuMenu, formGroup, desktopPanel, defaultColor, hoverColor);
+        addHoverEffect(trangChuMenu, homeForm, desktopPanel, defaultColor, hoverColor);
         addHoverEffect(datVeMenu, datVeForm, desktopPanel, defaultColor, hoverColor);
         addHoverEffect(khachHangMenu, khachHangForm, desktopPanel, defaultColor, hoverColor);
         addHoverEffect(nhanVienMenu, nhanVienForm, desktopPanel, defaultColor, hoverColor);
