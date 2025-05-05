@@ -95,7 +95,7 @@ public class ThongKeController {
                 model.setRowCount(0);
                 for (Object[] obj : ketQuaThongKe) {
                     model.addRow(obj);
-                }      
+                }
             }
         });
     }

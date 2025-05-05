@@ -51,7 +51,7 @@ public class ThongKeKhachHangBUS {
         for (Object[] obj : danhSachthongKe) {
             if (obj[0].equals(maKhachHang)) {
                 obj[3] = (int)obj[3] + 1;
-                obj[4] = (double)obj[4] + tongSoTien;
+                obj[4] = (int)obj[4] + tongSoTien;
                 return true;
             }
         }
