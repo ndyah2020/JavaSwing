@@ -59,7 +59,7 @@ public class KhachHangController {
         panelForm.getNgaySinh().setText(kh.getNgaySinh().toString());
         panelForm.getSdt().setText(kh.getSdt());
         panelForm.getEmail().setText(kh.getEmail());
-        panelForm.getEmail().setText(kh.getCccd());
+        panelForm.getCccd().setText(kh.getCccd());
     }
 
     public void conTrol() {
@@ -122,6 +122,11 @@ public class KhachHangController {
                          JOptionPane.showMessageDialog(null, "Cccd bạn nhập không đúng vui lòng nhập lại!");
                          return;
                      }
+                    if(khachHangBUS.layMotKhachHangTheoCccd(cccd) != null) {
+                        JOptionPane.showMessageDialog(null, "Cccd bị trùng vui lòng nhập lại!");
+                        return;
+                    }
+                    
                     KhachHangDTO kh = new KhachHangDTO();
                     kh.setMaKhachHang(maKh);
                     kh.setHo(ho);
@@ -175,6 +180,10 @@ public class KhachHangController {
                             String cccd = panelForm.getCccd().getText().trim();
                             if(!cccd.matches("^0\\d{11}$")) {
                                 JOptionPane.showMessageDialog(null, "Cccd bạn nhập không đúng vui lòng nhập lại!");
+                                return;
+                            }
+                            if(khachHangBUS.layMotKhachHangTheoCccd(cccd) != null) {
+                                JOptionPane.showMessageDialog(null, "Cccd bị trùng vui lòng nhập lại!");
                                 return;
                             }
                             KhachHangDTO kh = new KhachHangDTO();
