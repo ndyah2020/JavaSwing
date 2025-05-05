@@ -67,6 +67,7 @@ public class ThongKeController {
                 hienThiThongKeQuy(yearChooser);
             }
         });
+        
         panelKhoanNgay.addBtnThongKeListener(e -> {
             java.util.Date ngayBatDauUtil = panelKhoanNgay.getNgayBatDau();
             java.util.Date ngayKetThucUtil = panelKhoanNgay.getNgayKetThuc();
