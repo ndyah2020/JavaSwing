@@ -40,7 +40,7 @@ public class KhuyenMaiChiTIetDAO {
             p.setString(1, maKM);
             try (ResultSet rs = p.executeQuery()) {
                 while (rs.next()) {
-                    var ct = new CTKhuyenMaiDTO();
+                    CTKhuyenMaiDTO ct = new CTKhuyenMaiDTO();
                     ct.setMaCTKhuyenMai(rs.getString("MaCTKhuyenMai"));
                     ct.setMaHanhTrinh  (rs.getString("MaHanhTrinh"));
                     ct.setMaKhuyenMai  (rs.getString("MaKhuyenMai"));
