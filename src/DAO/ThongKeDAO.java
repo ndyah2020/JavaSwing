@@ -40,13 +40,13 @@ public class ThongKeDAO {
 
     public List<Object[]> thongKeTheoNam(int nam) {
         List<Object[]> list = new ArrayList<>();
-        String sql = "SELECT cb.MaChuyenBay, QUARTER(hd.NgayLap) AS Quy, SUM(cthd.SoLuong * cthd.DonGia) AS TongTien "
+        String sql = "SELECT cb.MaChuyenBay, DATEPART(QUARTER, hd.NgayLap) AS Quy, SUM(cthd.SoLuong * cthd.DonGia) AS TongTien "
                     + "FROM HoaDon hd "
                     + "JOIN ChiTietHoaDon cthd ON hd.MaHoaDon = cthd.MaHoaDon "
                     + "JOIN Ve v ON v.MaVe = cthd.MaVe "
                     + "JOIN ChuyenBay cb ON cb.MaChuyenBay = v.MaChuyenBay "
                     + "WHERE YEAR(hd.NgayLap) = ? "
-                    + "GROUP BY cb.MaChuyenBay, QUARTER(hd.NgayLap) "
+                    + "GROUP BY cb.MaChuyenBay, DATEPART(QUARTER, hd.NgayLap) "
                     + "ORDER BY cb.MaChuyenBay, Quy";
     
         try (Connection con = ConnectToSQLServer.getConnection();
@@ -54,7 +54,7 @@ public class ThongKeDAO {
     
             ps.setInt(1, nam);
             ResultSet rs = ps.executeQuery();
-            
+    
             while (rs.next()) {
                 String maCB = rs.getString("MaChuyenBay");
                 int quy = rs.getInt("Quy");
