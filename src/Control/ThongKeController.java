@@ -63,8 +63,18 @@ public class ThongKeController {
         panelQuyForm.addCmbNamListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int yearChooser = (int) panelQuyForm.getCmbNam().getSelectedItem();
-                hienThiThongKeQuy(yearChooser);
+                Object selected = panelQuyForm.getCmbNam().getSelectedItem();
+                int year;
+                if (selected instanceof Integer) {
+                    year = (Integer) selected;
+                } else {
+                    try {
+                        year = Integer.parseInt(selected.toString());
+                    } catch (NumberFormatException ex) {
+                        return;
+                    }
+                }
+                hienThiThongKeQuy(year);
             }
         });
         panelKhoanNgay.addBtnThongKeListener(e -> {
