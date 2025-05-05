@@ -413,6 +413,17 @@ public class ThongTinDatVeForm extends javax.swing.JPanel {
     public void addBtnXoaVe(ActionListener listener) {
        btnXoaVe.addActionListener(listener);
     }
+
+    public void clearForm() {
+        txtCccd.setText("");
+        txtGiaVe.setText("");
+        txtKhuyenMai.setText("");
+        txtMaChuyenBay.setText("");
+        txtMaNhanVien.setText("");
+        txtMaVe.setText("");
+        cmbLoaiVe.setSelectedIndex(0);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.panel.swing.MyButton btnDatVe;
     private GUI.panel.swing.MyButton btnKiemTraKM;

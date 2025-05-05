@@ -49,6 +49,32 @@ public class VeBUS {
         return null;
     }
     
+    public int timKiemSLVeTheoMaChuyenBayDaDat(String maChuyenBay){
+        if(danhSachVe.isEmpty()) {
+            layDanhSachVe();
+        }
+        int tongSoVe = 0;
+        for(VeDTO ve : danhSachVe) {
+            if(ve.getChuyenBay().equals(maChuyenBay) && ve.getTrangThaiVe().equals("Đã Đặt")){
+                tongSoVe ++;
+            }
+        }
+        return tongSoVe;
+    }
+    
+     public int timKiemTongSLVeTheoMaChuyenBayDaDat(String maChuyenBay){
+        if(danhSachVe.isEmpty()) {
+            layDanhSachVe();
+        }
+        int tongSoVe = 0;
+        for(VeDTO ve : danhSachVe) {
+            if(ve.getChuyenBay().equals(maChuyenBay)){
+                tongSoVe ++;
+            }
+        }
+        return tongSoVe;
+    }
+    
     public VeDTO layMotVe(String maVe) {
         for(VeDTO ve : danhSachVe) {
             if(ve.getMaVe().equals(maVe)) {
@@ -101,6 +127,8 @@ public class VeBUS {
         }
         return count;
     }
+    
+    
     
     public ArrayList<VeDTO> timKiemVeTheoMaChuyenBay(String maChuyenBay){
         if(danhSachVe.isEmpty()) {

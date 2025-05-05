@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class ChuyenBayBUS {
     private ArrayList<ChuyenBayDTO> danhSachChuyenBay;
     private final ChuyenBayDAO dao;
-    
+    private final VeBUS veBUS = new VeBUS();
     public ChuyenBayBUS() {
         danhSachChuyenBay = new ArrayList<>();
         dao = new ChuyenBayDAO();

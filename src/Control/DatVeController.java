@@ -66,6 +66,7 @@ public class DatVeController {
     }
     
     private void HienThiCacThongTin(ArrayList<ChuyenBayDTO> dsChuyenBay, DefaultTableModel model) {
+        veBUS.capNhatDanhSach();
         model.setRowCount(0);
         for(ChuyenBayDTO cb : dsChuyenBay) {
             HanhTrinhDTO hanhTrinh = hanhTrinhBUS.layMotHanhTrinh(cb.getMaHanhTrinh());
@@ -324,31 +325,41 @@ public class DatVeController {
                     JOptionPane.showMessageDialog(null, "Khuyến mãi không tồn tại hoặc không áp dụng cho hành trình này");
                 }
             }
-        });    
-        
-        panelDatVe.addBtnThemveListener(e -> {
-            String maChuyenBay = panelDatVe.getTxtMaChuyenBay().getText();
-            String maVe = panelDatVe.getTxtMaVe().getText();
-            String donGia = panelDatVe.getTxtGiaVe().getText();
-            boolean veDaThem = kiemTraMaVeDaThem(maVe);
-            if (!veDaThem) {
-                if (!maChuyenBay.isEmpty() && !maVe.isEmpty() && !donGia.isEmpty()) {
-                    Vector row = new Vector();
-                    row.add(maChuyenBay);
-                    row.add(1);
-                    row.add(maVe);
-                    row.add(donGia);
-                    maVeDaThem.add(maVe);
-                    panelTableThem.getModel().addRow(row);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Vui lòng điền đủ thông tin");
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Vé đã được thêm vào vui lòng chọn vé khác");
-            }
-
         });
-        
+
+        panelDatVe.addBtnThemveListener(e -> {
+            panelDatVe.getBtnThemVe().setEnabled(false); 
+            boolean flag = false;
+            try {
+                String maChuyenBay = panelDatVe.getTxtMaChuyenBay().getText().trim();
+                String maVe = panelDatVe.getTxtMaVe().getText().trim();
+                String donGia = panelDatVe.getTxtGiaVe().getText().trim();
+
+                if (maChuyenBay.isEmpty() || maVe.isEmpty() || donGia.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Vui lòng điền đủ thông tin");
+                    return;
+                }
+
+                if (kiemTraMaVeDaThem(maVe)) {
+                    JOptionPane.showMessageDialog(null, "Vé đã được thêm vào, vui lòng chọn vé khác");
+                    return;
+                }
+                
+                Vector<Object> row = new Vector<>();
+                row.add(maChuyenBay);
+                row.add(1); // số lượng mặc định là 1
+                row.add(maVe);
+                row.add(donGia);
+                
+                maVeDaThem.add(maVe);
+                if(!flag) {
+                    panelTableThem.getModel().addRow(row);
+                }    
+            } finally {
+                panelDatVe.getBtnThemVe().setEnabled(true); 
+            }
+        });
+
         panelDatVe.addBtnXoaVe(e -> {
             int row = panelTableThem.getMyTable().getSelectedRow();
             DefaultTableModel model = panelTableThem.getModel();
@@ -461,6 +472,7 @@ public class DatVeController {
                     return;
                 }
                 KhachHangDTO khachHang = new KhachHangDTO(maKhachHang,ho, ten, gioiTinh, ngaySinh, sdt, email, cccd);
+                khachHangBUS.themKhachHang(khachHang);
                 khachHangTimThay = khachHang;
             }
             
@@ -478,19 +490,30 @@ public class DatVeController {
             ArrayList<String> danhSachMaVe = layMaVe(panelTableThem.getModel());
             
             if(hoaDonBUS.themHoaDonBUS(hoaDon, dsCtHoaDon, danhSachMaVe)) {
-                veBUS.capNhatDanhSach();
-                String maChuyenBay = panelDatVe.getTxtMaChuyenBay().getText();
-                int soVeDaBan = panelTableThem.getModel().getRowCount();
-                
-                int row = panelTable.getMyTable().getSelectedRow();
-                int tongSoLuongVe = 0;
-                if(row != -1) {
-                    tongSoLuongVe = Integer.parseInt(panelTable.getMyTable().getValueAt(row, 4).toString()) 
-                            + Integer.parseInt(panelTable.getMyTable().getValueAt(row, 5).toString());
-                 }
-                chuyenBayBUS.capNhatSoLuongChuyenBay(maChuyenBay, soVeDaBan, tongSoLuongVe);
-                JOptionPane.showConfirmDialog(null, "Đặt vé thành công");
+                try {
+                    veBUS.capNhatDanhSach();
+                    String maChuyenBay = panelDatVe.getTxtMaChuyenBay().getText();
+                    int soVeDaBan = veBUS.timKiemSLVeTheoMaChuyenBayDaDat(maChuyenBay);
+                    int tongSoLuongVe = veBUS.timKiemTongSLVeTheoMaChuyenBayDaDat(maChuyenBay);
+                    
+                    chuyenBayBUS.capNhatSoLuongChuyenBay(maChuyenBay, soVeDaBan, tongSoLuongVe);
+                } finally {
+                    maVeDaThem.clear();
+                    panelFormKH.clearForm();
+                    panelDatVe.clearForm();
+                    panelTableThem.getModel().setRowCount(0);
+                    panelDatVe.getThongTinHoaDon().getModel().setRowCount(0);
+                    JOptionPane.showMessageDialog(null, "Đặt vé thành công");
+                }
             }
+        });
+        
+        panelControl.addBtnTaiLaiListener(e -> {
+            panelFormKH.clearForm();
+            panelTableThem.getModel().setRowCount(0);
+            panelDatVe.getThongTinHoaDon().getModel().setRowCount(0);
+            maVeDaThem.clear();
+            panelDatVe.clearForm();
         });
     }
 }
