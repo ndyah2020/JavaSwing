@@ -42,7 +42,7 @@ public class ThongKeDAO {
         List<Object[]> list = new ArrayList<>();
         String sql = "SELECT cb.MaChuyenBay, DATEPART(QUARTER, hd.NgayLap) AS Quy, SUM(cthd.SoLuong * cthd.DonGia) AS TongTien "
                     + "FROM HoaDon hd "
-                    + "JOIN ChiTietHoaDon cthd ON hd.MaHoaDon = cthd.MaHoaDon "
+                    + "JOIN CTHoaDon cthd ON hd.MaHoaDon = cthd.MaHoaDon "
                     + "JOIN Ve v ON v.MaVe = cthd.MaVe "
                     + "JOIN ChuyenBay cb ON cb.MaChuyenBay = v.MaChuyenBay "
                     + "WHERE YEAR(hd.NgayLap) = ? "
