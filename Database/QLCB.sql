@@ -385,3 +385,15 @@ Where km.MaKhuyenMai = 'KM0001'
 SELECT kh.MaKhachHang, kh.Ho, kh.Ten, hd.NgayLap, hd.TongTien
 FROM HoaDon hd 
 join KhachHang kh on kh.MaKhachHang = hd.MaKhachHang
+
+SELECT 
+    cb.MaChuyenBay,
+    QUARTER(hd.NgayLap) AS Quy,
+    SUM(cthd.SoLuong * cthd.DonGia) AS TongTien
+FROM HoaDon hd
+JOIN CTHoaDon cthd ON hd.MaHoaDon = cthd.MaHoaDon
+JOIN Ve v ON v.MaVe = cthd.MaVe
+JOIN ChuyenBay cb ON cb.MaChuyenBay = v.MaChuyenBay
+WHERE YEAR(hd.NgayLap) = ?
+GROUP BY cb.MaChuyenBay, QUARTER(hd.NgayLap)
+ORDER BY cb.MaChuyenBay, Quy;

@@ -18,6 +18,7 @@ import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ThongKeController {
 
@@ -35,43 +36,26 @@ public class ThongKeController {
         this.panelTableKhoanNgay = panelKhoanNgay.getHomeThongKeKhoangNgayTableForm1();
     }
 
-    public void hienThiThongKeQuy(int nam) {
-        DefaultTableModel model = panelQuyTableForm.getModel();
-        model.setRowCount(0); 
+    private void hienThiThongKeQuy(int nam) {
+        DefaultTableModel model = panelQuyTableForm.getModel();       
+        model.setRowCount(0);
 
-        Map<String, Map<Integer, Integer>> duLieu = bus.thongKeHoaDonTheoQuy(nam);
+        List<Object[]> data = bus.thongKeChuyenBayTheoNam(nam);
+        int[] tongQuy = new int[5];
 
-        int tongQ1 = 0;
-        int tongQ2 = 0;
-        int tongQ3 = 0;
-        int tongQ4 = 0;
-        int tongAll = 0;
-
-        for (Map.Entry<String, Map<Integer, Integer>> entry : duLieu.entrySet()) {
-            String maChuyenBay = entry.getKey();
-            Map<Integer, Integer> thongKeQuy = entry.getValue();
-
-            int q1 = thongKeQuy.getOrDefault(1, 0);
-            int q2 = thongKeQuy.getOrDefault(2, 0);
-            int q3 = thongKeQuy.getOrDefault(3, 0);
-            int q4 = thongKeQuy.getOrDefault(4, 0);
-            int tong = q1 + q2 + q3 + q4;
-
-            
-            tongQ1 += q1;
-            tongQ2 += q2;
-            tongQ3 += q3;
-            tongQ4 += q4;
-            tongAll += tong;
-
-            Object[] row = new Object[]{
-                maChuyenBay, q1, q2, q3, q4, tong
-            };
+        for (Object[] row : data) {
             model.addRow(row);
+
+            for (int i = 1; i <= 5; i++) {
+                tongQuy[i - 1] += (int) row[i];
+            }
         }
-        Object[] rowTong = new Object[]{
-            "Tổng", tongQ1, tongQ2, tongQ3, tongQ4, tongAll
-        };
+
+        Object[] rowTong = new Object[6];
+        rowTong[0] = "Tổng cộng";
+        for (int i = 1; i <= 5; i++) {
+            rowTong[i] = tongQuy[i - 1];
+        }
         model.addRow(rowTong);
     }
 

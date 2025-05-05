@@ -3,6 +3,9 @@ import Config.database_connection.ConnectToSQLServer;
 import DTO.ThongKeKhachHangDTO;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -33,5 +36,35 @@ public class ThongKeDAO {
             JOptionPane.showConfirmDialog(null, "Không thể lấy danh  sách");
         }
         return danhSach;
+    }
+
+    public List<Object[]> thongKeTheoNam(int nam) {
+        List<Object[]> list = new ArrayList<>();
+        String sql = "SELECT cb.MaChuyenBay, QUARTER(hd.NgayLap) AS Quy, SUM(cthd.SoLuong * cthd.DonGia) AS TongTien "
+                    + "FROM HoaDon hd "
+                    + "JOIN ChiTietHoaDon cthd ON hd.MaHoaDon = cthd.MaHoaDon "
+                    + "JOIN Ve v ON v.MaVe = cthd.MaVe "
+                    + "JOIN ChuyenBay cb ON cb.MaChuyenBay = v.MaChuyenBay "
+                    + "WHERE YEAR(hd.NgayLap) = ? "
+                    + "GROUP BY cb.MaChuyenBay, QUARTER(hd.NgayLap) "
+                    + "ORDER BY cb.MaChuyenBay, Quy";
+    
+        try (Connection con = ConnectToSQLServer.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql)) {
+    
+            ps.setInt(1, nam);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                String maCB = rs.getString("MaChuyenBay");
+                int quy = rs.getInt("Quy");
+                int tong = rs.getInt("TongTien");
+    
+                list.add(new Object[]{maCB, quy, tong});
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }
