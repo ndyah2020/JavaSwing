@@ -9,7 +9,7 @@ public class HomeThongKeKhoangNgayTableForm extends javax.swing.JPanel {
     
     public HomeThongKeKhoangNgayTableForm() {
         initComponents();
-        String []columnNames = {"Mã hóa đơn", "Ngày lập", "Khách hàng", "Tổng tiền"};
+        String []columnNames = {"Mã Khách hàng", "Họ Tên Khách Hàng", "Ngày Lặp", "Tổng tiền"};
         model = new DefaultTableModel(columnNames,0);
         myTable.setModel(model);
     }

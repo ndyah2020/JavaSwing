@@ -381,3 +381,7 @@ join ChuyenBay cb on ctkm.MaHanhTrinh = cb.MaHanhTrinh
 Where km.MaKhuyenMai = 'KM0001'
 	AND cb.MaHanhTrinh = 'HT-0002'
 	AND GETDATE() BETWEEN km.NgayBatDau AND km.NgayKetThuc
+
+SELECT kh.MaKhachHang, kh.Ho, kh.Ten, hd.NgayLap, hd.TongTien
+FROM HoaDon hd 
+join KhachHang kh on kh.MaKhachHang = hd.MaKhachHang
